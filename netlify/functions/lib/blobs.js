@@ -18,5 +18,6 @@ async function getBlobsStore(options){
   const {getStore}=await loadBlobs();
   return getStore(options);
 }
+// Local contract tests only: inject an in-memory Blobs implementation.
 function __setBlobsModuleForTests(mod){blobsModule=Promise.resolve(mod);}
 module.exports={getBlobsStore,__setBlobsModuleForTests};

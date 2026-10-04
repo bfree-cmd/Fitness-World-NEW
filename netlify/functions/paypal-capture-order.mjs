@@ -24,6 +24,7 @@ const handler=async(event)=>{
     const unit=result.purchase_units?.find(u=>u.reference_id==='fitness-world-encyclopedia');
     capture=result.id===orderID&&result.status==='COMPLETED' ? unit?.payments?.captures?.find(c=>c.id&&c.status==='COMPLETED'&&c.amount?.currency_code==='USD'&&c.amount?.value==='9.99') : null;
   }catch(error){console.error('[Fitness World] capture response inconclusive',{orderID,error:String(error.message||error)});}
+  // A timeout or ORDER_ALREADY_CAPTURED response is not proof that money did not move.
   try{capture=await confirmedOrder(orderID,capture?.id);}catch(error){console.error('[Fitness World] order lookup inconclusive',{orderID,error:String(error.message||error)});}
   if(!capture)return json(202,{status:'PENDING_CONFIRMATION',orderID,message:'We could not confirm your payment yet. Please do not pay again.'});
   let result;

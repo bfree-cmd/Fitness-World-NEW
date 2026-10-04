@@ -15,15 +15,31 @@ const reply = (status, data) =>
     }
   });
 
+const cleanScriptUrl = (value) => {
+  const raw = String(value || "").trim();
+  const match = raw.match(/https:\/\/script\.google\.com\/macros\/s\/[^\s\]\)]+\/exec/i);
+  return match ? match[0] : raw;
+};
+
 export default async (request, context) => {
+  const scriptUrl = cleanScriptUrl(process.env.FW_TRACKING_SCRIPT_URL);
+  const secret = process.env.FW_TRACKING_SECRET || "";
+
+  if (request.method === "GET") {
+    return reply(200, {
+      success: true,
+      service: "Fitness World Event Relay",
+      status: "online",
+      configured: Boolean(scriptUrl && secret)
+    });
+  }
+
   if (request.method !== "POST") {
     return reply(405, { success: false, error: "Method not allowed" });
   }
 
-  const scriptUrl = process.env.FW_TRACKING_SCRIPT_URL;
-  const secret = process.env.FW_TRACKING_SECRET;
-
   if (!scriptUrl || !secret) {
+    console.error("Fitness World tracking configuration missing");
     return reply(503, { success: false, error: "Tracking service not configured" });
   }
 
@@ -59,9 +75,14 @@ export default async (request, context) => {
 
     const text = await upstream.text();
     let result = {};
-    try { result = text ? JSON.parse(text) : {}; } catch {}
+    try {
+      result = text ? JSON.parse(text) : {};
+    } catch {
+      console.error("Fitness World Apps Script returned non-JSON", text.slice(0, 200));
+    }
 
     if (!upstream.ok || result.success === false) {
+      console.error("Fitness World tracking relay failed", upstream.status, result);
       return reply(502, { success: false, error: "Tracking relay failed" });
     }
 
@@ -72,7 +93,8 @@ export default async (request, context) => {
       country: payload.country,
       region: payload.region
     });
-  } catch {
+  } catch (error) {
+    console.error("Fitness World tracking request failed", error);
     return reply(502, { success: false, error: "Tracking request failed" });
   }
 };

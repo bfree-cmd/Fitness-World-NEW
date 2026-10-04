@@ -27,6 +27,7 @@ async function loadRecord(orderID){
 async function deliver(orderID,event){
   const s=await store(),key=orderKey(orderID);
   const intent=await getIntent(orderID);
+  // Never deliver to an address supplied by the webhook payload or a capture retry.
   if(!intent?.email) {console.error('[Fitness World] paid order has no saved checkout email',{orderID});return {status:'PENDING_CONFIRMATION',reason:'missing_intent'};}
   let {data:record,etag}=await loadRecord(orderID);
   const now=Date.now();

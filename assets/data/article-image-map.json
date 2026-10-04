@@ -1,0 +1,940 @@
+{
+  "version": "15.12.2",
+  "articles": {
+    "/": {
+      "src": "/assets/images/female-fitness-hero.webp",
+      "focal": "center",
+      "alt": "Athletic woman training in a gym"
+    },
+    "/about/": {
+      "src": "/assets/images/female-fitness-hero.webp",
+      "focal": "center",
+      "alt": "About Fitness World"
+    },
+    "/affiliate-disclosure/": {
+      "src": "/assets/images/female-fitness-hero.webp",
+      "focal": "center",
+      "alt": "Affiliate Disclosure"
+    },
+    "/affiliate-program/": {
+      "src": "/assets/images/female-fitness-hero.webp",
+      "focal": "center",
+      "alt": "Fitness World Affiliate Program"
+    },
+    "/articles/": {
+      "src": "/assets/images/shared-hero-articles-v1591.svg",
+      "focal": "center",
+      "alt": "Editorial article library workspace with health article cards, research notebook and pen."
+    },
+    "/articles/10000-steps-myth-check/": {
+      "src": "/assets/images/article-new-steps.webp",
+      "focal": "center",
+      "alt": "Do You Really Need 10,000 Steps a Day?"
+    },
+    "/articles/apple-cider-vinegar-before-meals/": {
+      "src": "/assets/images/article-apple-cider-vinegar-before-meals-unique.webp",
+      "focal": "center",
+      "alt": "Does Apple Cider Vinegar Before Meals Lower Blood Sugar?"
+    },
+    "/articles/are-creatine-gummies-worth-it/": {
+      "src": "/assets/images/article-are-creatine-gummies-worth-it-unique-library.webp",
+      "focal": "center",
+      "alt": "Are Creatine Gummies Worth It?"
+    },
+    "/articles/are-greens-powders-worth-it/": {
+      "src": "/assets/images/article-are-greens-powders-worth-it-unique-library.webp",
+      "focal": "center",
+      "alt": "Are Greens Powders Actually Worth It?"
+    },
+    "/articles/are-sleep-trackers-accurate/": {
+      "src": "/assets/images/article-are-sleep-trackers-accurate-unique.webp",
+      "focal": "center",
+      "alt": "Are Sleep Trackers Actually Accurate?"
+    },
+    "/articles/are-smart-scales-worth-it/": {
+      "src": "/assets/images/article-are-smart-scales-worth-it-unique.webp",
+      "focal": "center",
+      "alt": "Are Smart Scales Worth It?"
+    },
+    "/articles/ashwagandha-stress-evidence/": {
+      "src": "/assets/images/natural-wellness-botanicals.webp",
+      "focal": "center",
+      "alt": "Herbal supplement capsules beside green leaves in a natural wellness setting."
+    },
+    "/articles/benefits-of-walking-every-day/": {
+      "src": "/assets/images/article-walking.webp",
+      "focal": "upper",
+      "alt": "Woman walking outdoors in activewear with a water bottle"
+    },
+    "/articles/berberine-vs-ozempic-evidence/": {
+      "src": "/assets/images/article-new-blood-sugar.webp",
+      "focal": "center",
+      "alt": "Can You Regain Muscle You've Lost After 50?"
+    },
+    "/articles/blood-sugar-spikes-digest/": {
+      "src": "/assets/images/article-new-blood-sugar.webp",
+      "focal": "center",
+      "alt": "Blood Sugar Spikes: What They Mean and When They Matter"
+    },
+    "/articles/body-fat-scales-worth-it/": {
+      "src": "/assets/images/article-body-fat-scales-worth-it-unique.webp",
+      "focal": "center",
+      "alt": "Are At-Home Body-Fat Scales Worth It?"
+    },
+    "/articles/breakfast-most-important-myth-check/": {
+      "src": "/assets/images/article-new-breakfast.webp",
+      "focal": "center",
+      "alt": "Is Breakfast Really the Most Important Meal of the Day?"
+    },
+    "/articles/build-muscle-after-50/": {
+      "src": "/assets/images/article-build-muscle-after-50-unique.webp",
+      "focal": "center",
+      "alt": "Can You Build Muscle After 50?"
+    },
+    "/articles/build-muscle-after-menopause/": {
+      "src": "/assets/images/article-build-muscle-after-menopause-unique.webp",
+      "focal": "upper",
+      "alt": "Middle-aged woman lifting a dumbbell during strength training."
+    },
+    "/articles/caffeine-cutoff-sleep/": {
+      "src": "/assets/images/article-new-caffeine.webp",
+      "focal": "center",
+      "alt": "When Should You Stop Drinking Caffeine for Better Sleep?"
+    },
+    "/articles/can-you-lose-muscle-on-glp1/": {
+      "src": "/assets/images/article-can-you-lose-muscle-on-glp1-unique.webp",
+      "focal": "center",
+      "alt": "Can You Lose Muscle on GLP-1 Medication?"
+    },
+    "/articles/cgm-without-diabetes-worth-it/": {
+      "src": "/assets/images/article-new-blood-sugar.webp",
+      "focal": "upper",
+      "alt": "Person checking blood glucose with a handheld glucose meter."
+    },
+    "/articles/circadian-rhythm-digest/": {
+      "src": "/assets/images/article-new-circadian.webp",
+      "focal": "center",
+      "alt": "Your Circadian Rhythm: A 2-Minute Guide"
+    },
+    "/articles/cold-plunges-worth-it/": {
+      "src": "/assets/images/article-cold-plunges-worth-it-unique.webp",
+      "focal": "center",
+      "alt": "Are Cold Plunges Worth It?"
+    },
+    "/articles/collagen-joints-skin-muscle-evidence/": {
+      "src": "/assets/images/article-collagen-powders-worth-it-unique.webp",
+      "focal": "center",
+      "alt": "Collagen for Joints vs Skin vs Muscle: Which Claims Hold Up?"
+    },
+    "/articles/collagen-powders-worth-it/": {
+      "src": "/assets/images/article-collagen-powders-worth-it-unique.webp",
+      "focal": "center",
+      "alt": "Are Collagen Powders Worth It?"
+    },
+    "/articles/collagen-supplements-do-they-work/": {
+      "src": "/assets/images/article-collagen-powders-worth-it-unique.webp",
+      "focal": "center",
+      "alt": "Collagen Supplements: Do They Actually Work?"
+    },
+    "/articles/collagen-vs-protein-powder/": {
+      "src": "/assets/images/article-collagen-vs-protein-powder-unique-library.webp",
+      "focal": "center",
+      "alt": "Collagen vs Protein Powder: What’s the Difference?"
+    },
+    "/articles/cortisol-face-claim/": {
+      "src": "/assets/images/article-cortisol-face-claim-unique.webp",
+      "focal": "center",
+      "alt": "Does “Cortisol Face” Actually Exist?"
+    },
+    "/articles/creatine-after-40/": {
+      "src": "/assets/images/article-waw-creatine.webp",
+      "focal": "upper",
+      "alt": "Senior man lifting a barbell during strength training."
+    },
+    "/articles/creatine-after-menopause/": {
+      "src": "/assets/images/article-creatine-after-menopause-unique.webp",
+      "focal": "center",
+      "alt": "Creatine After Menopause: Does It Actually Help?"
+    },
+    "/articles/creatine-for-women/": {
+      "src": "/assets/images/article-creatine-for-women-unique-library.webp",
+      "focal": "upper",
+      "alt": "Creatine for Women: Benefits, Evidence & What to Know"
+    },
+    "/articles/creatine-gummies-vs-powder/": {
+      "src": "/assets/images/article-creatine-gummies-vs-powder-unique-library.webp",
+      "focal": "center",
+      "alt": "Creatine Gummies vs Powder: Which Is Better?"
+    },
+    "/articles/creatine-hair-loss-evidence/": {
+      "src": "/assets/images/article-waw-creatine.webp",
+      "focal": "upper",
+      "alt": "Adult checking and styling natural hair in a mirror during a personal care routine."
+    },
+    "/articles/creatine-healthy-aging-evidence/": {
+      "src": "/assets/images/article-creatine-strength-muscle-evidence-unique-library.webp",
+      "focal": "center",
+      "alt": "Creatine for Healthy Aging: Is the Hype Ahead of the Evidence?"
+    },
+    "/articles/creatine-monohydrate-vs-hcl/": {
+      "src": "/assets/images/article-creatine-monohydrate-vs-hcl-unique.webp",
+      "focal": "center",
+      "alt": "Creatine Monohydrate vs Creatine HCl: Which Should You Choose?"
+    },
+    "/articles/creatine-strength-muscle-evidence/": {
+      "src": "/assets/images/article-creatine-strength-muscle-evidence-unique-library.webp",
+      "focal": "center",
+      "alt": "Does Creatine Actually Work for Strength and Muscle?"
+    },
+    "/articles/creatine-vs-protein-powder/": {
+      "src": "/assets/images/article-creatine-strength-muscle-evidence-unique-library.webp",
+      "focal": "center",
+      "alt": "Creatine vs Protein Powder: Which Do You Actually Need?"
+    },
+    "/articles/curcumin-joint-pain-evidence/": {
+      "src": "/assets/images/article-collagen-powders-worth-it-unique.webp",
+      "focal": "upper",
+      "alt": "Adult outdoors holding a sore knee during a walk or exercise session."
+    },
+    "/articles/do-you-need-fiber-supplement/": {
+      "src": "/assets/images/article-do-you-need-fiber-supplement-unique.webp",
+      "focal": "center",
+      "alt": "Do You Actually Need a Fiber Supplement?"
+    },
+    "/articles/do-you-need-multivitamin/": {
+      "src": "/assets/images/article-greens-powder-vs-multivitamin-unique.webp",
+      "focal": "center",
+      "alt": "Assorted vitamin and supplement bottles with capsules."
+    },
+    "/articles/eat-low-appetite-glp1/": {
+      "src": "/assets/images/article-protein-on-glp1-unique.webp",
+      "focal": "center",
+      "alt": "Fresh protein and vegetable bowl held outdoors."
+    },
+    "/articles/eating-at-night-meal-timing/": {
+      "src": "/assets/images/article-new-week-nutrition.webp",
+      "focal": "center",
+      "alt": "Eating at Night: Does Meal Timing Really Matter?"
+    },
+    "/articles/eight-hours-sleep-myth-check/": {
+      "src": "/assets/images/article-new-eight-hours.webp",
+      "focal": "center",
+      "alt": "Does Everyone Really Need 8 Hours of Sleep?"
+    },
+    "/articles/electrolyte-powders-do-you-need-them/": {
+      "src": "/assets/images/article-electrolyte-powders-worth-it-unique.webp",
+      "focal": "center",
+      "alt": "Electrolyte Powders: Do You Actually Need Them?"
+    },
+    "/articles/electrolyte-powders-worth-it/": {
+      "src": "/assets/images/article-electrolyte-powders-worth-it-unique.webp",
+      "focal": "center",
+      "alt": "Are Electrolyte Powders Worth It for Everyday Use?"
+    },
+    "/articles/electrolytes-on-glp1/": {
+      "src": "/assets/images/article-electrolyte-powders-worth-it-unique.webp",
+      "focal": "center",
+      "alt": "Do You Need Electrolytes While Taking a GLP-1?"
+    },
+    "/articles/exercise-recovery-research-august-28-2026/": {
+      "src": "/assets/images/article-new-week-exercise.webp",
+      "focal": "center",
+      "alt": "What Exercise & Recovery Research Is Talking About This Week"
+    },
+    "/articles/expensive-multivitamins-worth-it/": {
+      "src": "/assets/images/article-expensive-multivitamins-worth-it-unique.webp",
+      "focal": "center",
+      "alt": "Are Expensive Multivitamins Worth It?"
+    },
+    "/articles/fiber-and-glp1/": {
+      "src": "/assets/images/article-fiber-and-glp1-unique.webp",
+      "focal": "center",
+      "alt": "Fiber and GLP-1s: What You Should Know"
+    },
+    "/articles/fiber-how-much-do-you-need/": {
+      "src": "/assets/images/article-new-fiber.webp",
+      "focal": "center",
+      "alt": "How Much Fiber Do You Actually Need — and What Does It Help With?"
+    },
+    "/articles/fiber-supplements-vs-food/": {
+      "src": "/assets/images/article-fiber-supplements-vs-food-unique.webp",
+      "focal": "center",
+      "alt": "Fiber Supplements vs Food: Which Makes More Sense?"
+    },
+    "/articles/fish-oil-vs-eating-fish/": {
+      "src": "/assets/images/article-fish-oil-vs-eating-fish-unique.webp",
+      "focal": "center",
+      "alt": "Fish Oil vs Eating Fish: Which Is Better?"
+    },
+    "/articles/fitness-watch-calories-accuracy/": {
+      "src": "/assets/images/article-fitness-watch-calories-accuracy-unique.webp",
+      "focal": "upper",
+      "alt": "Fitness Watch Calories: How Accurate Are They?"
+    },
+    "/articles/ginger-benefits/": {
+      "src": "/assets/images/article-ginger.webp",
+      "focal": "center",
+      "alt": "Fresh ginger, chamomile, peppermint and herbal tea"
+    },
+    "/articles/glp1-supplements-marketing-claims/": {
+      "src": "/assets/images/article-glp1-supplements-marketing-claims-unique.webp",
+      "focal": "center",
+      "alt": "GLP-1 Supplements: Which Marketing Claims Should You Question?"
+    },
+    "/articles/greens-powder-vs-multivitamin/": {
+      "src": "/assets/images/article-greens-powder-vs-multivitamin-unique.webp",
+      "focal": "center",
+      "alt": "Greens Powder vs Multivitamin: Which Makes More Sense?"
+    },
+    "/articles/greens-powders-replace-vegetables/": {
+      "src": "/assets/images/article-are-greens-powders-worth-it-unique-library.webp",
+      "focal": "center",
+      "alt": "Balanced bowl with quinoa, chickpeas and fresh vegetables."
+    },
+    "/articles/grip-strength-aging/": {
+      "src": "/assets/images/article-why-muscle-matters-after-40-unique.webp",
+      "focal": "center",
+      "alt": "Does Grip Strength Really Tell You How Well You're Aging?"
+    },
+    "/articles/health-numbers-explained/": {
+      "src": "/assets/images/article-wearable-hrv-useful-unique.webp",
+      "focal": "center",
+      "alt": "Health Numbers Explained: What Common Measurements Actually Mean"
+    },
+    "/articles/healthy-foods-evidence-guide/": {
+      "src": "/assets/images/article-new-week-nutrition.webp",
+      "focal": "center",
+      "alt": "Foods for Better Health: What Actually Deserves a Place in Your Diet?"
+    },
+    "/articles/healthy-habits-that-stick/": {
+      "src": "/assets/images/article-habits.webp",
+      "focal": "upper",
+      "alt": "Woman writing a weekly healthy meal plan"
+    },
+    "/articles/heavy-weights-after-40/": {
+      "src": "/assets/images/article-heavy-weights-after-40-unique.webp",
+      "focal": "center",
+      "alt": "Do You Need Heavy Weights to Build Muscle After 40?"
+    },
+    "/articles/high-protein-breakfast-ideas/": {
+      "src": "/assets/images/article-new-breakfast.webp",
+      "focal": "center",
+      "alt": "Healthy bowl with eggs, quinoa and vegetables."
+    },
+    "/articles/high-protein-foods/": {
+      "src": "/assets/images/article-high-protein-foods-unique-library.webp",
+      "focal": "center",
+      "alt": "High-protein meal with chicken, broccoli and rice"
+    },
+    "/articles/how-long-build-muscle-after-40/": {
+      "src": "/assets/images/article-build-muscle-after-50-unique.webp",
+      "focal": "center",
+      "alt": "How Long Does It Take to Build Muscle After 40?"
+    },
+    "/articles/how-much-muscle-lost-with-age/": {
+      "src": "/assets/images/article-how-much-muscle-lost-with-age-unique.webp",
+      "focal": "center",
+      "alt": "How Much Muscle Do We Actually Lose With Age?"
+    },
+    "/articles/how-much-water-do-you-need/": {
+      "src": "/assets/images/article-how-much-water-do-you-need-unique-library.webp",
+      "focal": "center",
+      "alt": "How Much Water Do You Actually Need Each Day?"
+    },
+    "/articles/how-to-lose-belly-fat-what-actually-works/": {
+      "src": "/assets/images/article-body-fat-scales-worth-it-unique.webp",
+      "focal": "center",
+      "alt": "Balanced plant-protein bowl with chickpeas and vegetables."
+    },
+    "/articles/increase-fiber-without-bloating/": {
+      "src": "/assets/images/article-increase-fiber-without-bloating-unique.webp",
+      "focal": "center",
+      "alt": "How Quickly Should You Increase Fiber?"
+    },
+    "/articles/inflammation-explained-digest/": {
+      "src": "/assets/images/article-new-inflammation.webp",
+      "focal": "center",
+      "alt": "Inflammation Explained: What It Is and Why It Matters"
+    },
+    "/articles/lemon-water-metabolism/": {
+      "src": "/assets/images/article-lemon-water-metabolism-unique.webp",
+      "focal": "center",
+      "alt": "Does Lemon Water Actually Boost Metabolism?"
+    },
+    "/articles/losing-muscle-while-losing-weight/": {
+      "src": "/assets/images/article-walking-enough-preserve-muscle-unique.webp",
+      "focal": "center",
+      "alt": "How Can You Tell If You're Losing Muscle While Losing Weight?"
+    },
+    "/articles/lower-ldl-cholesterol-naturally/": {
+      "src": "/assets/images/article-waw-lower-ldl.webp",
+      "focal": "center",
+      "alt": "What Actually Helps Lower LDL Cholesterol Naturally?"
+    },
+    "/articles/magnesium-claims-evidence/": {
+      "src": "/assets/images/article-magnesium-sleep-evidence-unique-library.webp",
+      "focal": "center",
+      "alt": "Supplement bottles and capsules arranged on a clean wellness surface."
+    },
+    "/articles/magnesium-food-vs-supplements/": {
+      "src": "/assets/images/article-magnesium-food-vs-supplements-unique.webp",
+      "focal": "center",
+      "alt": "Magnesium Supplements vs Magnesium-Rich Foods"
+    },
+    "/articles/magnesium-glycinate-vs-citrate/": {
+      "src": "/assets/images/article-magnesium-food-vs-supplements-unique.webp",
+      "focal": "center",
+      "alt": "Magnesium Glycinate vs Citrate: Which Should You Choose?"
+    },
+    "/articles/magnesium-glycinate-worth-it-sleep/": {
+      "src": "/assets/images/article-magnesium-sleep-evidence-unique-library.webp",
+      "focal": "center",
+      "alt": "Minimal supplement bottle with capsules on a neutral background."
+    },
+    "/articles/magnesium-sleep-evidence/": {
+      "src": "/assets/images/article-magnesium-sleep-evidence-unique-library.webp",
+      "focal": "upper",
+      "alt": "Man sleeping with a smartwatch nearby in a bedroom."
+    },
+    "/articles/magnesium-sleep-what-evidence-says/": {
+      "src": "/assets/images/article-magnesium-sleep-what-evidence-says-unique-library.webp",
+      "focal": "center",
+      "alt": "Does Magnesium Actually Help You Sleep?"
+    },
+    "/articles/massage-guns-worth-it/": {
+      "src": "/assets/images/article-massage-guns-worth-it-unique.webp",
+      "focal": "center",
+      "alt": "Are Massage Guns Worth It?"
+    },
+    "/articles/melatonin-sleep-adults-evidence/": {
+      "src": "/assets/images/article-sleep.webp",
+      "focal": "upper",
+      "alt": "Adult sleeping peacefully in a bedroom at night."
+    },
+    "/articles/menopause-supplements-evidence/": {
+      "src": "/assets/images/article-menopause-supplements-evidence-unique.webp",
+      "focal": "upper",
+      "alt": "Midlife women exercising together in a gym, representing menopause health and wellness."
+    },
+    "/articles/morning-light-improve-sleep/": {
+      "src": "/assets/images/article-morning-light-sleep-unique-library.webp",
+      "focal": "center",
+      "alt": "Does Morning Light Actually Improve Sleep?"
+    },
+    "/articles/morning-light-sleep/": {
+      "src": "/assets/images/article-morning-light-sleep-unique-library.webp",
+      "focal": "center",
+      "alt": "Does Morning Light Actually Help You Sleep Better?"
+    },
+    "/articles/mouth-taping-sleep/": {
+      "src": "/assets/images/article-mouth-taping-sleep-unique.webp",
+      "focal": "center",
+      "alt": "Does Mouth Taping Improve Sleep?"
+    },
+    "/articles/nutrition-research-august-28-2026/": {
+      "src": "/assets/images/article-new-week-nutrition.webp",
+      "focal": "center",
+      "alt": "What Nutrition Research Is Talking About This Week"
+    },
+    "/articles/omega-3-evidence/": {
+      "src": "/assets/images/article-new-omega3.webp",
+      "focal": "center",
+      "alt": "Do Omega-3s Actually Work? What the Evidence Shows"
+    },
+    "/articles/oral-probiotics-teeth-gums-evidence/": {
+      "src": "/assets/images/affiliate-prodentim-product-v1510.webp",
+      "focal": "center",
+      "alt": "Oral Probiotics for Teeth & Gums: What Does the Evidence Say?"
+    },
+    "/articles/oura-ring-worth-it/": {
+      "src": "/assets/images/article-oura-ring-worth-it-unique.webp",
+      "focal": "upper",
+      "alt": "Person interacting with a black smartwatch during health tracking."
+    },
+    "/articles/peptides-what-you-need-to-know/": {
+      "src": "/assets/images/article-peptides-digest.webp",
+      "focal": "center",
+      "alt": "Editorial illustration of peptide vials and research concepts"
+    },
+    "/articles/power-training-after-50/": {
+      "src": "/assets/images/article-power-training-after-50-unique.webp",
+      "focal": "upper",
+      "alt": "Power Training After 50: Does Moving Weights Faster Matter?"
+    },
+    "/articles/prebiotics-vs-probiotics/": {
+      "src": "/assets/images/article-prebiotics-vs-probiotics-unique.webp",
+      "focal": "center",
+      "alt": "Prebiotics vs Probiotics: What’s the Difference — and Do You Need Either?"
+    },
+    "/articles/preserve-muscle-while-losing-weight/": {
+      "src": "/assets/images/article-walking-enough-preserve-muscle-unique.webp",
+      "focal": "upper",
+      "alt": "Older man strength training outdoors with a dumbbell."
+    },
+    "/articles/probiotics-vs-fermented-foods/": {
+      "src": "/assets/images/article-probiotics-vs-fermented-foods-unique-library.webp",
+      "focal": "center",
+      "alt": "Probiotic Supplements vs Fermented Foods: Which Makes More Sense?"
+    },
+    "/articles/protect-muscle-on-glp1/": {
+      "src": "/assets/images/article-protect-muscle-on-glp1-unique.webp",
+      "focal": "center",
+      "alt": "How to Protect Muscle While Losing Weight on GLP-1 Medication"
+    },
+    "/articles/protein-after-40/": {
+      "src": "/assets/images/article-protein-timing-after-40-unique.webp",
+      "focal": "center",
+      "alt": "How Much Protein Do You Need After 40?"
+    },
+    "/articles/protein-bars-worth-it/": {
+      "src": "/assets/images/article-protein-bars-worth-it-unique.webp",
+      "focal": "center",
+      "alt": "Are Protein Bars Worth It?"
+    },
+    "/articles/protein-breakfast-after-40/": {
+      "src": "/assets/images/article-new-breakfast.webp",
+      "focal": "center",
+      "alt": "Healthy breakfast-style bowl with eggs, quinoa and vegetables."
+    },
+    "/articles/protein-for-muscle-how-much/": {
+      "src": "/assets/images/article-protein-for-muscle-how-much-unique-library.webp",
+      "focal": "center",
+      "alt": "How Much Protein Do You Actually Need to Build Muscle?"
+    },
+    "/articles/protein-glp1-without-shakes/": {
+      "src": "/assets/images/article-protein-shakes-on-glp1-unique.webp",
+      "focal": "center",
+      "alt": "Balanced protein bowl with tuna, eggs, chickpeas and vegetables."
+    },
+    "/articles/protein-menopause-what-changes/": {
+      "src": "/assets/images/article-protein-menopause-what-changes-unique.webp",
+      "focal": "center",
+      "alt": "Protein and Menopause: What Changes — and What Doesn’t?"
+    },
+    "/articles/protein-on-glp1/": {
+      "src": "/assets/images/article-protein-on-glp1-unique.webp",
+      "focal": "center",
+      "alt": "Protein on GLP-1s: How Much Actually Matters?"
+    },
+    "/articles/protein-powder-vs-food/": {
+      "src": "/assets/images/article-protein-powder-vs-food-unique-library.webp",
+      "focal": "center",
+      "alt": "Protein Powder vs Food: Do You Actually Need a Supplement?"
+    },
+    "/articles/protein-shakes-on-glp1/": {
+      "src": "/assets/images/article-protein-shakes-on-glp1-unique.webp",
+      "focal": "center",
+      "alt": "Do You Need Protein Shakes While Taking a GLP-1?"
+    },
+    "/articles/protein-timing-after-40/": {
+      "src": "/assets/images/article-protein-shakes-on-glp1-unique.webp",
+      "focal": "center",
+      "alt": "Protein Timing After 40: Does It Matter?"
+    },
+    "/articles/proteinmaxxing-do-you-need-that-much-protein/": {
+      "src": "/assets/images/article-proteinmaxxing.webp",
+      "focal": "center",
+      "alt": "Protein-rich meal illustrating the proteinmaxxing wellness trend"
+    },
+    "/articles/psyllium-vs-chia/": {
+      "src": "/assets/images/article-psyllium-vs-chia-unique.webp",
+      "focal": "center",
+      "alt": "Psyllium vs Chia Seeds: Which Is the Better Fiber Source?"
+    },
+    "/articles/psyllium-vs-fiber-supplements/": {
+      "src": "/assets/images/article-psyllium-vs-fiber-supplements-unique.webp",
+      "focal": "center",
+      "alt": "Psyllium vs Other Fiber Supplements: What’s the Difference?"
+    },
+    "/articles/recovery-scores-useful/": {
+      "src": "/assets/images/article-recovery-scores-useful-unique.webp",
+      "focal": "center",
+      "alt": "Do Recovery Scores Actually Tell You When to Rest?"
+    },
+    "/articles/red-light-therapy-devices-worth-it/": {
+      "src": "/assets/images/article-red-light-therapy-devices-worth-it-unique.webp",
+      "focal": "center",
+      "alt": "Are Red-Light Therapy Devices Worth It?"
+    },
+    "/articles/regain-muscle-after-50/": {
+      "src": "/assets/images/article-creatine-strength-muscle-evidence-unique-library.webp",
+      "focal": "upper",
+      "alt": "Older man lifting dumbbells in a gym."
+    },
+    "/articles/resistance-bands-vs-weights-after-40/": {
+      "src": "/assets/images/article-resistance-bands-vs-weights-after-40-unique.webp",
+      "focal": "center",
+      "alt": "Resistance Bands vs Weights After 40"
+    },
+    "/articles/rest-between-sets-after-40/": {
+      "src": "/assets/images/article-new-strength-frequency.webp",
+      "focal": "upper",
+      "alt": "Older adult resting with a towel between strength-training sets in a gym."
+    },
+    "/articles/resting-heart-rate-wearable/": {
+      "src": "/assets/images/article-wearable-hrv-useful-unique.webp",
+      "focal": "center",
+      "alt": "Resting Heart Rate: What Does Your Wearable's Number Actually Tell You?"
+    },
+    "/articles/seed-oils-myth-check/": {
+      "src": "/assets/images/article-new-seed-oils.webp",
+      "focal": "center",
+      "alt": "Are Seed Oils Actually Bad for You?"
+    },
+    "/articles/sleep-recovery-basics/": {
+      "src": "/assets/images/article-sleep.webp",
+      "focal": "upper",
+      "alt": "Woman resting peacefully in a bright bed"
+    },
+    "/articles/sleep-stage-tracker-accuracy/": {
+      "src": "/assets/images/article-are-sleep-trackers-accurate-unique.webp",
+      "focal": "upper",
+      "alt": "Person sleeping in bed with a smartwatch nearby for overnight sleep tracking."
+    },
+    "/articles/smart-ring-vs-fitness-watch/": {
+      "src": "/assets/images/article-smart-ring-vs-fitness-watch-unique.webp",
+      "focal": "upper",
+      "alt": "Smart Ring vs Fitness Watch: Which Health Data Actually Matters?"
+    },
+    "/articles/smartwatch-step-count-accuracy/": {
+      "src": "/assets/images/article-fitness-watch-calories-accuracy-unique.webp",
+      "focal": "upper",
+      "alt": "Smartwatch displaying fitness tracking data while a person exercises outdoors."
+    },
+    "/articles/soluble-vs-insoluble-fiber/": {
+      "src": "/assets/images/article-soluble-vs-insoluble-fiber-unique.webp",
+      "focal": "center",
+      "alt": "Soluble vs Insoluble Fiber: What Actually Matters?"
+    },
+    "/articles/strength-training-after-menopause/": {
+      "src": "/assets/images/article-strength-training-after-menopause-unique.webp",
+      "focal": "upper",
+      "alt": "Strength Training After Menopause: What Actually Matters?"
+    },
+    "/articles/strength-training-frequency-results/": {
+      "src": "/assets/images/article-new-strength-frequency.webp",
+      "focal": "center",
+      "alt": "How Often Should You Strength Train to Actually See Results?"
+    },
+    "/articles/strength-training-on-glp1/": {
+      "src": "/assets/images/article-strength-training-on-glp1-unique.webp",
+      "focal": "upper",
+      "alt": "Strength Training While Taking GLP-1s: Why It Matters"
+    },
+    "/articles/supplements-women-after-40/": {
+      "src": "/assets/images/article-supplements-women-after-40-unique.webp",
+      "focal": "center",
+      "alt": "Hands holding vitamin capsules during a daily supplement routine."
+    },
+    "/articles/this-week-in-wellness-august-24-2026/": {
+      "src": "/assets/images/article-this-week-wellness.webp",
+      "focal": "center",
+      "alt": "Editorial wellness trends illustration covering protein, sardines and GLP-1 conversations"
+    },
+    "/articles/two-strength-workouts-enough/": {
+      "src": "/assets/images/article-two-strength-workouts-enough-unique.webp",
+      "focal": "center",
+      "alt": "Is Two Strength Workouts a Week Enough?"
+    },
+    "/articles/vitamin-d-who-needs-supplement/": {
+      "src": "/assets/images/article-magnesium-food-vs-supplements-unique.webp",
+      "focal": "center",
+      "alt": "Vitamin D Supplements: Who Actually Needs Them?"
+    },
+    "/articles/vo2-max-watch-useful/": {
+      "src": "/assets/images/article-wearable-hrv-useful-unique.webp",
+      "focal": "upper",
+      "alt": "Smartwatch displaying heart-rate and fitness data on a wrist outdoors."
+    },
+    "/articles/walking-after-meals-blood-sugar/": {
+      "src": "/assets/images/article-waw-walking-after-meals.webp",
+      "focal": "center",
+      "alt": "Walking After Meals: Does It Actually Help Blood Sugar?"
+    },
+    "/articles/walking-enough-preserve-muscle/": {
+      "src": "/assets/images/article-walking-enough-preserve-muscle-unique.webp",
+      "focal": "center",
+      "alt": "Walking Is Healthy — but Is It Enough to Preserve Muscle?"
+    },
+    "/articles/walking-pads-worth-it/": {
+      "src": "/assets/images/article-walking-pads-worth-it-unique.webp",
+      "focal": "center",
+      "alt": "Are Walking Pads Worth It?"
+    },
+    "/articles/walking-vs-strength-training-after-40/": {
+      "src": "/assets/images/article-walking-vs-strength-training-after-40-unique.webp",
+      "focal": "upper",
+      "alt": "Walking vs Strength Training After 40: Do You Need Both?"
+    },
+    "/articles/wearable-fitness-age-trust/": {
+      "src": "/assets/images/article-smart-ring-vs-fitness-watch-unique.webp",
+      "focal": "center",
+      "alt": "Smartwatch displaying a heart-rate reading on a wrist."
+    },
+    "/articles/wearable-hrv-useful/": {
+      "src": "/assets/images/article-wearable-hrv-useful-unique.webp",
+      "focal": "center",
+      "alt": "Heart Rate Variability: Is Your Wearable’s HRV Score Useful?"
+    },
+    "/articles/wellness-research-august-28-2026/": {
+      "src": "/assets/images/article-new-week-wellness.webp",
+      "focal": "center",
+      "alt": "The Wellness Research Worth Knowing This Week"
+    },
+    "/articles/whey-vs-plant-protein/": {
+      "src": "/assets/images/article-whey-vs-plant-protein-unique.webp",
+      "focal": "center",
+      "alt": "Whey vs Plant Protein: Which Is Better?"
+    },
+    "/articles/why-muscle-matters-after-40/": {
+      "src": "/assets/images/article-why-muscle-matters-after-40-unique.webp",
+      "focal": "upper",
+      "alt": "Older men walking outdoors on a sunny day."
+    },
+    "/articles/zone-2-cardio-digest/": {
+      "src": "/assets/images/article-new-zone2.webp",
+      "focal": "center",
+      "alt": "Zone 2 Cardio Explained in 2 Minutes"
+    },
+    "/check-a-health-claim/": {
+      "src": "/assets/images/check-health-claim-evidence-unique.webp",
+      "focal": "center",
+      "alt": "A supplement bottle, evidence checklist, chart and magnifying glass representing health-claim review."
+    },
+    "/checkout/": {
+      "src": "/assets/images/female-fitness-hero.webp",
+      "focal": "center",
+      "alt": "Natural Wellness Encyclopedia: Coming Soon"
+    },
+    "/choose-smarter/": {
+      "src": "/assets/images/shared-hero-choose-smarter-v1591.svg",
+      "focal": "center",
+      "alt": "Editorial decision dashboard comparing wellness products against clear selection criteria."
+    },
+    "/compare/": {
+      "src": "/assets/images/shared-hero-compare-v1591.svg",
+      "focal": "center",
+      "alt": "Editorial side-by-side wellness product comparison with structured criteria and checks."
+    },
+    "/contact/": {
+      "src": "/assets/images/female-fitness-hero.webp",
+      "focal": "center",
+      "alt": "Contact Fitness World"
+    },
+    "/contact/success/": {
+      "src": "/assets/images/female-fitness-hero.webp",
+      "focal": "center",
+      "alt": "Message Sent"
+    },
+    "/editorial-approach/": {
+      "src": "/assets/images/natural-wellness-cover.webp",
+      "focal": "center",
+      "alt": "Fitness World Natural Wellness Encyclopedia digital cover"
+    },
+    "/evidence-index/": {
+      "src": "/assets/images/shared-hero-evidence-index-v1591.svg",
+      "focal": "center",
+      "alt": "Editorial evidence index with categorized review cards and evidence-strength summary chart."
+    },
+    "/evidence-iq/": {
+      "src": "/assets/images/shared-hero-evidence-iq-v1591.svg",
+      "focal": "center",
+      "alt": "Editorial evidence-literacy quiz interface with answer choices and completed score gauge."
+    },
+    "/evidence-projects/": {
+      "src": "/assets/images/evidence-projects-health-information.webp",
+      "focal": "center",
+      "alt": "Active older adults walking outdoors, representing reader-supported healthy-aging evidence research."
+    },
+    "/evidence-standards/": {
+      "src": "/assets/images/shared-hero-evidence-standards-v1591.svg",
+      "focal": "center",
+      "alt": "Editorial evidence-review dashboard with research papers, checks, chart and magnifier."
+    },
+    "/faq/": {
+      "src": "/assets/images/female-fitness-hero.webp",
+      "focal": "center",
+      "alt": "Frequently Asked Questions"
+    },
+    "/free-guide/": {
+      "src": "/assets/images/free-guide-cover.webp",
+      "focal": "center",
+      "alt": "Cover of Fitness World 15 Natural Wellness Habits Worth Knowing free guide"
+    },
+    "/glp1-nutrition-muscle/": {
+      "src": "/assets/images/article-protein.webp",
+      "focal": "center",
+      "alt": "High-protein meal with chicken, rice and broccoli, representing nutrition and muscle support."
+    },
+    "/health-disclaimer/": {
+      "src": "/assets/images/female-fitness-hero.webp",
+      "focal": "center",
+      "alt": "Health Disclaimer"
+    },
+    "/health-hype-meter/": {
+      "src": "/assets/images/shared-hero-health-hype-meter-v1591.svg",
+      "focal": "center",
+      "alt": "Editorial health-hype dashboard with social posts and a gauge comparing hype with evidence."
+    },
+    "/healthy-aging/": {
+      "src": "/assets/images/evidence-projects-health-information.webp",
+      "focal": "center",
+      "alt": "Active older adults walking outdoors, representing strength, mobility and healthy aging."
+    },
+    "/live-healthier/": {
+      "src": "/assets/images/hero-live-healthier.webp",
+      "focal": "center",
+      "alt": "Person walking with a water bottle, representing practical everyday healthy habits."
+    },
+    "/mens-health/": {
+      "src": "/assets/images/mens-health-blood-flow-runner-local.webp",
+      "focal": "upper",
+      "alt": "Man running outdoors, representing cardiovascular fitness and healthy aging."
+    },
+    "/mens-health/foods-erectile-health-blood-flow/": {
+      "src": "/assets/images/article-are-creatine-gummies-worth-it-unique-library.webp",
+      "focal": "upper",
+      "alt": "Man running outdoors, representing cardiovascular fitness and healthy blood flow."
+    },
+    "/mens-health/nitric-oxide-erectile-function/": {
+      "src": "/assets/images/affiliate-nitricboost-product-v1594.webp",
+      "focal": "center",
+      "alt": "Nitric Oxide & Erectile Function: What the Evidence Says"
+    },
+    "/mens-health/prostate-health-after-50/": {
+      "src": "/assets/images/affiliate-prostavive-product-v1594.webp",
+      "focal": "center",
+      "alt": "Prostate Health After 50: Symptoms, Screening & What Actually Helps"
+    },
+    "/mens-health/testosterone-boosters-after-40/": {
+      "src": "/assets/images/article-testosterone-hero-local.webp",
+      "focal": "center",
+      "alt": "Testosterone Boosters After 40: What the Evidence Actually Says"
+    },
+    "/mens-health/testosterone-what-actually-works/": {
+      "src": "/assets/images/article-new-strength-frequency.webp",
+      "focal": "upper",
+      "alt": "Man performing strength training in a gym."
+    },
+    "/natural-wellness/": {
+      "src": "/assets/images/natural-wellness-botanicals.webp",
+      "focal": "center",
+      "alt": "Natural wellness botanicals, herbs and tea."
+    },
+    "/natural-wellness/natural-pain-relief-evidence/": {
+      "src": "/assets/images/natural-wellness-botanicals.webp",
+      "focal": "center",
+      "alt": "Ginger, chamomile, mint and herbal tea representing natural wellness ingredients."
+    },
+    "/natural/": {
+      "src": "/assets/images/natural-wellness-cover.webp",
+      "focal": "center",
+      "alt": "Fitness World Natural Wellness Encyclopedia digital cover"
+    },
+    "/privacy/": {
+      "src": "/assets/images/female-fitness-hero.webp",
+      "focal": "center",
+      "alt": "Privacy Policy"
+    },
+    "/research/": {
+      "src": "/assets/images/shared-hero-research-v1591.svg",
+      "focal": "center",
+      "alt": "Editorial research workspace with laptop data chart and a structured analysis report."
+    },
+    "/research/wellness-claim-audit-2026/": {
+      "src": "/assets/images/natural-wellness-cover.webp",
+      "focal": "center",
+      "alt": "Fitness World Natural Wellness Encyclopedia digital cover"
+    },
+    "/resources/": {
+      "src": "/assets/images/shared-hero-resources-v1591.svg",
+      "focal": "center",
+      "alt": "Editorial health-resource library with laptop, reference folders and organized guides."
+    },
+    "/screenshot-a-claim/": {
+      "src": "/assets/images/shared-hero-screenshot-a-claim-v1591.svg",
+      "focal": "center",
+      "alt": "Editorial smartphone claim screenshot being checked against an evidence review and magnifier."
+    },
+    "/sleep-recovery/": {
+      "src": "/assets/images/article-sleep.webp",
+      "focal": "center",
+      "alt": "Woman resting peacefully in bed, representing sleep and recovery."
+    },
+    "/stay-strong/": {
+      "src": "/assets/images/article-creatine-strength-muscle-evidence-unique-library.webp",
+      "focal": "center",
+      "alt": "Older adult strength training with dumbbells in a gym, representing strength and capability after 40."
+    },
+    "/supplement-evidence/": {
+      "src": "/assets/images/shared-hero-supplement-evidence-v1591.svg",
+      "focal": "center",
+      "alt": "Editorial supplement evidence dashboard with bottles, capsules and evidence-strength chart."
+    },
+    "/terms/": {
+      "src": "/assets/images/female-fitness-hero.webp",
+      "focal": "center",
+      "alt": "Terms & Conditions"
+    },
+    "/thank-you/": {
+      "src": "/assets/images/female-fitness-hero.webp",
+      "focal": "center",
+      "alt": "Your Fitness World Guide Is Ready"
+    },
+    "/tools/": {
+      "src": "/assets/images/shared-hero-tools-v1591.svg",
+      "focal": "center",
+      "alt": "Editorial dashboard of practical wellness tools including search, measurement, tracking and calculation."
+    },
+    "/tools/protein-meal-planner/": {
+      "src": "/assets/images/natural-wellness-cover.webp",
+      "focal": "center",
+      "alt": "Fitness World Natural Wellness Encyclopedia digital cover"
+    },
+    "/tools/supplement-stack-organizer/": {
+      "src": "/assets/images/natural-wellness-cover.webp",
+      "focal": "center",
+      "alt": "Fitness World Natural Wellness Encyclopedia digital cover"
+    },
+    "/understand-your-data/": {
+      "src": "/assets/images/shared-hero-understand-your-data-v1591.svg",
+      "focal": "center",
+      "alt": "Editorial health-data dashboard with smartphone metrics, trend chart and interpretation panels."
+    },
+    "/what-actually-works/": {
+      "src": "/assets/images/shared-hero-what-actually-works-v1591.svg",
+      "focal": "center",
+      "alt": "Editorial evidence dashboard showing multiple practical health strategies with confirmed checks."
+    },
+    "/womens-health/": {
+      "src": "/assets/images/hero-womens-health.webp",
+      "focal": "center",
+      "alt": "Woman in an active wellness setting, representing women’s strength, recovery and healthy aging."
+    },
+    "/worth-it/": {
+      "src": "/assets/images/shared-hero-worth-it-v1591.svg",
+      "focal": "center",
+      "alt": "Editorial product-value review with supplement bottle, price tag, evidence gauge and approval check."
+    },
+    "/worth-it/nitric-boost-ultra-review/": {
+      "src": "/assets/images/affiliate-nitricboost-product-v1594.webp",
+      "focal": "center",
+      "alt": "Nitric Boost Ultra Review: Ingredients, Evidence & Value"
+    },
+    "/worth-it/prodentim-review/": {
+      "src": "/assets/images/affiliate-prodentim-product-v1594.webp",
+      "focal": "center",
+      "alt": "ProDentim Review: Oral Probiotic Claims, Evidence & Value"
+    },
+    "/worth-it/prostavive-review/": {
+      "src": "/assets/images/affiliate-prostavive-product-v1594.webp",
+      "focal": "center",
+      "alt": "ProstaVive Review: Ingredients, Evidence & Value"
+    },
+    "/worth-it/spartamax-review/": {
+      "src": "/assets/images/affiliate-spartamax-product-v1594.webp",
+      "focal": "center",
+      "alt": "SpartaMax Review: Ingredients, Evidence & Value"
+    }
+  }
+}

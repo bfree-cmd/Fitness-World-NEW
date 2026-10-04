@@ -1,0 +1,108 @@
+
+# Evidence Reviews are served from /worth-it/ and its existing child pages.
+[build]
+  publish = "public"
+  functions = "netlify/functions"
+
+[functions]
+  node_bundler = "esbuild"
+
+[functions.send-free-guide]
+  included_files = ["public/fitness-world-free-guide.pdf"]
+
+[functions.paypal-capture-order]
+  included_files = ["private/Fitness_World_Natural_Wellness_Encyclopedia.pdf"]
+
+[functions.download-encyclopedia]
+  included_files = ["private/Fitness_World_Natural_Wellness_Encyclopedia.pdf"]
+
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+    Permissions-Policy = "camera=(), microphone=(), geolocation=()"
+    X-Frame-Options = "DENY"
+    Strict-Transport-Security = "max-age=31536000"
+
+# Versioned static asset caching. Every local CSS/JS URL carries a release query version,
+# so immutable browser caching is safe while future releases bust the URL.
+[[headers]]
+  for = "/assets/css/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  for = "/assets/js/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  for = "/fitness-world-free-guide.pdf"
+  [headers.values]
+    Cache-Control = "public, max-age=3600"
+    X-Robots-Tag = "noindex"
+
+# Evidence Projects one-page consolidation redirects
+[[redirects]]
+  from = "/evidence-projects/healthy-aging/*"
+  to = "/evidence-projects/#current-project"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/evidence-projects/better-sleep/*"
+  to = "/evidence-projects/#choose-next"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/evidence-projects/womens-midlife-health/*"
+  to = "/evidence-projects/#choose-next"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/evidence-projects/heart-health/*"
+  to = "/evidence-projects/#choose-next"
+  status = 301
+  force = true
+
+[images]
+  remote_images = ['https://images\.pexels\.com/.*']
+
+# V15.9.2 Wave 1 affiliate geo fallback routes
+[[redirects]]
+  from = "/go/spartamax/"
+  to = "/natural/?utm_source=affiliate_geo_fallback&utm_medium=onsite&utm_campaign=spartamax"
+  status = 302
+  force = true
+  conditions = {Country = ["IN", "PK", "BD", "LK", "NP", "AF", "BT", "GH", "NG", "KE", "UG", "TZ", "RW", "BI", "ET", "SO", "SD", "SS", "ZM", "ZW", "MW", "MZ", "AO", "CM", "SN", "GM", "SL", "LR", "GN", "GW", "ML", "NE", "TD", "BF", "BJ", "TG", "CF", "CD", "CG", "MG", "KH", "LA", "MM", "TL", "YE", "SY", "IQ", "HT", "PG"] }
+
+[[redirects]]
+  from = "/go/nitricboost/"
+  to = "/natural/?utm_source=affiliate_geo_fallback&utm_medium=onsite&utm_campaign=nitricboost"
+  status = 302
+  force = true
+  conditions = {Country = ["IN", "PK", "BD", "LK", "NP", "AF", "BT", "GH", "NG", "KE", "UG", "TZ", "RW", "BI", "ET", "SO", "SD", "SS", "ZM", "ZW", "MW", "MZ", "AO", "CM", "SN", "GM", "SL", "LR", "GN", "GW", "ML", "NE", "TD", "BF", "BJ", "TG", "CF", "CD", "CG", "MG", "KH", "LA", "MM", "TL", "YE", "SY", "IQ", "HT", "PG"] }
+
+[[redirects]]
+  from = "/go/prostavive/"
+  to = "/natural/?utm_source=affiliate_geo_fallback&utm_medium=onsite&utm_campaign=prostavive"
+  status = 302
+  force = true
+  conditions = {Country = ["IN", "PK", "BD", "LK", "NP", "AF", "BT", "GH", "NG", "KE", "UG", "TZ", "RW", "BI", "ET", "SO", "SD", "SS", "ZM", "ZW", "MW", "MZ", "AO", "CM", "SN", "GM", "SL", "LR", "GN", "GW", "ML", "NE", "TD", "BF", "BJ", "TG", "CF", "CD", "CG", "MG", "KH", "LA", "MM", "TL", "YE", "SY", "IQ", "HT", "PG"] }
+
+[[redirects]]
+  from = "/go/prodentim/"
+  to = "/natural/?utm_source=affiliate_geo_fallback&utm_medium=onsite&utm_campaign=prodentim"
+  status = 302
+  force = true
+  conditions = {Country = ["IN", "PK", "BD", "LK", "NP", "AF", "BT", "GH", "NG", "KE", "UG", "TZ", "RW", "BI", "ET", "SO", "SD", "SS", "ZM", "ZW", "MW", "MZ", "AO", "CM", "SN", "GM", "SL", "LR", "GN", "GW", "ML", "NE", "TD", "BF", "BJ", "TG", "CF", "CD", "CG", "MG", "KH", "LA", "MM", "TL", "YE", "SY", "IQ", "HT", "PG"] }
+
+
+# V15.16.48 SEO safety: Netlify staging/deploy-preview hosts must never compete
+# with the production fitnessworld.pro canonical URLs in search.
+[[edge_functions]]
+  path = "/*"
+  function = "staging-noindex"

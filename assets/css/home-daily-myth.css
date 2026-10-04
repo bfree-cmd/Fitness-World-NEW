@@ -1,0 +1,41 @@
+.fw-daily-myth{padding:54px 0;background:#f7f6f0;color:#19331f}
+.fw-daily-myth-card{display:grid;grid-template-columns:minmax(0,1fr) minmax(360px,.88fr);gap:38px;align-items:stretch;padding:30px;border:1px solid #dbe4d8;border-radius:24px;background:#fff;box-shadow:0 18px 46px rgba(25,51,31,.08)}
+.fw-daily-myth-copy{display:flex;flex-direction:column;justify-content:center;min-width:0;padding:8px 4px}
+.fw-daily-myth .kicker{margin:0 0 12px;color:#315f3a;font-size:12px;font-weight:800;letter-spacing:.16em}
+.fw-daily-myth h2{margin:0;max-width:760px;color:#19331f;font-size:clamp(34px,3.7vw,56px);line-height:1.02;letter-spacing:-.035em}
+.fw-daily-myth-intro{margin:17px 0 22px;color:#667269;font-size:16px;line-height:1.55}
+.fw-daily-myth-choices{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+.fw-daily-myth-choices button{min-height:54px;border:1.5px solid #749178;border-radius:13px;background:#fff;color:#19331f;font:800 15px/1 inherit;letter-spacing:.08em;cursor:pointer;transition:background .18s ease,color .18s ease,border-color .18s ease,transform .18s ease}
+.fw-daily-myth-choices button:hover{transform:translateY(-1px);border-color:#19331f}
+.fw-daily-myth-choices button:focus-visible,.fw-daily-myth-cta:focus-visible{outline:3px solid #f1b849;outline-offset:3px}
+.fw-daily-myth-choices button.is-selected{border-color:#19331f;background:#19331f;color:#fff}
+.fw-daily-myth-choices button.is-correct::after{content:" ✓"}
+.fw-daily-myth-choices button.is-incorrect{border-color:#9a554f;background:#fff5f2;color:#753a35}
+.fw-daily-myth-result{margin-top:18px}
+.fw-daily-myth-status{margin:0 0 10px;color:#315f3a;font-size:14px;font-weight:800}
+.fw-daily-myth-verdict{padding:17px 18px;border-radius:15px;background:#eef4ea}
+.fw-daily-myth-verdict span{display:block;margin-bottom:7px;color:#315f3a;font-size:11px;font-weight:850;letter-spacing:.15em}
+.fw-daily-myth-verdict p{margin:0;color:#263b2b;font-size:15px;line-height:1.58}
+.fw-daily-myth-cta{display:flex;align-items:center;justify-content:center;gap:9px;width:100%;margin-top:14px;min-height:52px;text-align:center;text-decoration:none}
+.fw-daily-myth-media{min-width:0;overflow:hidden;border-radius:18px;background:#e8eee5}
+.fw-daily-myth-media img{display:block;width:100%;height:100%;min-height:390px;object-fit:cover}
+.fw-daily-myth-noscript{margin:16px 0 0;color:#667269}
+.fw-daily-myth-noscript a{color:#19331f;font-weight:700}
+@media (max-width:900px){.fw-daily-myth-card{grid-template-columns:1fr;gap:22px}.fw-daily-myth-media{grid-row:1}.fw-daily-myth-media img{min-height:0;aspect-ratio:16/9}.fw-daily-myth-copy{grid-row:2}}
+@media (max-width:760px){.fw-daily-myth{padding:24px 0}.fw-daily-myth-card{gap:18px;padding:16px;border-radius:19px;box-shadow:0 12px 30px rgba(25,51,31,.07)}.fw-daily-myth-media{border-radius:14px}.fw-daily-myth-media img{aspect-ratio:16/10}.fw-daily-myth-copy{padding:1px}.fw-daily-myth .kicker{margin-bottom:9px;font-size:10.5px}.fw-daily-myth h2{font-size:clamp(29px,8.8vw,39px);line-height:1.05}.fw-daily-myth-intro{margin:12px 0 16px;font-size:14px}.fw-daily-myth-choices{gap:9px}.fw-daily-myth-choices button{min-height:50px;border-radius:12px;font-size:14px}.fw-daily-myth-result{margin-top:14px}.fw-daily-myth-verdict{padding:15px}.fw-daily-myth-verdict p{font-size:14px;line-height:1.5}.fw-daily-myth-cta{min-height:50px;padding:12px 10px;font-size:12px}}
+@media (max-width:360px){.fw-daily-myth-card{padding:13px}.fw-daily-myth h2{font-size:28px}.fw-daily-myth-choices button{min-width:0}.fw-daily-myth-cta{font-size:11px;letter-spacing:.03em}}
+@media (prefers-reduced-motion:reduce){.fw-daily-myth-choices button{transition:none}}
+@media (min-width:901px){
+  /* Desktop-only fix: the base rule stretches this card to match
+     .fw-daily-myth-media img's min-height:390px via align-items:stretch,
+     but the copy column rarely has enough content to fill that height --
+     leaving a large empty gap below the MYTH/FACT buttons and making the
+     whole card read as oversized. Centering the columns and giving the
+     image a fixed, sensible aspect ratio instead of a forced min-height
+     lets the card size itself to its actual content. Desktop only --
+     the <=900px rules already use aspect-ratio correctly and are
+     untouched by this. */
+  .fw-daily-myth-card{align-items:center;padding:34px;grid-template-columns:minmax(0,1.15fr) minmax(300px,.68fr)}
+  .fw-daily-myth-media img{min-height:0;aspect-ratio:16/10}
+  .fw-daily-myth{padding:40px 0}
+}

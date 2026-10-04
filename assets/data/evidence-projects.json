@@ -1,0 +1,80 @@
+{
+  "version": 1,
+  "paypalSupportUrl": "/.netlify/functions/evidence-support?amount={amount}",
+  "projects": {
+    "healthy-aging": {
+      "name": "The Healthy Aging Evidence Project",
+      "shortName": "Healthy Aging",
+      "slug": "healthy-aging",
+      "status": "active",
+      "statusLabel": "UNDERWAY",
+      "isActive": true,
+      "acceptsSupport": true,
+      "fundingEnabled": true,
+      "amountRaised": 1800,
+      "fundingGoal": 5000,
+      "supporterCount": null,
+      "lastUpdated": null,
+      "currentStage": null,
+      "stages": [
+        "Project Scope",
+        "Initial Research",
+        "Evidence Review",
+        "Expert / Editorial Review",
+        "Publication"
+      ],
+      "milestones": [
+        "Initial Project Work",
+        "Expanded Evidence Review",
+        "Expert / Editorial Review",
+        "Complete Resource & Publication"
+      ],
+      "updates": [],
+      "findingsState": "in_progress",
+      "findings": [],
+      "supporterComments": [],
+      "voteEnabled": false,
+      "updatesSignupEnabled": true,
+      "shareEnabled": true
+    },
+    "better-sleep": {
+      "name": "The Better Sleep Evidence Project",
+      "shortName": "Better Sleep",
+      "slug": "better-sleep",
+      "status": "proposed",
+      "statusLabel": "PROPOSED EVIDENCE PROJECT",
+      "isActive": false,
+      "acceptsSupport": false,
+      "fundingEnabled": false,
+      "voteEnabled": true,
+      "updatesSignupEnabled": true,
+      "shareEnabled": true
+    },
+    "womens-midlife-health": {
+      "name": "The Women's Midlife Health Evidence Project",
+      "shortName": "Women's Midlife Health",
+      "slug": "womens-midlife-health",
+      "status": "proposed",
+      "statusLabel": "PROPOSED EVIDENCE PROJECT",
+      "isActive": false,
+      "acceptsSupport": false,
+      "fundingEnabled": false,
+      "voteEnabled": true,
+      "updatesSignupEnabled": true,
+      "shareEnabled": true
+    },
+    "heart-health": {
+      "name": "The Heart Health Evidence Project",
+      "shortName": "Heart Health",
+      "slug": "heart-health",
+      "status": "proposed",
+      "statusLabel": "PROPOSED EVIDENCE PROJECT",
+      "isActive": false,
+      "acceptsSupport": false,
+      "fundingEnabled": false,
+      "voteEnabled": true,
+      "updatesSignupEnabled": true,
+      "shareEnabled": true
+    }
+  }
+}

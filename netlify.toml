@@ -1,7 +1,7 @@
 
 # Evidence Reviews are served from /worth-it/ and its existing child pages.
 [build]
-  publish = "public"
+  publish = "."
   functions = "netlify/functions"
 
 [functions]

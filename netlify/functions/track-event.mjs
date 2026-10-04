@@ -1,3 +1,4 @@
+// deploy-trigger: 2026-10-04 tracking healthcheck
 const ALLOWED_FIELDS = [
   "event_type","email","product_offer","source_page","source_form","referrer_url",
   "utm_source","utm_medium","utm_campaign","utm_content","utm_term","device",

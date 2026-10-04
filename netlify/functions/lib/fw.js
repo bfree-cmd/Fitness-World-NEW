@@ -14,6 +14,8 @@ function parseBody(event){
 }
 function validEmail(v){ return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(String(v||'').trim().toLowerCase()); }
 function siteUrl(event){
+  // Manual CLI drafts can expose production URLs in function env vars.
+  // A request host is accepted only when it belongs to this Netlify site.
   const allowed=new Set(['comforting-marigold-ea2f43.netlify.app']);
   for(const raw of [process.env.URL,process.env.SITE_URL]){
     try{allowed.add(new URL(raw).hostname.toLowerCase());}catch(_){}

@@ -1,4 +1,5 @@
 (function(){
+  if(window.__FW_ROUTE_RAN)return;window.__FW_ROUTE_RAN=true;
   var product=document.body&&document.body.getAttribute('data-affiliate-product');
   var cfg=window.FW_AFFILIATE_OFFERS&&window.FW_AFFILIATE_OFFERS[product];
   var status=document.querySelector('[data-router-status]');
@@ -37,6 +38,7 @@
 
     var payload={
       event_type:'affiliate_click',
+      event_id:(window.crypto&&crypto.randomUUID)?crypto.randomUUID():('fw_'+Date.now().toString(36)+'_'+Math.random().toString(36).slice(2,12)),
       product_offer:names[product]||product||'Affiliate Offer',
       source_page:sourcePage||('/go/'+product+'/'),
       source_form:src||'Affiliate Router',

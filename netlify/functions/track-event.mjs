@@ -4,7 +4,7 @@ const ALLOWED_FIELDS = [
   "utm_source","utm_medium","utm_campaign","utm_content","utm_term","device",
   "order_id","transaction_id","payment_provider","gross_amount","currency",
   "payment_status","coupon","marketing_consent","capture_source",
-  "visitor_session_id","notes"
+  "visitor_session_id","notes","event_id"
 ];
 
 const reply = (status, data) =>

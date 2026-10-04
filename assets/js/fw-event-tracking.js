@@ -88,7 +88,7 @@
   }
 
   function send(eventType, detail = {}) {
-    const payload = Object.assign({}, context(), detail, { event_type: eventType });
+    const payload = Object.assign({}, context(), detail, { event_type: eventType, event_id: detail.event_id || uuid() });
     if (!shouldSend(eventType, payload)) return Promise.resolve({ skipped: true });
     const body = JSON.stringify(payload);
 
@@ -221,7 +221,9 @@
   }, { capture: true });
 
   // Page View is intentionally anonymous unless the visitor has separately supplied an email.
-  send('page_view', { source_form: 'Page View' });
+  // /go/ router pages are skipped: the router logs the affiliate_click itself, and a parallel
+  // page_view from the same page load raced it into the same Event Log row.
+  if (!/^\/go\//i.test(location.pathname)) send('page_view', { source_form: 'Page View' });
 
   window.FWEventTracking = Object.freeze({ send, context });
 })();

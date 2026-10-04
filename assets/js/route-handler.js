@@ -48,7 +48,8 @@
     };
     ['utm_source','utm_medium','utm_campaign','utm_content','utm_term'].forEach(function(k){
       var v=qs.get(k);
-      if(v)payload[k]=v.slice(0,300);
+      if(!v){try{v=localStorage.getItem('fw_'+k)||'';}catch(_){}}
+      if(v)payload[k]=String(v).slice(0,300);
     });
 
     var done=false;

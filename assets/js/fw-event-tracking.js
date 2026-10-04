@@ -189,8 +189,11 @@
     const rel = a.getAttribute('rel') || '';
     const isAffiliate = a.classList.contains('fw-affiliate-link') || /^\/go\//i.test(href) || /hop\.clickbank\.net/i.test(href) || /\bsponsored\b/i.test(rel);
     if (!isAffiliate) return;
-    // On /go/ pages, the inbound click was already recorded on the source page.
-    if (/^\/go\//.test(location.pathname) && !a.classList.contains('fw-affiliate-link')) return;
+    // /go/ links are recorded by the router itself after it receives the source/referrer.
+    // Avoid double-firing and row races in the Event Log.
+    if (/^\/go\//i.test(href)) return;
+    // On /go/ pages, direct outbound ClickBank links are also recorded by the router.
+    if (/^\/go\//.test(location.pathname)) return;
     const info = inferAffiliate(a);
     send('affiliate_click', {
       product_offer: info.product || clean(a.textContent, 150) || 'Affiliate Offer',

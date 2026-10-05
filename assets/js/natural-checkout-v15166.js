@@ -18,6 +18,25 @@
     try{return window.FWTracking?.attribution?.()||{};}catch(_){return {};}
   }
 
+  function trackPaidPdfLead(emailEl){
+    const value=cleanEmail(emailEl?.value);
+    if(!validEmail(value)) return Promise.resolve({skipped:true});
+    const key='fwPaidPdfLead:'+value;
+    try{if(sessionStorage.getItem(key)==='1') return Promise.resolve({skipped:true});}catch(_){ }
+    try{sessionStorage.setItem(key,'1');}catch(_){ }
+    const sender=window.FWEventTracking?.send;
+    if(typeof sender!=='function') return Promise.resolve({skipped:true});
+    return sender('paid_pdf_lead',{
+      email:value,
+      product_offer:PRODUCT,
+      source_form:'Paid PDF Email',
+      gross_amount:PRICE,
+      currency:CURRENCY,
+      marketing_consent:'No',
+      capture_source:'Website'
+    });
+  }
+
   function checkoutId(){
     try{
       if(crypto&&typeof crypto.randomUUID==='function') return crypto.randomUUID();
@@ -113,6 +132,8 @@
       if(pendingOrderID) return;
       if(status) status.textContent=isValid()?'Email looks good — continue with secure checkout.':'Enter a valid email to continue to secure checkout.';
     });
+    email.addEventListener('change',()=>{ if(!pendingOrderID) trackPaidPdfLead(email); });
+    email.addEventListener('blur',()=>{ if(!pendingOrderID) trackPaidPdfLead(email); });
 
     let currentCheckoutId='';
     let paidClickTracked=false;
@@ -129,6 +150,7 @@
         }
         currentCheckoutId=checkoutId();
         paymentStage='starting_order';
+        trackPaidPdfLead(email);
         if(!paidClickTracked){
           paidClickTracked=true;
           window.FWTracking?.track('encyclopedia_checkout_start',{value:PRICE,currency:CURRENCY});

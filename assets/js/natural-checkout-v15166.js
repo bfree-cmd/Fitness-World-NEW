@@ -18,23 +18,37 @@
     try{return window.FWTracking?.attribution?.()||{};}catch(_){return {};}
   }
 
+  const paidLeadInFlight=new Map();
   function trackPaidPdfLead(emailEl){
     const value=cleanEmail(emailEl?.value);
     if(!validEmail(value)) return Promise.resolve({skipped:true});
     const key='fwPaidPdfLead:'+value;
     try{if(sessionStorage.getItem(key)==='1') return Promise.resolve({skipped:true});}catch(_){ }
-    try{sessionStorage.setItem(key,'1');}catch(_){ }
-    const sender=window.FWEventTracking?.send;
-    if(typeof sender!=='function') return Promise.resolve({skipped:true});
-    return sender('paid_pdf_lead',{
-      email:value,
-      product_offer:PRODUCT,
-      source_form:'Paid PDF Email',
-      gross_amount:PRICE,
-      currency:CURRENCY,
-      marketing_consent:'No',
-      capture_source:'Website'
-    });
+    if(paidLeadInFlight.has(value)) return paidLeadInFlight.get(value);
+
+    const run=(async()=>{
+      const sender=window.FWEventTracking?.send;
+      if(typeof sender!=='function') return {success:false,error:'tracker_not_ready'};
+      const result=await sender('paid_pdf_lead',{
+        email:value,
+        product_offer:PRODUCT,
+        source_form:'Paid PDF Email',
+        gross_amount:PRICE,
+        currency:CURRENCY,
+        marketing_consent:'No',
+        capture_source:'Website'
+      }).catch(()=>({success:false,error:'tracking_request_failed'}));
+
+      if(result&&result.success===true){
+        try{sessionStorage.setItem(key,'1');}catch(_){ }
+      }else{
+        console.warn('Fitness World paid PDF lead tracking did not confirm',result||{});
+      }
+      return result||{success:false};
+    })().finally(()=>paidLeadInFlight.delete(value));
+
+    paidLeadInFlight.set(value,run);
+    return run;
   }
 
   function checkoutId(){

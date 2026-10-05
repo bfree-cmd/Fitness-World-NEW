@@ -174,15 +174,21 @@ document.addEventListener('DOMContentLoaded',()=>{
       const eventId='fw_article_guide_'+Date.now()+'_'+Math.random().toString(36).slice(2,9);
       window.FWTracking?.track('free_guide_lead',{event_id:eventId,location:'article_mid_content'});
       const payload={email,source:'Article Mid-Content Guide',action:'Free Guide Request',eventId,eventSourceUrl:location.href,marketing_consent:!!form.querySelector('input[name="marketing_consent"]:checked'),...attr};
+      const guideLinks='<a href="/fitness-world-free-guide.pdf" target="_blank" rel="noopener">Open the free guide now →</a><span class="fw-article-email-upsell"><strong>Want to go deeper?</strong><a href="/natural/?utm_source=article_mid_content_success&amp;utm_medium=onsite&amp;utm_campaign=encyclopedia">Explore the Natural Wellness Encyclopedia →</a></span>';
+      // Direct guide access must remain available independently of email delivery.
+      if(btn){btn.textContent='GUIDE READY ✓';btn.disabled=true;}
+      if(status){status.innerHTML='Your guide is ready. Checking email delivery… '+guideLinks;status.classList.remove('is-error');}
       const lead=fetch('/.netlify/functions/save-lead',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(payload)}).catch(()=>null);
       const mail=fetch('/.netlify/functions/send-free-guide',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({email})}).catch(()=>null);
       const [leadRes,mailRes]=await Promise.all([lead,mail]);
       let delivery={};
       if(mailRes?.ok)try{delivery=await mailRes.json();}catch(_){}
       const ok=!!(mailRes?.ok&&delivery.sent===true);
-      if(btn){btn.textContent=ok?(delivery.alreadyRequested?'ALREADY REQUESTED ✓':'GUIDE SENT ✓'):'TRY AGAIN';btn.disabled=ok;}
-      if(status){status.innerHTML=ok?(delivery.alreadyRequested?'Your guide was already requested. Check your inbox or ':'Check your inbox. You can also ')+'<a href="/fitness-world-free-guide.pdf" target="_blank" rel="noopener">open the free guide now →</a><span class="fw-article-email-upsell"><strong>Want to go deeper?</strong><a href="/natural/?utm_source=article_mid_content_success&amp;utm_medium=onsite&amp;utm_campaign=encyclopedia">Explore the Natural Wellness Encyclopedia →</a></span>':'Email delivery did not complete. <a href="/fitness-world-free-guide.pdf">Open the free guide now →</a>';status.classList.toggle('is-error',!ok);}
-      if(!ok&&btn)btn.disabled=false;
+      if(status){
+        const message=ok?(delivery.alreadyRequested?'Your guide was already requested. Check your inbox. ':'Your guide email was sent. Check your inbox. '):'Your guide is ready to open. Email delivery is currently unavailable. ';
+        status.innerHTML=message+guideLinks;
+        status.classList.remove('is-error');
+      }
     });
   }
   document.addEventListener('DOMContentLoaded',()=>document.querySelectorAll('.fw-article-email-form').forEach(init));

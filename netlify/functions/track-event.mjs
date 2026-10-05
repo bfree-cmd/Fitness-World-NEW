@@ -71,7 +71,8 @@ export default async (request, context) => {
       method: "POST",
       headers: { "content-type": "application/json" },
       body: JSON.stringify(payload),
-      redirect: "follow"
+      redirect: "follow",
+      signal: AbortSignal.timeout(25000)
     });
 
     const text = await upstream.text();
@@ -87,6 +88,7 @@ export default async (request, context) => {
       return reply(502, { success: false, error: "Tracking relay failed" });
     }
 
+    console.info("Fitness World tracking confirmed", payload.event_type, "row", result.row || null);
     return reply(200, {
       success: true,
       row: result.row || null,

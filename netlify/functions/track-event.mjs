@@ -23,7 +23,7 @@ const cleanScriptUrl = (value) => {
 };
 
 export default async (request, context) => {
-  const scriptUrl = cleanScriptUrl(process.env.FW_TRACKING_SCRIPT_URL);
+  const scriptUrl = cleanScriptUrl((process.env.FW_TRACKING_SCRIPT_URL || process.env.FW_TRACKING_ENDPOINT));
   const secret = process.env.FW_TRACKING_SECRET || "";
 
   if (request.method === "GET") {
@@ -82,7 +82,7 @@ export default async (request, context) => {
       console.error("Fitness World Apps Script returned non-JSON", text.slice(0, 200));
     }
 
-    if (!upstream.ok || result.success === false) {
+    if (!upstream.ok || result.success !== true) {
       console.error("Fitness World tracking relay failed", upstream.status, result);
       return reply(502, { success: false, error: "Tracking relay failed" });
     }
@@ -99,3 +99,4 @@ export default async (request, context) => {
     return reply(502, { success: false, error: "Tracking request failed" });
   }
 };
+

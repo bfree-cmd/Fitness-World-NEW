@@ -78,33 +78,27 @@ document.addEventListener("DOMContentLoaded", function () {
 
       if (btn) { btn.textContent = "GUIDE READY ✓"; btn.disabled = true; }
       if (note) {
-        note.textContent = "Your guide is ready. Open it now — we’ll also email a copy.";
+        note.textContent = "Your guide is ready to open. Checking email delivery…";
         note.classList.remove("form-error");
       }
 
       // Open the existing success / paid-PDF upsell immediately.
       requestAnimationFrame(() => setTimeout(openModal, 40));
 
-      // Store the lead in the background. This must never block the popup.
-      fetch("/.netlify/functions/save-lead", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          email,
-          marketing_consent: Boolean(form.querySelector('input[name="marketing_consent"]:checked')),
-          source: "Free Wellness Guide",
-          action: "Free Guide Request",
-          eventId: leadEventId,
-          eventSourceUrl: location.href,
-          ...attr
-        })
-      }).then(async lead => {
-        const leadData = await lead.json().catch(() => ({}));
-        if (!lead.ok || leadData.success !== true) {
-          throw new Error("Lead capture: " + (leadData.detail || leadData.error || ("HTTP " + lead.status)));
+      // Persist the email through the existing relay and require confirmation.
+      const sender = window.FWEventTracking?.send;
+      const capture = typeof sender === "function" ? sender("free_pdf_signup", {
+        email,
+        event_id: leadEventId,
+        product_offer: "15 Natural Wellness Habits Worth Knowing",
+        source_form: idx === 0 ? "Free Guide Form" : "Free Guide Form Secondary",
+        marketing_consent: form.querySelector('input[name="marketing_consent"]:checked') ? "Yes" : "No",
+        capture_source: "Website"
+      }) : Promise.resolve({ success: false, error: "tracker_not_ready" });
+      capture.then(result => {
+        if (!result || result.success !== true) {
+          console.warn("Fitness World free PDF lead tracking did not confirm", result || {});
         }
-      }).catch(err => {
-        console.warn("Fitness World lead storage delayed", err);
       });
 
       // Email delivery is also background-only. The direct guide link remains available
@@ -130,3 +124,4 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 
 });
+

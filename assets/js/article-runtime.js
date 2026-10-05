@@ -198,7 +198,7 @@ document.addEventListener('DOMContentLoaded',()=>{
       const btn=form.querySelector('button[type="submit"]');
       const status=form.querySelector('.fw-article-email-status');
       const email=(input?.value||'').trim().toLowerCase();
-      if(!/^[^\\s@]+@[^\\s@]+\\.[^\\s@]+$/.test(email)){input?.focus();return;}
+      if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)){input?.focus();return;}
       if(form.dataset.fwSubmitting==='1')return;
       if(form.dataset.fwCaptured===email){openModal(btn);return;}
       form.dataset.fwSubmitting='1';

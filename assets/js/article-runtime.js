@@ -159,6 +159,37 @@ document.addEventListener('DOMContentLoaded',()=>{
 
 /* --- article-email-capture.js --- */
 (()=>{
+  let modal, returnFocus;
+  function closeModal(){
+    if(!modal)return;
+    modal.hidden=true; modal.classList.remove('open'); modal.setAttribute('aria-hidden','true');
+    document.body.classList.remove('fw-modal-open');
+    returnFocus?.focus();
+  }
+  function openModal(button){
+    if(!modal){
+      const template=document.createElement('template');
+      template.innerHTML="<div aria-hidden=\"true\" aria-labelledby=\"articleGuideOfferTitle\" aria-modal=\"true\" class=\"fw-offer-modal\" hidden=\"\" id=\"article-guide-success\" role=\"dialog\">\n<div class=\"fw-offer-card\" role=\"document\">\n<button aria-label=\"Close offer\" class=\"fw-offer-close\" type=\"button\">×</button>\n<div class=\"fw-offer-confirm\"><span class=\"fw-offer-check\">✓</span><span>Your free guide is ready</span></div>\n<h2 id=\"articleGuideOfferTitle\">Ready to go deeper?</h2>\n<div class=\"fw-offer-grid\">\n<img alt=\"Natural Wellness Encyclopedia cover\" class=\"fw-offer-cover\" decoding=\"async\" height=\"604\" loading=\"lazy\" src=\"/assets/images/natural-wellness-cover.webp\" width=\"436\"/>\n<div class=\"fw-offer-copy\">\n<h3>The Natural Wellness Encyclopedia</h3>\n<p>Go beyond the starter guide with a deeper, evidence-aware reference for herbs, teas, foods and everyday wellness.</p>\n<ul class=\"fw-offer-points\"><li>70+ pages of practical wellness information</li><li>Herbs, teas, recipes &amp; healthy living</li><li>Clear safety and everyday-use context</li></ul>\n</div>\n</div>\n<p class=\"fw-offer-choice-note\">Open your free guide now. We’ll also email a copy when delivery is available.</p><a class=\"btn btn-secondary fw-offer-cta fw-offer-guide-link\" href=\"/fitness-world-free-guide.pdf\" rel=\"noopener\" target=\"_blank\">OPEN YOUR FREE GUIDE</a><a class=\"btn btn-main fw-offer-cta\" href=\"/natural/?utm_source=article_mid_content_success&amp;utm_medium=post_email_modal&amp;utm_campaign=free_to_encyclopedia\" id=\"article-guide-encyclopedia-cta\">EXPLORE THE ENCYCLOPEDIA</a>\n<p class=\"fw-offer-meta\"><strong>$9.99</strong> · One-time digital edition · No subscription</p>\n</div>\n</div>";
+      modal=template.content.firstElementChild;
+      document.body.appendChild(modal);
+      modal.querySelector('.fw-offer-close').addEventListener('click',closeModal);
+      modal.addEventListener('click',e=>{if(e.target===modal)closeModal();});
+      document.addEventListener('keydown',e=>{
+        if(modal.hidden)return;
+        if(e.key==='Escape'){closeModal();return;}
+        if(e.key==='Tab'){
+          const controls=[...modal.querySelectorAll('button,a[href]')];
+          const first=controls[0],last=controls[controls.length-1];
+          if(e.shiftKey&&document.activeElement===first){e.preventDefault();last.focus();}
+          else if(!e.shiftKey&&document.activeElement===last){e.preventDefault();first.focus();}
+        }
+      });
+    }
+    returnFocus=button;
+    modal.hidden=false; modal.classList.add('open'); modal.setAttribute('aria-hidden','false');
+    document.body.classList.add('fw-modal-open');
+    modal.querySelector('.fw-offer-close').focus();
+  }
   function init(form){
     if(form.dataset.fwReady==='1')return; form.dataset.fwReady='1';
     form.addEventListener('submit',async e=>{
@@ -167,27 +198,36 @@ document.addEventListener('DOMContentLoaded',()=>{
       const btn=form.querySelector('button[type="submit"]');
       const status=form.querySelector('.fw-article-email-status');
       const email=(input?.value||'').trim().toLowerCase();
-      if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)){input?.focus();return;}
-      if(btn?.disabled)return;
-      if(btn){btn.disabled=true;btn.textContent='SENDING…';}
-      const attr=window.FWTracking?.attribution?.()||{};
+      if(!/^[^\\s@]+@[^\\s@]+\\.[^\\s@]+$/.test(email)){input?.focus();return;}
+      if(form.dataset.fwSubmitting==='1')return;
+      if(form.dataset.fwCaptured===email){openModal(btn);return;}
+      form.dataset.fwSubmitting='1';
+      if(btn){btn.disabled=true;btn.textContent='GUIDE READY ✓';}
+      if(status){status.textContent='';status.classList.remove('is-error');}
+      openModal(btn);
       const eventId='fw_article_guide_'+Date.now()+'_'+Math.random().toString(36).slice(2,9);
-      window.FWTracking?.track('free_guide_lead',{event_id:eventId,location:'article_mid_content'});
-      const payload={email,source:'Article Mid-Content Guide',action:'Free Guide Request',eventId,eventSourceUrl:location.href,marketing_consent:!!form.querySelector('input[name="marketing_consent"]:checked'),...attr};
-      const guideLinks='<a href="/fitness-world-free-guide.pdf" target="_blank" rel="noopener">Open the free guide now →</a><span class="fw-article-email-upsell"><strong>Want to go deeper?</strong><a href="/natural/?utm_source=article_mid_content_success&amp;utm_medium=onsite&amp;utm_campaign=encyclopedia">Explore the Natural Wellness Encyclopedia →</a></span>';
-      // Direct guide access must remain available independently of email delivery.
-      if(btn){btn.textContent='GUIDE READY ✓';btn.disabled=true;}
-      if(status){status.innerHTML='Your guide is ready. Checking email delivery… '+guideLinks;status.classList.remove('is-error');}
-      const lead=fetch('/.netlify/functions/save-lead',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(payload)}).catch(()=>null);
-      const mail=fetch('/.netlify/functions/send-free-guide',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({email})}).catch(()=>null);
-      const [leadRes,mailRes]=await Promise.all([lead,mail]);
-      let delivery={};
-      if(mailRes?.ok)try{delivery=await mailRes.json();}catch(_){}
-      const ok=!!(mailRes?.ok&&delivery.sent===true);
-      if(status){
-        const message=ok?(delivery.alreadyRequested?'Your guide was already requested. Check your inbox. ':'Your guide email was sent. Check your inbox. '):'Your guide is ready to open. Email delivery is currently unavailable. ';
-        status.innerHTML=message+guideLinks;
-        status.classList.remove('is-error');
+      // Preserve the analytics event without the legacy wrapper copying a stale guide email.
+      if(typeof window.gtag==='function')window.gtag('event','free_guide_lead',{event_id:eventId,location:'article_mid_content'});
+      const sender=window.FWEventTracking?.send;
+      const capture=typeof sender==='function'?sender('free_pdf_signup',{
+        email,event_id:eventId,
+        product_offer:'15 Natural Wellness Habits Worth Knowing',
+        source_form:'Article Mid-Content Guide',
+        marketing_consent:form.querySelector('input[name="marketing_consent"]:checked')?'Yes':'No',
+        capture_source:'Website'
+      }):Promise.resolve({success:false});
+      // Use the existing Resend function in the background; it cannot block the dialog.
+      fetch('/.netlify/functions/send-free-guide',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({email})})
+        .then(r=>r.json()).then(result=>{if(result.sent!==true)console.warn('Fitness World guide email delivery unavailable');})
+        .catch(()=>console.warn('Fitness World guide email delivery unavailable'));
+      const result=await capture.catch(()=>({success:false}));
+      form.dataset.fwSubmitting='0';
+      if(result.success===true){
+        form.dataset.fwCaptured=email;
+        if(btn)btn.disabled=false;
+      }else{
+        if(btn){btn.disabled=false;btn.textContent='TRY AGAIN';}
+        if(status){status.textContent='Email could not be saved. Please try again.';status.classList.add('is-error');}
       }
     });
   }

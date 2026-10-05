@@ -37,6 +37,8 @@ document.addEventListener("DOMContentLoaded", function () {
     document.body.classList.remove("fw-modal-open");
   }
   function openModal() {
+    // Keep the shared dialog visible when the secondary form submits while the primary gate is hidden.
+    if (modal.parentElement !== document.body) document.body.appendChild(modal);
     modal.hidden = false;
     modal.classList.add("open");
     modal.setAttribute("aria-hidden", "false");

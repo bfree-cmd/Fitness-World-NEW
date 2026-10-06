@@ -225,3 +225,60 @@ body{color:var(--fw-ink)}
     transition-duration:.001ms!important;
   }
 }
+
+
+/* V189.1 — Free Preview + paid checkout density polish */
+.fw-v1587-resources-footer a{text-decoration:none!important}
+.guide-second-card--split{max-width:1040px!important;text-align:left!important;display:grid;grid-template-columns:minmax(0,1.08fr) minmax(360px,.92fr);gap:42px;align-items:center;padding:34px 38px!important}
+.guide-second-card--split .guide-second-copy h2{width:auto!important;margin:7px 0 12px!important;text-align:left!important;font-size:clamp(2.2rem,3.5vw,3rem)!important;line-height:1.02!important}
+.guide-second-card--split .guide-second-copy>p{max-width:580px!important;margin:0 0 18px!important;text-align:left!important;line-height:1.55!important}
+.guide-second-benefits{list-style:none;margin:0;padding:0;display:grid;gap:9px}
+.guide-second-benefits li{position:relative;padding-left:25px;color:#3f4e44;line-height:1.45}
+.guide-second-benefits li:before{content:"✓";position:absolute;left:0;color:#2f7a3d;font-weight:900}
+.guide-second-form-panel{background:#f4f8ee;border:1px solid #d4e0cf;border-radius:18px;padding:24px}
+.guide-second-form-panel h3{margin:0 0 5px;font-size:1.25rem;color:#173c27}
+.guide-second-form-intro{margin:0 0 16px;color:#5b665e;font-size:.94rem}
+.guide-second-form-panel .free-guide-secondary-form{max-width:none!important}
+.guide-second-form-panel .free-guide-secondary-form .formrow{grid-template-columns:1fr!important}
+.guide-second-form-panel .free-guide-secondary-form .btn{width:100%!important}
+.guide-second-form-panel .guide-email-note{text-align:left!important}
+.free-guide-secondary-form button:disabled{background:#e6f1df!important;color:#226b35!important;border-color:#c7ddbe!important;opacity:1!important}
+
+.natural-checkout-wrap--balanced{grid-template-columns:minmax(0,.9fr) minmax(520px,1.1fr)!important;gap:38px!important;align-items:stretch!important}
+.natural-checkout-intro--filled{display:flex;flex-direction:column;justify-content:center;padding:24px 0}
+.natural-checkout-intro--filled h2{margin-bottom:12px}
+.nw-checkout-product-summary{display:grid;grid-template-columns:105px 1fr;gap:18px;align-items:center;margin-top:24px;padding:18px;border:1px solid #d6dfd2;border-radius:18px;background:#f7faf4}
+.nw-checkout-product-summary img{width:105px;height:auto;border-radius:7px;box-shadow:0 8px 20px rgba(23,32,25,.09)}
+.nw-checkout-product-summary strong{display:block;font-size:1.05rem;margin-bottom:8px}
+.nw-checkout-product-summary ul{list-style:none;padding:0;margin:0;display:grid;gap:5px;color:#56625a;font-size:.92rem}
+.nw-checkout-product-summary li:before{content:"✓ ";color:#2f7a3d;font-weight:900}
+.nw-checkout-card{padding:24px!important}
+.nw-delivery-label{font-size:.72rem;font-weight:900;letter-spacing:.1em;color:#2f7a3d;margin-bottom:7px}
+.nw-email-confirm{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:12px 14px;border:1px solid #d2ddd0;border-radius:12px;background:#f7faf4;margin-bottom:8px}
+.nw-email-confirm[hidden]{display:none!important}
+.nw-email-confirm span{min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.nw-email-confirm button{border:0;background:transparent;color:#276d39;font-weight:800;text-decoration:underline;cursor:pointer;padding:4px}
+.nw-checkout-meta-compact{text-align:center;margin:12px 0 8px;display:grid;gap:3px;font-size:.82rem;color:#647067}
+.nw-checkout-meta-compact strong{color:#26382b;font-size:.9rem}
+.nw-checkout-steps--compact{display:flex!important;align-items:center;justify-content:center;gap:9px;padding:11px 0 4px;border-top:1px solid #e0e5dc;margin-top:9px!important;font-size:.8rem}
+.nw-checkout-steps--compact span{display:inline-flex;align-items:center;gap:4px}
+.nw-checkout-steps--compact b{display:grid;place-items:center;width:21px;height:21px;border-radius:50%;background:#e8f3e3;color:#226b35;font-size:.72rem}
+.nw-checkout-support{text-align:center;margin:9px 0 0!important;font-size:.8rem!important}
+.nw-checkout-card>.nw-checkout-trust,.nw-checkout-card>.nw-checkout-steps{display:none}
+
+@media(max-width:900px){
+  .guide-second-card--split{grid-template-columns:1fr;gap:22px;padding:26px 20px!important}
+  .guide-second-card--split .guide-second-copy h2{text-align:center!important;margin-left:auto!important;margin-right:auto!important}
+  .guide-second-card--split .guide-second-copy>p{text-align:center!important;margin-left:auto!important;margin-right:auto!important}
+  .guide-second-benefits{max-width:520px;margin:0 auto}
+  .guide-second-form-panel{padding:20px}
+  .natural-checkout-wrap--balanced{grid-template-columns:1fr!important;gap:18px!important}
+  .natural-checkout-intro--filled{padding:0}
+  .nw-checkout-product-summary{max-width:560px}
+}
+@media(max-width:620px){
+  .nw-checkout-product-summary{grid-template-columns:78px 1fr;padding:14px;gap:13px}
+  .nw-checkout-product-summary img{width:78px}
+  .nw-checkout-card{padding:18px!important}
+  .nw-checkout-meta-compact,.nw-checkout-steps--compact,.nw-checkout-support{display:none!important}
+}

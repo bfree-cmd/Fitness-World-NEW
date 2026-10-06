@@ -92,7 +92,7 @@ document.addEventListener("DOMContentLoaded", function () {
       const capture = typeof sender === "function" ? sender("free_pdf_signup", {
         email,
         event_id: leadEventId,
-        product_offer: "15 Natural Wellness Habits Worth Knowing",
+        product_offer: "30-Day Natural Wellness Reset — Free Preview",
         source_form: idx === 0 ? "Free Guide Form" : "Free Guide Form Secondary",
         marketing_consent: form.querySelector('input[name="marketing_consent"]:checked') ? "Yes" : "No",
         capture_source: "Website"

@@ -220,3 +220,15 @@ document.addEventListener('DOMContentLoaded',()=>{document.querySelectorAll('[da
 document.addEventListener('click',function(e){var a=e.target.closest('.fw-affiliate-link');if(!a)return;var d={event:'affiliate_click',product:a.dataset.affiliate||'',network:a.dataset.network||'',article:a.dataset.article||'',placement:a.dataset.placement||''};if(typeof window.gtag==='function')window.gtag('event','affiliate_click',d);});
 
 
+
+
+/* FITNESS WORLD V189 — shared brand normalization */
+document.addEventListener('DOMContentLoaded', function () {
+  document.querySelectorAll('.brandtagline').forEach(function (el) {
+    el.textContent = 'WHAT REALLY WORKS.';
+  });
+  document.querySelectorAll('a.navcta[href*="/free-guide/"]').forEach(function (el) {
+    el.textContent = 'GET FREE PREVIEW';
+    el.setAttribute('aria-label', 'Get the free preview');
+  });
+});

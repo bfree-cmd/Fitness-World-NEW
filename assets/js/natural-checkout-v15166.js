@@ -1,7 +1,7 @@
 (function(){
   'use strict';
 
-  const PRODUCT='Natural Wellness Encyclopedia';
+  const PRODUCT='30-Day Natural Wellness Reset';
   const PRICE=9.99;
   const CURRENCY='USD';
 

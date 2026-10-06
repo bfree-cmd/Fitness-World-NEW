@@ -118,9 +118,13 @@ document.addEventListener("DOMContentLoaded", function () {
         if (note) note.textContent = "Free preview sent — check your inbox. You can also open it now below.";
         const confirm = modal.querySelector(".fw-offer-confirm span:last-child");
         if (confirm) confirm.textContent = "Your free preview is ready — and we emailed a copy";
+        const choice = modal.querySelector(".fw-offer-choice-note");
+        if (choice) choice.textContent = "Open your free preview now. A copy was also sent to your email.";
       }).catch(err => {
         console.warn("Fitness World guide email delivery delayed", err);
-        if (note) note.textContent = "Your free preview is ready. Email delivery may be delayed — open it now below.";
+        if (note) note.textContent = "Your free preview is ready. We could not confirm email delivery — open it now below.";
+        const choice = modal.querySelector(".fw-offer-choice-note");
+        if (choice) choice.textContent = "Open your free preview now. We could not confirm the email delivery.";
       }).finally(() => clearTimeout(timeout));
     });
   });

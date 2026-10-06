@@ -35,6 +35,7 @@ export async function handler(event) {
   }
 
   const from = String(
+    process.env.RESEND_FROM_EMAIL ||
     process.env.FW_FROM_EMAIL ||
     process.env.FITNESS_WORLD_FROM_EMAIL ||
     "Fitness World <onboarding@resend.dev>"

@@ -141,7 +141,7 @@
         const email = clean(storeCall('local', 'getItem', 'fwGuideEmail') || formEmail('#free-guide-email-input') || formEmail('#free-guide-email-input-2'), 320).toLowerCase();
         send('free_pdf_signup', {
           email,
-          product_offer: '15 Natural Wellness Habits Worth Knowing',
+          product_offer: '30-Day Natural Wellness Reset — Free Preview',
           source_form: clean(p.location || 'Free Guide Form', 200),
           marketing_consent: document.querySelector((p.location === 'free_guide_page_secondary' ? '#free-guide-download-form-2' : '#free-guide-download-form') + ' input[name="marketing_consent"]:checked') ? 'Yes' : 'No',
           capture_source: 'Netlify Form'
@@ -156,7 +156,7 @@
       } else if (name === 'encyclopedia_checkout_start') {
         send('paid_pdf_click', {
           email: formEmail('#nw-purchase-email'),
-          product_offer: 'Natural Wellness Encyclopedia',
+          product_offer: '30-Day Natural Wellness Reset',
           source_form: 'PayPal Checkout',
           payment_provider: 'PayPal',
           gross_amount: Number(p.value || 9.99),
@@ -164,7 +164,7 @@
         });
       } else if (name === 'encyclopedia_cta_click') {
         send('cta_click', {
-          product_offer: 'Natural Wellness Encyclopedia',
+          product_offer: '30-Day Natural Wellness Reset',
           source_form: clean(p.placement || 'Encyclopedia CTA', 200)
         });
       } else if (name === 'cta_click') {

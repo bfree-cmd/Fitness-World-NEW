@@ -61,13 +61,99 @@ export async function handler(event) {
         from,
         to: [email],
         subject: "Your free preview: The 30-Day Natural Wellness Reset",
-        html:
-          `<p>Thanks for requesting your free preview of The 30-Day Natural Wellness Reset.</p>` +
-          `<p><a href="${guideUrl}">Open your free preview</a></p>` +
-          `<p>Educational wellness information only. Not medical advice.</p>`,
+        html: (() => {
+          const base = siteUrl();
+          const cover = `${base}/assets/images/free-preview-cover-v188.webp`;
+          const preview1 = `${base}/assets/images/pdf-previews/free-preview-page-01-600.webp`;
+          const preview2 = `${base}/assets/images/pdf-previews/free-preview-page-03-600.webp`;
+          const preview3 = `${base}/assets/images/pdf-previews/free-preview-page-04-600.webp`;
+
+          return `
+<!doctype html>
+<html>
+  <body style="margin:0;padding:0;background:#f4f1e8;font-family:Arial,Helvetica,sans-serif;color:#172019;">
+    <table role="presentation" width="100%" cellspacing="0" cellpadding="0" border="0" style="background:#f4f1e8;padding:28px 12px;">
+      <tr>
+        <td align="center">
+          <table role="presentation" width="100%" cellspacing="0" cellpadding="0" border="0" style="max-width:620px;background:#ffffff;border:1px solid #dfe6dc;border-radius:20px;overflow:hidden;">
+            <tr>
+              <td style="padding:28px 32px 10px;text-align:center;">
+                <div style="font-size:12px;font-weight:800;letter-spacing:.12em;color:#2f7a3d;">FITNESS WORLD</div>
+                <div style="margin-top:4px;font-size:11px;font-weight:700;color:#657067;">WHAT REALLY WORKS.</div>
+              </td>
+            </tr>
+            <tr>
+              <td style="padding:16px 32px 8px;text-align:center;">
+                <div style="font-size:12px;font-weight:800;letter-spacing:.12em;color:#2f7a3d;">YOUR FREE PREVIEW IS READY</div>
+                <h1 style="margin:10px 0 10px;font-size:30px;line-height:1.12;color:#172019;">The 30-Day Natural Wellness Reset</h1>
+                <p style="margin:0 auto;max-width:520px;font-size:16px;line-height:1.6;color:#55625a;">Thanks for requesting your free preview. Here’s a quick look inside before you open the full 5-page PDF.</p>
+              </td>
+            </tr>
+            <tr>
+              <td style="padding:18px 32px 10px;text-align:center;">
+                <a href="${guideUrl}" style="display:inline-block;text-decoration:none;">
+                  <img src="${cover}" width="190" alt="Cover of The 30-Day Natural Wellness Reset Free Preview" style="display:block;width:190px;max-width:100%;height:auto;margin:0 auto;border-radius:10px;box-shadow:0 10px 24px rgba(0,0,0,.10);">
+                </a>
+              </td>
+            </tr>
+            <tr>
+              <td style="padding:12px 32px 6px;">
+                <table role="presentation" width="100%" cellspacing="0" cellpadding="0" border="0">
+                  <tr>
+                    <td style="padding:0 0 8px;font-size:15px;line-height:1.55;color:#334139;">Inside the preview:</td>
+                  </tr>
+                  <tr><td style="padding:3px 0;font-size:14px;line-height:1.5;color:#4d5a52;">• The 4-Part Meal Method</td></tr>
+                  <tr><td style="padding:3px 0;font-size:14px;line-height:1.5;color:#4d5a52;">• Your first 3 challenge days</td></tr>
+                  <tr><td style="padding:3px 0;font-size:14px;line-height:1.5;color:#4d5a52;">• A look inside the full 79-page program</td></tr>
+                </table>
+              </td>
+            </tr>
+            <tr>
+              <td style="padding:16px 32px 8px;text-align:center;">
+                <a href="${guideUrl}" style="display:inline-block;background:#23241f;color:#ffffff;text-decoration:none;font-size:14px;font-weight:800;padding:15px 26px;border-radius:999px;">OPEN THE FULL FREE PREVIEW</a>
+              </td>
+            </tr>
+            <tr>
+              <td style="padding:20px 20px 4px;text-align:center;">
+                <div style="font-size:12px;font-weight:800;letter-spacing:.08em;color:#2f7a3d;">A QUICK LOOK INSIDE</div>
+              </td>
+            </tr>
+            <tr>
+              <td style="padding:10px 18px 4px;">
+                <table role="presentation" width="100%" cellspacing="0" cellpadding="0" border="0">
+                  <tr>
+                    <td width="33.33%" valign="top" style="padding:6px;">
+                      <a href="${guideUrl}"><img src="${preview1}" width="170" alt="Free preview cover page" style="display:block;width:100%;height:auto;border:1px solid #e2e6df;border-radius:8px;"></a>
+                    </td>
+                    <td width="33.33%" valign="top" style="padding:6px;">
+                      <a href="${guideUrl}"><img src="${preview2}" width="170" alt="4-Part Meal Method preview page" style="display:block;width:100%;height:auto;border:1px solid #e2e6df;border-radius:8px;"></a>
+                    </td>
+                    <td width="33.33%" valign="top" style="padding:6px;">
+                      <a href="${guideUrl}"><img src="${preview3}" width="170" alt="First 3 challenge days preview page" style="display:block;width:100%;height:auto;border:1px solid #e2e6df;border-radius:8px;"></a>
+                    </td>
+                  </tr>
+                </table>
+              </td>
+            </tr>
+            <tr>
+              <td style="padding:18px 32px 26px;text-align:center;">
+                <p style="margin:0 0 6px;font-size:12px;line-height:1.5;color:#6a746d;">Educational wellness information only. Not medical advice.</p>
+                <p style="margin:0;font-size:12px;line-height:1.5;color:#6a746d;">Need help? <a href="mailto:support@fitnessworld.pro" style="color:#2f6b3d;">support@fitnessworld.pro</a></p>
+              </td>
+            </tr>
+          </table>
+        </td>
+      </tr>
+    </table>
+  </body>
+</html>`;
+        })(),
         text:
-          `Your free preview of The 30-Day Natural Wellness Reset: ${guideUrl}\n\n` +
-          "Educational wellness information only. Not medical advice."
+          `Your free preview of The 30-Day Natural Wellness Reset is ready.\n\n` +
+          `Open the full free preview: ${guideUrl}\n\n` +
+          "Inside: The 4-Part Meal Method, your first 3 challenge days, and a look inside the full 79-page program.\n\n" +
+          "Educational wellness information only. Not medical advice.\n" +
+          "Need help? support@fitnessworld.pro"
       })
     });
 

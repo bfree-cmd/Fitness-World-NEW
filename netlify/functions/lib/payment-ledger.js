@@ -53,7 +53,82 @@ async function deliver(orderID,event){
   }
   let deliveryStatus='Pending';
   try{
-    await sendEmail({to:record.email,subject:'Your Fitness World 30-Day Natural Wellness Reset',html:`<p>Payment confirmed. Your 30-Day Natural Wellness Reset is ready.</p><p><a href="${record.downloadUrl}">Secure download</a></p><p>This secure link expires in 24 hours.</p>`,text:`Payment confirmed. Secure download (expires in 24 hours): ${record.downloadUrl}`,idempotencyKey:'paypal-capture/'+orderID});
+    await sendEmail({
+      to:record.email,
+      subject:'Your 30-Day Natural Wellness Reset is ready',
+      html:`
+<!doctype html>
+<html>
+  <body style="margin:0;padding:0;background:#f4f1e8;font-family:Arial,Helvetica,sans-serif;color:#172019;">
+    <table role="presentation" width="100%" cellspacing="0" cellpadding="0" border="0" style="background:#f4f1e8;padding:28px 12px;">
+      <tr>
+        <td align="center">
+          <table role="presentation" width="100%" cellspacing="0" cellpadding="0" border="0" style="max-width:620px;background:#ffffff;border:1px solid #dfe6dc;border-radius:20px;overflow:hidden;">
+            <tr>
+              <td style="padding:28px 32px 10px;text-align:center;">
+                <div style="font-size:12px;font-weight:800;letter-spacing:.12em;color:#2f7a3d;">FITNESS WORLD</div>
+                <div style="margin-top:4px;font-size:11px;font-weight:700;color:#657067;">WHAT REALLY WORKS.</div>
+              </td>
+            </tr>
+            <tr>
+              <td style="padding:16px 32px 8px;text-align:center;">
+                <div style="font-size:12px;font-weight:800;letter-spacing:.12em;color:#2f7a3d;">YOUR RESET IS READY</div>
+                <h1 style="margin:10px 0 10px;font-size:30px;line-height:1.12;color:#172019;">The 30-Day Natural Wellness Reset</h1>
+                <p style="margin:0 auto;max-width:520px;font-size:16px;line-height:1.6;color:#55625a;">Payment confirmed. Your full 79-page program is ready to download.</p>
+              </td>
+            </tr>
+            <tr>
+              <td style="padding:18px 32px 10px;text-align:center;">
+                <a href="${record.downloadUrl}" style="display:block;text-decoration:none;">
+                  <div style="max-width:520px;margin:0 auto;padding:34px 22px;border-radius:12px;background:#155f50;color:#ffffff;font-size:24px;font-weight:800;line-height:1.15;">THE 30-DAY<br>NATURAL WELLNESS RESET<div style="margin-top:12px;font-size:13px;font-weight:600;opacity:.86;">FULL 79-PAGE PROGRAM</div></div>
+                </a>
+              </td>
+            </tr>
+            <tr>
+              <td style="padding:12px 32px 6px;">
+                <table role="presentation" width="100%" cellspacing="0" cellpadding="0" border="0">
+                  <tr><td style="padding:0 0 8px;font-size:15px;line-height:1.55;color:#334139;font-weight:700;">Inside your Reset:</td></tr>
+                  <tr><td style="padding:3px 0;font-size:14px;line-height:1.5;color:#4d5a52;">• The complete 30-day wellness program</td></tr>
+                  <tr><td style="padding:3px 0;font-size:14px;line-height:1.5;color:#4d5a52;">• Weekly trackers and the Day 30 Check-In</td></tr>
+                  <tr><td style="padding:3px 0;font-size:14px;line-height:1.5;color:#4d5a52;">• Your Personal Wellness Blueprint</td></tr>
+                  <tr><td style="padding:3px 0;font-size:14px;line-height:1.5;color:#4d5a52;">• 10 Done-for-You Tools</td></tr>
+                  <tr><td style="padding:3px 0;font-size:14px;line-height:1.5;color:#4d5a52;">• Bonus 19-profile Wellness Reference Library</td></tr>
+                </table>
+              </td>
+            </tr>
+            <tr>
+              <td style="padding:18px 32px 10px;text-align:center;">
+                <a href="${record.downloadUrl}" style="display:inline-block;background:#23241f;color:#ffffff;text-decoration:none;font-size:14px;font-weight:800;padding:15px 26px;border-radius:999px;">OPEN YOUR SECURE DOWNLOAD</a>
+              </td>
+            </tr>
+            <tr>
+              <td style="padding:12px 32px 24px;text-align:center;">
+                <p style="margin:0 0 8px;font-size:13px;line-height:1.5;color:#526158;"><strong>Your secure download link expires in 24 hours.</strong></p>
+                <p style="margin:0 0 8px;font-size:12px;line-height:1.5;color:#6a746d;">If your link expires or you have any trouble accessing your purchase, contact <a href="mailto:support@fitnessworld.pro" style="color:#2f6b3d;">support@fitnessworld.pro</a> and include your order ID.</p>
+                <p style="margin:0;font-size:12px;line-height:1.5;color:#6a746d;">Educational wellness information only. Not medical advice.</p>
+              </td>
+            </tr>
+          </table>
+        </td>
+      </tr>
+    </table>
+  </body>
+</html>`,
+      text:
+        'Your 30-Day Natural Wellness Reset is ready.\\n\\n' +
+        'Payment confirmed. Your full 79-page program is ready to download.\\n\\n' +
+        'Inside your Reset:\\n' +
+        '• The complete 30-day wellness program\\n' +
+        '• Weekly trackers and the Day 30 Check-In\\n' +
+        '• Your Personal Wellness Blueprint\\n' +
+        '• 10 Done-for-You Tools\\n' +
+        '• Bonus 19-profile Wellness Reference Library\\n\\n' +
+        'OPEN YOUR SECURE DOWNLOAD: ' + record.downloadUrl + '\\n\\n' +
+        'Your secure download link expires in 24 hours.\\n' +
+        'If your link expires or you have any trouble accessing your purchase, contact support@fitnessworld.pro and include your order ID.\\n\\n' +
+        'Educational wellness information only. Not medical advice.',
+      idempotencyKey:'paypal-capture/'+orderID
+    });
     deliveryStatus='Delivered';
   }catch(error){console.error('[Fitness World] delivery email failed after verified capture',{orderID,error:String(error.message||error)});}
   const updated={...record,status:deliveryStatus==='Delivered'?'delivered':'failed',updated_at:Date.now()};

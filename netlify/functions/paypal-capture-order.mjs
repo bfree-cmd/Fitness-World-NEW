@@ -32,7 +32,7 @@ const handler=async(event)=>{
   if(result.status!=='COMPLETED')return json(202,{status:'PENDING_CONFIRMATION',orderID});
   if(result.firstDelivered)try{
     let sourcePage='';try{sourcePage=new URL(String(b.eventSourceUrl||'')).pathname;}catch(_){}
-    await forwardTracking({event_type:'paid_purchase',email,product_offer:'Natural Wellness Encyclopedia',source_page:sourcePage||'/natural/',source_form:'PayPal Checkout',referrer_url:clean(b.first_referrer,1000),utm_source:clean(b.utm_source,300),utm_medium:clean(b.utm_medium,300),utm_campaign:clean(b.utm_campaign,300),utm_content:clean(b.utm_content,300),utm_term:clean(b.utm_term,300),order_id:orderID,transaction_id:capture.id,payment_provider:'PayPal',gross_amount:9.99,currency:'USD',payment_status:'Paid',marketing_consent:'No',capture_source:'PayPal',notes:'Purchase Event ID: fw_purchase_'+orderID+' | Confirmed PayPal capture; delivery status: '+result.deliveryStatus});
+    await forwardTracking({event_type:'paid_purchase',email,product_offer:'30-Day Natural Wellness Reset',source_page:sourcePage||'/natural/',source_form:'PayPal Checkout',referrer_url:clean(b.first_referrer,1000),utm_source:clean(b.utm_source,300),utm_medium:clean(b.utm_medium,300),utm_campaign:clean(b.utm_campaign,300),utm_content:clean(b.utm_content,300),utm_term:clean(b.utm_term,300),order_id:orderID,transaction_id:capture.id,payment_provider:'PayPal',gross_amount:9.99,currency:'USD',payment_status:'Paid',marketing_consent:'No',capture_source:'PayPal',notes:'Purchase Event ID: fw_purchase_'+orderID+' | Confirmed PayPal capture; delivery status: '+result.deliveryStatus});
   }catch(_){}
   const {firstDelivered,...publicResult}=result;
   return json(200,{...publicResult,eventId:'fw_purchase_'+orderID});

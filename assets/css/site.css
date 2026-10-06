@@ -304,3 +304,23 @@ body{color:var(--fw-ink)}
   .nw-checkout-mobile-polish{padding-top:8px!important}
   .nw-checkout-mobile-steps{margin-top:0!important;padding-top:0!important}
 }
+
+
+/* V189.3 — final PayPal attribution placement */
+.nw-powered-by-paypal--mobile{display:none}
+@media(max-width:620px){
+  .nw-powered-by-paypal--desktop{display:none!important}
+  .nw-powered-by-paypal--mobile{
+    display:block!important;
+    margin:14px 0 0;
+    text-align:center;
+    color:#7b8580;
+    font-size:.78rem;
+    font-style:italic;
+  }
+  .nw-powered-by-paypal--mobile strong{
+    color:#005ea6;
+    font-size:.95rem;
+    font-style:normal;
+  }
+}

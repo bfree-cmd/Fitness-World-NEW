@@ -50,6 +50,24 @@ export async function handler(event) {
     process.env.FW_FREE_GUIDE_URL || `${siteUrl()}/fitness-world-30-day-reset-free-preview.pdf`
   ).trim();
 
+  let attachments = [];
+  let attachmentReady = false;
+  try {
+    const pdfResponse = await fetch(guideUrl, { cache: "no-store" });
+    if (pdfResponse.ok) {
+      const pdfBuffer = Buffer.from(await pdfResponse.arrayBuffer());
+      if (pdfBuffer.length > 0 && pdfBuffer.length < 35 * 1024 * 1024) {
+        attachments = [{
+          filename: "Fitness-World-30-Day-Natural-Wellness-Reset-Free-Preview.pdf",
+          content: pdfBuffer.toString("base64")
+        }];
+        attachmentReady = true;
+      }
+    }
+  } catch (error) {
+    console.warn("Free guide attachment fetch failed:", error);
+  }
+
   try {
     const response = await fetch("https://api.resend.com/emails", {
       method: "POST",
@@ -83,7 +101,7 @@ export async function handler(event) {
               <td style="padding:16px 32px 8px;text-align:center;">
                 <div style="font-size:12px;font-weight:800;letter-spacing:.12em;color:#2f7a3d;">YOUR FREE PREVIEW IS READY</div>
                 <h1 style="margin:10px 0 10px;font-size:30px;line-height:1.12;color:#172019;">The 30-Day Natural Wellness Reset</h1>
-                <p style="margin:0 auto;max-width:520px;font-size:16px;line-height:1.6;color:#55625a;">Your 5-page Free Preview is attached to this email, and you can also open it online anytime.</p>
+                <p style="margin:0 auto;max-width:520px;font-size:16px;line-height:1.6;color:#55625a;">${attachmentReady ? "Your 5-page Free Preview is attached to this email, and you can also open it online anytime." : "Your 5-page Free Preview is ready, and you can open it online anytime."}</p>
               </td>
             </tr>
             <tr>
@@ -110,7 +128,7 @@ export async function handler(event) {
             </tr>
             <tr>
               <td style="padding:12px 32px 24px;text-align:center;">
-                <p style="margin:0 0 8px;font-size:13px;line-height:1.5;color:#526158;"><strong>The PDF is attached to this email.</strong></p>
+                <p style="margin:0 0 8px;font-size:13px;line-height:1.5;color:#526158;"><strong>${attachmentReady ? "The PDF is attached to this email." : "Open the PDF using the button above."}</strong></p>
                 <p style="margin:0 0 6px;font-size:12px;line-height:1.5;color:#6a746d;">Educational wellness information only. Not medical advice.</p>
                 <p style="margin:0;font-size:12px;line-height:1.5;color:#6a746d;">Need help? <a href="mailto:support@fitnessworld.pro" style="color:#2f6b3d;">support@fitnessworld.pro</a></p>
               </td>
@@ -124,16 +142,11 @@ export async function handler(event) {
         })(),
         text:
           `Your free preview of The 30-Day Natural Wellness Reset is ready.\n\n` +
-          `The 5-page PDF is attached to this email. You can also open it here: ${guideUrl}\n\n` +
+          `${attachmentReady ? "The 5-page PDF is attached to this email. " : ""}You can open it here: ${guideUrl}\n\n` +
           "Inside: The 4-Part Meal Method, your first 3 challenge days, and a look inside the full 79-page program.\n\n" +
           "Educational wellness information only. Not medical advice.\n" +
           "Need help? support@fitnessworld.pro",
-        attachments: [
-          {
-            path: guideUrl,
-            filename: "Fitness-World-30-Day-Natural-Wellness-Reset-Free-Preview.pdf"
-          }
-        ]      })
+        ...(attachments.length ? { attachments } : {})      })
     });
 
     const data = await response.json().catch(() => ({}));

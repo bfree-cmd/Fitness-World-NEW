@@ -8,13 +8,13 @@
   node_bundler = "esbuild"
 
 [functions.send-free-guide]
-  included_files = ["public/fitness-world-free-guide.pdf"]
+  included_files = ["fitness-world-30-day-reset-free-preview.pdf"]
 
 [functions.paypal-capture-order]
   included_files = ["private/Fitness_World_Natural_Wellness_Encyclopedia.pdf"]
 
 [functions.download-encyclopedia]
-  included_files = ["private/Fitness_World_Natural_Wellness_Encyclopedia.pdf"]
+  included_files = ["private/Fitness_World_Natural_Wellness_Encyclopedia.pdf", "private/Fitness_World_30-Day_Natural_Wellness_Reset.pdf"]
 
 [[headers]]
   for = "/*"
@@ -38,10 +38,54 @@
     Cache-Control = "public, max-age=31536000, immutable"
 
 [[headers]]
-  for = "/fitness-world-free-guide.pdf"
+  for = "/fitness-world-30-day-reset-free-preview.pdf"
   [headers.values]
     Cache-Control = "public, max-age=3600"
     X-Robots-Tag = "noindex"
+
+# V15.16.188 product migration redirects: retired free-guide PDF -> Free Preview; legacy /checkout/ -> product checkout.
+[[redirects]]
+  from = "/fitness-world-free-guide.pdf"
+  to = "/fitness-world-30-day-reset-free-preview.pdf"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/checkout"
+  to = "/natural/#nw-checkout"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/checkout/*"
+  to = "/natural/#nw-checkout"
+  status = 301
+  force = true
+
+# V15.16.188 retired cover images -> new covers
+[[redirects]]
+  from = "/assets/images/natural-wellness-cover.webp"
+  to = "/assets/images/reset-cover-v188.webp"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/assets/images/natural-wellness-cover.png"
+  to = "/assets/images/reset-cover-v188.webp"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/assets/images/free-guide-cover.webp"
+  to = "/assets/images/free-preview-cover-v188.webp"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/assets/images/free-guide-cover.jpg"
+  to = "/assets/images/free-preview-cover-v188.webp"
+  status = 301
+  force = true
 
 # Evidence Projects one-page consolidation redirects
 [[redirects]]

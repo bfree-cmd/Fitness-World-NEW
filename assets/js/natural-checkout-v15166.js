@@ -190,7 +190,7 @@
       },
       onApprove:async data=>{
         paymentStage='confirming_payment';
-        if(status) status.textContent='Confirming payment and preparing your Encyclopedia…';
+        if(status) status.textContent='Confirming payment and preparing your 30-Day Reset…';
         const r=await fetch('/.netlify/functions/paypal-capture-order',{
           method:'POST',
           headers:{'Content-Type':'application/json'},
@@ -212,11 +212,11 @@
         const dl=document.getElementById('nw-secure-download');
         if(msg){
           if(d.deliveryStatus==='Delivered'){
-            msg.textContent='Payment confirmed. We sent your digital Encyclopedia to '+email.value.trim()+'.';
+            msg.textContent='Payment confirmed. We sent your 30-Day Natural Wellness Reset to '+email.value.trim()+'.';
           }else if(d.deliveryStatus==='Pending'&&d.downloadUrl){
             msg.textContent='Payment confirmed. We could not send the confirmation email right now, so please use the secure download link below and save it -- it will not be re-sent automatically.';
           }else{
-            msg.textContent='Payment confirmed, but we could not prepare your download link. This is a delivery issue only, not a payment problem -- please contact support@fitnessworld.pro with your order ID ('+String(d.eventId||'').replace('fw_purchase_','')+') and we will get your Encyclopedia to you.';
+            msg.textContent='Payment confirmed, but we could not prepare your download link. This is a delivery issue only, not a payment problem -- please contact support@fitnessworld.pro with your order ID ('+String(d.eventId||'').replace('fw_purchase_','')+') and we will get your 30-Day Reset to you.';
           }
         }
         if(dl&&d.downloadUrl){dl.href=d.downloadUrl;dl.hidden=false;}

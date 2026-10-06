@@ -34,7 +34,7 @@ async function deliver(orderID,event){
   let ownsClaim=false;
   if(!record){
     const exp=now+24*60*60*1000;
-    const token=signPayload({orderID,email:intent.email,exp});
+    const token=signPayload({orderID,email:intent.email,exp,product:'reset'});
     const downloadUrl=(siteUrl(event)||'https://comforting-marigold-ea2f43.netlify.app')+'/.netlify/functions/download-encyclopedia?token='+encodeURIComponent(token);
     const candidate={status:'claimed',claimed_at:now,exp,downloadUrl,email:intent.email,orderID};
     const result=await s.setJSON(key,candidate,{onlyIfNew:true});
@@ -53,7 +53,7 @@ async function deliver(orderID,event){
   }
   let deliveryStatus='Pending';
   try{
-    await sendEmail({to:record.email,subject:'Your Fitness World Natural Wellness Encyclopedia',html:`<p>Payment confirmed. Your digital Encyclopedia is ready.</p><p><a href="${record.downloadUrl}">Secure download</a></p><p>This secure link expires in 24 hours.</p>`,text:`Payment confirmed. Secure download (expires in 24 hours): ${record.downloadUrl}`,idempotencyKey:'paypal-capture/'+orderID});
+    await sendEmail({to:record.email,subject:'Your Fitness World 30-Day Natural Wellness Reset',html:`<p>Payment confirmed. Your 30-Day Natural Wellness Reset is ready.</p><p><a href="${record.downloadUrl}">Secure download</a></p><p>This secure link expires in 24 hours.</p>`,text:`Payment confirmed. Secure download (expires in 24 hours): ${record.downloadUrl}`,idempotencyKey:'paypal-capture/'+orderID});
     deliveryStatus='Delivered';
   }catch(error){console.error('[Fitness World] delivery email failed after verified capture',{orderID,error:String(error.message||error)});}
   const updated={...record,status:deliveryStatus==='Delivered'?'delivered':'failed',updated_at:Date.now()};

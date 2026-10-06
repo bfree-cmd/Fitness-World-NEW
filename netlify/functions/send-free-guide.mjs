@@ -41,7 +41,7 @@ export async function handler(event) {
   ).trim();
 
   const guideUrl = String(
-    process.env.FW_FREE_GUIDE_URL || `${siteUrl()}/fitness-world-free-guide.pdf`
+    process.env.FW_FREE_GUIDE_URL || `${siteUrl()}/fitness-world-30-day-reset-free-preview.pdf`
   ).trim();
 
   try {
@@ -54,13 +54,13 @@ export async function handler(event) {
       body: JSON.stringify({
         from,
         to: [email],
-        subject: "Your Fitness World Free Wellness Guide",
+        subject: "Your free preview: The 30-Day Natural Wellness Reset",
         html:
-          `<p>Thanks for requesting the Fitness World guide.</p>` +
-          `<p><a href="${guideUrl}">Open your free wellness guide</a></p>` +
+          `<p>Thanks for requesting your free preview of The 30-Day Natural Wellness Reset.</p>` +
+          `<p><a href="${guideUrl}">Open your free preview</a></p>` +
           `<p>Educational wellness information only. Not medical advice.</p>`,
         text:
-          `Your Fitness World Free Wellness Guide: ${guideUrl}\n\n` +
+          `Your free preview of The 30-Day Natural Wellness Reset: ${guideUrl}\n\n` +
           "Educational wellness information only. Not medical advice."
       })
     });

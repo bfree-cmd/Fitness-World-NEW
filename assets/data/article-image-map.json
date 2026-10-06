@@ -704,7 +704,7 @@
     "/checkout/": {
       "src": "/assets/images/female-fitness-hero.webp",
       "focal": "center",
-      "alt": "Natural Wellness Encyclopedia: Coming Soon"
+      "alt": "The 30-Day Natural Wellness Reset: Secure Checkout"
     },
     "/choose-smarter/": {
       "src": "/assets/images/shared-hero-choose-smarter-v1591.svg",
@@ -727,9 +727,9 @@
       "alt": "Message Sent"
     },
     "/editorial-approach/": {
-      "src": "/assets/images/natural-wellness-cover.webp",
+      "src": "/assets/images/reset-cover-v188.webp",
       "focal": "center",
-      "alt": "Fitness World Natural Wellness Encyclopedia digital cover"
+      "alt": "Cover of The 30-Day Natural Wellness Reset by Fitness World"
     },
     "/evidence-index/": {
       "src": "/assets/images/shared-hero-evidence-index-v1591.svg",
@@ -757,9 +757,9 @@
       "alt": "Frequently Asked Questions"
     },
     "/free-guide/": {
-      "src": "/assets/images/free-guide-cover.webp",
+      "src": "/assets/images/free-preview-cover-v188.webp",
       "focal": "center",
-      "alt": "Cover of Fitness World 15 Natural Wellness Habits Worth Knowing free guide"
+      "alt": "Cover of The 30-Day Natural Wellness Reset Free Preview"
     },
     "/glp1-nutrition-muscle/": {
       "src": "/assets/images/article-protein.webp",
@@ -827,9 +827,9 @@
       "alt": "Ginger, chamomile, mint and herbal tea representing natural wellness ingredients."
     },
     "/natural/": {
-      "src": "/assets/images/natural-wellness-cover.webp",
+      "src": "/assets/images/reset-cover-v188.webp",
       "focal": "center",
-      "alt": "Fitness World Natural Wellness Encyclopedia digital cover"
+      "alt": "Cover of The 30-Day Natural Wellness Reset by Fitness World"
     },
     "/privacy/": {
       "src": "/assets/images/female-fitness-hero.webp",
@@ -842,9 +842,9 @@
       "alt": "Editorial research workspace with laptop data chart and a structured analysis report."
     },
     "/research/wellness-claim-audit-2026/": {
-      "src": "/assets/images/natural-wellness-cover.webp",
+      "src": "/assets/images/reset-cover-v188.webp",
       "focal": "center",
-      "alt": "Fitness World Natural Wellness Encyclopedia digital cover"
+      "alt": "Cover of The 30-Day Natural Wellness Reset by Fitness World"
     },
     "/resources/": {
       "src": "/assets/images/shared-hero-resources-v1591.svg",
@@ -879,7 +879,7 @@
     "/thank-you/": {
       "src": "/assets/images/female-fitness-hero.webp",
       "focal": "center",
-      "alt": "Your Fitness World Guide Is Ready"
+      "alt": "Your Free Preview Is Ready"
     },
     "/tools/": {
       "src": "/assets/images/shared-hero-tools-v1591.svg",
@@ -887,14 +887,14 @@
       "alt": "Editorial dashboard of practical wellness tools including search, measurement, tracking and calculation."
     },
     "/tools/protein-meal-planner/": {
-      "src": "/assets/images/natural-wellness-cover.webp",
+      "src": "/assets/images/reset-cover-v188.webp",
       "focal": "center",
-      "alt": "Fitness World Natural Wellness Encyclopedia digital cover"
+      "alt": "Cover of The 30-Day Natural Wellness Reset by Fitness World"
     },
     "/tools/supplement-stack-organizer/": {
-      "src": "/assets/images/natural-wellness-cover.webp",
+      "src": "/assets/images/reset-cover-v188.webp",
       "focal": "center",
-      "alt": "Fitness World Natural Wellness Encyclopedia digital cover"
+      "alt": "Cover of The 30-Day Natural Wellness Reset by Fitness World"
     },
     "/understand-your-data/": {
       "src": "/assets/images/shared-hero-understand-your-data-v1591.svg",

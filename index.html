@@ -66,6 +66,21 @@
   }
 }
 </style>
+<style data-fw-component="desktop-header-search-after-hero">
+@media (min-width:761px){
+  body.home-page .fw-header-search-toggle{
+    opacity:0;
+    visibility:hidden;
+    pointer-events:none;
+    transition:opacity .18s ease, visibility .18s ease;
+  }
+  body.home-page.fw-hero-passed .fw-header-search-toggle{
+    opacity:1;
+    visibility:visible;
+    pointer-events:auto;
+  }
+}
+</style>
 
 
 <!-- Google tag (gtag.js) -->
@@ -108,6 +123,38 @@
 <script defer="" src="/assets/js/home-search-rotator.js?v=15.16.187"></script><script defer="" src="/assets/js/home-live-search.js?v=15.16.179-home"></script><script defer="" src="/assets/js/conversion-features.js?v=15.16.187-v188"></script><script defer="" src="/assets/js/v13-4-runtime.js?v=15.16.187"></script><script src="/assets/js/home-topic-progressive.js?v=15.16.187"></script>
 <script defer="" src="/assets/js/shared-carousels.js?v=15.16.187"></script><form data-netlify="true" hidden="" name="fitness-world-leads"><input name="form-name" type="hidden" value="fitness-world-leads"/><input name="email" type="email"/><input name="source"/><input name="action"/><input name="eventId"/><input name="eventSourceUrl"/><input name="submittedAt"/></form>
 <script defer="" src="/assets/js/home-daily-myth.js?v=165-myth-20260924"></script>
+<script>
+(function(){
+  const mq=window.matchMedia('(min-width: 761px)');
+  const hero=document.querySelector('.fw-home-landscape-hero');
+  const header=document.querySelector('.topbar');
+  if(!hero||!header)return;
+
+  let ticking=false;
+  function updateHeaderSearch(){
+    if(!mq.matches){
+      document.body.classList.remove('fw-hero-passed');
+      return;
+    }
+    const passed=hero.getBoundingClientRect().bottom<=header.getBoundingClientRect().bottom;
+    document.body.classList.toggle('fw-hero-passed',passed);
+  }
+  function requestUpdate(){
+    if(ticking)return;
+    ticking=true;
+    requestAnimationFrame(function(){
+      updateHeaderSearch();
+      ticking=false;
+    });
+  }
+
+  updateHeaderSearch();
+  window.addEventListener('scroll',requestUpdate,{passive:true});
+  window.addEventListener('resize',requestUpdate,{passive:true});
+  if(mq.addEventListener)mq.addEventListener('change',requestUpdate);
+  else if(mq.addListener)mq.addListener(requestUpdate);
+})();
+</script>
 
 </body>
 </html>

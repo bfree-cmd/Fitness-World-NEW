@@ -50,6 +50,9 @@ export async function handler(event) {
     process.env.FW_FREE_GUIDE_URL || `${siteUrl()}/fitness-world-30-day-reset-free-preview.pdf`
   ).trim();
 
+  const previewImageUrl = `${siteUrl()}/assets/images/og-free-preview-v188.jpg`;
+  let inlinePreviewReady = false;
+
   let attachments = [];
   let attachmentReady = false;
   try {
@@ -69,6 +72,23 @@ export async function handler(event) {
   }
 
   try {
+    const imageResponse = await fetch(previewImageUrl, { cache: "no-store" });
+    if (imageResponse.ok) {
+      const imageBuffer = Buffer.from(await imageResponse.arrayBuffer());
+      if (imageBuffer.length > 0 && imageBuffer.length < 5 * 1024 * 1024) {
+        attachments.push({
+          filename: "fitness-world-free-preview.jpg",
+          content: imageBuffer.toString("base64"),
+          content_id: "fw-free-preview"
+        });
+        inlinePreviewReady = true;
+      }
+    }
+  } catch (error) {
+    console.warn("Free guide inline image fetch failed:", error);
+  }
+
+  try {
     const response = await fetch("https://api.resend.com/emails", {
       method: "POST",
       headers: {
@@ -80,9 +100,6 @@ export async function handler(event) {
         to: [email],
         subject: "Your free preview: The 30-Day Natural Wellness Reset",
         html: (() => {
-          const base = siteUrl();
-          const previewImage = `${base}/assets/images/og-free-preview-v188.jpg`;
-
           return `
 <!doctype html>
 <html>
@@ -107,7 +124,9 @@ export async function handler(event) {
             <tr>
               <td style="padding:18px 32px 10px;text-align:center;">
                 <a href="${guideUrl}" style="display:block;text-decoration:none;">
-                  <img src="${previewImage}" width="520" height="273" alt="The 30-Day Natural Wellness Reset Free Preview" style="display:block;width:100%;max-width:520px;height:auto;margin:0 auto;border:1px solid #e2e6df;border-radius:12px;">
+                  ${inlinePreviewReady
+                    ? '<img src="cid:fw-free-preview" width="520" height="273" alt="The 30-Day Natural Wellness Reset Free Preview" style="display:block;width:100%;max-width:520px;height:auto;margin:0 auto;border:1px solid #e2e6df;border-radius:12px;">'
+                    : '<div style="max-width:520px;margin:0 auto;padding:34px 22px;border-radius:12px;background:#155f50;color:#ffffff;font-size:24px;font-weight:800;line-height:1.15;">THE 30-DAY<br>NATURAL WELLNESS RESET<div style="margin-top:12px;font-size:13px;font-weight:600;opacity:.86;">FREE PREVIEW</div></div>'}
                 </a>
               </td>
             </tr>

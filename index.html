@@ -13,13 +13,28 @@
 <style data-fw-component="home-editorial-trust">
 .fw-home-editorial-trust{margin:12px 0 0;font-size:.84rem;line-height:1.5;opacity:.82}
 .fw-home-editorial-trust a{color:inherit;font-weight:700;text-underline-offset:2px}
+@media (max-width:760px){
+  .fw-home-editorial-trust{
+    text-align:center;
+    line-height:1.45;
+  }
+  .fw-home-editorial-trust a{
+    display:block;
+    margin-top:2px;
+  }
+}
 </style>
 <style data-fw-component="home-desktop-copy-layout">
 @media (min-width: 761px){
-  body.home-page .fw-home-landscape-copy > .lead{
-    max-width: 940px;
-    margin-left:auto;
-    margin-right:auto;
+  body.home-page.fw-site-shell .fw-home-landscape-hero .fw-home-landscape-copy{
+    max-width:940px!important;
+  }
+
+  body.home-page.fw-site-shell .fw-home-landscape-hero .fw-home-landscape-copy > .lead{
+    max-width:940px!important;
+    width:100%;
+    margin-left:auto!important;
+    margin-right:auto!important;
   }
 
   body.home-page .fw-simple-waw .fw-v1611-intro-dek,

@@ -99,33 +99,82 @@
   }
 
   .guide-deeper-card{
-    grid-template-columns:minmax(0,1.6fr) minmax(210px,.4fr);
-    gap:34px;
+    max-width:1080px;
+    margin-left:auto;
+    margin-right:auto;
+    grid-template-columns:minmax(0,1fr) 270px;
+    gap:48px;
     align-items:center;
+    padding:34px 38px;
   }
   .guide-deeper-copy{
     min-width:0;
+    align-self:center;
+  }
+  .guide-deeper-card h2{
+    font-size:clamp(30px,2.5vw,38px);
+    line-height:1.06;
+    width:auto;
+    margin:6px 0 12px;
+  }
+  .guide-deeper-copy>p{
+    max-width:650px;
+    margin:0 0 16px;
+    line-height:1.55;
+  }
+  .guide-deeper-benefits{
+    display:grid;
+    gap:7px;
+    margin:0 0 18px;
+    padding:0;
+    list-style:none;
+    color:#46534b;
+  }
+  .guide-deeper-benefits li{
+    position:relative;
+    padding-left:24px;
+  }
+  .guide-deeper-benefits li::before{
+    content:"✓";
+    position:absolute;
+    left:0;
+    top:0;
+    color:#2f7a3d;
+    font-weight:900;
+  }
+  .guide-deeper-desktop-cta{
+    display:inline-flex;
   }
   .guide-deeper-side{
     display:grid;
     justify-items:center;
-    gap:14px;
+    align-items:center;
   }
   .guide-deeper-cover{
     display:block;
-    width:220px;
+    width:245px;
     height:auto;
     border-radius:8px;
     box-shadow:0 12px 28px rgba(0,0,0,.10);
   }
+  .guide-deeper-mobile-cta{
+    display:none;
+  }
 }
 @media (max-width:900px){
   .fw-free-guide-desktop-break{display:none;}
+  .guide-deeper-benefits,
+  .guide-deeper-desktop-cta{
+    display:none;
+  }
   .guide-deeper-side{
     display:contents;
   }
   .guide-deeper-cover{
     display:none;
+  }
+  .guide-deeper-mobile-cta{
+    display:inline-flex;
   }
 }
 </style>
@@ -211,7 +260,7 @@
 <article class="preview-page"><span>PREVIEW 03 · DAYS 1–3</span><a class="fw-pdf-zoom" href="/assets/images/pdf-previews/free-preview-page-04-1200.webp" target="_blank" rel="noopener" aria-label="Open full-size page preview in a new tab"><img class="fw-pdf-page" src="/assets/images/pdf-previews/free-preview-page-04-1200.webp" srcset="/assets/images/pdf-previews/free-preview-page-04-600.webp 600w, /assets/images/pdf-previews/free-preview-page-04-1200.webp 1200w" sizes="(max-width: 760px) calc(100vw - 56px), 360px" width="1200" height="1553" loading="lazy" decoding="async" alt="Free preview page 4: your first 3 challenge days with the Daily Wellness Score tracker"/></a><h3>Your first 3 challenge days</h3><p>Days 1–3 with the Daily Wellness Score: seven quick checks, scored for feedback, not as a grade.</p></article>
 </div>
 </div>
-</section><section class="guide-more-section" id="guide-learn"><div class="wrap"><div class="section-head"><div class="kicker">WHAT’S IN THE FREE PREVIEW</div><h2>A practical start, without information overload.</h2><p>Four parts of the Reset you can use right away.</p></div><div class="guide-more-grid"><article><h3>How the Reset works</h3><p>One practical action a day, scored for feedback, not as a grade.</p></article><article><h3>The 4-Part Meal Method</h3><p>Protein. Produce. Fiber. Fat. Four parts. One meal, with two simple builds.</p></article><article><h3>Your first 3 challenge days</h3><p>Days 1–3 with the Daily Wellness Score: seven quick checks.</p></article><article><h3>A look at the full program</h3><p>What’s inside the full 79-page Reset, including 10 Done-for-You Tools.</p></article></div></div></section><section class="guide-for-section"><div class="wrap guide-for-grid"><div><div class="kicker">WHO THIS PREVIEW IS FOR</div><h2>A practical starting point, not another overwhelming wellness plan.</h2></div><ul class="guide-check-list"><li>You want simple wellness information you can actually understand.</li><li>You’re interested in healthier everyday habits.</li><li>You want evidence-aware information without exaggerated promises.</li><li>You want somewhere practical to start.</li></ul></div></section><section class="guide-second-capture" id="get-free-guide"><div class="wrap"><div class="guide-second-card"><div class="kicker">GET THE FREE PREVIEW</div><h2>The 30-Day Natural Wellness Reset<br class="fw-free-guide-desktop-break"/>Free Preview</h2><p>Get your free preview of <em>The 30-Day Natural Wellness Reset</em> delivered to your inbox. Includes the 4-Part Meal Method, your first 3 challenge days, and a preview of the full 79-page program.</p><form class="free-guide-secondary-form" data-netlify="true" id="free-guide-download-form-2" method="POST" name="free-guide-download" netlify-honeypot="bot-field"><input name="form-name" type="hidden" value="free-guide-download"/><p aria-hidden="true" class="hp-field"><label>Don’t fill this out if you’re human: <input name="bot-field"/></label></p><label for="free-guide-email-input-2">Email address</label><div class="formrow"><input autocomplete="email" id="free-guide-email-input-2" inputmode="email" name="email" placeholder="you@example.com" required="" type="email"/><button class="btn btn-main" type="submit">SEND MY FREE PREVIEW</button></div><label class="fw-marketing-consent"><input name="marketing_consent" type="checkbox" value="yes"/><span>Optional: email me occasional Fitness World evidence updates. Unsubscribe anytime.</span></label><p class="guide-email-note">Free PDF · Delivered by email · Preview download does not subscribe you.</p></form></div></div></section><section class="guide-trust-section"><div class="wrap"><div class="section-head"><div class="kicker">FITNESS WORLD APPROACH</div><h2>Wellness information without the hype.</h2></div><div class="guide-trust-grid"><article><h3>Clear &amp; Practical</h3><p>Straightforward information you can actually use.</p></article><article><h3>Evidence-Aware</h3><p>We distinguish stronger evidence from early, mixed or limited findings.</p></article><article><h3>Education First</h3><p>General wellness education that does not replace individualized medical care.</p></article></div><p class="guide-disclaimer">Educational wellness information only. <a href="/health-disclaimer/">Read our Health Disclaimer →</a></p></div></section><section class="guide-deeper-section"><div class="wrap"><div class="guide-deeper-card"><div class="guide-deeper-copy"><div class="kicker">WANT ALL 30 DAYS?</div><h2>The free preview is the starting point.</h2><p>Get The 30-Day Natural Wellness Reset: one practical action a day for 30 days, 10 Done-for-You Tools and a bonus 19-profile Wellness Reference Library.</p></div><div class="guide-deeper-side"><img alt="Cover of The 30-Day Natural Wellness Reset" class="guide-deeper-cover" decoding="async" height="564" loading="lazy" src="/assets/images/reset-cover-v188.webp" width="436"/><a class="btn btn-secondary" href="/natural/">GET THE 30-DAY RESET</a></div></div></div></section>
+</section><section class="guide-more-section" id="guide-learn"><div class="wrap"><div class="section-head"><div class="kicker">WHAT’S IN THE FREE PREVIEW</div><h2>A practical start, without information overload.</h2><p>Four parts of the Reset you can use right away.</p></div><div class="guide-more-grid"><article><h3>How the Reset works</h3><p>One practical action a day, scored for feedback, not as a grade.</p></article><article><h3>The 4-Part Meal Method</h3><p>Protein. Produce. Fiber. Fat. Four parts. One meal, with two simple builds.</p></article><article><h3>Your first 3 challenge days</h3><p>Days 1–3 with the Daily Wellness Score: seven quick checks.</p></article><article><h3>A look at the full program</h3><p>What’s inside the full 79-page Reset, including 10 Done-for-You Tools.</p></article></div></div></section><section class="guide-for-section"><div class="wrap guide-for-grid"><div><div class="kicker">WHO THIS PREVIEW IS FOR</div><h2>A practical starting point, not another overwhelming wellness plan.</h2></div><ul class="guide-check-list"><li>You want simple wellness information you can actually understand.</li><li>You’re interested in healthier everyday habits.</li><li>You want evidence-aware information without exaggerated promises.</li><li>You want somewhere practical to start.</li></ul></div></section><section class="guide-second-capture" id="get-free-guide"><div class="wrap"><div class="guide-second-card"><div class="kicker">GET THE FREE PREVIEW</div><h2>The 30-Day Natural Wellness Reset<br class="fw-free-guide-desktop-break"/>Free Preview</h2><p>Get your free preview of <em>The 30-Day Natural Wellness Reset</em> delivered to your inbox. Includes the 4-Part Meal Method, your first 3 challenge days, and a preview of the full 79-page program.</p><form class="free-guide-secondary-form" data-netlify="true" id="free-guide-download-form-2" method="POST" name="free-guide-download" netlify-honeypot="bot-field"><input name="form-name" type="hidden" value="free-guide-download"/><p aria-hidden="true" class="hp-field"><label>Don’t fill this out if you’re human: <input name="bot-field"/></label></p><label for="free-guide-email-input-2">Email address</label><div class="formrow"><input autocomplete="email" id="free-guide-email-input-2" inputmode="email" name="email" placeholder="you@example.com" required="" type="email"/><button class="btn btn-main" type="submit">SEND MY FREE PREVIEW</button></div><label class="fw-marketing-consent"><input name="marketing_consent" type="checkbox" value="yes"/><span>Optional: email me occasional Fitness World evidence updates. Unsubscribe anytime.</span></label><p class="guide-email-note">Free PDF · Delivered by email · Preview download does not subscribe you.</p></form></div></div></section><section class="guide-trust-section"><div class="wrap"><div class="section-head"><div class="kicker">FITNESS WORLD APPROACH</div><h2>Wellness information without the hype.</h2></div><div class="guide-trust-grid"><article><h3>Clear &amp; Practical</h3><p>Straightforward information you can actually use.</p></article><article><h3>Evidence-Aware</h3><p>We distinguish stronger evidence from early, mixed or limited findings.</p></article><article><h3>Education First</h3><p>General wellness education that does not replace individualized medical care.</p></article></div><p class="guide-disclaimer">Educational wellness information only. <a href="/health-disclaimer/">Read our Health Disclaimer →</a></p></div></section><section class="guide-deeper-section"><div class="wrap"><div class="guide-deeper-card"><div class="guide-deeper-copy"><div class="kicker">WANT ALL 30 DAYS?</div><h2>The free preview is the starting point.</h2><p>Get The 30-Day Natural Wellness Reset: one practical action a day for 30 days, 10 Done-for-You Tools and a bonus 19-profile Wellness Reference Library.</p><ul class="guide-deeper-benefits"><li>30 practical days</li><li>10 Done-for-You Tools</li><li>19-profile Wellness Reference Library</li></ul><a class="btn btn-secondary guide-deeper-desktop-cta" href="/natural/">GET THE 30-DAY RESET</a></div><div class="guide-deeper-side"><img alt="Cover of The 30-Day Natural Wellness Reset" class="guide-deeper-cover" decoding="async" height="564" loading="lazy" src="/assets/images/reset-cover-v188.webp" width="436"/><a class="btn btn-secondary guide-deeper-mobile-cta" href="/natural/">GET THE 30-DAY RESET</a></div></div></div></section>
 
 <footer><div class="wrap"><div class="footer-grid fw-simple-footer-grid"><div class="footer-brand"><strong>FITNESS WORLD</strong><p>Evidence-aware health guidance organized around four simple paths: explore a topic, check the evidence, choose smarter, or use a practical tool or guide.</p><div class="footer-socials"><div class="footer-social-title">FOLLOW FITNESS WORLD</div><div class="footer-social-row"><a aria-label="Fitness World on Instagram" href="https://www.instagram.com/fitness.world.health" rel="noopener noreferrer" target="_blank"><svg aria-hidden="true" viewbox="0 0 24 24"><rect fill="none" height="18" rx="5" stroke="currentColor" stroke-width="2" width="18" x="3" y="3"></rect><circle cx="12" cy="12" fill="none" r="4" stroke="currentColor" stroke-width="2"></circle><circle cx="17.5" cy="6.5" fill="currentColor" r="1.2"></circle></svg><span class="sr-only">Fitness World on Instagram</span></a><a aria-label="Fitness World on Facebook" href="https://www.facebook.com/fitnessworldint" rel="noopener noreferrer" target="_blank"><svg aria-hidden="true" viewbox="0 0 24 24"><path d="M13.7 21v-8h2.7l.4-3h-3.1V8.1c0-.9.3-1.5 1.6-1.5H17V3.9c-.3 0-1.3-.1-2.5-.1-2.5 0-4.2 1.5-4.2 4.3V10H7.5v3h2.8v8h3.4z" fill="currentColor"></path></svg><span class="sr-only">Fitness World on Facebook</span></a><a aria-label="Fitness World on TikTok" href="https://www.tiktok.com/@fitnessworldint" rel="noopener noreferrer" target="_blank"><svg aria-hidden="true" viewbox="0 0 24 24"><path d="M15.2 3c.3 2 1.4 3.4 3.3 4v3.1c-1.2 0-2.3-.3-3.3-.9v6.2c0 3.6-2.6 5.6-5.3 5.6-3 0-5.4-2.4-5.4-5.4 0-3.3 2.8-5.8 6.2-5.3v3.2c-1.5-.4-3 .5-3 2.1 0 1.2 1 2.2 2.2 2.2 1.4 0 2.2-.9 2.2-2.7V3h3.1z" fill="currentColor"></path></svg><span class="sr-only">Fitness World on TikTok</span></a><a aria-label="Fitness World on Threads" href="https://www.threads.com/@fitness.world.health" rel="noopener noreferrer" target="_blank"><svg aria-hidden="true" viewbox="0 0 24 24"><path d="M17.5 8.3c-1-3-3.3-4.5-6-4.3-3.7.2-6.2 2.9-6.1 7.6.1 5.2 2.9 8.3 7.1 8.4 3.3.1 5.8-1.8 5.8-4.7 0-2.5-1.8-4.2-4.5-4.2-2.3 0-4 1.3-4 3.2 0 1.6 1.2 2.7 2.9 2.7 2.3 0 3.8-1.7 3.8-4.3 0-3.4-1.7-5.4-4.8-5.4-2 0-3.5.8-4.5 2.3" fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="2"></path></svg><span class="sr-only">Fitness World on Threads</span></a></div></div></div><div class="footer-col" data-footer-group=""><button aria-controls="footer-links-0" aria-expanded="false" class="footer-accordion-toggle" type="button"><span>EXPLORE HEALTH</span><span aria-hidden="true" class="footer-accordion-icon">+</span></button><div class="footer-links" id="footer-links-0"><a href="/explore-health/">Health Topics</a><a href="/mens-health/">Men's Health</a><a href="/womens-health/">Women's Health</a><a href="/stay-strong/">Strength &amp; Fitness</a><a href="/live-healthier/">Nutrition &amp; Everyday Health</a><a href="/sleep-recovery/">Sleep &amp; Recovery</a><a href="/healthy-aging/">Healthy Aging</a><a href="/natural-wellness/">Natural Wellness</a></div></div><div class="footer-col" data-footer-group=""><button aria-controls="footer-links-1" aria-expanded="false" class="footer-accordion-toggle" type="button"><span>CHECK THE EVIDENCE</span><span aria-hidden="true" class="footer-accordion-icon">+</span></button><div class="footer-links" id="footer-links-1"><a href="/check-a-health-claim/">Check a Health Claim</a><a href="/what-actually-works/">What Actually Works</a><a href="/articles/">Investigations</a><a href="/evidence-index/">Evidence Index</a><a href="/supplement-evidence/">Supplement Evidence Index</a><a href="/evidence-standards/">Evidence Standards</a></div></div><div class="footer-col" data-footer-group=""><button aria-controls="footer-links-2" aria-expanded="false" class="footer-accordion-toggle" type="button"><span>CHOOSE SMARTER</span><span aria-hidden="true" class="footer-accordion-icon">+</span></button><div class="footer-links" id="footer-links-2"><a href="/choose-smarter/">Choose Smarter</a><a href="/worth-it/">Product Evidence Reviews</a><a href="/compare/">Compare</a></div></div><div class="footer-col" data-footer-group=""><button aria-controls="footer-links-3" aria-expanded="false" class="footer-accordion-toggle" type="button"><span>TOOLS &amp; GUIDES</span><span aria-hidden="true" class="footer-accordion-icon">+</span></button><div class="footer-links" id="footer-links-3"><a href="/tools/">All Tools &amp; Guides</a><a href="/understand-your-data/">Understand Your Data</a><a href="/glp1-nutrition-muscle/">GLP-1 Nutrition &amp; Muscle</a><a href="/free-guide/">Free Preview</a><a href="/natural/">30-Day Natural Wellness Reset</a></div></div><div class="footer-col" data-footer-group=""><button aria-controls="footer-links-4" aria-expanded="false" class="footer-accordion-toggle" type="button"><span>ABOUT / RESEARCH</span><span aria-hidden="true" class="footer-accordion-icon">+</span></button><div class="footer-links" id="footer-links-4"><a href="/about/">About Fitness World</a><a href="/research/">Research &amp; Reports</a><a href="/evidence-projects/">Evidence Projects</a><a href="/editorial-approach/">Editorial Approach</a><a href="/contact/">Contact</a><a href="/support/">Support</a><a href="/privacy/">Privacy</a><a href="/terms/">Terms</a><a href="/health-disclaimer/">Health Disclaimer</a><a href="/affiliate-disclosure/">Affiliate Disclosure</a></div></div></div><div class="footer-socials footer-socials-mobile"><div class="footer-social-title">FOLLOW FITNESS WORLD</div><div class="footer-social-row"><a aria-label="Fitness World on Instagram" href="https://www.instagram.com/fitness.world.health" rel="noopener noreferrer" target="_blank"><svg aria-hidden="true" viewbox="0 0 24 24"><rect fill="none" height="18" rx="5" stroke="currentColor" stroke-width="2" width="18" x="3" y="3"></rect><circle cx="12" cy="12" fill="none" r="4" stroke="currentColor" stroke-width="2"></circle><circle cx="17.5" cy="6.5" fill="currentColor" r="1.2"></circle></svg><span class="sr-only">Fitness World on Instagram</span></a><a aria-label="Fitness World on Facebook" href="https://www.facebook.com/fitnessworldint" rel="noopener noreferrer" target="_blank"><svg aria-hidden="true" viewbox="0 0 24 24"><path d="M13.7 21v-8h2.7l.4-3h-3.1V8.1c0-.9.3-1.5 1.6-1.5H17V3.9c-.3 0-1.3-.1-2.5-.1-2.5 0-4.2 1.5-4.2 4.3V10H7.5v3h2.8v8h3.4z" fill="currentColor"></path></svg><span class="sr-only">Fitness World on Facebook</span></a><a aria-label="Fitness World on TikTok" href="https://www.tiktok.com/@fitnessworldint" rel="noopener noreferrer" target="_blank"><svg aria-hidden="true" viewbox="0 0 24 24"><path d="M15.2 3c.3 2 1.4 3.4 3.3 4v3.1c-1.2 0-2.3-.3-3.3-.9v6.2c0 3.6-2.6 5.6-5.3 5.6-3 0-5.4-2.4-5.4-5.4 0-3.3 2.8-5.8 6.2-5.3v3.2c-1.5-.4-3 .5-3 2.1 0 1.2 1 2.2 2.2 2.2 1.4 0 2.2-.9 2.2-2.7V3h3.1z" fill="currentColor"></path></svg><span class="sr-only">Fitness World on TikTok</span></a><a aria-label="Fitness World on Threads" href="https://www.threads.com/@fitness.world.health" rel="noopener noreferrer" target="_blank"><svg aria-hidden="true" viewbox="0 0 24 24"><path d="M17.5 8.3c-1-3-3.3-4.5-6-4.3-3.7.2-6.2 2.9-6.1 7.6.1 5.2 2.9 8.3 7.1 8.4 3.3.1 5.8-1.8 5.8-4.7 0-2.5-1.8-4.2-4.5-4.2-2.3 0-4 1.3-4 3.2 0 1.6 1.2 2.7 2.9 2.7 2.3 0 3.8-1.7 3.8-4.3 0-3.4-1.7-5.4-4.8-5.4-2 0-3.5.8-4.5 2.3" fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="2"></path></svg><span class="sr-only">Fitness World on Threads</span></a></div></div><div class="copyright"><span>© 2026 Fitness World.</span><span>Educational wellness content only. Not medical advice.</span></div></div></footer>
 <script defer="" src="/assets/js/free-guide-v15165.js?v=15.16.195-v188"></script><script defer="" src="/assets/js/conversion-features.js?v=15.16.187-v188"></script><script defer="" src="/assets/js/v13-4-runtime.js?v=15.16.187"></script>

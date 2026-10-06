@@ -324,3 +324,7 @@ body{color:var(--fw-ink)}
     font-style:normal;
   }
 }
+
+
+/* V189.4 — remove duplicate custom PayPal attribution */
+.nw-powered-by-paypal{display:none!important}

@@ -14,6 +14,7 @@
 .fw-home-editorial-trust{margin:12px 0 0;font-size:.84rem;line-height:1.5;opacity:.82}
 .fw-home-editorial-trust a{color:inherit;font-weight:700;text-underline-offset:2px}
 @media (max-width:760px){
+  .fw-hero-copy-break{display:none;}
   .fw-home-editorial-trust{
     text-align:center;
     line-height:1.45;
@@ -31,11 +32,13 @@
   }
 
   body.home-page.fw-site-shell .fw-home-landscape-hero .fw-home-landscape-copy > .lead{
-    max-width:940px!important;
+    max-width:1100px!important;
     width:100%;
     margin-left:auto!important;
     margin-right:auto!important;
   }
+
+  .fw-hero-copy-break{display:block;}
 
   body.home-page .fw-simple-waw .fw-v1611-intro-dek,
   body.home-page .fw-v1587-resources .fw-v1611-intro-dek{
@@ -92,7 +95,7 @@
 <div class="fw-simple-hero-copy fw-home-landscape-copy">
 <div class="kicker">EVIDENCE-AWARE WELLNESS</div>
 <h1 id="fw-home-title">Health advice without the hype.</h1>
-<p class="lead">Clear, evidence-based answers on nutrition, supplements, sleep, strength and everyday wellness — so you know what’s worth your attention.</p>
+<p class="lead">Clear, evidence-based answers on nutrition, supplements, sleep,<br class="fw-hero-copy-break" aria-hidden="true"/> strength and everyday wellness — so you know what’s worth your attention.</p>
 <form action="/search/" class="fw-home-search" method="get"><div class="fw-home-search-row"><button aria-expanded="false" aria-label="Open search suggestions" class="fw-home-search-plus" data-fw-home-search-plus="" title="Open search suggestions" type="button"><span aria-hidden="true">+</span></button><div class="fw-home-search-input-wrap"><input aria-label="What do you want to know?" autocomplete="off" id="fw-home-search-q" name="q" placeholder="What do you want to know?" type="search"/><span aria-hidden="true" class="fw-home-search-rotator" data-fw-search-rotator="">What do you want to know?</span></div><button aria-label="Search the evidence" class="fw-home-search-submit" title="Search the evidence" type="submit"><span aria-hidden="true" class="fw-cta-icon"><svg focusable="false" viewbox="0 0 24 24"><circle cx="11" cy="11" r="7"></circle><path d="m21 21-4.3-4.3"></path></svg></span><span class="fw-cta-label">SEARCH THE EVIDENCE</span></button></div></form>
 <p class="fw-home-editorial-trust">Every claim checked against published research. <a href="/editorial-approach/">See our editorial standards.</a></p>
 <div class="fw-home-hero-actions"><a class="fw-home-browse-topics" href="/articles/">ARTICLE DIGEST <span aria-hidden="true">→</span></a></div>

@@ -23,8 +23,8 @@
   if(!sticky && !stickyExcluded){
     sticky=document.createElement('aside');
     sticky.className='mobile-guide-sticky';
-    sticky.setAttribute('aria-label','Free Fitness World guide');
-    sticky.innerHTML='<span><strong>Free wellness guide</strong><small>15 practical habits worth knowing</small></span><a class="btn btn-main" href="/free-guide/?utm_source=mobile_sticky&utm_medium=onsite&utm_campaign=free_guide">GET FREE GUIDE</a>';
+    sticky.setAttribute('aria-label','Free 30-Day Reset preview');
+    sticky.innerHTML='<span><strong>Free 30-Day Reset preview</strong><small>Meal Method + your first 3 days</small></span><a class="btn btn-main" href="/free-guide/?utm_source=mobile_sticky&utm_medium=onsite&utm_campaign=free_guide">GET FREE PREVIEW</a>';
     document.body.appendChild(sticky);
   }
   if(sticky){

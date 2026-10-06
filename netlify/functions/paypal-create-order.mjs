@@ -21,7 +21,7 @@ const handler=async(event)=>{
         intent:'CAPTURE',
         purchase_units:[{
           reference_id:'fitness-world-encyclopedia',
-          description:'Fitness World Natural Wellness Encyclopedia',
+          description:'Fitness World — The 30-Day Natural Wellness Reset',
           amount:{currency_code:'USD',value:'9.99'}
         }],
         payer:{email_address:email}

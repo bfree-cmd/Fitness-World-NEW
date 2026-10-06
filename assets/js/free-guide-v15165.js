@@ -78,9 +78,9 @@ document.addEventListener("DOMContentLoaded", function () {
         location: idx === 0 ? "free_guide_page" : "free_guide_page_secondary"
       });
 
-      if (btn) { btn.textContent = "GUIDE READY ✓"; btn.disabled = true; }
+      if (btn) { btn.textContent = "PREVIEW READY ✓"; btn.disabled = true; }
       if (note) {
-        note.textContent = "Your guide is ready to open. Checking email delivery…";
+        note.textContent = "Your free preview is ready to open. Checking email delivery…";
         note.classList.remove("form-error");
       }
 
@@ -115,12 +115,12 @@ document.addEventListener("DOMContentLoaded", function () {
       }).then(async mail => {
         const mailData = await mail.json().catch(() => ({}));
         if (!mail.ok || mailData.sent !== true) throw new Error(mailData.detail || mailData.error || ("HTTP " + mail.status));
-        if (note) note.textContent = "Guide sent — check your inbox. You can also open it now below.";
+        if (note) note.textContent = "Free preview sent — check your inbox. You can also open it now below.";
         const confirm = modal.querySelector(".fw-offer-confirm span:last-child");
-        if (confirm) confirm.textContent = "Your free guide is ready — and we emailed a copy";
+        if (confirm) confirm.textContent = "Your free preview is ready — and we emailed a copy";
       }).catch(err => {
         console.warn("Fitness World guide email delivery delayed", err);
-        if (note) note.textContent = "Your guide is ready. Email delivery may be delayed — open it now below.";
+        if (note) note.textContent = "Your free preview is ready. Email delivery may be delayed — open it now below.";
       }).finally(() => clearTimeout(timeout));
     });
   });

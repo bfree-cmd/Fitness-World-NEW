@@ -82,6 +82,7 @@ async function sendEmail({to,subject,html,text,idempotencyKey}){
   return d;
 }
 function encyclopediaPath(){ const name='Fitness_World_Natural_Wellness_Encyclopedia.pdf'; const candidates=[path.resolve(process.cwd(),'private',name),path.resolve(__dirname,'../../../private',name),path.resolve(__dirname,'../../private',name)]; return candidates.find(fs.existsSync)||candidates[0]; }
-function guideUrl(){ return (siteUrl() || 'https://fitnessworld.pro') + '/fitness-world-free-guide.pdf'; }
+function resetPath(){ const name='Fitness_World_30-Day_Natural_Wellness_Reset.pdf'; const candidates=[path.resolve(process.cwd(),'private',name),path.resolve(__dirname,'../../../private',name),path.resolve(__dirname,'../../private',name)]; return candidates.find(fs.existsSync)||candidates[0]; }
+function guideUrl(){ return (siteUrl() || 'https://fitnessworld.pro') + '/fitness-world-30-day-reset-free-preview.pdf'; }
 function encyclopediaBuffer(){ return fs.readFileSync(encyclopediaPath()); }
-module.exports={json,parseBody,validEmail,siteUrl,paypalBase,paypalAccessToken,paypalRequest,signPayload,verifyToken,sendEmail,encyclopediaPath,encyclopediaBuffer,guideUrl};
+module.exports={json,parseBody,validEmail,siteUrl,paypalBase,paypalAccessToken,paypalRequest,signPayload,verifyToken,sendEmail,encyclopediaPath,encyclopediaBuffer,resetPath,guideUrl};

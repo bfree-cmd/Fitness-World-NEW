@@ -7,7 +7,7 @@ const json = (statusCode, body, headers = {}) => ({
 const validEmail = (value) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(String(value || "").trim());
 
 const siteUrl = () => {
-  const raw = process.env.URL || process.env.DEPLOY_PRIME_URL || "https://fitnessworld.pro";
+  const raw = process.env.FW_SITE_URL || "https://fitnessworld.pro";
   return String(raw).replace(/\/$/, "");
 };
 
@@ -34,12 +34,17 @@ export async function handler(event) {
     return json(503, { sent: false, error: "Email delivery is not configured or unavailable" });
   }
 
-  const from = String(
+  const configuredFrom = String(
     process.env.RESEND_FROM_EMAIL ||
     process.env.FW_FROM_EMAIL ||
     process.env.FITNESS_WORLD_FROM_EMAIL ||
-    "Fitness World <onboarding@resend.dev>"
+    ""
   ).trim();
+
+  const from =
+    configuredFrom && !/@resend\.dev>?$/i.test(configuredFrom)
+      ? configuredFrom
+      : "Fitness World <support@fitnessworld.pro>";
 
   const guideUrl = String(
     process.env.FW_FREE_GUIDE_URL || `${siteUrl()}/fitness-world-30-day-reset-free-preview.pdf`

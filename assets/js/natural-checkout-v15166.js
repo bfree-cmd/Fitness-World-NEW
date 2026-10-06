@@ -154,7 +154,7 @@
     let paymentStage='idle';
 
     paypal.Buttons({
-      style:{layout:'vertical',shape:'rect',label:'paypal'},
+      style:{layout:'vertical',shape:'rect',label:'paypal',tagline:false},
       onClick:(_,actions)=>{
         if(pendingOrderID) return actions.reject();
         if(!isValid()){

@@ -282,3 +282,25 @@ body{color:var(--fw-ink)}
   .nw-checkout-card{padding:18px!important}
   .nw-checkout-meta-compact,.nw-checkout-steps--compact,.nw-checkout-support{display:none!important}
 }
+
+
+/* V189.2 — payment hierarchy + October feature polish */
+.nw-powered-by-paypal{
+  margin:6px 0 10px;
+  text-align:center;
+  color:#7b8580;
+  font-size:.78rem;
+  font-style:italic;
+}
+.nw-powered-by-paypal strong{
+  color:#005ea6;
+  font-size:.95rem;
+  font-style:normal;
+}
+@media(max-width:620px){
+  .nw-powered-by-paypal{margin:4px 0 8px}
+  .nw-checkout-mobile-shield,
+  .nw-checkout-mobile-trust{display:none!important}
+  .nw-checkout-mobile-polish{padding-top:8px!important}
+  .nw-checkout-mobile-steps{margin-top:0!important;padding-top:0!important}
+}

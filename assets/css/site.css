@@ -328,3 +328,19 @@ body{color:var(--fw-ink)}
 
 /* V189.4 — remove duplicate custom PayPal attribution */
 .nw-powered-by-paypal{display:none!important}
+
+
+/* V190 — tool hero and Evidence IQ flow polish */
+body.fw-tool-balanced-layout>.fw-v1590-shared-hero{margin-bottom:30px}
+body.fw-tool-balanced-layout>.fw-v1590-shared-hero .fw-v1590-shared-hero-media img{object-position:center}
+body.fw-evidence-iq-page .fw-tool-shell{padding-top:18px;padding-bottom:26px}
+body.fw-evidence-iq-page .fw-iq-tool{margin-left:auto;margin-right:auto}
+body.fw-evidence-iq-page .fw-v1513-hub-more{margin-top:18px!important}
+body.fw-evidence-iq-page .fw-engine-note{margin:14px auto 0;max-width:850px}
+body.fw-evidence-iq-page+.fw-integrity-note{margin-top:0}
+body.fw-evidence-iq-page~.fw-integrity-note{margin-top:0;margin-bottom:34px}
+@media(max-width:900px){
+  body.fw-tool-balanced-layout>.fw-v1590-shared-hero{margin-bottom:20px}
+  body.fw-evidence-iq-page .fw-tool-shell{padding-top:8px;padding-bottom:18px}
+  body.fw-evidence-iq-page~.fw-integrity-note{margin:0 14px 26px}
+}

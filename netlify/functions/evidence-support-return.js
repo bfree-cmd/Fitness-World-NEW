@@ -1,6 +1,8 @@
 const {paypalRequest,siteUrl}=require('./lib/fw');
 const {forwardTracking}=require('./lib/tracking');
 const {getBlobsStore}=require('./lib/blobs');
+const rateLimit=require('./lib/rate-limit');
+const {allow:rateAllow}=rateLimit;
 
 function redirect(location){return {statusCode:302,headers:{Location:location,'Cache-Control':'no-store'},body:''};}
 function root(event){return String(process.env.FW_SITE_URL||siteUrl(event)||'https://fitnessworld.pro').replace(/\/$/,'');}
@@ -31,6 +33,8 @@ async function trackOnce(orderID,capture,amount,email){
 }
 exports.handler=async(event)=>{
   const base=root(event);
+  const rate=rateAllow(event,{limit:20,windowMs:5*60_000,key:'evidence-support-return'});
+  if(!rate.ok)return redirect(base+'/evidence-projects/?support=error#support');
   if(event.httpMethod!=='GET')return redirect(base+'/evidence-projects/?support=error#support');
   const orderID=String(event.queryStringParameters?.token||'');
   if(!validOrder(orderID))return redirect(base+'/evidence-projects/?support=error#support');

@@ -1,0 +1,7 @@
+# Netlify local/generated build artifacts
+.netlify/
+
+# Common local files
+.DS_Store
+Thumbs.db
+*.log

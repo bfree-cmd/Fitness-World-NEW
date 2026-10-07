@@ -1,5 +1,7 @@
 const crypto=require('crypto');
 const {paypalRequest,siteUrl}=require('./lib/fw');
+const rateLimit=require('./lib/rate-limit');
+const {allow:rateAllow,response:rateResponse}=rateLimit;
 
 const MIN=1,MAX=500;
 function redirect(location){return {statusCode:302,headers:{Location:location,'Cache-Control':'no-store'},body:''};}
@@ -10,6 +12,8 @@ function root(event){
 
 exports.handler=async(event)=>{
   if(event.httpMethod!=='GET')return fail(405,'Method not allowed');
+  const rate=rateAllow(event,{limit:12,windowMs:60_000,key:'evidence-support-create'});
+  if(!rate.ok)return rateResponse(rate.retryAfter);
   const amount=Number(event.queryStringParameters?.amount||0);
   if(!Number.isFinite(amount)||amount<MIN||amount>MAX||Math.round(amount*100)!==amount*100)return fail(400,'Choose a valid support amount between $1 and $500.');
   const value=amount.toFixed(2);

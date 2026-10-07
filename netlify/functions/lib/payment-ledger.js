@@ -1,11 +1,15 @@
 const {getBlobsStore}=require('./blobs');
 const {paypalRequest,signPayload,siteUrl,sendEmail}=require('./fw');
+const {forwardTracking,clean}=require('./tracking');
 const CLAIM_MS=2*60*1000;
+const TRACK_CLAIM_MS=2*60*1000;
 const safeOrder=id=>{if(!/^[A-Za-z0-9-]{5,40}$/.test(String(id||''))) throw new Error('Invalid PayPal order ID');return id;};
 const env=()=>String(process.env.PAYPAL_ENV||'live').toLowerCase()==='sandbox'?'sandbox':'live';
 const store=()=>getBlobsStore({name:'fw-payments-'+env(),consistency:'strong'});
 const orderKey=id=>'order/'+safeOrder(id);
 const intentKey=id=>'intent/'+safeOrder(id);
+const attributionKey=id=>'attrib/'+safeOrder(id);
+const trackedKey=id=>'tracked/'+safeOrder(id);
 async function registerIntent(orderID,email){
   const result=await (await store()).setJSON(intentKey(orderID),{email,created_at:Date.now()},{onlyIfNew:true});
   if(!result.modified){
@@ -23,6 +27,82 @@ async function confirmedOrder(orderID,expectedCapture){
 }
 async function loadRecord(orderID){
   return (await (await store()).getWithMetadata(orderKey(orderID),{type:'json',consistency:'strong'}))||{data:null,etag:null};
+}
+async function saveAttribution(orderID,data={}){
+  const s=await store(),key=attributionKey(orderID);
+  let sourcePage='/natural/';
+  try{sourcePage=new URL(String(data.eventSourceUrl||'')).pathname||'/natural/';}catch(_){}
+  const payload={
+    source_page:clean(sourcePage,500)||'/natural/',
+    referrer_url:clean(data.first_referrer,1000),
+    utm_source:clean(data.utm_source,300),
+    utm_medium:clean(data.utm_medium,300),
+    utm_campaign:clean(data.utm_campaign,300),
+    utm_content:clean(data.utm_content,300),
+    utm_term:clean(data.utm_term,300),
+    saved_at:Date.now()
+  };
+  const result=await s.setJSON(key,payload,{onlyIfNew:true});
+  if(result.modified)return payload;
+  return (await s.get(key,{type:'json',consistency:'strong'}))||payload;
+}
+async function trackPurchaseOnce(orderID,captureID,deliveryStatus='Delivered'){
+  const s=await store(),key=trackedKey(orderID),eventId='fw_purchase_'+safeOrder(orderID),now=Date.now();
+  let entry=(await s.getWithMetadata(key,{type:'json',consistency:'strong'}))||{data:null,etag:null};
+  let state=entry.data,etag=entry.etag,ownsClaim=false;
+  if(state?.status==='sent')return {tracked:true,already:true,eventId};
+  if(!state){
+    const candidate={status:'claimed',claimed_at:now,event_id:eventId,capture_id:String(captureID||'')};
+    const claim=await s.setJSON(key,candidate,{onlyIfNew:true});
+    if(claim.modified){state=candidate;etag=claim.etag;ownsClaim=true;}
+    else{
+      entry=(await s.getWithMetadata(key,{type:'json',consistency:'strong'}))||{data:null,etag:null};
+      state=entry.data;etag=entry.etag;
+    }
+  }
+  if(!ownsClaim){
+    if(state?.status==='sent')return {tracked:true,already:true,eventId};
+    if(state?.status==='claimed'&&now-Number(state.claimed_at||0)<TRACK_CLAIM_MS)return {tracked:false,pending:true,eventId};
+    const reclaimed={...(state||{}),status:'claimed',claimed_at:now,event_id:eventId,capture_id:String(captureID||state?.capture_id||'')};
+    const claim=await s.setJSON(key,reclaimed,{onlyIfMatch:etag});
+    if(!claim.modified)return {tracked:false,pending:true,eventId};
+    state=reclaimed;etag=claim.etag;
+  }
+  const intent=await getIntent(orderID);
+  if(!intent?.email)throw new Error('Cannot track purchase without saved checkout email');
+  const attribution=(await s.get(attributionKey(orderID),{type:'json',consistency:'strong'}))||{};
+  try{
+    await forwardTracking({
+      event_type:'paid_purchase',
+      event_id:eventId,
+      email:intent.email,
+      product_offer:'30-Day Natural Wellness Reset',
+      source_page:attribution.source_page||'/natural/',
+      source_form:'PayPal Checkout',
+      referrer_url:attribution.referrer_url||'',
+      utm_source:attribution.utm_source||'',
+      utm_medium:attribution.utm_medium||'',
+      utm_campaign:attribution.utm_campaign||'',
+      utm_content:attribution.utm_content||'',
+      utm_term:attribution.utm_term||'',
+      order_id:orderID,
+      transaction_id:String(captureID||state.capture_id||''),
+      payment_provider:'PayPal',
+      gross_amount:9.99,
+      currency:'USD',
+      payment_status:'Paid',
+      marketing_consent:'No',
+      capture_source:'PayPal',
+      notes:'Purchase Event ID: '+eventId+' | Confirmed PayPal capture; delivery status: '+String(deliveryStatus||'Unknown')
+    });
+    const sent={...state,status:'sent',sent_at:Date.now()};
+    await s.setJSON(key,sent,{onlyIfMatch:etag});
+    return {tracked:true,already:false,eventId};
+  }catch(error){
+    const failed={...state,status:'failed',failed_at:Date.now(),last_error:clean(error?.message||error,300)};
+    try{await s.setJSON(key,failed,{onlyIfMatch:etag});}catch(_){}
+    throw error;
+  }
 }
 async function deliver(orderID,event){
   const s=await store(),key=orderKey(orderID);
@@ -115,17 +195,17 @@ async function deliver(orderID,event){
   </body>
 </html>`,
       text:
-        'Your 30-Day Natural Wellness Reset is ready.\\n\\n' +
-        'Payment confirmed. Your full 79-page program is ready to download.\\n\\n' +
-        'Inside your Reset:\\n' +
-        '• The complete 30-day wellness program\\n' +
-        '• Weekly trackers and the Day 30 Check-In\\n' +
-        '• Your Personal Wellness Blueprint\\n' +
-        '• 10 Done-for-You Tools\\n' +
-        '• Bonus 19-profile Wellness Reference Library\\n\\n' +
-        'OPEN YOUR SECURE DOWNLOAD: ' + record.downloadUrl + '\\n\\n' +
-        'Your secure download link expires in 24 hours.\\n' +
-        'If your link expires or you have any trouble accessing your purchase, contact support@fitnessworld.pro and include your order ID.\\n\\n' +
+        'Your 30-Day Natural Wellness Reset is ready.\n\n' +
+        'Payment confirmed. Your full 79-page program is ready to download.\n\n' +
+        'Inside your Reset:\n' +
+        '• The complete 30-day wellness program\n' +
+        '• Weekly trackers and the Day 30 Check-In\n' +
+        '• Your Personal Wellness Blueprint\n' +
+        '• 10 Done-for-You Tools\n' +
+        '• Bonus 19-profile Wellness Reference Library\n\n' +
+        'OPEN YOUR SECURE DOWNLOAD: ' + record.downloadUrl + '\n\n' +
+        'Your secure download link expires in 24 hours.\n' +
+        'If your link expires or you have any trouble accessing your purchase, contact support@fitnessworld.pro and include your order ID.\n\n' +
         'Educational wellness information only. Not medical advice.',
       idempotencyKey:'paypal-capture/'+orderID
     });
@@ -136,4 +216,4 @@ async function deliver(orderID,event){
   if(!change.modified) return {status:'PENDING_CONFIRMATION',reason:'ledger_race'};
   return {status:'COMPLETED',deliveryStatus,downloadUrl:record.downloadUrl,firstDelivered:deliveryStatus==='Delivered'};
 }
-module.exports={registerIntent,getIntent,confirmedOrder,deliver,loadRecord};
+module.exports={registerIntent,getIntent,confirmedOrder,deliver,loadRecord,saveAttribution,trackPurchaseOnce};

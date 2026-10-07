@@ -1,3 +1,5 @@
+import rateLimit from './lib/rate-limit.js';
+const {allow:rateAllow,response:rateResponse}=rateLimit;
 const json = (statusCode, body, headers = {}) => ({
   statusCode,
   headers: { "content-type": "application/json; charset=utf-8", ...headers },
@@ -16,11 +18,19 @@ export async function handler(event) {
     return json(405, { sent: false, error: "Method not allowed" }, { Allow: "POST" });
   }
 
+  const rate = rateAllow(event, { limit: 5, windowMs: 10 * 60 * 1000, key: "free-guide" });
+  if (!rate.ok) return rateResponse(rate.retryAfter);
+
   let body = {};
   try {
     body = JSON.parse(event.body || "{}");
   } catch {
     return json(400, { sent: false, error: "Invalid JSON" });
+  }
+
+  // The public form already contains a Netlify honeypot; honor it server-side too.
+  if (String(body.bot_field || body["bot-field"] || body.website || "").trim()) {
+    return json(200, { sent: true, skipped: true });
   }
 
   const email = String(body.email || "").trim().toLowerCase();

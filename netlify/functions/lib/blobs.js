@@ -14,9 +14,14 @@ function loadBlobs(){
   }
   return blobsModule;
 }
+function manualCredentials(){
+  const siteID=String(process.env.NETLIFY_SITE_ID||'').trim();
+  const token=String(process.env.NETLIFY_BLOBS_TOKEN||'').trim();
+  return siteID&&token?{siteID,token}:{};
+}
 async function getBlobsStore(options){
   const {getStore}=await loadBlobs();
-  return getStore(options);
+  return getStore({...options,...manualCredentials()});
 }
 // Local contract tests only: inject an in-memory Blobs implementation.
 function __setBlobsModuleForTests(mod){blobsModule=Promise.resolve(mod);}

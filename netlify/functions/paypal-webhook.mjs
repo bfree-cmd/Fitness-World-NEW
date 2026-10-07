@@ -42,7 +42,8 @@ const handler=async(event)=>{
     if(result.status!=='COMPLETED')return json(503,{error:'Delivery pending'});
 
     // Tracking is keyed by PayPal order and is safe to call from both webhook and browser capture.
-    await trackPurchaseOnce(orderID,capture.id,result.deliveryStatus);
+    const tracking=await trackPurchaseOnce(orderID,capture.id,result.deliveryStatus);
+    if(tracking?.pending)return json(503,{error:'Tracking reconciliation pending'});
 
     if(result.deliveryStatus!=='Delivered')return json(503,{error:'Delivery pending'});
     return json(200,{received:true});

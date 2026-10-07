@@ -107,10 +107,11 @@ document.addEventListener("DOMContentLoaded", function () {
       // immediately even if the provider is slow or temporarily unavailable.
       const controller = typeof AbortController !== "undefined" ? new AbortController() : null;
       const timeout = setTimeout(() => controller?.abort(), 10000);
+      const botField = form.querySelector('input[name="bot-field"]')?.value || "";
       fetch("/.netlify/functions/send-free-guide", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ email }),
+        body: JSON.stringify({ email, bot_field: botField }),
         signal: controller?.signal
       }).then(async mail => {
         const mailData = await mail.json().catch(() => ({}));

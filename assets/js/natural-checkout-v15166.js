@@ -86,10 +86,28 @@
     const fallback=document.getElementById('nw-paypal-preview');
     if(!email||!container) return;
     const pendingKey='fwEncyclopediaPendingOrder';
+    const pendingEmailKey='fwEncyclopediaPendingEmail';
     let pendingOrderID='';
-    function showPending(orderID){
+    let pendingEmail='';
+    const wait=ms=>new Promise(resolve=>setTimeout(resolve,ms));
+
+    function clearPending(){
+      pendingOrderID='';
+      pendingEmail='';
+      try{
+        sessionStorage.removeItem(pendingKey);
+        sessionStorage.removeItem(pendingEmailKey);
+      }catch(_){ }
+    }
+
+    function showPending(orderID,purchaseEmail){
       pendingOrderID=String(orderID||'');
-      try{sessionStorage.setItem(pendingKey,pendingOrderID);}catch(_){ }
+      pendingEmail=cleanEmail(purchaseEmail||pendingEmail||email.value);
+      try{
+        sessionStorage.setItem(pendingKey,pendingOrderID);
+        if(validEmail(pendingEmail))sessionStorage.setItem(pendingEmailKey,pendingEmail);
+      }catch(_){ }
+      if(validEmail(pendingEmail))email.value=pendingEmail;
       if(status) status.textContent='Payment status is being checked. Please do not pay again.';
       const panel=document.createElement('div');
       panel.setAttribute('role','status');
@@ -104,8 +122,64 @@
       panel.append(title,explanation,support);
       container.replaceChildren(panel);
     }
-    try{pendingOrderID=sessionStorage.getItem(pendingKey)||'';}catch(_){ }
-    if(pendingOrderID){showPending(pendingOrderID);return;}
+
+    function finishSuccess(d,orderID){
+      clearPending();
+      const modal=document.getElementById('nw-purchase-success');
+      const msg=document.getElementById('nw-purchase-success-message');
+      const dl=document.getElementById('nw-secure-download');
+      if(msg){
+        if(d.deliveryStatus==='Delivered'){
+          msg.textContent='Payment confirmed. We sent your 30-Day Natural Wellness Reset to '+email.value.trim()+'.';
+        }else if(d.deliveryStatus==='Pending'&&d.downloadUrl){
+          msg.textContent='Payment confirmed. We could not send the confirmation email right now, so please use the secure download link below and save it -- it will not be re-sent automatically.';
+        }else{
+          msg.textContent='Payment confirmed, but we could not prepare your download link. This is a delivery issue only, not a payment problem -- please contact support@fitnessworld.pro with your order ID ('+String(d.eventId||'').replace('fw_purchase_','')+') and we will get your 30-Day Reset to you.';
+        }
+      }
+      if(dl&&d.downloadUrl){dl.href=d.downloadUrl;dl.hidden=false;}
+      if(modal)modal.hidden=false;
+      try{localStorage.setItem('fwEncyclopediaPurchased','1');}catch(_){ }
+
+      let already=false;
+      try{already=sessionStorage.getItem(onceKey(orderID))==='1';}catch(_){ }
+      if(!already){
+        try{sessionStorage.setItem(onceKey(orderID),'1');}catch(_){ }
+        window.FWTracking?.track('encyclopedia_purchase',{value:PRICE,currency:CURRENCY,event_id:d.eventId||('fw_purchase_'+orderID)});
+      }
+    }
+
+    async function reconcilePending(){
+      if(!pendingOrderID||!validEmail(pendingEmail))return false;
+      for(let attempt=0;attempt<6;attempt+=1){
+        try{
+          const r=await fetch('/.netlify/functions/paypal-capture-order',{
+            method:'POST',
+            headers:{'Content-Type':'application/json'},
+            credentials:'same-origin',
+            body:JSON.stringify({orderID:pendingOrderID,email:pendingEmail,eventSourceUrl:location.href,...attribution()})
+          });
+          const d=await r.json().catch(()=>({}));
+          if(r.ok&&d.status==='COMPLETED'){
+            finishSuccess(d,pendingOrderID);
+            return true;
+          }
+          if(d.status!=='PENDING_CONFIRMATION')break;
+        }catch(_){ }
+        await wait(2000);
+      }
+      return false;
+    }
+
+    try{
+      pendingOrderID=sessionStorage.getItem(pendingKey)||'';
+      pendingEmail=sessionStorage.getItem(pendingEmailKey)||'';
+    }catch(_){ }
+    if(pendingOrderID){
+      showPending(pendingOrderID,pendingEmail);
+      await reconcilePending();
+      return;
+    }
 
     const prefill=storedGuideEmail();
     if(prefill&&validEmail(prefill)){
@@ -199,7 +273,7 @@
         });
         const d=await r.json().catch(()=>({}));
         if(d.status==='PENDING_CONFIRMATION'){
-          showPending(data.orderID);
+          showPending(data.orderID,cleanEmail(email.value));
           return;
         }
         if(!r.ok||d.status!=='COMPLETED'){
@@ -207,30 +281,7 @@
           throw new Error(d.detail||d.error||'Payment was not completed');
         }
 
-        const modal=document.getElementById('nw-purchase-success');
-        const msg=document.getElementById('nw-purchase-success-message');
-        const dl=document.getElementById('nw-secure-download');
-        if(msg){
-          if(d.deliveryStatus==='Delivered'){
-            msg.textContent='Payment confirmed. We sent your 30-Day Natural Wellness Reset to '+email.value.trim()+'.';
-          }else if(d.deliveryStatus==='Pending'&&d.downloadUrl){
-            msg.textContent='Payment confirmed. We could not send the confirmation email right now, so please use the secure download link below and save it -- it will not be re-sent automatically.';
-          }else{
-            msg.textContent='Payment confirmed, but we could not prepare your download link. This is a delivery issue only, not a payment problem -- please contact support@fitnessworld.pro with your order ID ('+String(d.eventId||'').replace('fw_purchase_','')+') and we will get your 30-Day Reset to you.';
-          }
-        }
-        if(dl&&d.downloadUrl){dl.href=d.downloadUrl;dl.hidden=false;}
-        if(modal) modal.hidden=false;
-        try{localStorage.setItem('fwEncyclopediaPurchased','1');}catch(_){ }
-
-        // Analytics only. Paid Purchase is persisted server-side after confirmed capture.
-        // The per-order marker prevents duplicate client analytics if PayPal re-fires onApprove.
-        let already=false;
-        try{already=sessionStorage.getItem(onceKey(data.orderID))==='1';}catch(_){ }
-        if(!already){
-          try{sessionStorage.setItem(onceKey(data.orderID),'1');}catch(_){ }
-          window.FWTracking?.track('encyclopedia_purchase',{value:PRICE,currency:CURRENCY,event_id:d.eventId||('fw_purchase_'+data.orderID)});
-        }
+        finishSuccess(d,data.orderID);
       },
       onCancel:()=>{if(status) status.textContent='Checkout cancelled. You can continue whenever you are ready.';},
       onError:err=>{

@@ -344,3 +344,19 @@ body.fw-evidence-iq-page~.fw-integrity-note{margin-top:0;margin-bottom:34px}
   body.fw-evidence-iq-page .fw-tool-shell{padding-top:8px;padding-bottom:18px}
   body.fw-evidence-iq-page~.fw-integrity-note{margin:0 14px 26px}
 }
+
+
+/* V191 — contextual article links */
+.article-prose .fw-context-link{
+  color:var(--green-dark,#174c32);
+  font-weight:750;
+  text-decoration:underline;
+  text-decoration-thickness:1.5px;
+  text-underline-offset:3px;
+  text-decoration-color:rgba(23,76,50,.45);
+}
+.article-prose .fw-context-link:hover,
+.article-prose .fw-context-link:focus-visible{
+  color:#0f4938;
+  text-decoration-color:currentColor;
+}

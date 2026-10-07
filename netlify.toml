@@ -10,11 +10,7 @@
 [functions.send-free-guide]
   included_files = ["fitness-world-30-day-reset-free-preview.pdf"]
 
-[functions.paypal-capture-order]
-  included_files = ["private/Fitness_World_Natural_Wellness_Encyclopedia.pdf"]
 
-[functions.download-encyclopedia]
-  included_files = ["private/Fitness_World_Natural_Wellness_Encyclopedia.pdf", "private/Fitness_World_30-Day_Natural_Wellness_Reset.pdf"]
 
 [[headers]]
   for = "/*"

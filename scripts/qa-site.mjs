@@ -34,18 +34,18 @@ for(const file of htmlFiles){
   const html=fs.readFileSync(file,'utf8');
   const name=rel(file);
 
-  for(const m of html.matchAll(/<script\\b[^>]*type=["']application\\/ld\\+json["'][^>]*>([\\s\\S]*?)<\\/script>/gi)){
+  for(const m of html.matchAll(/<script\b[^>]*type=["']application\/ld\+json["'][^>]*>([\s\S]*?)<\/script>/gi)){
     jsonLdBlocks++;
     try{JSON.parse(m[1].trim());}catch(e){errors.push(name+': invalid JSON-LD ('+e.message+')');}
   }
 
-  const ids=[...html.matchAll(/\\sid=["']([^"']+)["']/gi)].map(m=>m[1]);
+  const ids=[...html.matchAll(/\sid=["']([^"']+)["']/gi)].map(m=>m[1]);
   const seen=new Set();
   for(const id of ids){if(seen.has(id)) warnings.push(name+': duplicate id '+id); seen.add(id);}
 
-  for(const m of html.matchAll(/<a\\b([^>]*)>/gi)){
+  for(const m of html.matchAll(/<a\b([^>]*)>/gi)){
     const attrs=m[1];
-    const hm=attrs.match(/\\shref=["']([^"']+)["']/i);
+    const hm=attrs.match(/\shref=["']([^"']+)["']/i);
     const href=hm&&hm[1];
     if(!href) continue;
     const candidates=localCandidates(file,href);
@@ -53,23 +53,23 @@ for(const file of htmlFiles){
       linksChecked++;
       if(!candidates.some(p=>fs.existsSync(p))) errors.push(name+': broken internal link -> '+href);
     }
-    if(/\\starget=["']_blank["']/i.test(attrs) && !/\\srel=["'][^"']*noopener/i.test(attrs)) warnings.push(name+': target=_blank without noopener -> '+href);
+    if(/\starget=["']_blank["']/i.test(attrs) && !/\srel=["'][^"']*noopener/i.test(attrs)) warnings.push(name+': target=_blank without noopener -> '+href);
   }
 
-  for(const m of html.matchAll(/<img\\b([^>]*)>/gi)){
+  for(const m of html.matchAll(/<img\b([^>]*)>/gi)){
     imagesChecked++;
     const attrs=m[1];
-    const sm=attrs.match(/\\ssrc=["']([^"']+)["']/i);
+    const sm=attrs.match(/\ssrc=["']([^"']+)["']/i);
     const src=sm&&sm[1];
-    if(!/\\salt=["'][^"']*["']/i.test(attrs)) errors.push(name+': image missing alt -> '+(src||'(unknown src)'));
+    if(!/\salt=["'][^"']*["']/i.test(attrs)) errors.push(name+': image missing alt -> '+(src||'(unknown src)'));
     const candidates=localCandidates(file,src);
     if(candidates && !candidates.some(p=>fs.existsSync(p))) errors.push(name+': missing image -> '+src);
   }
 
-  const indexable=!/<meta\\b[^>]*name=["']robots["'][^>]*content=["'][^"']*noindex/i.test(html);
-  if(indexable && !/<link\\b[^>]*rel=["']canonical["']/i.test(html)) warnings.push(name+': indexable page missing canonical');
-  if(!/<meta\\b[^>]*name=["']viewport["']/i.test(html)) errors.push(name+': missing viewport meta');
-  if(!/<title>[^<]+<\\/title>/i.test(html)) errors.push(name+': missing title');
+  const indexable=!/<meta\b[^>]*name=["']robots["'][^>]*content=["'][^"']*noindex/i.test(html);
+  if(indexable && !/<link\b[^>]*rel=["']canonical["']/i.test(html)) warnings.push(name+': indexable page missing canonical');
+  if(!/<meta\b[^>]*name=["']viewport["']/i.test(html)) errors.push(name+': missing viewport meta');
+  if(!/<title>[^<]+<\/title>/i.test(html)) errors.push(name+': missing title');
 }
 
 console.log('Static QA: '+htmlFiles.length+' HTML files, '+linksChecked+' internal links, '+imagesChecked+' images, '+jsonLdBlocks+' JSON-LD blocks.');

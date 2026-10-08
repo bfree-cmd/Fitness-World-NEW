@@ -19,6 +19,15 @@ jobs:
           node-version: 24
       - run: npm run qa:static
 
+  function-security:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+      - run: npm run qa:functions
+
   production-health:
     if: github.event_name != 'pull_request'
     runs-on: ubuntu-latest

@@ -1,4 +1,8 @@
 {
+  "scripts": {
+    "qa:static": "node scripts/qa-site.mjs",
+    "qa:live": "node scripts/check-live.mjs"
+  },
   "dependencies": {
     "@netlify/blobs": "^11.1.0"
   }

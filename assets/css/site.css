@@ -360,3 +360,15 @@ body.fw-evidence-iq-page~.fw-integrity-note{margin-top:0;margin-bottom:34px}
   color:#0f4938;
   text-decoration-color:currentColor;
 }
+
+
+/* V195 — Lighthouse-driven production optimization */
+.fw-bucket-context>.wrap{font-size:12px}
+.fw-bucket-context span:last-child{color:#526058}
+body.fw-articles-index-page .fw-v1510-compact-row em{font-size:12px;line-height:1.4}
+body.fw-articles-index-page .fw-v1510-text-row small,
+body.fw-articles-index-page .fw-v1510-compact-row small,
+body.fw-articles-index-page .filter-btn{font-size:12px}
+body.natural-wellness-page .nw-editorial-section .kicker{color:#3f7333}
+body.fw-articles-index-page .fw-v1510-compact-row{content-visibility:auto;contain-intrinsic-size:108px 380px}
+body.fw-articles-index-page .fw-v1510-feature-card{content-visibility:auto;contain-intrinsic-size:420px 380px}

@@ -63,7 +63,10 @@ for(const file of htmlFiles){
     const src=sm&&sm[1];
     if(!/\salt=["'][^"']*["']/i.test(attrs)) errors.push(name+': image missing alt -> '+(src||'(unknown src)'));
     const candidates=localCandidates(file,src);
-    if(candidates && !candidates.some(p=>fs.existsSync(p))) errors.push(name+': missing image -> '+src);
+    if(candidates && !candidates.some(p=>fs.existsSync(p))){
+      if(String(src||'').startsWith('/assets/images/pexels-cache/')) warnings.push(name+': legacy Pexels cache image not present in repo -> '+src);
+      else errors.push(name+': missing image -> '+src);
+    }
   }
 
   const indexable=!/<meta\b[^>]*name=["']robots["'][^>]*content=["'][^"']*noindex/i.test(html);

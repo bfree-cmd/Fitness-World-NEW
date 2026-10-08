@@ -31,6 +31,23 @@ jobs:
         run: sleep 45
       - run: npm run qa:live
 
+  live-assets:
+    if: github.event_name != 'pull_request'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - name: Wait briefly for Netlify production deploy
+        run: sleep 45
+      - name: Check legacy Pexels cache references on production
+        run: node scripts/check-live-assets.mjs
+      - uses: actions/upload-artifact@v4
+        with:
+          name: live-pexels-assets-report
+          path: live-pexels-assets-report.json
+
   lighthouse:
     if: github.event_name != 'pull_request'
     runs-on: ubuntu-latest

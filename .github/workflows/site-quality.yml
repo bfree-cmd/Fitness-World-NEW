@@ -72,8 +72,6 @@ jobs:
             url: https://fitnessworld.pro/articles/
           - name: evidence-projects
             url: https://fitnessworld.pro/evidence-projects/
-          - name: article
-            url: https://fitnessworld.pro/articles/protein-after-40/
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
@@ -104,6 +102,8 @@ jobs:
         run: |
           node -e "const r=require('./lighthouse-${{ matrix.name }}.json'); for (const k of ['performance','accessibility','best-practices','seo']) console.log(k+': '+Math.round(r.categories[k].score*100))"
       - uses: actions/upload-artifact@v4
+        if: always()
         with:
           name: lighthouse-${{ matrix.name }}
           path: lighthouse-${{ matrix.name }}.json
+          if-no-files-found: warn

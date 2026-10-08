@@ -46,7 +46,20 @@ for(const p of pages){
     const v=r.headers.get(h);
     if(!ok(v)){console.error('  FAIL header '+h+': '+(v||'(missing)'));failed=true;}
   }
-  if(!html.includes('G-FXRMZYR0YY')){console.error('  FAIL GA4 tag not found');failed=true;}
+  if(!html.includes('G-FXRMZYR0YY')){
+    const loader=html.match(/<script\b[^>]*\bsrc=["'](\/assets\/js\/ga-deferred\.js(?:\?[^"']*)?)["'][^>]*>/i);
+    let valid=false;
+    if(loader){
+      try{
+        const response=await fetchRetry(base+loader[1],{redirect:'follow'},3);
+        const source=await response.text();
+        valid=response.ok && source.includes('G-FXRMZYR0YY') &&
+          source.includes('www.googletagmanager.com/gtag/js') &&
+          source.includes('window.dataLayer') && source.includes("window.gtag('config',id)");
+      }catch(e){console.error('  GA4 loader fetch failed: '+String(e.message||e));}
+    }
+    if(!valid){console.error('  FAIL GA4 tag or valid deferred loader not found');failed=true;}
+  }
 }
 
 for(const item of [

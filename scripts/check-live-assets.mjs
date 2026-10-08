@@ -2,7 +2,10 @@ import fs from 'node:fs';
 import path from 'node:path';
 
 const root=process.cwd();
-const base=(process.env.FW_AUDIT_BASE_URL||'https://fitnessworld.pro').replace(/\/$/,'');
+const primary=(process.env.FW_AUDIT_BASE_URL||'https://fitnessworld.pro').replace(/\/$/,'');
+const fallback=(process.env.FW_AUDIT_FALLBACK_URL||'https://comforting-marigold-ea2f43.netlify.app').replace(/\/$/,'');
+let base=primary;
+try{const r=await fetch(primary+'/',{redirect:'follow'});if(!r.ok)throw new Error('HTTP '+r.status);}catch(e){console.warn('Primary domain unavailable from runner; checking assets on Netlify production URL.');base=fallback;}
 const skip=new Set(['.git','.netlify','node_modules']);
 const html=[];
 function walk(dir){

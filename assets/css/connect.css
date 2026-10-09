@@ -37,4 +37,30 @@ html body.fw-connect-page .fw-connect-main h2{font-size:clamp(24px,3vw,36px);lin
 html body.fw-connect-page .fw-connect-read h2{font-size:24px}
 .fw-connect-read p{line-height:1.6;margin:12px 0 0;max-width:620px}
 #fw-video-status{font-size:15px;line-height:1.6}
+/* Clearer platform marks and balanced editorial typography. */
+html body .fw-home-editorial-trust a{text-decoration:none!important;border-bottom:0!important;box-shadow:none!important}
+html body footer a.fw-social-hub-link{text-decoration:none;font-size:13px;font-weight:650}
+html body footer a.fw-social-hub-link:hover{color:#2e6c35!important}
+.fw-social-icon{border:0;box-shadow:0 3px 9px rgba(22,50,31,.12);background:#16321f}
+html body footer .fw-social-grid .fw-social-icon{width:46px;height:46px}
+html body footer .fw-social-grid .fw-social-icon svg{width:23px;height:23px}
+html body footer .fw-social-grid .fw-social-label{font-size:12px;font-weight:600}
+.fw-social-link[href*="instagram.com"] .fw-social-icon{background:linear-gradient(35deg,#f99b35,#dd286c 55%,#743bc1)}
+.fw-social-link[href*="facebook.com"] .fw-social-icon,.fw-social-link[href*="linkedin.com"] .fw-social-icon{background:#176bb9}
+.fw-social-link[href*="youtube.com"] .fw-social-icon{background:#cc2020}
+.fw-social-link[href*="tiktok.com"] .fw-social-icon,.fw-social-link[href*="threads.net"] .fw-social-icon,.fw-social-link[href*="medium.com"] .fw-social-icon{background:#212723}
+.fw-social-link[href*="substack.com"] .fw-social-icon{background:#d65318}
+html body .fw-social-link .fw-social-icon svg,html body footer .fw-social-grid a:hover .fw-social-icon svg{color:#fff!important}
+html body .fw-social-link:hover .fw-social-icon{filter:brightness(1.1);transform:translateY(-2px)}
+.fw-social-icon{transition:transform .18s ease,filter .18s ease}
+html body.fw-connect-page .fw-connect-main h1{font-size:clamp(36px,4.2vw,58px);font-weight:750;line-height:1.12;letter-spacing:-.035em;max-width:11.5ch;text-wrap:balance;margin-bottom:22px}
+.fw-connect-intro{font-size:17px;line-height:1.7;max-width:480px;margin-bottom:32px}
+.fw-connect-intro span{color:#4e624f}
+.fw-connect-eyebrow{font-weight:600;letter-spacing:.12em;color:#4e624f}
+.fw-connect-social-grid{gap:22px 12px;max-width:480px}
+.fw-connect-social-grid .fw-social-link{font-size:13px;font-weight:600;gap:11px}
+.fw-connect-social-grid .fw-social-icon{width:68px;height:68px}
+.fw-connect-social-grid svg{width:33px;height:33px}
+html body.fw-connect-page .fw-connect-main h2{font-weight:700;letter-spacing:-.02em}
+@media(prefers-reduced-motion:reduce){.fw-social-icon{transition:none}html body .fw-social-link:hover .fw-social-icon{transform:none}}
 @media(max-width:760px){html body.fw-connect-page .fw-connect-main{padding:32px 0}.fw-connect-hero{grid-template-columns:1fr;gap:30px}.fw-connect-hero-photo{height:320px}.fw-connect-intro{font-size:16px}.fw-connect-social-grid{gap:22px 8px}.fw-connect-social-grid .fw-social-icon{width:52px;height:52px}.fw-connect-videos{margin-top:42px}.fw-connect-section-heading{align-items:flex-start;flex-direction:column;gap:16px}.fw-video-grid{grid-template-columns:1fr}.fw-connect-read{flex-direction:column;align-items:flex-start;padding:24px}.fw-connect-outline,.fw-connect-solid{white-space:normal}}

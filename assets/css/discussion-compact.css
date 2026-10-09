@@ -1,0 +1,21 @@
+body .article-prose .fw-discussion {
+  padding: 18px;
+  min-height: 0;
+}
+body .article-prose .fw-discussion .kicker { margin: 0 0 6px; }
+body .article-prose .fw-discussion h2 { margin: 0 0 8px; }
+body .article-prose .fw-discussion-intro > p { margin: 0; }
+body .article-prose .fw-discussion-form { margin-top: 14px; }
+body .article-prose .fw-discussion textarea {
+  min-height: 76px;
+  height: 76px;
+  resize: vertical;
+}
+body .article-prose .fw-discussion-status:empty { display: none; }
+body .article-prose .fw-discussion-status:not(:empty) {
+  min-height: 0;
+  margin: 8px 0 0;
+}
+@media (max-width: 760px) {
+  body .article-prose .fw-discussion { padding: 16px 14px; }
+}

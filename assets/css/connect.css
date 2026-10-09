@@ -63,3 +63,6 @@ html body.fw-connect-page .fw-connect-read h2{font-size:24px}
 html body.fw-connect-page .fw-connect-community-hero h1{max-width:900px;margin-inline:auto;text-align:center;text-wrap:balance}
 html body.fw-connect-page .fw-connect-intro{margin-inline:auto;text-align:center;text-wrap:balance}
 @media(max-width:760px){.fw-connect-community-hero{padding-top:28px}.fw-connect-section-heading{align-items:center;text-align:center}.fw-connect-read{align-items:center;text-align:center}.fw-connect-read p{text-wrap:balance}}
+
+/* Eleven cards: three complete rows and a centred pair on desktop. */
+@media(min-width:761px){.fw-connect-social-grid{grid-template-columns:repeat(6,minmax(0,1fr))}.fw-connect-social-grid .fw-social-link{grid-column:span 2}.fw-connect-social-grid .fw-social-link:nth-child(10){grid-column:2 / span 2}.fw-connect-social-grid .fw-social-link:nth-child(11){grid-column:4 / span 2}}

@@ -1,0 +1,18 @@
+.fw-source-check > summary {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  cursor: pointer;
+  list-style: none;
+}
+.fw-source-check > summary::-webkit-details-marker { display: none; }
+.fw-source-check > summary:focus-visible {
+  outline: 2px solid currentColor;
+  outline-offset: 6px;
+  border-radius: 2px;
+}
+.fw-source-check-arrow { flex: 0 0 18px; }
+.fw-source-check[open] .fw-source-check-arrow { transform: rotate(180deg); }
+.fw-source-check-content > p:first-child { margin-top: 12px; }
+.fw-source-check-content > p:last-child { margin-bottom: 0; }

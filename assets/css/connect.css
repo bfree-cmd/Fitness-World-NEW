@@ -6,13 +6,14 @@ html body .fw-v1587-resources-footer a{font-family:Arial,Helvetica,sans-serif!im
 .fw-social-dropdown{position:relative;max-width:320px;color:#16321f}
 .fw-social-dropdown summary{display:flex;align-items:center;justify-content:space-between;gap:16px;cursor:pointer;list-style:none;width:max-content;max-width:100%;padding:10px 17px;border:1px solid #84977d;border-radius:999px;background:#fffdf8;font-size:13px;font-weight:650;line-height:1.5}
 .fw-social-dropdown summary::-webkit-details-marker{display:none}
-.fw-social-chevron{font-size:18px;line-height:1;transition:transform .15s}
-.fw-social-dropdown[open] .fw-social-chevron{transform:rotate(180deg)}
+.fw-social-chevron{display:flex;align-items:center;justify-content:center;width:16px;height:16px;line-height:1;transform:translate(-2px,1px);transition:transform .15s}.fw-social-chevron svg{display:block;width:14px;height:14px}
+.fw-social-dropdown[open] .fw-social-chevron{transform:translate(-2px,1px) rotate(180deg)}
 .fw-social-menu{position:absolute;bottom:calc(100% + 12px);left:0;z-index:40;width:300px;max-width:calc(100vw - 40px);padding:18px 14px;background:#fffdf8;border:1px solid #b5bfaa;border-radius:14px;box-shadow:0 8px 18px rgba(22,50,31,.07)}
 html body footer .footer-social-row.fw-social-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px 12px;width:100%}
 html body footer .footer-social-row.fw-social-grid a.fw-social-link{display:flex;flex-direction:row;align-items:center;gap:9px;width:auto;height:auto;min-width:0;background:transparent!important;border:0!important;border-radius:0;text-decoration:none}
 .fw-social-icon{display:grid;place-items:center;width:30px;height:30px;border:1px solid #9cae94;border-radius:50%;background:#f7f4ec;color:#16321f;flex-shrink:0}
 html body footer .fw-social-icon svg{width:16px;height:16px;color:#16321f!important}
+html body footer .fw-social-grid .fw-social-link:last-child{grid-column:1 / -1;justify-self:center}
 html body footer .fw-social-label{font-size:12px;line-height:1.4;letter-spacing:0;font-weight:500}
 html body footer .fw-social-grid a:hover .fw-social-icon{background:#e7ecdf}
 .fw-social-link:focus-visible,.fw-social-dropdown summary:focus-visible,.fw-social-hub-link:focus-visible{outline:2px solid #16321f;outline-offset:4px}
@@ -28,7 +29,7 @@ html body.fw-connect-page .fw-connect-main h1{font-size:clamp(32px,4.2vw,54px);f
 .fw-connect-intro{font-size:17px;line-height:1.65;margin:0 auto;max-width:650px}
 .fw-connect-intro span{color:#4e624f}
 .fw-connect-platforms{background:#e7ecdf;border-radius:20px;padding:28px;margin-top:12px}
-.fw-connect-social-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:18px}
+.fw-connect-social-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}
 .fw-connect-social-grid .fw-social-link{display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;gap:10px;padding:26px 14px;min-height:180px;min-width:0;border:1px solid #bfc8b3;border-radius:14px;background:#f9f7f0;text-decoration:none}
 .fw-connect-social-grid .fw-social-icon{width:56px;height:56px;background:#e7ecdf;border:0}
 .fw-connect-social-grid svg{width:28px;height:28px;color:#16321f}
@@ -53,3 +54,8 @@ html body.fw-connect-page .fw-connect-read h2{font-size:24px}
 #fw-video-status{font-size:15px;line-height:1.6}
 @media(max-width:760px){html body.fw-connect-page .fw-connect-main{padding:20px 0 32px}.fw-connect-community-hero{padding:36px 10px;background-image:none}.fw-connect-intro{font-size:16px}.fw-connect-platforms{padding:16px}.fw-connect-social-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}.fw-connect-social-grid .fw-social-link{padding:20px 10px;min-height:170px}.fw-connect-social-grid .fw-social-label{font-size:15px}.fw-social-description{font-size:12px}.fw-connect-videos{margin-top:36px}.fw-connect-section-heading{align-items:flex-start;flex-direction:column;gap:16px}.fw-video-grid{grid-template-columns:1fr}.fw-connect-read{flex-direction:column;align-items:flex-start;padding:24px}.fw-connect-outline,.fw-connect-solid{white-space:normal}}
 @media(prefers-reduced-motion:reduce){.fw-social-chevron{transition:none}}
+
+@media(max-width:760px){.fw-connect-social-grid .fw-social-link:last-child{grid-column:1 / -1;width:calc((100% - 12px) / 2);justify-self:center}}
+
+.fw-connect-mobile-backdrop{display:none}
+@media(max-width:760px){.fw-connect-mobile-backdrop{display:block;width:100%;height:auto;border-radius:14px;margin-top:26px}.fw-connect-community-hero{padding-bottom:16px}}

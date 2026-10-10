@@ -1,0 +1,32 @@
+/* Content-card spacing. Preserve article heading rhythm outside cards. */
+@media screen {
+  html.article-page body .article-prose-fixed .fw-discussion h2,
+  html.article-page body .article-prose-fixed .fw-review-bridge h2 {
+    margin: 6px 0 8px;
+  }
+  html.article-page body .article-prose-fixed .fw-discussion .kicker,
+  html.article-page body .article-prose-fixed .fw-review-bridge .kicker {
+    margin: 0 0 6px;
+  }
+  html.article-page body .fw-discussion { margin: 20px 0 8px; }
+  html.article-page body .fw-review-bridge { margin: 20px 0; padding: 18px 20px; }
+  html.article-page body .fw-review-bridge .fw-next-guide-copy { align-self: start; }
+  html.article-page body .fw-review-bridge .fw-next-guide-copy > p { margin: 0 0 10px; }
+  html.article-page body .fw-evidence-card-v2 { margin: 20px 0 14px; }
+  html.article-page body .fw-evidence-card-v2 .fw-ec-block { padding: 12px 15px; }
+  html.article-page body .fw-evidence-card-v2 .fw-ec-block > p { margin: 0; }
+  html.article-page body .fw-source-check { padding: 16px 18px; }
+  html.article-page body .sources a,
+  html.article-page body #fw-sources a { overflow-wrap: anywhere; }
+  /* Notification delivery is not implemented; retain the saved form contract. */
+  .fw-discussion .fw-discussion-notify { display: none; }
+  body.fw-site-shell #topics { padding-top: 64px; padding-bottom: 44px; }
+  body .business-main .notice-card > :last-child { margin-bottom: 0; }
+  @media (max-width: 760px) {
+    html.article-page body .fw-discussion { margin-top: 16px; }
+    html.article-page body .fw-review-bridge { padding: 15px; margin: 16px 0; }
+    html.article-page body .fw-evidence-card-v2 .fw-ec-block { padding: 11px 13px; }
+    html.article-page body .fw-source-check { padding: 14px; }
+    body.fw-site-shell #topics { padding-top: 40px; padding-bottom: 32px; }
+  }
+}

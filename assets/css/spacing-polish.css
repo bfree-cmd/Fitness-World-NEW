@@ -30,3 +30,40 @@
     body.fw-site-shell #topics { padding-top: 40px; padding-bottom: 32px; }
   }
 }
+
+/* Additional article cards identified in the screenshot review. */
+@media screen {
+  html.article-page body article.article-prose-fixed .fw-growth-update > h2,
+  html.article-page body article.article-prose-fixed .fw-authority-layer > h2 {
+    margin: 10px 0 12px;
+  }
+  html.article-page body article.article-prose-fixed .fw-growth-update,
+  html.article-page body article.article-prose-fixed .fw-authority-layer {
+    margin: 20px 0;
+    padding: 18px 20px;
+  }
+  html.article-page body article.article-prose-fixed .fw-growth-update > :last-child,
+  html.article-page body article.article-prose-fixed .fw-authority-layer > :last-child {
+    margin-bottom: 0;
+  }
+  html.article-page body .fw-v158-key-takeaways { margin-bottom: 20px; }
+  html.article-page body .fw-v158-key-takeaways__inner { padding: 16px 20px; }
+  html.article-page body .fw-v158-key-takeaways__eyebrow { margin-bottom: 10px; }
+  html.article-page body.fw-article-reading-system .fw-article-next-step {
+    margin: 20px 0 14px;
+  }
+  @media (max-width: 760px) {
+    html.article-page body article.article-prose-fixed .fw-growth-update,
+    html.article-page body article.article-prose-fixed .fw-authority-layer {
+      margin: 16px 0;
+      padding: 15px;
+    }
+  }
+}
+
+@media screen {
+  html.article-page body article.article-prose-fixed .fw-product-offer-copy > h2 { margin: 8px 0 12px; }
+  html.article-page body article.article-prose-fixed .fw-product-offer-copy > .kicker { margin-bottom: 6px; }
+  html.article-page body article.article-prose-fixed .fw-product-offer-cta { margin: 20px 0; padding: 20px; }
+  html.article-page body article.article-prose-fixed .fw-product-offer-note { margin: 8px 0 0; }
+}

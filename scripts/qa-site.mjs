@@ -69,7 +69,9 @@ for(const file of htmlFiles){
     }
   }
 
-  const indexable=!/<meta\b[^>]*name=["']robots["'][^>]*content=["'][^"']*noindex/i.test(html);
+  // Attribute order is irrelevant: generated HTML often puts content before name.
+  const robotsMeta=[...html.matchAll(/<meta\b[^>]*>/gi)].map(m=>m[0]).find(tag=>/\bname=["']robots["']/i.test(tag));
+  const indexable=!(robotsMeta && /\bcontent=["'][^"']*noindex/i.test(robotsMeta));
   if(indexable && !/<link\b[^>]*rel=["']canonical["']/i.test(html)) warnings.push(name+': indexable page missing canonical');
   if(!/<meta\b[^>]*name=["']viewport["']/i.test(html)) errors.push(name+': missing viewport meta');
   if(!/<title>[^<]+<\/title>/i.test(html)) errors.push(name+': missing title');

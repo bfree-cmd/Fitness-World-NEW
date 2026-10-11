@@ -1,0 +1,21 @@
+/* Scoped fixes confirmed by the October 11 live desktop audit. */
+@media screen {
+  body .natural-product-copy h1 {
+    line-height: 1.12;
+    letter-spacing: -.025em;
+    margin-top: 12px;
+    margin-bottom: 20px;
+  }
+  html.article-page body article.article-prose-fixed .fw-affiliate-option__copy > h2,
+  html.article-page body article.article-prose-fixed .ep-article-callout > h2,
+  html.article-page body article.article-prose-fixed .fw-v2-growth-strip > h2,
+  html.article-page body article.article-prose-fixed .fw-v1510-related-review-copy > h2,
+  html.article-page body article.article-prose-fixed .sources > h2 {
+    margin-top: 8px;
+    margin-bottom: 12px;
+  }
+  html.article-page body article.article-prose-fixed .ep-article-callout > :last-child,
+  html.article-page body article.article-prose-fixed .fw-v2-growth-strip > :last-child {
+    margin-bottom: 0;
+  }
+}

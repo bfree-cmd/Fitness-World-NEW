@@ -65,13 +65,13 @@ jobs:
       matrix:
         include:
           - name: home
-            url: https://fitnessworld.pro/
+            url: https://comforting-marigold-ea2f43.netlify.app/
           - name: natural
-            url: https://fitnessworld.pro/natural/
+            url: https://comforting-marigold-ea2f43.netlify.app/natural/
           - name: articles
-            url: https://fitnessworld.pro/articles/
+            url: https://comforting-marigold-ea2f43.netlify.app/articles/
           - name: evidence-projects
-            url: https://fitnessworld.pro/evidence-projects/
+            url: https://comforting-marigold-ea2f43.netlify.app/evidence-projects/
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
@@ -84,9 +84,8 @@ jobs:
         run: |
           set +e
           URL="${{ matrix.url }}"
-          FALLBACK_URL="${URL/https:\/\/fitnessworld.pro/https:\/\/comforting-marigold-ea2f43.netlify.app}"
-          for TARGET in "$URL" "$URL" "$FALLBACK_URL"; do
-            npx --yes lighthouse@12.2.1 "$TARGET" \
+          for TARGET in "$URL" "$URL" "$URL"; do
+            npx --yes lighthouse@13.5.0 "$TARGET" \
               --chrome-flags="--headless --no-sandbox" \
               --form-factor=mobile \
               --screenEmulation.mobile=true \
@@ -107,3 +106,23 @@ jobs:
           name: lighthouse-${{ matrix.name }}
           path: lighthouse-${{ matrix.name }}.json
           if-no-files-found: warn
+
+  responsive-rendering:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+      - name: Install isolated audit browser
+        run: |
+          npm install --no-save --package-lock=false playwright@1.58.2
+          npx playwright install --with-deps chromium
+      - name: Render all pages on desktop and mobile
+        run: node scripts/audit-responsive.mjs
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: responsive-rendering
+          path: responsive-audit/

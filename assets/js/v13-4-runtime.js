@@ -107,6 +107,14 @@
     var mo=new MutationObserver(function(){if(busy)return;busy=true;requestAnimationFrame(function(){busy=false;apply(true);});});mo.observe(out,{childList:true});var f=root.querySelector('[data-fw-hype-filter]');if(f)f.addEventListener('change',function(){setTimeout(function(){apply(true);},0);});setTimeout(function(){apply(true);},0);
   }
   function normalizeBrandTagline(){$$('.brandtagline').forEach(function(el){if(el.textContent.trim()!=='WHAT REALLY WORKS.')el.textContent='WHAT REALLY WORKS.';});var brand=document.querySelector('.brand.brand-wordmark');if(brand)brand.removeAttribute('aria-label');}
-  function init(){normalizeBrandTagline();initNav();initNavMenus();initStatic();initHype();}
+  function initShopLinks(){
+    ['#fw-nav-menu-tools','.footer-links#footer-links-3'].forEach(function(selector){
+      var container=document.querySelector(selector);
+      if(!container||container.querySelector('a[href="/shop/"]'))return;
+      var link=document.createElement('a');link.href='/shop/';link.textContent='Shop';
+      container.appendChild(link);
+    });
+  }
+  function init(){initShopLinks();normalizeBrandTagline();initNav();initNavMenus();initStatic();initHype();}
   if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',init,{once:true});else init();
 })();

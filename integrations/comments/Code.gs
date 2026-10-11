@@ -35,9 +35,9 @@ function doPost(e){
       try{
         const key=Utilities.base64EncodeWebSafe(Utilities.computeDigest(Utilities.DigestAlgorithm.SHA_256,email.toLowerCase()+'|'+article));
         const cache=CacheService.getScriptCache();if(cache.get(key))return commentsJson_({success:false,error:'Please wait a minute before posting again.'});
-        sh.appendRow([Utilities.getUuid(),'',article,literal(name),literal(email),literal(body),b.notify_replies===true?'Yes':'No','pending','No',new Date(),'Awaiting manual approval']);cache.put(key,'1',60);
+        sh.appendRow([Utilities.getUuid(),'',article,literal(name),literal(email),literal(body),b.notify_replies===true?'Yes':'No','approved','No',new Date(),'Automatically published']);cache.put(key,'1',60);
       }finally{lock.releaseLock();}
-      return commentsJson_({success:true,status:'pending',published:false});
+      return commentsJson_({success:true,status:'approved',published:true});
     }
     if(b.action==='report'){
       const exists=sh.getDataRange().getValues().slice(1).some(r=>r[0]===b.comment_id&&r[2]===article&&r[7]==='approved');

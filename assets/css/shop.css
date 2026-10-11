@@ -3,3 +3,9 @@
 @media(max-width:1000px){.fw-shop-layout{grid-template-columns:1fr}.fw-shop-intro{display:none}.fw-shop-grid{gap:16px}.fw-shop-image{height:210px}}
 @media(max-width:620px){.fw-shop-main{padding:28px 0 32px}.fw-shop-heading{margin-bottom:24px}.fw-shop-heading p:last-child{font-size:14px}.fw-shop-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}.fw-shop-image{height:158px;padding:30px 12px 10px}.fw-shop-card-copy{padding:13px}.fw-shop-card h2{font-size:15px}.fw-shop-card p{font-size:12px;margin-bottom:14px}.fw-shop-button{font-size:11px}.fw-shop-note{text-align:left;margin-top:20px}}
 @media(max-width:360px){.fw-shop-grid{grid-template-columns:1fr}.fw-shop-image{height:210px}}
+/* The established content shell sets headings and image height with !important. */
+html.content-page body.fw-shop-page .fw-shop-card h2{font-size:17px!important;line-height:1.25!important;letter-spacing:-.015em!important;margin:0 0 10px!important;font-weight:750!important}
+html.content-page body.fw-shop-page .fw-shop-intro h2{font-size:clamp(26px,2.7vw,36px)!important;line-height:1.15!important;letter-spacing:-.025em!important;margin:14px 0 18px!important}
+html.content-page body.fw-shop-page .fw-shop-image img{height:154px!important;max-height:154px!important;width:100%!important;object-fit:contain!important;display:block!important}
+@media(max-width:1000px){html.content-page body.fw-shop-page .fw-shop-image img{height:174px!important;max-height:174px!important}}
+@media(max-width:620px){html.content-page body.fw-shop-page .fw-shop-card h2{font-size:15px!important}html.content-page body.fw-shop-page .fw-shop-image img{height:118px!important;max-height:118px!important}}

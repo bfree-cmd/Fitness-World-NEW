@@ -10,7 +10,7 @@ exports.handler = async event => {
     const payload={action:b.action,article_path:b.article,comments_secret:secret};
     if(b.action==='submit') Object.assign(payload,{display_name:b.name,email:b.email,body:b.comment,notify_replies:b.notify===true,website:b.website});
     if(b.action==='report') Object.assign(payload,{comment_id:b.comment_id,reason:b.reason});
-    const r=await fetch(endpoint,{method:'POST',headers:{'content-type':'application/json'},body:JSON.stringify(payload),signal:AbortSignal.timeout(10000)});
+    const r=await fetch(endpoint,{method:'POST',headers:{'content-type':'application/json'},body:JSON.stringify(payload),signal:AbortSignal.timeout(25000)});
     if(!r.ok) return reply(502,{error:'Comments are temporarily unavailable.'});
     const d=await r.json();
     if(d.success!==true) return reply(400,{error:d.error||'Unable to complete request.'});
@@ -19,5 +19,5 @@ exports.handler = async event => {
       return reply(200,{comments:all.filter(c=>!c.parent_id).map(c=>({...c,replies:all.filter(r=>r.parent_id===c.id)}))});
     }
     return reply(200,{status:d.status,published:d.published===true});
-  } catch {return reply(502,{error:'Comments are temporarily unavailable.'});}
+  } catch (error) {console.error('[FW comments upstream failure]', {name:error.name});return reply(502,{error:'Comments are temporarily unavailable.'});}
 };

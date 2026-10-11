@@ -232,3 +232,16 @@ document.addEventListener('DOMContentLoaded', function () {
     el.setAttribute('aria-label', 'Get the free preview');
   });
 });
+
+/* Direct Shop navigation shared by desktop and mobile headers. */
+document.addEventListener('DOMContentLoaded', function () {
+  document.querySelectorAll('header .navlinks').forEach(function (nav) {
+    if (Array.from(nav.children).some(function (node) { return node.getAttribute('href') === '/shop/'; })) return;
+    var about = Array.from(nav.children).find(function (node) { return node.getAttribute('href') === '/about/'; });
+    var shop = document.createElement('a');
+    shop.href = '/shop/';
+    shop.textContent = 'Shop';
+    if (location.pathname === '/shop/') shop.setAttribute('aria-current', 'page');
+    nav.insertBefore(shop, about || nav.querySelector('.navcta'));
+  });
+});

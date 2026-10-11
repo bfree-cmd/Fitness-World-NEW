@@ -25,7 +25,7 @@ function doPost(e){
     if(!/^\/[a-z0-9-]+\/[a-z0-9-]+\/$/.test(article))return commentsJson_({success:false,error:'Invalid article'});
     const sh=commentsBook_().getSheetByName('Comments');
     if(!sh)throw new Error('Run setup first');
-    if(b.action==='list')return commentsJson_({success:true,comments:sh.getDataRange().getValues().slice(1).filter(r=>r[2]===article&&String(r[7]).trim().toLowerCase()==='approved').map(r=>({id:String(r[0]),parent_id:String(r[1]),display_name:String(r[3]),body:String(r[5]),is_editorial:r[8]===true||String(r[8]).toLowerCase()==='yes',created_at:r[9] instanceof Date?r[9].toISOString():String(r[9])}))});
+    if(b.action==='list')return commentsJson_({success:true,reply_supported:true,comments:sh.getDataRange().getValues().slice(1).filter(r=>r[2]===article&&String(r[7]).trim().toLowerCase()==='approved').map(r=>({id:String(r[0]),parent_id:String(r[1]),display_name:String(r[3]),body:String(r[5]),is_editorial:r[8]===true||String(r[8]).toLowerCase()==='yes',created_at:r[9] instanceof Date?r[9].toISOString():String(r[9])}))});
     const literal=v=>{const s=String(v||'');return /^[=+@-]/.test(s)?"'"+s:s;};
     if(b.action==='submit'){
       const name=String(b.display_name||'').trim(),email=String(b.email||'').trim(),body=String(b.body||'').trim();
@@ -33,9 +33,11 @@ function doPost(e){
       if(b.website)return commentsJson_({success:true,status:'received'});
       const lock=LockService.getScriptLock();lock.waitLock(10000);
       try{
+        const parent=String(b.parent_id||'').trim();
+        if(parent&&!sh.getDataRange().getValues().slice(1).some(r=>String(r[0])===parent&&r[2]===article&&String(r[7]).trim().toLowerCase()==='approved'))return commentsJson_({success:false,error:'The comment you are replying to is no longer available.'});
         const key=Utilities.base64EncodeWebSafe(Utilities.computeDigest(Utilities.DigestAlgorithm.SHA_256,email.toLowerCase()+'|'+article));
         const cache=CacheService.getScriptCache();if(cache.get(key))return commentsJson_({success:false,error:'Please wait a minute before posting again.'});
-        sh.appendRow([Utilities.getUuid(),'',article,literal(name),literal(email),literal(body),b.notify_replies===true?'Yes':'No','approved','No',new Date(),'Automatically published']);cache.put(key,'1',60);
+        sh.appendRow([Utilities.getUuid(),parent,article,literal(name),literal(email),literal(body),b.notify_replies===true?'Yes':'No','approved','No',new Date(),'Automatically published']);cache.put(key,'1',60);
       }finally{lock.releaseLock();}
       return commentsJson_({success:true,status:'approved',published:true});
     }

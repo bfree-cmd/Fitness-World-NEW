@@ -88,3 +88,28 @@
   html.article-page body .fw-encyclopedia-cta--article .fw-encyclopedia-cta__button { grid-column: 2; grid-row: 5; width: 100% !important; min-width: 0 !important; padding: 10px 5px !important; margin: 0 !important; font-size: 11px !important; }
   html.article-page body .fw-encyclopedia-cta--article .fw-encyclopedia-cta__note { grid-column: 1; grid-row: 5; margin: 0 !important; align-self: center; }
 }
+
+@media screen {
+ html.article-page body .fw-v2-quick-answer > summary { display:flex; align-items:center; justify-content:space-between; cursor:pointer; list-style:none; margin:0 !important; }
+ html.article-page body .fw-v2-quick-answer > summary::-webkit-details-marker { display:none; }
+ html.article-page body .fw-quick-chevron { font-size:22px; line-height:1; transition:transform .15s; }
+ html.article-page body .fw-v2-quick-answer[open] .fw-quick-chevron { transform:rotate(180deg); }
+ html.article-page body .fw-v2-quick-answer[open] .fw-v2-answer-meta { margin-top:12px; }
+ html.article-page body .fw-encyclopedia-cta--article .fw-encyclopedia-cta__button { white-space:nowrap !important; font-size:10px !important; overflow-wrap:normal !important; }
+ html.article-page body article.article-prose-fixed .fw-product-offer-cta { gap:14px; padding:16px; }
+ html.article-page body article.article-prose-fixed .fw-product-offer-copy > h2 { margin:5px 0 8px; }
+ html.article-page body article.article-prose-fixed .fw-product-offer-copy > p { margin:0 0 8px; }
+ html.article-page body .fw-product-offer-trust { margin-top:8px; }
+ html.article-page body .fw-product-offer-action .fw-offer-cta-clean { white-space:nowrap !important; overflow-wrap:normal !important; flex-direction:row !important; font-size:13px !important; padding:12px 10px !important; min-height:42px; }
+ @media (max-width:900px) {
+  html.article-page body article.article-prose-fixed .fw-product-offer-cta { grid-template-columns:minmax(0,1fr) 100px; gap:12px; }
+  html.article-page body .fw-product-offer-copy { grid-column:1; }
+  html.article-page body .fw-product-offer-copy h2 { font-size:23px !important; line-height:1.15 !important; }
+  html.article-page body .fw-product-offer-copy p { font-size:15px !important; line-height:1.45 !important; }
+  html.article-page body .fw-product-offer-trust { font-size:10px; gap:4px 8px; }
+  html.article-page body .fw-product-offer-media { grid-column:2; grid-row:1; align-self:center; }
+  html.article-page body .fw-product-offer-media img { width:100%; height:auto !important; max-height:150px !important; object-fit:contain; }
+  html.article-page body .fw-product-offer-action { grid-column:1 / -1; grid-row:2; }
+  html.article-page body .fw-product-offer-action .fw-product-offer-note { font-size:12px; line-height:1.4; margin:6px 0 0; max-width:none; }
+ }
+}

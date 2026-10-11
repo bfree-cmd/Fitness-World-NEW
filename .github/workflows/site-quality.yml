@@ -27,6 +27,7 @@ jobs:
         with:
           node-version: 24
       - run: npm run qa:functions
+      - run: node scripts/test-preview-delivery.mjs
 
   production-health:
     if: github.event_name != 'pull_request'
@@ -72,6 +73,8 @@ jobs:
             url: https://comforting-marigold-ea2f43.netlify.app/articles/
           - name: evidence-projects
             url: https://comforting-marigold-ea2f43.netlify.app/evidence-projects/
+          - name: shop
+            url: https://comforting-marigold-ea2f43.netlify.app/shop/
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4

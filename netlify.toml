@@ -8,7 +8,7 @@
   node_bundler = "esbuild"
 
 [functions.send-free-guide]
-  included_files = ["fitness-world-30-day-reset-free-preview.pdf"]
+  included_files = ["fitness-world-30-day-reset-free-preview.pdf", "assets/images/og-free-preview-v188.jpg"]
 
 
 

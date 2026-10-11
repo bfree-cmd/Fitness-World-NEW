@@ -1,3 +1,5 @@
+import { readFile } from 'node:fs/promises';
+import { resolve } from 'node:path';
 import rateLimit from './lib/rate-limit.js';
 const {allow:rateAllow,response:rateResponse}=rateLimit;
 const json = (statusCode, body, headers = {}) => ({
@@ -12,6 +14,17 @@ const siteUrl = () => {
   const raw = process.env.FW_SITE_URL || "https://fitnessworld.pro";
   return String(raw).replace(/\/$/, "");
 };
+
+// Use bundled assets first so email delivery does not wait on a website download.
+async function bundledAsset(filename) {
+  const candidates = [resolve(process.cwd(), filename), new URL('../../' + filename, import.meta.url)];
+  for (const candidate of candidates) {
+    try { return await readFile(candidate); } catch { /* Try the next bundle location. */ }
+  }
+  return null;
+}
+const activeSiteUrl = () => 'https://comforting-marigold-ea2f43.netlify.app';
+const validPdf = buffer => buffer && buffer.length < 35 * 1024 * 1024 && buffer.subarray(0, 5).toString() === '%PDF-';
 
 export async function handler(event) {
   if (event.httpMethod !== "POST") {
@@ -56,46 +69,39 @@ export async function handler(event) {
       ? configuredFrom
       : "Fitness World <support@fitnessworld.pro>";
 
-  const guideUrl = String(
+  let guideUrl = String(
     process.env.FW_FREE_GUIDE_URL || `${siteUrl()}/fitness-world-30-day-reset-free-preview.pdf`
   ).trim();
 
-  const previewImageUrl = `${siteUrl()}/assets/images/og-free-preview-v188.jpg`;
-  let inlinePreviewReady = false;
-
-  let attachments = [];
-  let attachmentReady = false;
+  // Keep an explicitly configured live URL when it works; use the active site while
+  // the custom-domain migration is pending. This does not change any domain settings.
   try {
-    const pdfResponse = await fetch(guideUrl, { cache: "no-store" });
-    if (pdfResponse.ok) {
-      const pdfBuffer = Buffer.from(await pdfResponse.arrayBuffer());
-      if (pdfBuffer.length > 0 && pdfBuffer.length < 35 * 1024 * 1024) {
-        attachments = [{
-          filename: "Fitness-World-30-Day-Natural-Wellness-Reset-Free-Preview.pdf",
-          content: pdfBuffer.toString("base64")
-        }];
-        attachmentReady = true;
-      }
+    const check = await fetch(guideUrl, { method: 'HEAD', signal: AbortSignal.timeout(2500) });
+    if (!check.ok || !/application\/pdf/i.test(check.headers.get('content-type') || '')) {
+      guideUrl = `${activeSiteUrl()}/fitness-world-30-day-reset-free-preview.pdf`;
     }
-  } catch (error) {
-    console.warn("Free guide attachment fetch failed:", error);
+  } catch {
+    guideUrl = `${activeSiteUrl()}/fitness-world-30-day-reset-free-preview.pdf`;
   }
 
-  try {
-    const imageResponse = await fetch(previewImageUrl, { cache: "no-store" });
-    if (imageResponse.ok) {
-      const imageBuffer = Buffer.from(await imageResponse.arrayBuffer());
-      if (imageBuffer.length > 0 && imageBuffer.length < 5 * 1024 * 1024) {
-        attachments.push({
-          filename: "fitness-world-free-preview.jpg",
-          content: imageBuffer.toString("base64"),
-          content_id: "fw-free-preview"
-        });
-        inlinePreviewReady = true;
-      }
-    }
-  } catch (error) {
-    console.warn("Free guide inline image fetch failed:", error);
+  const attachments = [];
+  let attachmentReady = false;
+  let inlinePreviewReady = false;
+  let pdfBuffer = await bundledAsset('fitness-world-30-day-reset-free-preview.pdf');
+  if (!validPdf(pdfBuffer)) {
+    try {
+      const response = await fetch(guideUrl, { signal: AbortSignal.timeout(4000) });
+      if (response.ok) pdfBuffer = Buffer.from(await response.arrayBuffer());
+    } catch { /* The working download link remains available. */ }
+  }
+  if (validPdf(pdfBuffer)) {
+    attachments.push({ filename: 'Fitness-World-30-Day-Natural-Wellness-Reset-Free-Preview.pdf', content: pdfBuffer.toString('base64') });
+    attachmentReady = true;
+  }
+  let imageBuffer = await bundledAsset('assets/images/og-free-preview-v188.jpg');
+  if (imageBuffer && imageBuffer.length > 0 && imageBuffer.length < 5 * 1024 * 1024) {
+    attachments.push({ filename: 'fitness-world-free-preview.jpg', content: imageBuffer.toString('base64'), content_id: 'fw-free-preview' });
+    inlinePreviewReady = true;
   }
 
   try {

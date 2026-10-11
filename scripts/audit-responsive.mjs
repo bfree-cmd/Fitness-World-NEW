@@ -88,6 +88,14 @@ for(const width of [390,1440]){
  }
  await page.goto(origin+'/shop/',{waitUntil:'domcontentloaded'});
  await page.waitForTimeout(400);
+ if(width===390){
+  const menu=page.locator('.mobile-menu-toggle');
+  await menu.click();
+  if(await menu.getAttribute('aria-expanded')!=='true')report.errors.push({width,reason:'Mobile menu did not open'});
+  await page.getByRole('button',{name:'Tools & Guides menu',exact:true}).click();
+  if(!(await page.locator('#fw-nav-menu-tools a[href="/shop/"]').isVisible()))report.errors.push({width,reason:'Shop navigation link missing'});
+  await menu.click();
+ }
  captured.length=0;
  await page.locator('[data-shop-key="free-preview"]').click();
  await page.waitForTimeout(500);
@@ -97,6 +105,27 @@ for(const width of [390,1440]){
  await context.close();
  console.log('Rendered '+routes.length+' pages at '+width+'px');
 }
+// One live analytics check; intercept internal relays so the audit creates no leads/comments.
+const liveContext=await browser.newContext({viewport:{width:390,height:900}});
+await liveContext.route('**/.netlify/functions/**',route=>route.fulfill({json:{success:true,comments:[]}}));
+const livePage=await liveContext.newPage();
+const analytics=[];
+livePage.on('response',response=>{
+ const url=new URL(response.url());
+ if(/(^|\.)google-analytics\.com$/.test(url.hostname)&&url.pathname.includes('collect')){
+  const body=response.request().postData()||'';
+  const name=url.searchParams.get('en')||new URLSearchParams(body).get('en')||'';
+  analytics.push({event:name,status:response.status(),measurementId:url.searchParams.get('tid')||''});
+ }
+});
+try{
+ await livePage.goto('https://comforting-marigold-ea2f43.netlify.app/shop/',{waitUntil:'domcontentloaded',timeout:30000});
+ await livePage.waitForTimeout(3000);
+ await livePage.locator('[data-shop-key="free-preview"]').click();
+ await livePage.waitForTimeout(4000);
+ report.externalAnalytics={ga4Requests:analytics,ga4Received:analytics.some(r=>r.status>=200&&r.status<300),metaPixelConfigured:false,dashboardVerified:false};
+}catch(error){report.externalAnalytics={error:error.message,dashboardVerified:false};}
+await liveContext.close();
 await browser.close();await new Promise(resolve=>server.close(resolve));
 await fs.writeFile(path.join(out,'report.json'),JSON.stringify(report,null,2));
 console.log(JSON.stringify({pages:routes.length,renderings:report.results.length,errors:report.errors.length}));

@@ -56,6 +56,7 @@ for(const width of [390,1440]){
    }
   }catch(error){report.errors.push({url,width,reason:error.message});}
  }
+ await fs.writeFile(path.join(out,'report.json'),JSON.stringify(report,null,2));
  // Validate the actual opt-in/opt-out payload without delivering real email or changing sheets.
  const captured=[];
  await page.unroute('**/*');
@@ -72,7 +73,7 @@ for(const width of [390,1440]){
   captured.length=0;
   await page.goto(origin+'/free-guide/',{waitUntil:'domcontentloaded'});
   await page.waitForTimeout(400);
-  const form=page.locator('#free-guide-download-form');
+  const form=page.locator('#free-guide-download-form:visible,#free-guide-download-form-2:visible').first();
   if(!(await form.count())){report.errors.push({width,reason:'Free guide form missing'});break;}
   const email=form.locator('input[type=email]');
   await email.fill('abc@');

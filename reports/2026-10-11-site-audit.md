@@ -64,3 +64,14 @@
   end-to-end tested in this pass. Working Sheets was confirmed by the user.
 - No domain settings, paid PDF, checkout/payment functions, contact/comment
   receiver, tracking implementation or Apps Script code changed in this commit.
+
+## Production verification after commit 2102d81
+
+- New stylesheet loaded on production. Reset heading measured 64.88px line height
+  at 57.93px font size, with 20px below the heading.
+- Rechecked all 28 previously flagged pages: zero remaining oversized margins in
+  the targeted card/source headings.
+- Repaired cholesterol hero loaded from the local asset with natural width 960px.
+- Live protein calculator rejected 0 kg, retained the previous estimate and did
+  not show UPDATED. Switching to lb changed limits to 77–550; 165 lb returned a
+  valid 105–120 g estimate.

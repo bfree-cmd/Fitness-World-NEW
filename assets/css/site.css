@@ -400,3 +400,6 @@ body details:not(.fw-social-dropdown) > summary:focus-visible { outline:2px soli
 }
 @media print { body details:not(.fw-social-dropdown) > summary::after { display:none !important; } }
 
+
+/* Raise the homepage hero eyebrow slightly without moving the heading. */
+.fw-home-landscape-copy > .kicker { position:relative; top:-8px; }

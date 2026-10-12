@@ -418,3 +418,21 @@ body.home-page.fw-site-shell #topics .fw-topic-card.fw-topic-card--visual .fw-to
   font:800 11px/1.3 Inter,Arial,sans-serif; letter-spacing:.025em;
   text-transform:uppercase; text-shadow:none; white-space:nowrap;
 }
+
+/* Cleaner homepage product and research links; preserve carousel navigation. */
+body.home-page.fw-site-shell .fw-worth-mini a,
+body.home-page.fw-site-shell .fw-weekly-links a { grid-template-columns:minmax(0,1fr) !important; gap:8px !important; cursor:pointer; }
+body.home-page.fw-site-shell .fw-worth-mini a strong,
+body.home-page.fw-site-shell .fw-weekly-links a strong { grid-column:1 !important; text-decoration:underline; text-underline-offset:3px; }
+body.home-page.fw-site-shell .fw-worth-mini a span,
+body.home-page.fw-site-shell .fw-weekly-links a span { grid-column:1 !important; }
+body.home-page.fw-site-shell .fw-worth-mini a:focus-visible,
+body.home-page.fw-site-shell .fw-weekly-links a:focus-visible,
+body.home-page.fw-site-shell .fw-waw-card:focus-visible { outline:2px solid #326847; outline-offset:4px; }
+body.home-page.fw-site-shell .fw-waw-card > div > b {
+  display:flex !important; align-items:center; justify-content:center; width:100%;
+  padding:10px 12px !important; min-height:40px; border-radius:10px;
+  background:#d1e3cc !important; color:#173f35 !important;
+  font:800 11px/1.3 Inter,Arial,sans-serif !important;
+  letter-spacing:.025em !important; text-transform:uppercase; text-decoration:none !important;
+}

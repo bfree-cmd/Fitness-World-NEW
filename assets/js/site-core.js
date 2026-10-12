@@ -245,3 +245,51 @@ document.addEventListener('DOMContentLoaded', function () {
     nav.insertBefore(shop, about || nav.querySelector('.navcta'));
   });
 });
+
+/* Shared clean card links: decorative right arrows only, not navigation controls. */
+(function () {
+  function startCleanLinks() {
+    var main = document.querySelector('main');
+    if (!main) return;
+    var style = document.createElement('style');
+    style.textContent =
+      'main .fw-decorative-link-arrow{display:none!important}' +
+      'html body.fw-site-shell main .fw-v1510-compact-row{grid-template-columns:108px minmax(0,1fr)!important;gap:12px!important;align-items:start!important}' +
+      'html body.fw-site-shell main .fw-v1510-compact-row strong{display:block!important;-webkit-line-clamp:unset!important;overflow:visible!important;line-height:1.3!important}' +
+      'main .fw-v1513-view-all,main .fw-v1510-text-row strong{ text-decoration:underline;text-underline-offset:3px}' +
+      '@media(max-width:480px){html body.fw-site-shell main .fw-v1510-compact-row{grid-template-columns:88px minmax(0,1fr)!important}html body.fw-site-shell main .fw-v1510-compact-row>img{width:88px!important}}';
+    document.head.appendChild(style);
+    function clean(link) {
+      if (link.closest('[role="navigation"],nav,.breadcrumbs,.article-breadcrumbs-fixed') ||
+          link.matches('[data-fw-carousel-prev],[data-fw-carousel-next],[aria-label*="Previous"],[aria-label*="Next"]')) return;
+      link.querySelectorAll('b,i,span').forEach(function (icon) {
+        if (icon.textContent.trim() === '→' && !icon.querySelector('svg')) {
+          icon.classList.add('fw-decorative-link-arrow');
+          icon.setAttribute('aria-hidden', 'true');
+        }
+      });
+      var walker = document.createTreeWalker(link, NodeFilter.SHOW_TEXT);
+      var node;
+      while ((node = walker.nextNode())) {
+        if (node.parentElement.closest('.fw-decorative-link-arrow,script,style')) continue;
+        var text = node.nodeValue;
+        if (/\s*→\s*$/.test(text)) node.nodeValue = text.replace(/\s*→\s*$/, '');
+      }
+    }
+    function scan(root) {
+      if (root.nodeType !== 1) return;
+      if (root.matches('a')) clean(root);
+      root.querySelectorAll('a').forEach(clean);
+    }
+    scan(main);
+    new MutationObserver(function (changes) {
+      changes.forEach(function (change) {
+        change.addedNodes.forEach(function (node) {
+          if (node.nodeType === 1) scan(node);
+        });
+      });
+    }).observe(main, { childList: true, subtree: true });
+  }
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', startCleanLinks);
+  else startCleanLinks();
+})();

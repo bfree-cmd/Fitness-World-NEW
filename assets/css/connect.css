@@ -94,3 +94,14 @@ html body.fw-connect-page .fw-connect-intro{margin-inline:auto;text-align:center
  html body footer .fw-social-dropdown > summary { border-top:0; }
  html body footer .fw-social-dropdown > summary::before { content:"Follow Fitness World"; letter-spacing:0; text-transform:none; }
 }
+
+@media(max-width:767px) {
+ html body footer .footer-socials-mobile { margin-top:0 !important; padding-top:0 !important; border:0 !important; }
+ html body footer .fw-social-dropdown > summary { border:0 !important; box-shadow:none !important; }
+ html body footer .fw-social-dropdown > summary::before {
+   font-family:var(--fw-font,Inter,Arial,sans-serif) !important;
+   font-size:11px !important; font-weight:800 !important;
+   line-height:1.4 !important; letter-spacing:.09em !important;
+   text-transform:uppercase !important;
+ }
+}

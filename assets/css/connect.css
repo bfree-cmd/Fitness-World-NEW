@@ -89,3 +89,8 @@ html body.fw-connect-page .fw-connect-intro{margin-inline:auto;text-align:center
    max-width:calc(100vw - 64px); text-align:left;
  }
 }
+
+@media(max-width:767px) {
+ html body footer .fw-social-dropdown > summary { border-top:0; }
+ html body footer .fw-social-dropdown > summary::before { content:"Follow Fitness World"; letter-spacing:0; text-transform:none; }
+}

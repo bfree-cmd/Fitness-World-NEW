@@ -119,3 +119,13 @@ html body.fw-connect-page .fw-connect-intro{margin-inline:auto;text-align:center
    font-weight:400 !important; line-height:1 !important;
  }
 }
+
+/* Override the shared footer's higher-specificity mobile wrapper spacing. */
+@media(max-width:767px) {
+ html body.fw-site-shell > footer .footer-socials-mobile {
+   margin:0 !important; padding:0 !important; border:0 !important;
+ }
+ html body.fw-site-shell > footer .footer-socials-mobile .fw-social-dropdown > summary {
+   min-height:44px !important; padding:15px 0 !important; margin:0 !important;
+ }
+}

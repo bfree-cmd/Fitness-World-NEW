@@ -412,3 +412,9 @@ body.home-page.fw-site-shell #topics .fw-topic-card.fw-topic-card--visual .fw-to
 body.home-page.fw-site-shell #topics .fw-topic-card.fw-topic-card--visual:hover { transform:translateY(-2px); box-shadow:0 8px 22px rgba(37,69,44,.1); }
 body.home-page.fw-site-shell #topics .fw-topic-card.fw-topic-card--visual:focus-visible { outline:3px solid #326847; outline-offset:4px; }
 @media(prefers-reduced-motion:reduce) { body.home-page.fw-site-shell #topics .fw-topic-card.fw-topic-card--visual { transition:none; } body.home-page.fw-site-shell #topics .fw-topic-card.fw-topic-card--visual:hover { transform:none; } }
+
+/* Match the crisp Article Digest lettering on homepage topic links. */
+body.home-page.fw-site-shell #topics .fw-topic-card.fw-topic-card--visual .fw-topic-explore {
+  font:800 11px/1.3 Inter,Arial,sans-serif; letter-spacing:.025em;
+  text-transform:uppercase; text-shadow:none; white-space:nowrap;
+}

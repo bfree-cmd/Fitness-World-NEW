@@ -105,3 +105,17 @@ html body.fw-connect-page .fw-connect-intro{margin-inline:auto;text-align:center
    text-transform:uppercase !important;
  }
 }
+
+@media(max-width:767px) {
+ html body footer .footer-socials-mobile { margin:0 !important; padding:0 !important; }
+ html body footer .fw-social-dropdown { margin:0 !important; }
+ html body footer .fw-social-dropdown > summary { min-height:44px !important; margin:0 !important; padding:15px 0 !important; gap:0 !important; }
+ html body footer .fw-social-dropdown > summary::before {
+   font-weight:650 !important; font-size:11px !important;
+   line-height:1.25 !important; letter-spacing:.1em !important;
+ }
+ html body footer .fw-social-dropdown > summary::after {
+   width:16px; text-align:center; font-size:18px !important;
+   font-weight:400 !important; line-height:1 !important;
+ }
+}

@@ -403,3 +403,12 @@ body details:not(.fw-social-dropdown) > summary:focus-visible { outline:2px soli
 
 /* Raise the homepage hero eyebrow slightly without moving the heading. */
 .fw-home-landscape-copy > .kicker { position:relative; top:-8px; }
+
+/* Popular topics: soft full-width link labels, with the entire card clickable. */
+body.home-page.fw-site-shell #topics .fw-topic-card.fw-topic-card--visual { border-color:#97b59a; transition:transform .15s ease,box-shadow .15s ease; }
+body.home-page.fw-site-shell #topics .fw-topic-card.fw-topic-card--visual > div { grid-template-columns:minmax(0,1fr); grid-template-rows:auto 1fr auto; gap:8px; }
+body.home-page.fw-site-shell #topics .fw-topic-card.fw-topic-card--visual b { display:none; }
+body.home-page.fw-site-shell #topics .fw-topic-card.fw-topic-card--visual .fw-topic-explore { display:flex; grid-column:1; align-items:center; justify-content:center; width:100%; min-height:40px; margin-top:4px; padding:9px 12px; border-radius:10px; background:#d1e3cc; color:#173f35; font-size:14px; font-weight:700; line-height:1.3; }
+body.home-page.fw-site-shell #topics .fw-topic-card.fw-topic-card--visual:hover { transform:translateY(-2px); box-shadow:0 8px 22px rgba(37,69,44,.1); }
+body.home-page.fw-site-shell #topics .fw-topic-card.fw-topic-card--visual:focus-visible { outline:3px solid #326847; outline-offset:4px; }
+@media(prefers-reduced-motion:reduce) { body.home-page.fw-site-shell #topics .fw-topic-card.fw-topic-card--visual { transition:none; } body.home-page.fw-site-shell #topics .fw-topic-card.fw-topic-card--visual:hover { transform:none; } }

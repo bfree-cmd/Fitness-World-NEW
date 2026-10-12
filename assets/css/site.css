@@ -372,3 +372,31 @@ body.fw-articles-index-page .filter-btn{font-size:12px}
 body.natural-wellness-page .nw-editorial-section .kicker{color:#3f7333}
 body.fw-articles-index-page .fw-v1510-compact-row{content-visibility:auto;contain-intrinsic-size:108px 380px}
 body.fw-articles-index-page .fw-v1510-feature-card{content-visibility:auto;contain-intrinsic-size:420px 380px}
+
+/* Arrow-free disclosure headings: shared across articles, reviews and FAQs. */
+body details:not(.fw-social-dropdown) > summary {
+  display:flex !important; align-items:center !important; justify-content:space-between !important;
+  gap:16px !important; width:100%; min-height:48px; cursor:pointer;
+  list-style:none !important; background:#fff; border:1px solid #d7e1d8;
+  border-radius:14px; padding:14px 16px !important; color:#214332;
+}
+body details:not(.fw-social-dropdown) > summary::marker { content:""; }
+body details:not(.fw-social-dropdown) > summary::-webkit-details-marker { display:none; }
+body details:not(.fw-social-dropdown) > summary::before { display:none !important; content:none !important; }
+body details:not(.fw-social-dropdown) > summary::after {
+  content:"Show details" !important; display:block !important; position:static !important;
+  flex:0 0 auto; width:auto !important; height:auto !important; border:0 !important;
+  padding:0 !important; background:none !important; transform:none !important;
+  font:400 14px/1.4 Inter,Arial,sans-serif !important; letter-spacing:normal !important;
+  text-transform:none !important; text-decoration:underline; color:#214332;
+}
+body details:not(.fw-social-dropdown)[open] > summary::after { content:"Hide details" !important; }
+body details:not(.fw-social-dropdown) > summary :is(.fw-quick-chevron,.fw-accordion-chevron,.fw-source-check-arrow) { display:none !important; }
+body details:not(.fw-social-dropdown) > summary:hover { background:#f0f5ed; }
+body details:not(.fw-social-dropdown) > summary:focus-visible { outline:2px solid #326847; outline-offset:3px; }
+@media(max-width:480px) {
+  body details:not(.fw-social-dropdown) > summary { gap:10px !important; padding:12px !important; }
+  body details:not(.fw-social-dropdown) > summary::after { font-size:12px !important; }
+}
+@media print { body details:not(.fw-social-dropdown) > summary::after { display:none !important; } }
+

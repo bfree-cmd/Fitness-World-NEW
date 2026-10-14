@@ -17,7 +17,8 @@ const siteUrl = () => {
 
 // Use bundled assets first so email delivery does not wait on a website download.
 async function bundledAsset(filename) {
-  const candidates = [resolve(process.cwd(), filename), new URL('../../' + filename, import.meta.url)];
+  // Netlify bundles this ESM source as CJS; import.meta.url is not reliable there.
+  const candidates = [resolve(process.cwd(), filename), resolve(process.cwd(), 'netlify/functions', filename)];
   for (const candidate of candidates) {
     try { return await readFile(candidate); } catch { /* Try the next bundle location. */ }
   }

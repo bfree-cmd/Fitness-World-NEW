@@ -1,0 +1,25 @@
+name: IndexNow
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: indexnow-production
+  cancel-in-progress: false
+jobs:
+  submit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+      - name: Notify search engines after production pages are live
+        env:
+          INDEXNOW_BEFORE: ${{ github.event.before }}
+        run: node scripts/submit-indexnow.mjs ${{ github.event_name == 'workflow_dispatch' && '--all' || '' }}

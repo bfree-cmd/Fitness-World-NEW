@@ -14,7 +14,7 @@
   function open() {
     if (shown || !elapsed || document.hidden || saved('fwGuideRequested')) return;
     const height = document.documentElement.scrollHeight - innerHeight;
-    if (height > 0 && scrollY / height < 0.4) return;
+    if (height > 0 && scrollY / height < 0.1) return;
     if (document.activeElement?.matches('input,textarea,select') || document.querySelector('[aria-modal="true"]:not([hidden])')) return;
     shown = true; previousFocus = document.activeElement;
     const overlay = document.createElement('div'); overlay.className = 'fw-preview-overlay';

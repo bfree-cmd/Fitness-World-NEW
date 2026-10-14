@@ -70,5 +70,5 @@
   }
   window.addEventListener('scroll', open, { passive: true });
   document.addEventListener('visibilitychange', open);
-  setTimeout(() => { elapsed = true; open(); }, 30000);
+  setTimeout(() => { elapsed = true; open(); }, 5000);
 })();

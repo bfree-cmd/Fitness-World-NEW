@@ -295,4 +295,4 @@ document.addEventListener('DOMContentLoaded', function () {
 })();
 
 // Load the centered free-preview signup on eligible pages.
-(function(){function load(){var s=document.createElement('script');s.src='/assets/js/free-preview-popup.js?v=20261015-2sec';s.defer=true;document.head.appendChild(s);}if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',load,{once:true});else load();})();
+(function(){function load(){var s=document.createElement('script');s.src='/assets/js/free-preview-popup.js?v=20261016-free';s.defer=true;document.head.appendChild(s);}if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',load,{once:true});else load();})();

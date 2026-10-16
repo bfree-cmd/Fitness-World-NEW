@@ -75,13 +75,13 @@
 
 [[redirects]]
   from = "/assets/images/free-guide-cover.webp"
-  to = "/assets/images/free-preview-cover-v188.webp"
+  to = "/assets/images/free-preview-cover-free-20261016.webp"
   status = 301
   force = true
 
 [[redirects]]
   from = "/assets/images/free-guide-cover.jpg"
-  to = "/assets/images/free-preview-cover-v188.webp"
+  to = "/assets/images/free-preview-cover-free-20261016.webp"
   status = 301
   force = true
 

@@ -7,7 +7,7 @@
   const dismissKey = 'fwPreviewPopupDismissedAt';
   const saved = key => { try { return localStorage.getItem(key); } catch (_) { return null; } };
   const save = (key, value) => { try { localStorage.setItem(key, value); } catch (_) {} };
-  if (saved('fwGuideRequested') || Date.now() - Number(saved(dismissKey) || 0) < 7 * 86400000) return;
+  if (saved('fwGuideRequested') || Date.now() - Number(saved(dismissKey) || 0) < 86400000) return;
   const css = document.createElement('link');
   css.rel = 'stylesheet'; css.href = '/assets/css/free-preview-popup.css?v=20261014'; document.head.appendChild(css);
   let elapsed = false, shown = false, previousFocus;
@@ -70,5 +70,5 @@
   }
   window.addEventListener('scroll', open, { passive: true });
   document.addEventListener('visibilitychange', open);
-  setTimeout(() => { elapsed = true; open(); }, 2000);
+  setTimeout(() => { elapsed = true; open(); }, 8000);
 })();

@@ -50,8 +50,9 @@
   // Mobile free-guide CTA: create it at runtime so it cannot silently disappear when templates change.
   const path=location.pathname.replace(/\/+$/,'/')||'/';
   const commercialFunnel=!!document.querySelector('a[href^="/go/"], [data-fw-commercial-funnel]');
-  const stickyExcluded=/^\/(free-guide|natural|checkout|thank-you|contact\/success)\//.test(path)||commercialFunnel;
+  const stickyExcluded=/^\/(free-guide|natural|the-30-day-natural-wellness-reset|checkout|thank-you|contact\/success)(\/|$)/.test(path)||commercialFunnel||!!document.getElementById('nwStickyOffer');
   let sticky=document.querySelector('.mobile-guide-sticky');
+  if(stickyExcluded&&sticky){sticky.remove();sticky=null;}
   if(!sticky && !stickyExcluded){
     sticky=document.createElement('aside');
     sticky.className='mobile-guide-sticky';

@@ -17,7 +17,7 @@ function siteUrl(event){
   // Manual CLI drafts can expose production URLs in function env vars.
   // A request host is accepted only when it belongs to this Netlify site.
   const allowed=new Set(['comforting-marigold-ea2f43.netlify.app']);
-  for(const raw of [process.env.URL,process.env.SITE_URL]){
+  for(const raw of [process.env.URL,process.env.SITE_URL,process.env.DEPLOY_URL,process.env.DEPLOY_PRIME_URL]){
     try{allowed.add(new URL(raw).hostname.toLowerCase());}catch(_){}
   }
   for(const raw of [event?.headers?.host,event?.headers?.Host]){
@@ -63,12 +63,12 @@ function signPayload(payload){
   return `${data}.${sig}`;
 }
 function verifyToken(token){
-  const secret=downloadSecret(); if(!secret || !token || !token.includes('.')) return null;
+  const secret=downloadSecret(); if(!secret || typeof token!=='string' || token.length>4096 || token.split('.').length!==2) return null;
   const [data,sig]=token.split('.',2);
   const expect=crypto.createHmac('sha256',secret).update(data).digest('base64url');
   try { if(!crypto.timingSafeEqual(Buffer.from(sig),Buffer.from(expect))) return null; } catch (_) { return null; }
   let payload; try { payload=JSON.parse(Buffer.from(data,'base64url').toString('utf8')); } catch (_) { return null; }
-  if(!payload.exp || Date.now()>payload.exp) return null;
+  if(!Number.isFinite(payload.exp) || Date.now()>=payload.exp) return null;
   return payload;
 }
 async function sendEmail({to,subject,html,text,idempotencyKey}){

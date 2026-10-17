@@ -13,7 +13,8 @@ export const modernHandler = handler => async request => {
     rawUrl: request.url
   };
   const result = await handler(event);
-  return new Response(result.body ?? '', {
+  const body = request.method === 'HEAD' ? null : result.isBase64Encoded ? Buffer.from(result.body || '', 'base64') : (result.body ?? '');
+  return new Response(body, {
     status: result.statusCode || 200,
     headers: result.headers || {}
   });

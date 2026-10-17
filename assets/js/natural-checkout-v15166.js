@@ -130,14 +130,14 @@
       const dl=document.getElementById('nw-secure-download');
       if(msg){
         if(d.deliveryStatus==='Delivered'){
-          msg.textContent='Payment confirmed. We sent your 30-Day Natural Wellness Reset to '+email.value.trim()+'.';
+          msg.textContent='Payment complete. Your files are ready. We’ve also emailed the link to '+email.value.trim()+'.';
         }else if(d.deliveryStatus==='Pending'&&d.downloadUrl){
-          msg.textContent='Payment confirmed. We could not send the confirmation email right now, so please use the secure download link below and save it -- it will not be re-sent automatically.';
+          msg.textContent='Payment complete. We could not send the email right now. Open your download page below; you can request a fresh link there if needed.';
         }else{
           msg.textContent='Payment confirmed, but we could not prepare your download link. This is a delivery issue only, not a payment problem -- please contact support@fitnessworld.pro with your order ID ('+String(d.eventId||'').replace('fw_purchase_','')+') and we will get your 30-Day Reset to you.';
         }
       }
-      if(dl&&d.downloadUrl){dl.href=d.downloadUrl;dl.hidden=false;}
+      if(dl&&d.downloadUrl){dl.href=d.downloadUrl;dl.textContent='OPEN YOUR DOWNLOAD PAGE';dl.hidden=false;}
       if(modal)modal.hidden=false;
       try{localStorage.setItem('fwEncyclopediaPurchased','1');}catch(_){ }
 

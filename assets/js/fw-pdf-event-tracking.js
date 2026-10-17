@@ -190,7 +190,7 @@
     const a = e.target.closest && e.target.closest('a');
     if (!a) return;
     const href = a.getAttribute('href') || '';
-    if (location.pathname === '/natural/' && href === '#nw-checkout') {
+    if (location.pathname === '/the-30-day-natural-wellness-reset/' && href === '#nw-checkout') {
       send('paid_pdf_click', { product_offer: 'Natural Wellness Encyclopedia', source_form: clean(a.textContent, 200) || 'Paid PDF CTA' });
     }
     const rel = a.getAttribute('rel') || '';

@@ -80,7 +80,7 @@ window.FW_CONFIG = Object.freeze({
   };
   const clean=(s,n=120)=>String(s||'').replace(/\s+/g,' ').trim().slice(0,n);
   const pathFor=(a)=>{try{return new URL(a.href,location.href).pathname}catch(_){return ''}};
-  const guideRoots=new Set(['/articles/','/research/','/what-actually-works/','/stay-strong/','/choose-smarter/','/live-healthier/','/compare/','/mens-health/','/understand-your-data/','/worth-it/','/glp1-nutrition-muscle/','/supplement-evidence/','/evidence-index/','/evidence-projects/','/evidence-standards/','/check-a-health-claim/','/screenshot-a-claim/','/health-hype-meter/','/evidence-iq/','/free-guide/','/natural/','/tools/']);
+  const guideRoots=new Set(['/articles/','/research/','/what-actually-works/','/stay-strong/','/choose-smarter/','/live-healthier/','/compare/','/mens-health/','/understand-your-data/','/worth-it/','/glp1-nutrition-muscle/','/supplement-evidence/','/evidence-index/','/evidence-projects/','/evidence-standards/','/check-a-health-claim/','/screenshot-a-claim/','/health-hype-meter/','/evidence-iq/','/free-guide/','/the-30-day-natural-wellness-reset/','/tools/']);
 
   document.addEventListener('click',e=>{
     const a=e.target.closest?.('a');
@@ -91,7 +91,7 @@ window.FW_CONFIG = Object.freeze({
     // General CTA coverage only for CTAs not already covered by the existing
     // free-guide / encyclopedia / checkout / affiliate event families.
     if(a.matches('.btn,.btn-main,.btn-dark,.navcta') &&
-       !/free-guide/i.test(href) && !/^\/natural\//.test(dest) &&
+       !/free-guide/i.test(href) && !/^\/the-30-day-natural-wellness-reset\//.test(dest) &&
        !/checkout/i.test(href) && !a.classList.contains('fw-affiliate-link')){
       track('cta_click',{cta_text:clean(a.textContent,80),destination:dest||href});
     }
@@ -295,4 +295,4 @@ document.addEventListener('DOMContentLoaded', function () {
 })();
 
 // Load the centered free-preview signup on eligible pages.
-(function(){function load(){var s=document.createElement('script');s.src='/assets/js/free-preview-popup.js?v=20261016-8sec-24h';s.defer=true;document.head.appendChild(s);}if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',load,{once:true});else load();})();
+(function(){function load(){var s=document.createElement('script');s.src='/assets/js/free-preview-popup.js?v=20261017-reset-url';s.defer=true;document.head.appendChild(s);}if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',load,{once:true});else load();})();

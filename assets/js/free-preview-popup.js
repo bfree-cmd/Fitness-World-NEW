@@ -2,7 +2,7 @@
   'use strict';
   if (window.__FW_PREVIEW_POPUP__) return;
   window.__FW_PREVIEW_POPUP__ = true;
-  const excluded = /^\/(free-guide|natural|checkout|contact|thank-you|success|unsubscribe|prelaunch|go)(\/|$)/;
+  const excluded = /^\/(free-guide|natural|the-30-day-natural-wellness-reset|checkout|contact|thank-you|success|unsubscribe|prelaunch|go)(\/|$)/;
   if (excluded.test(location.pathname) || /404|success|thank-you/.test(location.pathname)) return;
   const dismissKey = 'fwPreviewPopupDismissedAt';
   const saved = key => { try { return localStorage.getItem(key); } catch (_) { return null; } };

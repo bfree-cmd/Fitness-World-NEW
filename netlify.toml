@@ -50,13 +50,13 @@
 
 [[redirects]]
   from = "/checkout"
-  to = "/natural/#nw-checkout"
+  to = "/the-30-day-natural-wellness-reset/#nw-checkout"
   status = 301
   force = true
 
 [[redirects]]
   from = "/checkout/*"
-  to = "/natural/#nw-checkout"
+  to = "/the-30-day-natural-wellness-reset/#nw-checkout"
   status = 301
   force = true
 
@@ -116,28 +116,28 @@
 # V15.9.2 Wave 1 affiliate geo fallback routes
 [[redirects]]
   from = "/go/spartamax/"
-  to = "/natural/?utm_source=affiliate_geo_fallback&utm_medium=onsite&utm_campaign=spartamax"
+  to = "/the-30-day-natural-wellness-reset/?utm_source=affiliate_geo_fallback&utm_medium=onsite&utm_campaign=spartamax"
   status = 302
   force = true
   conditions = {Country = ["IN", "PK", "BD", "LK", "NP", "AF", "BT", "GH", "NG", "KE", "UG", "TZ", "RW", "BI", "ET", "SO", "SD", "SS", "ZM", "ZW", "MW", "MZ", "AO", "CM", "SN", "GM", "SL", "LR", "GN", "GW", "ML", "NE", "TD", "BF", "BJ", "TG", "CF", "CD", "CG", "MG", "KH", "LA", "MM", "TL", "YE", "SY", "IQ", "HT", "PG"] }
 
 [[redirects]]
   from = "/go/nitricboost/"
-  to = "/natural/?utm_source=affiliate_geo_fallback&utm_medium=onsite&utm_campaign=nitricboost"
+  to = "/the-30-day-natural-wellness-reset/?utm_source=affiliate_geo_fallback&utm_medium=onsite&utm_campaign=nitricboost"
   status = 302
   force = true
   conditions = {Country = ["IN", "PK", "BD", "LK", "NP", "AF", "BT", "GH", "NG", "KE", "UG", "TZ", "RW", "BI", "ET", "SO", "SD", "SS", "ZM", "ZW", "MW", "MZ", "AO", "CM", "SN", "GM", "SL", "LR", "GN", "GW", "ML", "NE", "TD", "BF", "BJ", "TG", "CF", "CD", "CG", "MG", "KH", "LA", "MM", "TL", "YE", "SY", "IQ", "HT", "PG"] }
 
 [[redirects]]
   from = "/go/prostavive/"
-  to = "/natural/?utm_source=affiliate_geo_fallback&utm_medium=onsite&utm_campaign=prostavive"
+  to = "/the-30-day-natural-wellness-reset/?utm_source=affiliate_geo_fallback&utm_medium=onsite&utm_campaign=prostavive"
   status = 302
   force = true
   conditions = {Country = ["IN", "PK", "BD", "LK", "NP", "AF", "BT", "GH", "NG", "KE", "UG", "TZ", "RW", "BI", "ET", "SO", "SD", "SS", "ZM", "ZW", "MW", "MZ", "AO", "CM", "SN", "GM", "SL", "LR", "GN", "GW", "ML", "NE", "TD", "BF", "BJ", "TG", "CF", "CD", "CG", "MG", "KH", "LA", "MM", "TL", "YE", "SY", "IQ", "HT", "PG"] }
 
 [[redirects]]
   from = "/go/prodentim/"
-  to = "/natural/?utm_source=affiliate_geo_fallback&utm_medium=onsite&utm_campaign=prodentim"
+  to = "/the-30-day-natural-wellness-reset/?utm_source=affiliate_geo_fallback&utm_medium=onsite&utm_campaign=prodentim"
   status = 302
   force = true
   conditions = {Country = ["IN", "PK", "BD", "LK", "NP", "AF", "BT", "GH", "NG", "KE", "UG", "TZ", "RW", "BI", "ET", "SO", "SD", "SS", "ZM", "ZW", "MW", "MZ", "AO", "CM", "SN", "GM", "SL", "LR", "GN", "GW", "ML", "NE", "TD", "BF", "BJ", "TG", "CF", "CD", "CG", "MG", "KH", "LA", "MM", "TL", "YE", "SY", "IQ", "HT", "PG"] }
@@ -148,3 +148,23 @@
 [[edge_functions]]
   path = "/*"
   function = "staging-noindex"
+
+# Reset sales page URL migration: preserve old links and checkout anchors.
+[[redirects]]
+  from = "/natural"
+  to = "/the-30-day-natural-wellness-reset/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/natural/"
+  to = "/the-30-day-natural-wellness-reset/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/natural/index.html"
+  to = "/the-30-day-natural-wellness-reset/"
+  status = 301
+  force = true
+

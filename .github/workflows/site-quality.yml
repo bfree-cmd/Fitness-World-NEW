@@ -68,7 +68,7 @@ jobs:
           - name: home
             url: https://comforting-marigold-ea2f43.netlify.app/
           - name: natural
-            url: https://comforting-marigold-ea2f43.netlify.app/natural/
+            url: https://comforting-marigold-ea2f43.netlify.app/the-30-day-natural-wellness-reset/
           - name: articles
             url: https://comforting-marigold-ea2f43.netlify.app/articles/
           - name: evidence-projects

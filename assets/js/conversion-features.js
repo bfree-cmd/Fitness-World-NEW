@@ -43,7 +43,7 @@
   document.querySelectorAll('form').forEach(f=>{
     if(f.closest('#free-guide')||f.classList.contains('home-free-form')||f.closest('.guide-email-card')) f.addEventListener('submit',()=>event('free_guide_signup_submit'));
   });
-  document.querySelectorAll('a[href*="/natural/"]').forEach(a=>a.addEventListener('click',()=>event('encyclopedia_click',{location:location.pathname})));
+  document.querySelectorAll('a[href*="/the-30-day-natural-wellness-reset/"]').forEach(a=>a.addEventListener('click',()=>event('encyclopedia_click',{location:location.pathname})));
   document.querySelectorAll('a[href*="checkout"]').forEach(a=>a.addEventListener('click',()=>event('checkout_start',{location:location.pathname})));
   document.querySelectorAll('[data-share]').forEach(b=>b.addEventListener('click',()=>event('article_share',{method:b.dataset.share})));
 

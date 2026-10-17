@@ -1,6 +1,6 @@
 const primary=(process.env.FW_AUDIT_BASE_URL||'https://fitnessworld.pro').replace(/\/$/,'');
 const fallback=(process.env.FW_AUDIT_FALLBACK_URL||'https://comforting-marigold-ea2f43.netlify.app').replace(/\/$/,'');
-const pages=['/','/natural/','/articles/','/evidence-projects/'];
+const pages=['/','/the-30-day-natural-wellness-reset/','/articles/','/evidence-projects/'];
 const required={
   'strict-transport-security':v=>/max-age=/i.test(v||''),
   'x-content-type-options':v=>(v||'').toLowerCase()==='nosniff',

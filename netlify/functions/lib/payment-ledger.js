@@ -30,10 +30,10 @@ async function loadRecord(orderID){
 }
 async function saveAttribution(orderID,data={}){
   const s=await store(),key=attributionKey(orderID);
-  let sourcePage='/natural/';
-  try{sourcePage=new URL(String(data.eventSourceUrl||'')).pathname||'/natural/';}catch(_){}
+  let sourcePage='/the-30-day-natural-wellness-reset/';
+  try{sourcePage=new URL(String(data.eventSourceUrl||'')).pathname||'/the-30-day-natural-wellness-reset/';}catch(_){}
   const payload={
-    source_page:clean(sourcePage,500)||'/natural/',
+    source_page:clean(sourcePage,500)||'/the-30-day-natural-wellness-reset/',
     referrer_url:clean(data.first_referrer,1000),
     utm_source:clean(data.utm_source,300),
     utm_medium:clean(data.utm_medium,300),
@@ -77,7 +77,7 @@ async function trackPurchaseOnce(orderID,captureID,deliveryStatus='Delivered'){
       event_id:eventId,
       email:intent.email,
       product_offer:'30-Day Natural Wellness Reset',
-      source_page:attribution.source_page||'/natural/',
+      source_page:attribution.source_page||'/the-30-day-natural-wellness-reset/',
       source_form:'PayPal Checkout',
       referrer_url:attribution.referrer_url||'',
       utm_source:attribution.utm_source||'',

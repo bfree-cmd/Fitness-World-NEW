@@ -51,7 +51,7 @@ for(const width of [390,1440]){
    });
    report.results.push({url,width,...result});
    if(result.documentWidth>width+3)report.errors.push({url,width,reason:'Horizontal page overflow',...result});
-   if(['/','/shop/','/affiliate-disclosure/','/mens-health/','/natural/','/contact/','/free-guide/','/mens-health/testosterone-what-actually-works/','/worth-it/nitric-boost-ultra-review/'].includes(url)){
+   if(['/','/shop/','/affiliate-disclosure/','/mens-health/','/the-30-day-natural-wellness-reset/','/contact/','/free-guide/','/mens-health/testosterone-what-actually-works/','/worth-it/nitric-boost-ultra-review/'].includes(url)){
     await page.screenshot({path:path.join(out,`${width}-${url==='/'?'home':url.replaceAll('/','_')}.png`),fullPage:true});
    }
   }catch(error){report.errors.push({url,width,reason:error.message});}

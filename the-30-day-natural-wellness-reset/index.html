@@ -102,6 +102,20 @@
 <link rel="stylesheet" href="/assets/css/visual-audit-polish.css?v=20261011-1"/>
 <style data-fw-component="reset-bundle-list">
 .reset-bundle-list{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,260px),1fr));gap:16px;margin:24px 0 0;padding:0;list-style:none}.reset-bundle-list li{padding:22px;border:1px solid #dce5d8;border-radius:14px;background:#fff}.reset-bundle-list strong{font-size:19px;line-height:1.3;display:block}.reset-bundle-list p{font-size:15px;line-height:1.6;margin:10px 0 0;color:#526158}.reset-success-files{text-align:left;font-size:14px;line-height:1.6;margin:16px 0;padding-left:22px}.reset-bundle-section[hidden]{display:none}
+.reset-bundle-preview{display:flex;flex-direction:column;align-items:center;justify-content:center;width:100%;height:220px;padding:14px;margin:0 0 18px;border:1px solid #e1e7dd;border-radius:10px;background:#f7f8f3;color:#155f50;cursor:pointer;overflow:hidden}
+.reset-bundle-preview img{display:block;width:100%;height:160px;object-fit:contain;min-height:0;transition:transform .18s ease}
+.reset-bundle-preview span{margin-top:12px;font-size:12px;font-weight:700;text-decoration:underline;text-underline-offset:3px}
+.reset-bundle-preview:hover img{transform:scale(1.03)}
+.reset-bundle-preview:focus-visible,.reset-sample-close:focus-visible{outline:3px solid #a77006;outline-offset:3px}
+.reset-sample-dialog{position:fixed;width:min(960px,calc(100% - 28px));max-width:960px;max-height:90dvh;margin:auto;padding:24px;border:1px solid #dce5d8;border-radius:16px;background:#fff;color:#292923;overflow:auto;box-shadow:0 20px 80px #0004}
+.reset-sample-dialog::backdrop{background:rgb(16 24 18 / .7)}
+.reset-sample-close{display:block;margin:0 0 18px auto;min-height:44px;padding:10px 16px;border:1px solid #c4d0c4;border-radius:8px;background:#fff;color:#292923;font-size:14px;font-weight:700;cursor:pointer}
+.reset-sample-dialog h2{margin:0 0 20px;font-size:clamp(22px,4vw,28px);line-height:1.25}
+.reset-sample-image{display:block;max-width:100%;width:100%;height:auto;max-height:60dvh;object-fit:contain;margin:auto}
+.reset-sample-caption{margin:18px 0 0;font-size:14px;line-height:1.5;color:#526158}
+@media(max-width:600px){.reset-bundle-preview{height:210px}.reset-bundle-preview img{height:150px}.reset-sample-dialog{padding:18px}}
+@media(prefers-reduced-motion:reduce){.reset-bundle-preview img{transition:none}.reset-bundle-preview:hover img{transform:none}}
+
 </style></head>
 <body class="fw-mobile-hero-ref natural-wellness-page fw-global-mobile-header fw-mobile-hero-reference fw-natural-premium fw-content-rail fw-resource-organized-page fw-content-rail-resource fw-natural-centered fw-site-shell fw-family-special fw-header-no-free-guide-cta" data-fw-page-family="special">
 
@@ -184,7 +198,7 @@ document.addEventListener('DOMContentLoaded',function(){
 </div>
 </div>
 <script src="/assets/js/natural-product-sticky.js?v=15.16.187"></script>
-<script defer src="/assets/js/reset-bundle.js?v=20261017-bundle"></script><script defer="" src="/assets/js/natural-checkout-v15166.js?v=20261017-bundle"></script><script defer="" src="/assets/js/v13-4-runtime.js?v=15.16.195"></script>
+<script defer src="/assets/js/reset-bundle.js?v=20261017-samples"></script><script defer="" src="/assets/js/natural-checkout-v15166.js?v=20261017-bundle"></script><script defer="" src="/assets/js/v13-4-runtime.js?v=15.16.195"></script>
 
 </body>
 </html>

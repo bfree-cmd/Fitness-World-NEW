@@ -25,28 +25,28 @@ html body main .fw-short--full .fw-short__player {aspect-ratio:16/9;min-height:2
 @media print {html body main .fw-short {display:none!important}}
 
 /* Topic hubs: put the Short beside useful reading, within the same row. */
-html body main .fw-short-with-reading {
+html body.fw-site-shell main .fw-short-with-reading {
   display:grid!important;
   grid-template-columns:minmax(0,1fr) 200px!important;
   gap:20px 24px!important;
   align-items:start!important;
   margin:20px 0!important;
 }
-html body main .fw-short-with-reading > section {
+html body.fw-site-shell main .fw-short-with-reading > section {
   min-width:0!important;
   width:100%!important;
   max-width:none!important;
   margin:0!important;
   padding:0!important;
 }
-html body main .fw-short-with-reading > section:first-of-type {grid-column:1;grid-row:1}
-html body main .fw-short-with-reading > section ~ section {grid-column:1 / -1}
-html body main .fw-short-with-reading > .fw-short {grid-column:2;grid-row:1;width:200px!important;margin:0!important}
-html body main .fw-short-with-reading > section:first-of-type .fw-v1510-row-grid {grid-template-columns:minmax(0,1fr)!important;gap:10px!important}
-html body main .fw-short-with-reading .tool-list {gap:10px!important}
-html body main .fw-short-with-reading .fw-nav-link-card {min-height:56px!important;padding:14px 16px!important;margin:0!important}
+html body.fw-site-shell main .fw-short-with-reading > section:first-of-type {grid-column:1;grid-row:1}
+html body.fw-site-shell main .fw-short-with-reading > section ~ section {grid-column:1 / -1}
+html body.fw-site-shell main .fw-short-with-reading > .fw-short {grid-column:2;grid-row:1;width:200px!important;margin:0!important}
+html body.fw-site-shell main .fw-short-with-reading > section:first-of-type .fw-v1510-row-grid {grid-template-columns:minmax(0,1fr)!important;gap:10px!important}
+html body.fw-site-shell main .fw-short-with-reading .tool-list {gap:10px!important}
+html body.fw-site-shell main .fw-short-with-reading .fw-nav-link-card {min-height:56px!important;padding:14px 16px!important;margin:0!important}
 @media(max-width:1000px) {
-  html body main .fw-short-with-reading {grid-template-columns:minmax(0,1fr)!important;gap:16px!important}
-  html body main .fw-short-with-reading > :is(section,.fw-short) {grid-column:auto!important;grid-row:auto!important}
-  html body main .fw-short-with-reading > .fw-short {width:min(100%,240px)!important;margin:0 auto!important}
+  html body.fw-site-shell main .fw-short-with-reading {grid-template-columns:minmax(0,1fr)!important;gap:16px!important}
+  html body.fw-site-shell main .fw-short-with-reading > :is(section,.fw-short) {grid-column:auto!important;grid-row:auto!important}
+  html body.fw-site-shell main .fw-short-with-reading > .fw-short {width:min(100%,240px)!important;margin:0 auto!important}
 }

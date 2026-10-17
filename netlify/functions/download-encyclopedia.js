@@ -1,5 +1,6 @@
 const {allow:rateAllow,response:rateResponse}=require('./lib/rate-limit');
 const fs=require('fs');
+const {secureHeaders}=require('./lib/reset-bundle');
 const {getBlobsStore}=require('./lib/blobs');
 const {verifyToken,encyclopediaBuffer,resetPath}=require('./lib/fw');
 
@@ -14,10 +15,10 @@ async function blobPdf(key){
 }
 
 exports.handler=async(event)=>{
-  const rate=rateAllow(event,{limit:30,windowMs:60000,key:'download'}); if(!rate.ok) return rateResponse(rate.retryAfter);
+  const rate=rateAllow(event,{limit:30,windowMs:60000,key:'download'}); if(!rate.ok){const response=rateResponse(rate.retryAfter);return {...response,headers:{...response.headers,...secureHeaders}};}
   const token=event.queryStringParameters?.token||'';
   const payload=verifyToken(token);
-  if(!payload)return {statusCode:403,headers:{'Content-Type':'text/plain; charset=utf-8','Cache-Control':'no-store'},body:'This secure download link is invalid or expired.'};
+  if(!payload)return {statusCode:403,headers:{...secureHeaders,'Content-Type':'text/plain; charset=utf-8','Cache-Control':'private, no-store'},body:'This secure download link is invalid or expired.'};
 
   try{
     const reset=payload.product==='reset';
@@ -36,15 +37,16 @@ exports.handler=async(event)=>{
       statusCode:200,
       isBase64Encoded:true,
       headers:{
+        ...secureHeaders,
         'Content-Type':'application/pdf',
         'Content-Disposition':'attachment; filename="'+filename+'"',
         'Cache-Control':'private, no-store',
-        'X-Robots-Tag':'noindex'
+        'X-Robots-Tag':'noindex, nofollow'
       },
       body:pdf.toString('base64')
     };
   }catch(error){
     console.error('[Fitness World] secure PDF unavailable',String(error.message||error));
-    return {statusCode:500,headers:{'Content-Type':'text/plain; charset=utf-8','Cache-Control':'no-store'},body:'The download file is temporarily unavailable.'};
+    return {statusCode:500,headers:{...secureHeaders,'Content-Type':'text/plain; charset=utf-8','Cache-Control':'private, no-store'},body:'The download file is temporarily unavailable.'};
   }
 };

@@ -1,0 +1,8 @@
+{
+  "files": [
+    {"id":"reset","name":"The 30-Day Natural Wellness Reset","description":"The complete 79-page digital program.","released":true},
+    {"id":"tracker","name":"30-Day Printable Tracker","description":"Keep your daily actions in one place. All 30 challenge days on two print-ready pages, so you can tick off your Daily Wellness Score away from the screen.","released":true},
+    {"id":"cheatsheet","name":"4-Part Meal Method Cheat Sheet","description":"Build meals without reopening the full guide. The Reset's Meal Method, three simple builds and ideas by part on one fridge-ready page.","released":true},
+    {"id":"library","name":"The Wellness Reference Library","description":"The Reset's 19 evidence-aware profiles as a standalone reference file, including Sources & References.","released":false}
+  ]
+}

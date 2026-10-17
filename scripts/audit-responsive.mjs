@@ -56,7 +56,9 @@ for(const width of [390,1440]){
     if(await short.locator('iframe').count())report.errors.push({url,width,reason:'YouTube loaded before play was clicked'});
     const videoId=await short.getAttribute('data-fw-short');
     const player=await short.locator('.fw-short__player').boundingBox();
-    if(!player||player.width<200||Math.abs(player.height/player.width-16/9)>.04)report.errors.push({url,width,reason:'Invalid vertical player size',player});
+    const fullVideo=await short.evaluate(el=>el.classList.contains('fw-short--full'));
+    const expectedRatio=fullVideo?9/16:16/9;
+    if(!player||player.width<200||Math.abs(player.height/player.width-expectedRatio)>.04)report.errors.push({url,width,reason:'Invalid player size',player});
     await short.locator('button').click();
     const frame=short.locator('iframe');
     const source=await frame.getAttribute('src');

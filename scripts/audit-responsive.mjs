@@ -75,7 +75,8 @@ for(const width of [390,1440]){
      return {reading:{top:reading.top,bottom:reading.bottom,right:reading.right},video:{top:video.top,bottom:video.bottom,left:video.left},headingWidth,copyWidth};
     });
     if(paired){
-     const fits=width>1000?Math.abs(paired.reading.bottom-paired.video.bottom)<4&&paired.reading.right<=paired.video.left:paired.video.top>=paired.reading.bottom-2;
+     const expectedTop=Math.max(paired.reading.top,paired.reading.bottom-(paired.video.bottom-paired.video.top));
+     const fits=width>1000?Math.abs(expectedTop-paired.video.top)<4&&paired.reading.right<=paired.video.left:paired.video.top>=paired.reading.bottom-2;
      if(!fits)report.errors.push({url,width,reason:'Short is not paired with reading correctly',paired});
      if(paired.headingWidth&&paired.copyWidth<paired.headingWidth-4)report.errors.push({url,width,reason:'Heading narrowed by an empty grid column',paired});
      report.results.push({url,width,test:'Short beside related reading',passed:fits});

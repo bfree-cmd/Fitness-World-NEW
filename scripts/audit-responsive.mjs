@@ -47,11 +47,17 @@ for(const width of [390,1440]){
    const result=await page.evaluate(()=>{
     const visible=e=>{const r=e.getBoundingClientRect(),s=getComputedStyle(e);return r.width>0&&r.height>0&&s.visibility!=='hidden'&&s.display!=='none';};
     const overflow=[...document.querySelectorAll('main *')].filter(visible).filter(e=>{const r=e.getBoundingClientRect();return r.right>innerWidth+3||r.left< -3;}).filter(e=>!e.closest('[class*="carousel"],[class*="scroll"],.table-wrap,.table-responsive')).slice(0,10).map(e=>({tag:e.tagName,class:e.className,text:e.textContent.trim().slice(0,65)}));
-    return {title:document.title,viewport:innerWidth,documentWidth:document.documentElement.scrollWidth,overflow};
+    const sections=[...document.querySelectorAll('main > section,.fw-v1510-hub-main > section')].filter(visible).map(el=>{const r=el.getBoundingClientRect(),style=getComputedStyle(el);return {heading:el.querySelector('h1,h2')?.textContent.trim().slice(0,100)||'',top:Math.round(r.top+scrollY),height:Math.round(r.height),padding:style.padding};});
+    return {title:document.title,viewport:innerWidth,documentWidth:document.documentElement.scrollWidth,overflow,sections};
    });
    report.results.push({url,width,...result});
    if(result.documentWidth>width+3)report.errors.push({url,width,reason:'Horizontal page overflow',...result});
-   if(['/','/shop/','/affiliate-disclosure/','/mens-health/','/the-30-day-natural-wellness-reset/','/contact/','/free-guide/','/mens-health/testosterone-what-actually-works/','/worth-it/nitric-boost-ultra-review/'].includes(url)){
+   if(['/','/shop/','/affiliate-disclosure/','/mens-health/','/womens-health/','/stay-strong/','/sleep-recovery/','/live-healthier/','/healthy-aging/','/natural-wellness/','/the-30-day-natural-wellness-reset/','/contact/','/free-guide/','/mens-health/testosterone-what-actually-works/','/worth-it/nitric-boost-ultra-review/'].includes(url)){
+    // Scroll the page to load real sample/card images before full-page visual QA.
+    const height=await page.evaluate(()=>document.documentElement.scrollHeight);
+    for(let y=0;y<height;y+=800){await page.evaluate(y=>scrollTo(0,y),y);await page.waitForTimeout(45);}
+    await page.evaluate(()=>scrollTo(0,0));
+    await page.waitForTimeout(150);
     await page.screenshot({path:path.join(out,`${width}-${url==='/'?'home':url.replaceAll('/','_')}.png`),fullPage:true});
    }
   }catch(error){report.errors.push({url,width,reason:error.message});}

@@ -50,6 +50,21 @@ for(const width of [390,1440]){
     return {title:document.title,viewport:innerWidth,documentWidth:document.documentElement.scrollWidth,overflow};
    });
    report.results.push({url,width,...result});
+   const short=page.locator('[data-fw-short]');
+   if(await short.count()){
+    if(await short.count()!==1)report.errors.push({url,width,reason:'Duplicate Short'});
+    if(await short.locator('iframe').count())report.errors.push({url,width,reason:'YouTube loaded before play was clicked'});
+    const videoId=await short.getAttribute('data-fw-short');
+    const player=await short.locator('.fw-short__player').boundingBox();
+    if(!player||player.width<200||Math.abs(player.height/player.width-16/9)>.04)report.errors.push({url,width,reason:'Invalid vertical player size',player});
+    await short.locator('button').click();
+    const frame=short.locator('iframe');
+    const source=await frame.getAttribute('src');
+    if(!source?.startsWith('https://www.youtube-nocookie.com/embed/'+videoId+'?')||!source.includes('playsinline=1'))report.errors.push({url,width,reason:'Incorrect Short player URL',source});
+    if(!(await frame.getAttribute('title'))||await frame.getAttribute('referrerpolicy')!=='strict-origin-when-cross-origin')report.errors.push({url,width,reason:'Player title/referrer policy missing'});
+    report.results.push({url,width,test:'Short click-to-load player',videoId,source,player});
+   }
+
    if(result.documentWidth>width+3)report.errors.push({url,width,reason:'Horizontal page overflow',...result});
    if(['/','/shop/','/affiliate-disclosure/','/mens-health/','/the-30-day-natural-wellness-reset/','/contact/','/free-guide/','/mens-health/testosterone-what-actually-works/','/worth-it/nitric-boost-ultra-review/'].includes(url)){
     await page.screenshot({path:path.join(out,`${width}-${url==='/'?'home':url.replaceAll('/','_')}.png`),fullPage:true});

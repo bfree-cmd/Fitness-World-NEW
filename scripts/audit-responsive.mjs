@@ -53,18 +53,19 @@ for(const width of [390,1440]){
    const short=page.locator('[data-fw-short]');
    if(await short.count()){
     if(await short.count()!==1)report.errors.push({url,width,reason:'Duplicate Short'});
-    if(await short.locator('iframe').count())report.errors.push({url,width,reason:'YouTube loaded before play was clicked'});
+    if(await short.locator('iframe').count()!==1)report.errors.push({url,width,reason:'Native YouTube embed missing'});
+    if(await short.locator('button,.fw-short__copy,.fw-short__external').count())report.errors.push({url,width,reason:'Custom video cover or duplicate links remain'});
     const videoId=await short.getAttribute('data-fw-short');
     const player=await short.locator('.fw-short__player').boundingBox();
     const fullVideo=await short.evaluate(el=>el.classList.contains('fw-short--full'));
-    const expectedRatio=fullVideo?9/16:16/9;
-    if(!player||player.width<200||Math.abs(player.height/player.width-expectedRatio)>.04)report.errors.push({url,width,reason:'Invalid player size',player});
-    await short.locator('button').click();
+    const expectedHeight=player?(fullVideo?Math.max(200,player.width*9/16):player.width*16/9):0;
+    if(!player||player.width<200||Math.abs(player.height-expectedHeight)>3)report.errors.push({url,width,reason:'Invalid player size',player});
     const frame=short.locator('iframe');
     const source=await frame.getAttribute('src');
-    if(!source?.startsWith('https://www.youtube-nocookie.com/embed/'+videoId+'?')||!source.includes('playsinline=1'))report.errors.push({url,width,reason:'Incorrect Short player URL',source});
+    if(!source?.startsWith('https://www.youtube-nocookie.com/embed/'+videoId+'?')||!source.includes('playsinline=1')||!source.includes('autoplay=0'))report.errors.push({url,width,reason:'Incorrect Short player URL',source});
     if(!(await frame.getAttribute('title'))||await frame.getAttribute('referrerpolicy')!=='strict-origin-when-cross-origin')report.errors.push({url,width,reason:'Player title/referrer policy missing'});
-    report.results.push({url,width,test:'Short click-to-load player',videoId,source,player});
+    if(await frame.getAttribute('loading')!=='lazy')report.errors.push({url,width,reason:'Video lazy loading missing'});
+    report.results.push({url,width,test:'Native YouTube embed',videoId,source,player});
    }
 
    if(result.documentWidth>width+3)report.errors.push({url,width,reason:'Horizontal page overflow',...result});

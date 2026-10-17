@@ -66,6 +66,18 @@ for(const width of [390,1440]){
     if(!(await frame.getAttribute('title'))||await frame.getAttribute('referrerpolicy')!=='strict-origin-when-cross-origin')report.errors.push({url,width,reason:'Player title/referrer policy missing'});
     if(await frame.getAttribute('loading')!=='lazy')report.errors.push({url,width,reason:'Video lazy loading missing'});
     report.results.push({url,width,test:'Native YouTube embed',videoId,source,player});
+    const paired=await short.evaluate(el=>{
+     const parent=el.parentElement;
+     if(!parent.classList.contains('fw-short-with-reading'))return null;
+     const reading=parent.querySelector(':scope > section').getBoundingClientRect(),video=el.getBoundingClientRect();
+     return {reading:{top:reading.top,bottom:reading.bottom,right:reading.right},video:{top:video.top,left:video.left}};
+    });
+    if(paired){
+     const fits=width>1000?Math.abs(paired.reading.top-paired.video.top)<4&&paired.reading.right<=paired.video.left:paired.video.top>=paired.reading.bottom-2;
+     if(!fits)report.errors.push({url,width,reason:'Short is not paired with reading correctly',paired});
+     report.results.push({url,width,test:'Short beside related reading',passed:fits});
+    }
+
    }
 
    if(result.documentWidth>width+3)report.errors.push({url,width,reason:'Horizontal page overflow',...result});

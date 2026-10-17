@@ -66,26 +66,15 @@ document.addEventListener("DOMContentLoaded", function () {
       const attr = window.FWTracking?.attribution?.() || {};
       const leadEventId = "fw_lead_" + Date.now() + "_" + Math.random().toString(36).slice(2, 10);
 
-      // The guide has a direct-download fallback in the existing success modal, so the
-      // user-facing success state must not wait on Google Sheets or the mail provider.
-      try {
-        localStorage.setItem("fwGuideRequested", "1");
-        localStorage.setItem("fwGuideEmail", email);
-      } catch (_) {}
-
       window.FWTracking?.track("free_guide_lead", {
         event_id: leadEventId,
         location: idx === 0 ? "free_guide_page" : "free_guide_page_secondary"
       });
 
-      if (btn) { btn.textContent = "PREVIEW READY ✓"; btn.disabled = true; }
       if (note) {
-        note.textContent = "Your free preview is ready to open. Checking email delivery…";
+        note.textContent = "Sending your free preview…";
         note.classList.remove("form-error");
       }
-
-      // Open the existing success / paid-PDF upsell immediately.
-      requestAnimationFrame(() => setTimeout(openModal, 40));
 
       // Persist the email through the existing relay and require confirmation.
       const sender = window.FWEventTracking?.send;
@@ -103,8 +92,7 @@ document.addEventListener("DOMContentLoaded", function () {
         }
       });
 
-      // Email delivery is also background-only. The direct guide link remains available
-      // immediately even if the provider is slow or temporarily unavailable.
+      // Confirm provider acceptance before showing the emailed-preview success state.
       const controller = typeof AbortController !== "undefined" ? new AbortController() : null;
       const timeout = setTimeout(() => controller?.abort(), 10000);
       const botField = form.querySelector('input[name="bot-field"]')?.value || "";
@@ -116,16 +104,24 @@ document.addEventListener("DOMContentLoaded", function () {
       }).then(async mail => {
         const mailData = await mail.json().catch(() => ({}));
         if (!mail.ok || mailData.sent !== true) throw new Error(mailData.detail || mailData.error || ("HTTP " + mail.status));
-        if (note) note.textContent = "Free preview sent — check your inbox. You can also open it now below.";
+        try {
+          localStorage.setItem("fwGuideRequested", "1");
+          localStorage.setItem("fwGuideEmail", email);
+        } catch (_) {}
+        if (btn) btn.textContent = "PREVIEW SENT ✓";
+        if (note) note.textContent = "Free preview sent — check your inbox and spam folder.";
         const confirm = modal.querySelector(".fw-offer-confirm span:last-child");
-        if (confirm) confirm.textContent = "Your free preview is ready — and we emailed a copy";
+        if (confirm) confirm.textContent = "Your free preview has been emailed";
         const choice = modal.querySelector(".fw-offer-choice-note");
-        if (choice) choice.textContent = "Open your free preview now. A copy was also sent to your email.";
+        if (choice) choice.textContent = "Check your inbox and spam folder for your 5-page PDF. If it does not arrive, contact support@fitnessworld.pro.";
+        openModal();
       }).catch(err => {
         console.warn("Fitness World guide email delivery delayed", err);
-        if (note) note.textContent = "Your free preview is ready. We could not confirm email delivery — open it now below.";
-        const choice = modal.querySelector(".fw-offer-choice-note");
-        if (choice) choice.textContent = "Open your free preview now. We could not confirm the email delivery.";
+        if (btn) { btn.textContent = "TRY AGAIN"; btn.disabled = false; }
+        if (note) {
+          note.textContent = "We could not confirm the email was sent. Please check your address and try again, or contact support@fitnessworld.pro.";
+          note.classList.add("form-error");
+        }
       }).finally(() => clearTimeout(timeout));
     });
   });

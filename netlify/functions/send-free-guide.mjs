@@ -87,7 +87,7 @@ export async function handler(event) {
 
   const attachments = [];
   let attachmentReady = false;
-  let inlinePreviewReady = false;
+  const previewCoverUrl = `${siteUrl()}/assets/images/free-preview-email-cover-20261018.jpg`;
   let pdfBuffer = await bundledAsset('fitness-world-30-day-reset-free-preview.pdf');
   if (!validPdf(pdfBuffer)) {
     try {
@@ -98,11 +98,6 @@ export async function handler(event) {
   if (validPdf(pdfBuffer)) {
     attachments.push({ filename: 'Fitness-World-30-Day-Natural-Wellness-Reset-Free-Preview.pdf', content: pdfBuffer.toString('base64') });
     attachmentReady = true;
-  }
-  let imageBuffer = await bundledAsset('assets/images/og-free-preview-v188.jpg');
-  if (imageBuffer && imageBuffer.length > 0 && imageBuffer.length < 5 * 1024 * 1024) {
-    attachments.push({ filename: 'fitness-world-free-preview.jpg', content: imageBuffer.toString('base64'), content_id: 'fw-free-preview' });
-    inlinePreviewReady = true;
   }
 
   try {
@@ -141,9 +136,7 @@ export async function handler(event) {
             <tr>
               <td style="padding:18px 32px 10px;text-align:center;">
                 <a href="${guideUrl}" style="display:block;text-decoration:none;">
-                  ${inlinePreviewReady
-                    ? '<img src="cid:fw-free-preview" width="520" height="273" alt="The 30-Day Natural Wellness Reset Free Preview" style="display:block;width:100%;max-width:520px;height:auto;margin:0 auto;border:1px solid #e2e6df;border-radius:12px;">'
-                    : '<div style="max-width:520px;margin:0 auto;padding:34px 22px;border-radius:12px;background:#155f50;color:#ffffff;font-size:24px;font-weight:800;line-height:1.15;">THE 30-DAY<br>NATURAL WELLNESS RESET<div style="margin-top:12px;font-size:13px;font-weight:600;opacity:.86;">FREE PREVIEW</div></div>'}
+                  <img src="${previewCoverUrl}" width="220" height="285" alt="FREE 5-page preview — The 30-Day Natural Wellness Reset" style="display:block;width:100%;max-width:220px;height:auto;margin:0 auto;border:0;border-radius:8px;">
                 </a>
               </td>
             </tr>

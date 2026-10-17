@@ -73,7 +73,7 @@ for(const width of [390,1440]){
      return {reading:{top:reading.top,bottom:reading.bottom,right:reading.right},video:{top:video.top,left:video.left}};
     });
     if(paired){
-     const fits=width>1000?Math.abs(paired.reading.top-paired.video.top)<4&&paired.reading.right<=paired.video.left:paired.video.top>=paired.reading.bottom-2;
+     const fits=width>1000?Math.abs(paired.reading.bottom-paired.video.bottom)<4&&paired.reading.right<=paired.video.left:paired.video.top>=paired.reading.bottom-2;
      if(!fits)report.errors.push({url,width,reason:'Short is not paired with reading correctly',paired});
      report.results.push({url,width,test:'Short beside related reading',passed:fits});
     }

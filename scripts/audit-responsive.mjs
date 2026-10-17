@@ -47,9 +47,10 @@ for(const width of [390,1440]){
    const result=await page.evaluate(()=>{
     const visible=e=>{const r=e.getBoundingClientRect(),s=getComputedStyle(e);return r.width>0&&r.height>0&&s.visibility!=='hidden'&&s.display!=='none';};
     const overflow=[...document.querySelectorAll('main *')].filter(visible).filter(e=>{const r=e.getBoundingClientRect();return r.right>innerWidth+3||r.left< -3;}).filter(e=>!e.closest('[class*="carousel"],[class*="scroll"],.table-wrap,.table-responsive')).slice(0,10).map(e=>({tag:e.tagName,class:e.className,text:e.textContent.trim().slice(0,65)}));
-    return {title:document.title,viewport:innerWidth,documentWidth:document.documentElement.scrollWidth,overflow};
+    return {title:document.title,viewport:innerWidth,documentWidth:document.documentElement.scrollWidth,overflow,linkedInLinks:document.querySelectorAll('a[href*="linkedin.com"]').length};
    });
    report.results.push({url,width,...result});
+   if(result.linkedInLinks)report.errors.push({url,width,reason:'Unowned LinkedIn link remains'});
    const short=page.locator('[data-fw-short]');
    if(await short.count()){
     if(await short.count()!==1)report.errors.push({url,width,reason:'Duplicate Short'});
@@ -117,9 +118,22 @@ for(const width of [390,1440]){
   await form.locator('button[type=submit]').click();
   await page.waitForTimeout(700);
   const signup=captured.find(e=>e.body.event_type==='free_pdf_signup');
+  if(!(await page.locator('#free-guide-success').isVisible()))report.errors.push({width,reason:'Confirmed email did not open success dialog'});
+  if(await page.locator('a[href*="fitness-world-30-day-reset-free-preview.pdf"]').count())report.errors.push({width,reason:'Free guide page still links directly to PDF'});
   if(!signup||signup.body.marketing_consent!==(consent?'Yes':'No'))report.errors.push({width,reason:'Consent payload mismatch',consent,captured});
   report.results.push({url:'/free-guide/',width,test:'email consent',consent,recorded:signup?.body.marketing_consent});
  }
+ await page.route('**/.netlify/functions/send-free-guide',route=>route.fulfill({status:503,json:{sent:false,error:'Test provider failure'}}));
+ await page.goto(origin+'/free-guide/',{waitUntil:'domcontentloaded'});
+ await page.waitForTimeout(400);
+ const failureForm=page.locator('#free-guide-download-form-2');
+ await failureForm.locator('input[type=email]').fill('audit@example.com');
+ await failureForm.locator('button[type=submit]').click();
+ await page.waitForTimeout(700);
+ const failureButton=failureForm.locator('button[type=submit]');
+ if(await page.locator('#free-guide-success').isVisible()||await failureButton.isDisabled()||await failureButton.textContent()!=='TRY AGAIN')report.errors.push({width,reason:'Email failure incorrectly confirmed or cannot retry'});
+ report.results.push({url:'/free-guide/',width,test:'email failure permits retry without false success'});
+ await page.unroute('**/.netlify/functions/send-free-guide');
  await page.goto(origin+'/shop/',{waitUntil:'domcontentloaded'});
  await page.waitForTimeout(400);
  if(width===390){

@@ -1,4 +1,15 @@
-
+# Keep repository development files off the public website.
+# Force rules also cover files that exist in the publish directory.
+/docs/* /404.html 404!
+/reports/* /404.html 404!
+/scripts/* /404.html 404!
+/netlify/* /404.html 404!
+/node_modules/* /404.html 404!
+/README.md /404.html 404!
+/package.json /404.html 404!
+/package-lock.json /404.html 404!
+/netlify.toml /404.html 404!
+/AGENTS.md /404.html 404!
 
 # FITNESS WORLD V13.8 EXACT PEXELS SAME-ORIGIN IMAGE CACHE
 /assets/images/pexels-cache/13621287-1d72cdb40e.webp /.netlify/images?url=https%3A%2F%2Fimages.pexels.com%2Fphotos%2F13621287%2Fpexels-photo-13621287.jpeg%3Fauto%3Dcompress%26cs%3Dtinysrgb%26w%3D1280&fm=webp 200!

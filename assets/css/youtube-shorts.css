@@ -40,6 +40,10 @@ html body.fw-site-shell main .fw-short-with-reading > section {
   padding:0!important;
 }
 html body.fw-site-shell main .fw-short-with-reading > section:first-of-type {grid-column:1;grid-row:1}
+/* These headings have no accompanying summary: do not reserve an empty column. */
+html body.fw-site-shell main .fw-short-with-reading > section > .fw-v1510-section-head {display:block!important;width:100%!important;max-width:none!important}
+html body.fw-site-shell main .fw-short-with-reading > section > .fw-v1510-section-head > div {width:100%!important;min-width:0!important}
+html body.fw-site-shell main .fw-short-with-reading > section > .fw-v1510-section-head h2 {max-width:none!important;width:100%!important;text-wrap:balance}
 html body.fw-site-shell main .fw-short-with-reading > section ~ section {grid-column:1 / -1}
 html body.fw-site-shell main .fw-short-with-reading > .fw-short {grid-column:2;grid-row:1;align-self:end;width:200px!important;margin:0!important}
 html body.fw-site-shell main .fw-short-with-reading > section:first-of-type .fw-v1510-row-grid {grid-template-columns:minmax(0,1fr)!important;gap:10px!important}

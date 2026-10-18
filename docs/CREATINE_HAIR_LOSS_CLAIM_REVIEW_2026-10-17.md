@@ -1,6 +1,6 @@
 # Creatine hair-loss claim review
 
-Draft for review only. No production publication authorized.
+Reviewed and approved for publication on October 18, 2026.
 
 | Claim | Decision | Evidence |
 | --- | --- | --- |

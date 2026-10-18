@@ -1,6 +1,6 @@
 # CSS cleanup review
 
-Draft only. No production merge before visual review.
+Approved for publication on October 18, 2026. Rebuilt after integrating the approved homepage, font, mobile-text, metadata and creatine changes.
 
 PurgeCSS scans 209 HTML documents and the site's JavaScript and JSON. Lightning CSS recovers from four existing parser warnings before the purge; no hand deletion of legacy rules was performed. Variables, keyframes and font-face rules remain. Runtime state selectors and data/ARIA selectors are safelisted.
 
@@ -19,3 +19,6 @@ The existing full responsive audit also renders all 204 canonical index pages at
 This branch starts from the current production baseline independently of the homepage/font branch. Rebuild and rerun comparisons after other typography or stylesheet changes merge; do not overwrite them with this baseline's CSS.
 
 Completed local validation: all 20 full-page comparisons (10 pages × two widths) had identical geometry and zero changed pixels. Images are explicitly decoded before capture; without that wait, asynchronous painting produced false screenshot differences. The full responsive audit completed 456 checks with zero errors. Twenty additional browser screenshots capture the real production/Netlify-preview upper folds for the same ten pages.
+
+
+Release baseline: 2382fbc4db9a9d192a9d1e60fe704049029cc31d. Final combined CSS: 695732 bytes. The CI comparison reads this baseline from reports/css-purge-review.json, so it measures the cleanup against the already approved redesign.

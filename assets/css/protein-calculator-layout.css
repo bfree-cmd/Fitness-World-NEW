@@ -59,3 +59,4 @@ html body main .fw-protein-explainer>.fw-short--calculator{width:216px!important
 html body[data-fw-tool-page="protein-target-calculator"] #main-content h1{font-size:clamp(30px,2.7vw,39px)!important;line-height:1.12!important;letter-spacing:-.035em!important}
 html body[data-fw-tool-page="protein-target-calculator"] #main-content .fw-protein-tips h3{font-family:Inter,Arial,sans-serif!important;font-size:14px!important;line-height:1.35!important;letter-spacing:0!important}
 @media(max-width:800px){html body[data-fw-tool-page="protein-target-calculator"] #main-content h1{font-size:34px!important}}
+@media(max-width:600px){.fw-tool26 .fw-protein-fields .field:nth-child(n+3){grid-column:1/-1}}

@@ -54,3 +54,12 @@ body.home-page.fw-site-shell #topics .fw-simple-section-head--explore-health>div
 body.home-page.fw-site-shell #topics .fw-home-article-digest{flex:none;color:#2e6c35;font-size:14px;font-weight:700;text-decoration:none;padding-bottom:3px}
 @media(max-width:920px){body #fw-home-offer .fw-home-landscape-inner{grid-template-columns:minmax(0,1fr)!important;gap:22px!important}body #fw-home-offer .fw-home-preview{grid-template-columns:140px minmax(0,1fr);max-width:100%}body #fw-home-offer .fw-home-preview h2{max-width:none}}
 @media(max-width:520px){body #fw-home-offer{padding-block:22px!important}body #fw-home-offer .fw-home-landscape-copy h1{font-size:36px!important}body #fw-home-offer .fw-home-landscape-copy .lead{font-size:16px!important}body #fw-home-offer .fw-home-preview{grid-template-columns:100px minmax(0,1fr);padding:16px;gap:7px 14px}body #fw-home-offer .fw-home-preview h2{font-size:23px}body #fw-home-offer .fw-home-preview .btn{font-size:13px;padding:11px 13px}body.home-page.fw-site-shell #topics .fw-simple-section-head--explore-health{align-items:start!important;flex-direction:column!important;gap:10px!important}}
+
+/* Keep mobile research copy and the three trust labels on their own rows. */
+@media(max-width:520px){
+body #fw-home-offer .fw-home-research-statement{display:block;white-space:nowrap;font-size:clamp(10.5px,2.9vw,12px)}
+body #fw-home-offer .fw-home-editorial-trust a{display:block!important;margin:2px 0 0!important;font-size:12px}
+body #fw-home-offer .fw-home-hero-benefits-inline{display:flex!important;flex-wrap:nowrap!important;justify-content:space-between!important;gap:8px!important}
+body #fw-home-offer .fw-home-hero-benefit{flex:0 0 auto!important;white-space:nowrap!important}
+body #fw-home-offer .fw-home-hero-benefit strong{font-size:clamp(10px,3vw,12px)!important;white-space:nowrap!important}
+}

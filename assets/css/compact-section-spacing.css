@@ -1,0 +1,26 @@
+/* Only loaded on the pages where the rendered spacing audit found large gaps. */
+html[data-fw-spacing="compact-20261018"] body main>section.page-hero{padding-top:32px!important;padding-bottom:24px!important}
+html[data-fw-spacing="compact-20261018"] body main>section.page-body{padding-top:28px!important;padding-bottom:36px!important}
+html[data-fw-spacing="compact-20261018"] body .page-body h2:first-child{margin-top:0!important}
+html[data-fw-spacing="compact-20261018"] body #main-content>.fw-weekly-slot{padding-bottom:28px!important;margin-bottom:0!important}
+html[data-fw-spacing="compact-20261018"] body #main-content>.fw-simple-worth{padding-top:28px!important;margin-top:0!important}
+html[data-fw-spacing="compact-20261018"] body .ep-final-section{padding-bottom:28px!important;margin-bottom:0!important}
+html[data-fw-spacing="compact-20261018"] body .ep-final-section+.fw-decision-path{padding-top:28px!important;margin-top:0!important}
+html.natural-page[data-fw-spacing="compact-20261018"] body.natural-wellness-page .natural-product-hero{padding-bottom:24px!important}
+html.natural-page[data-fw-spacing="compact-20261018"] body.natural-wellness-page .natural-checkout-section{padding-top:28px!important;padding-bottom:28px!important}
+html.natural-page[data-fw-spacing="compact-20261018"] body.natural-wellness-page :is(.section,.sample){padding-top:36px!important;padding-bottom:36px!important}
+html.natural-page[data-fw-spacing="compact-20261018"] body.natural-wellness-page .section-head{margin-bottom:24px!important}
+@media(max-width:700px){
+ html[data-fw-spacing="compact-20261018"] body main>section.page-hero{padding-top:24px!important;padding-bottom:20px!important}
+ html[data-fw-spacing="compact-20261018"] body main>section.page-body{padding-top:24px!important;padding-bottom:28px!important}
+ html.natural-page[data-fw-spacing="compact-20261018"] body.natural-wellness-page :is(.section,.sample){padding-top:28px!important;padding-bottom:28px!important}
+}
+/* Mobile tool sections and an unused chart must not reserve empty rows. */
+html[data-fw-spacing="compact-20261018"] body .fw-tool26 .chart:empty{display:none;height:0;margin:0}
+html[data-fw-spacing="compact-20261018"] body .fw-tool26 .tool-stage{padding-bottom:20px!important}
+html[data-fw-spacing="compact-20261018"] body .fw-tool26 .info{padding-top:24px!important}
+@media(max-width:900px){
+ html[data-fw-spacing="compact-20261018"] body main.business-layout{row-gap:24px!important}
+ html[data-fw-spacing="compact-20261018"] body main.business-layout>article{margin-bottom:0!important;padding-bottom:0!important}
+ html[data-fw-spacing="compact-20261018"] body main.business-layout>aside.business-sidebar{margin-top:0!important;padding-top:0!important}
+}

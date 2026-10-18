@@ -7,11 +7,11 @@ html body main .fw-short {
   margin:14px auto!important;
   padding:0!important;
   border:0!important;
-  border-radius:10px;
+  border-radius:0;
   background:transparent!important;
   box-shadow:none!important;
 }
-html body main .fw-short__player {position:relative;width:100%;aspect-ratio:9/16;overflow:hidden;border-radius:10px;background:#101514}
+html body main .fw-short__player {position:relative;width:100%;aspect-ratio:9/16;overflow:hidden;border-radius:0;background:transparent}
 html body main .fw-short .fw-short__player iframe {display:block!important;width:100%!important;height:100%!important;margin:0!important;padding:0!important;border:0!important;border-radius:inherit}
 html body main .fw-short--full {width:100%!important}
 html body main .fw-short--full .fw-short__player {aspect-ratio:16/9;min-height:200px}

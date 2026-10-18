@@ -44,6 +44,8 @@ for(const width of [390,1440]){
   try{
    await page.goto(origin+url,{waitUntil:'domcontentloaded',timeout:20000});
    await page.waitForTimeout(350);
+   const consentChoice=page.getByRole('button',{name:'Reject tracking',exact:true});
+   if(await consentChoice.isVisible())await consentChoice.click();
    const result=await page.evaluate(()=>{
     const visible=e=>{const r=e.getBoundingClientRect(),s=getComputedStyle(e);return r.width>0&&r.height>0&&s.visibility!=='hidden'&&s.display!=='none';};
     const overflow=[...document.querySelectorAll('main *')].filter(visible).filter(e=>{const r=e.getBoundingClientRect();return r.right>innerWidth+3||r.left< -3;}).filter(e=>!e.closest('[class*="carousel"],[class*="scroll"],.table-wrap,.table-responsive')).slice(0,10).map(e=>({tag:e.tagName,class:e.className,text:e.textContent.trim().slice(0,65)}));

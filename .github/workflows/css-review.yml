@@ -1,0 +1,32 @@
+name: CSS before and after review
+on:
+  pull_request:
+    paths:
+      - assets/css/site.css
+      - scripts/build-css-review.mjs
+      - scripts/compare-css-review.mjs
+      - .github/workflows/css-review.yml
+permissions:
+  contents: read
+jobs:
+  compare:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.pull_request.base.sha }}
+          path: css-baseline
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+      - run: npm ci --ignore-scripts --no-audit --no-fund
+      - run: npx playwright install --with-deps chromium
+      - name: Compare ten pages at mobile and desktop widths
+        run: node scripts/compare-css-review.mjs css-baseline .
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: css-before-after-ten-pages
+          path: css-comparison

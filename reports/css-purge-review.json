@@ -1,0 +1,22 @@
+{
+  "baseline": "ba850324420733a211f7291a3edff312906672b4",
+  "htmlPages": 209,
+  "contentFiles": 275,
+  "originalMainBytes": 773693,
+  "originalPolishBytes": 23252,
+  "finalMainBytes": 697066,
+  "removedSelectors": 495,
+  "recoveryWarnings": 4,
+  "polishFiles": [
+    "pdf-previews",
+    "connect",
+    "discussion-compact",
+    "spacing-polish",
+    "visual-audit-polish"
+  ],
+  "notes": [
+    "Five polish styles are gated by the pages that originally loaded each file. :where adds no specificity.",
+    "Variables, keyframes and font faces are retained. Runtime state and data selectors are safelisted.",
+    "No production merge until owner review. Rebuild against current main after other CSS or font changes merge."
+  ]
+}

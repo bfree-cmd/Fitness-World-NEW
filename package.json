@@ -2,9 +2,19 @@
   "scripts": {
     "qa:static": "node scripts/qa-site.mjs",
     "qa:live": "node scripts/check-live.mjs",
-    "qa:functions": "node scripts/audit-functions.mjs"
+    "qa:functions": "node scripts/audit-functions.mjs",
+    "css:review": "node scripts/build-css-review.mjs"
   },
   "dependencies": {
     "@netlify/blobs": "^11.1.0"
+  },
+  "devDependencies": {
+    "purgecss": "8.0.0",
+    "lightningcss": "1.29.2",
+    "postcss": "8.5.30",
+    "postcss-selector-parser": "7.1.6",
+    "playwright": "1.56.1",
+    "pngjs": "7.0.0",
+    "pixelmatch": "7.1.0"
   }
 }

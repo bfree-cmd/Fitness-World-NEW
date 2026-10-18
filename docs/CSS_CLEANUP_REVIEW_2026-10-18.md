@@ -17,3 +17,5 @@ Key pages: home, free preview, Reset, Creatine for Women, creatine hair loss, Wo
 The existing full responsive audit also renders all 204 canonical index pages at desktop and mobile sizes. See PR checks for completed results.
 
 This branch starts from the current production baseline independently of the homepage/font branch. Rebuild and rerun comparisons after other typography or stylesheet changes merge; do not overwrite them with this baseline's CSS.
+
+Completed local validation: all 20 full-page comparisons (10 pages × two widths) had identical geometry and zero changed pixels. Images are explicitly decoded before capture; without that wait, asynchronous painting produced false screenshot differences. The full responsive audit completed 456 checks with zero errors. Twenty additional browser screenshots capture the real production/Netlify-preview upper folds for the same ten pages.

@@ -55,6 +55,9 @@ try {
   assert.equal(calls.filter(c=>c[0]==='init').length,1);
   assert.equal(calls.find(c=>c[0]==='init')[1],'1822193155651073');
   assert(calls.some(c=>c[0]==='set'&&c[1]==='autoConfig'&&c[2]===false));checks+=3;
+  const initIndex=calls.findIndex(c=>c[0]==='init');
+  assert(calls.slice(0,initIndex).some(c=>c[0]==='consent'&&c[1]==='grant'));
+  assert(!calls.slice(0,initIndex).some(c=>c[0]==='consent'&&c[1]==='revoke'));checks+=2;
   await privacy.page.evaluate(()=>{
     FWTracking.track('free_guide_lead',{email:'never-forward@example.test'});
     FWTracking.confirmPreviewLead({sent:false},{event_id:'failure'});

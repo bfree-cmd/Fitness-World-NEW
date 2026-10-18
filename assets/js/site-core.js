@@ -47,11 +47,11 @@ window.FW_CONFIG = Object.freeze({
     const id=String(cfg.metaPixelId||'').trim();
     if(metaReady || !marketingConsent || !metaAllowedHere() || !/^\d{5,}$/.test(id)) return;
     !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');
-    fbq('consent','revoke');
+    // The SDK is created only after opt-in; grant before initializing its queue.
+    fbq('consent','grant');
     // Manual, allowlisted events only: no automatic button/form events or advanced matching.
     fbq('set','autoConfig',false,id);
     fbq('init',id);
-    fbq('consent','grant');
     metaReady=true;
     fbq('track','PageView');
   }

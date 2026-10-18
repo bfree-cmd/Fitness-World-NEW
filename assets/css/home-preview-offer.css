@@ -57,9 +57,9 @@ body.home-page.fw-site-shell #topics .fw-home-article-digest{flex:none;color:#2e
 
 /* Keep mobile research copy and the three trust labels on their own rows. */
 @media(max-width:520px){
-body #fw-home-offer .fw-home-research-statement{display:block;white-space:nowrap;font-size:clamp(10.5px,2.9vw,12px)}
+body #fw-home-offer .fw-home-research-statement{display:block;white-space:nowrap;font-size:clamp(11.5px,3.33vw,13px)}
 body #fw-home-offer .fw-home-editorial-trust a{display:block!important;margin:2px 0 0!important;font-size:12px}
 body #fw-home-offer .fw-home-hero-benefits-inline{display:flex!important;flex-wrap:nowrap!important;justify-content:space-between!important;gap:8px!important}
 body #fw-home-offer .fw-home-hero-benefit{flex:0 0 auto!important;white-space:nowrap!important}
-body #fw-home-offer .fw-home-hero-benefit strong{font-size:clamp(10px,3vw,12px)!important;white-space:nowrap!important}
+body #fw-home-offer .fw-home-hero-benefit strong{font-size:clamp(11.75px,3.4vw,14px)!important;white-space:nowrap!important}
 }

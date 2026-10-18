@@ -1,0 +1,22 @@
+/* Compact the lower purchase block and keep its sample action beside the cover. */
+html.natural-page body #nw-final-offer{padding:28px 0!important}
+html.natural-page body #nw-final-offer .offer{display:grid!important;grid-template-columns:minmax(0,1fr) 180px!important;gap:28px!important;align-items:center!important;max-width:980px!important;padding:28px!important;text-align:left!important;min-height:0!important}
+html.natural-page body #nw-final-offer .nw-final-offer-copy{text-align:left!important;min-width:0}
+html.natural-page body #nw-final-offer h2{font-size:36px!important;line-height:1.12!important;letter-spacing:-.025em!important;text-align:left!important;max-width:620px!important;margin:8px 0 14px!important}
+html.natural-page body #nw-final-offer .nw-final-offer-copy>p{font-size:16px!important;line-height:1.5!important;margin:0 0 18px!important}
+html.natural-page body #nw-final-offer .nw-final-cta{margin:0!important;min-height:46px;padding:12px 20px!important;font-size:14px!important}
+html.natural-page body #nw-final-offer .note{display:flex;flex-wrap:wrap;gap:4px 14px;margin:12px 0 0!important;font-size:12px;line-height:1.5}
+html.natural-page body #nw-final-offer .nw-final-offer-media{display:grid;justify-items:center;gap:10px;min-width:0}
+html.natural-page body #nw-final-offer .nw-final-offer-cover{width:180px!important;height:auto!important;max-width:100%!important;margin:0!important;border-radius:8px}
+html.natural-page body #nw-final-offer .nw-final-view-sample{display:inline-block;font-size:14px;font-weight:750;line-height:1.4;color:#17634d;text-decoration:none!important;border:0;box-shadow:none;padding:4px 8px}
+html.natural-page body #nw-final-offer .nw-final-view-sample:hover{color:#10261a}
+html.natural-page body #nw-final-offer .nw-final-view-sample:focus-visible{outline:2px solid #17634d;outline-offset:3px;border-radius:4px}
+@media(max-width:700px){
+ html.natural-page body #nw-final-offer .offer{grid-template-columns:minmax(0,1fr)!important;gap:20px!important;padding:22px!important}
+ html.natural-page body #nw-final-offer h2{font-size:30px!important}
+ html.natural-page body #nw-final-offer .nw-final-offer-media{grid-row:2}
+ html.natural-page body #nw-final-offer .nw-final-offer-cover{width:150px!important}
+ html.natural-page body #nw-final-offer .nw-final-cta{width:100%!important;white-space:normal!important}
+}
+/* Keep in-page previews clear of the fixed navigation. */
+html.natural-page body :is(#nw-final-offer,#encyclopedia-preview){scroll-margin-top:96px}

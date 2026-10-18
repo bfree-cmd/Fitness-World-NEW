@@ -61,6 +61,8 @@ for(const width of [390,1440]){
     const fullVideo=await short.evaluate(el=>el.classList.contains('fw-short--full'));
     const expectedHeight=player?(fullVideo?Math.max(200,player.width*9/16):player.width*16/9):0;
     if(!player||player.width<200||Math.abs(player.height-expectedHeight)>3)report.errors.push({url,width,reason:'Invalid player size',player});
+    const edges=await short.evaluate(e=>{const p=getComputedStyle(e.querySelector('.fw-short__player')),f=getComputedStyle(e.querySelector('iframe'));return {radius:p.borderRadius,background:p.backgroundColor,border:f.borderTopWidth};});
+    if(edges.radius!=='0px'||edges.background!=='rgba(0, 0, 0, 0)'||edges.border!=='0px')report.errors.push({url,width,reason:'Video container edge returned',edges});
     const frame=short.locator('iframe');
     const source=await frame.getAttribute('src');
     if(!source?.startsWith('https://www.youtube-nocookie.com/embed/'+videoId+'?')||!source.includes('playsinline=1')||!source.includes('autoplay=0'))report.errors.push({url,width,reason:'Incorrect Short player URL',source});
@@ -108,6 +110,23 @@ for(const width of [390,1440]){
     const fits=layout.videoInside&&layout.videoPaired&&layout.noProgress&&layout.helpGap>=0&&layout.helpGap<=32&&(layout.stacked?layout.afterInputs:layout.equalCards);
     if(!fits)report.errors.push({url,width,reason:'Approved protein calculator layout regression',layout});
     report.results.push({url,width,test:'Compact calculator cards and integrated explanation video',passed:fits,layout});
+   }
+   if(await page.locator('#nw-final-offer').count()){
+    const offer=await page.locator('#nw-final-offer').evaluate(e=>{const card=e.querySelector('.offer'),heading=e.querySelector('h2'),sample=e.querySelector('.nw-final-view-sample'),image=e.querySelector('.nw-final-offer-cover'),c=card.getBoundingClientRect(),im=image.getBoundingClientRect(),a=sample?.getBoundingClientRect();return {height:c.height,align:getComputedStyle(heading).textAlign,sample:sample?.getAttribute('href'),underline:sample?getComputedStyle(sample).textDecorationLine:null,gap:a?a.top-im.bottom:null,buy:e.querySelector('.nw-final-cta')?.getAttribute('href')};});
+    const fits=offer.align==='left'&&offer.sample==='#encyclopedia-preview'&&offer.underline==='none'&&offer.gap>=0&&offer.gap<=20&&offer.buy==='#nw-checkout'&&(width<701||offer.height<340);
+    if(!fits)report.errors.push({url,width,reason:'Lower Reset offer spacing/sample regression',offer});
+    report.results.push({url,width,test:'Compact lower purchase offer and working sample target',passed:fits});
+   }
+   if(url==='/tools/strength-progress-tracker/'){
+    const chart=page.locator('#chart');
+    if(await chart.locator(':scope>*').count()===0){
+     if(await chart.isVisible())report.errors.push({url,width,reason:'Empty strength chart reserves blank space'});
+     await page.locator('#calc').click();
+     if(!(await chart.isVisible())||await chart.locator('.bar').count()!==1)report.errors.push({url,width,reason:'Logging a strength session did not reveal its chart'});
+     await page.locator('#undo').click();
+     if(await chart.isVisible())report.errors.push({url,width,reason:'Undo left an empty strength chart visible'});
+     report.results.push({url,width,test:'Empty chart collapses; logged chart still works',passed:true});
+    }
    }
    // A desktop resource rail must follow the reader, while its contents and
    // the footer remain independently reachable. Stacked mobile rails stay in flow.

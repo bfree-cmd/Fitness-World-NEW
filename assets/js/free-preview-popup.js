@@ -45,8 +45,9 @@
       button.disabled = true; button.textContent = 'SENDING…'; status.textContent = ''; status.classList.remove('is-error');
       const consent = form.elements.marketing_consent.checked ? 'Yes' : 'No';
       const bot = form.elements.website.value;
+      const leadEventId = 'fw_popup_' + Date.now() + '_' + Math.random().toString(36).slice(2,10);
       if (!bot) {
-        window.FWEventTracking?.send('free_pdf_signup', { email, event_id: 'fw_popup_' + Date.now(), product_offer: '30-Day Natural Wellness Reset — Free Preview', source_form: 'Free Preview Popup', marketing_consent: consent, capture_source: 'Website Popup' }).catch(() => {});
+        window.FWEventTracking?.send('free_pdf_signup', { email, event_id: leadEventId, product_offer: '30-Day Natural Wellness Reset — Free Preview', source_form: 'Free Preview Popup', marketing_consent: consent, capture_source: 'Website Popup' }).catch(() => {});
       }
       const controller = new AbortController(); const timeout = setTimeout(() => controller.abort(), 20000);
       try {
@@ -56,6 +57,7 @@
         status.textContent = 'Preview sent — check your inbox and spam folder.';
         button.textContent = 'PREVIEW SENT';
         if (!data.skipped) {
+          window.FWTracking?.confirmPreviewLead(data, { event_id: leadEventId, location: 'free_preview_popup' });
           save('fwGuideRequested', '1'); save('fwGuideEmail', email);
           window.FWTracking?.track('free_preview_popup_signup', { location: location.pathname, marketing_consent: consent });
           overlay.querySelector('.fw-preview-download').hidden = false;

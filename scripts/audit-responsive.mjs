@@ -85,6 +85,29 @@ for(const width of [390,1440]){
 
    }
 
+   const sidebarShort=await page.locator('.fw-short--sidebar').count();
+   if(sidebarShort){
+    const layout=await page.evaluate(()=>{
+     const video=document.querySelector('.fw-short--sidebar'),article=document.querySelector('article.article-prose-fixed'),sidebar=video.closest('.article-sidebar-fw'),offer=sidebar?.querySelector('.desktop-article-product-cta');
+     if(!article||!sidebar||!offer)return null;
+     const v=video.getBoundingClientRect(),a=article.getBoundingClientRect(),s=sidebar.getBoundingClientRect(),o=offer.getBoundingClientRect();
+     const beside=s.left>=a.right-2;
+     return {beside,insideArticle:article.contains(video),gap:v.top-o.bottom,afterArticle:v.top>=a.bottom-2,insideRail:v.left>=s.left-2&&v.right<=s.right+2};
+    });
+    const fits=layout&&!layout.insideArticle&&layout.insideRail&&(layout.beside?layout.gap>=-2&&layout.gap<=40:layout.afterArticle);
+    if(!fits)report.errors.push({url,width,reason:'Article Short left its sidebar or introduced an empty gap',layout});
+    report.results.push({url,width,test:'Article Short in sidebar; after text when stacked',passed:!!fits,layout});
+   }
+   if(await page.locator('.fw-protein-short-rail').count()){
+    const layout=await page.evaluate(()=>{
+     const rail=document.querySelector('.fw-protein-short-rail'),panel=document.querySelector('.tool-shell>.panel'),video=rail.querySelector('[data-fw-short]'),result=rail.querySelector('.result');
+     const r=rail.getBoundingClientRect(),p=panel.getBoundingClientRect(),v=video.getBoundingClientRect(),c=result.getBoundingClientRect();
+     return {stacked:Math.abs(r.left-p.left)<20,bottomDifference:Math.abs(r.bottom-p.bottom),videoGap:v.top-c.bottom,afterInputs:r.top>=p.bottom-2,videoInExplanation:!!document.querySelector('.info [data-fw-short]')};
+    });
+    const fits=layout.videoGap>=0&&layout.videoGap<=24&&!layout.videoInExplanation&&(layout.stacked?layout.afterInputs:layout.bottomDifference<=80);
+    if(!fits)report.errors.push({url,width,reason:'Protein calculator spacing regression',layout});
+    report.results.push({url,width,test:'Calculator result and Short fill the input row',passed:fits,layout});
+   }
    if(result.documentWidth>width+3)report.errors.push({url,width,reason:'Horizontal page overflow',...result});
    if(['/','/shop/','/affiliate-disclosure/','/mens-health/','/the-30-day-natural-wellness-reset/','/contact/','/free-guide/','/mens-health/testosterone-what-actually-works/','/worth-it/nitric-boost-ultra-review/'].includes(url)){
     await page.screenshot({path:path.join(out,`${width}-${url==='/'?'home':url.replaceAll('/','_')}.png`),fullPage:true});

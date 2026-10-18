@@ -1,0 +1,13 @@
+/* Article Shorts belong to the resource rail, outside the reading column. */
+html.article-page aside.article-sidebar-fw.fw-sidebar-has-short {
+  grid-template-columns:minmax(0,1fr)!important;
+  grid-template-rows:auto auto auto;
+  align-content:start;
+  gap:16px!important;
+}
+html.article-page .fw-sidebar-has-short .desktop-article-product-cta {margin:0!important}
+html body main aside.article-sidebar-fw .fw-short--sidebar {
+  width:min(100%,240px)!important;
+  margin:0 auto!important;
+  align-self:start;
+}

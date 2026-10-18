@@ -24,6 +24,31 @@ html body main .fw-short--full .fw-short__player {aspect-ratio:16/9;min-height:2
 }
 @media print {html body main .fw-short {display:none!important}}
 
+/* Pair article explanations with their Short instead of reserving a full row. */
+.fw-article-short-row,.fw-short-context {
+  display:grid;
+  grid-template-columns:minmax(0,1fr) 200px;
+  gap:24px;
+  align-items:center;
+  margin:24px 0;
+}
+.fw-article-short-copy {min-width:0}
+html body main :is(.fw-article-short-row,.fw-short-context) > .fw-short {
+  width:200px!important;
+  margin:0!important;
+}
+.fw-article-short-copy > :first-child {margin-top:0!important}
+.fw-article-short-copy > :last-child {margin-bottom:0!important}
+.fw-short-context--claim > .fw-claim-how {min-width:0;margin:0!important}
+.fw-short-context--claim .fw-claim-how-grid {grid-template-columns:repeat(2,minmax(0,1fr))!important}
+.fw-short-context--claim .fw-claim-how-intro {grid-column:1 / -1}
+.fw-short-context--tool > div {min-width:0}
+@media(max-width:1000px) {
+  .fw-article-short-row,.fw-short-context {grid-template-columns:minmax(0,1fr);gap:16px;margin:20px 0}
+  html body main :is(.fw-article-short-row,.fw-short-context) > .fw-short {width:min(100%,220px)!important;margin:0 auto!important}
+  .fw-short-context--claim .fw-claim-how-grid {grid-template-columns:minmax(0,1fr)!important}
+}
+
 /* Topic hubs: put the Short beside useful reading, within the same row. */
 html body.fw-site-shell main .fw-short-with-reading {
   display:grid!important;

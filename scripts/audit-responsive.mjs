@@ -112,11 +112,12 @@ for(const width of [390,1440]){
    // the footer remain independently reachable. Stacked mobile rails stay in flow.
    const resourceRail=page.locator('main.fw-sticky-cta-layout > aside.fw-sticky-cta-track');
    if(await resourceRail.count()){
-    const before=await resourceRail.evaluate(e=>{const r=e.getBoundingClientRect();return {top:r.top,left:r.left,width:r.width,height:r.height,position:getComputedStyle(e).position};});
+    const before=await resourceRail.evaluate(e=>{const r=e.getBoundingClientRect();return {top:r.top,left:r.left,width:r.width,height:r.height,position:getComputedStyle(e).position,scrollY:window.scrollY};});
     if(width>1024){
-     await page.evaluate(()=>{const rail=document.querySelector('main.fw-sticky-cta-layout > aside.fw-sticky-cta-track'),r=rail.getBoundingClientRect(),main=rail.parentElement.getBoundingClientRect();window.scrollBy({top:Math.min(Math.max(0,r.top-92)+500,main.bottom-innerHeight-20),behavior:"instant"});});
-     const follow=await resourceRail.evaluate(e=>{const r=e.getBoundingClientRect(),main=e.parentElement.getBoundingClientRect(),s=getComputedStyle(e);return {top:r.top,bottom:r.bottom,mainBottom:main.bottom,position:s.position,overflow:s.overflowY,height:r.height};});
-     const fits=follow.position==='sticky'&&Math.abs(follow.top-92)<3&&follow.height<=900-112+3&&follow.bottom<=follow.mainBottom+3;
+     await page.evaluate(()=>{const rail=document.querySelector('main.fw-sticky-cta-layout > aside.fw-sticky-cta-track'),r=rail.getBoundingClientRect(),main=rail.parentElement.getBoundingClientRect();window.scrollBy({top:Math.max(0,r.top-92)+500,behavior:"instant"});});
+     const follow=await resourceRail.evaluate(e=>{const r=e.getBoundingClientRect(),main=e.parentElement.getBoundingClientRect(),s=getComputedStyle(e);return {top:r.top,bottom:r.bottom,mainBottom:main.bottom,position:s.position,overflow:s.overflowY,height:r.height,mainPaddingBottom:parseFloat(getComputedStyle(e.parentElement).paddingBottom)||0,scrollY:window.scrollY};});
+     const expectedTop=Math.min(Math.max(92,before.top-(follow.scrollY-before.scrollY)),follow.mainBottom-follow.mainPaddingBottom-follow.height);
+     const fits=follow.position==='sticky'&&Math.abs(follow.top-expectedTop)<3&&follow.height<=900-112+3&&follow.bottom<=follow.mainBottom+3;
      if(!fits)report.errors.push({url,width,reason:'Desktop resource offer does not follow scrolling safely',before,follow});
      report.results.push({url,width,test:'Resource rail follows scrolling within main',passed:fits});
      await page.evaluate(()=>window.scrollTo({top:0,behavior:"instant"}));

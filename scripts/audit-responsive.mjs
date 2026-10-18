@@ -132,6 +132,12 @@ for(const width of [390,1440]){
    // the footer remain independently reachable. Stacked mobile rails stay in flow.
    const resourceRail=page.locator('main.fw-sticky-cta-layout > aside.fw-sticky-cta-track');
    if(await resourceRail.count()){
+    const cards=await resourceRail.evaluate(rail=>[...rail.querySelectorAll('*')].filter(el=>{
+     const r=el.getBoundingClientRect();if(!r.width||!r.height)return false;
+     let p=el.parentElement;while(p!==rail&&p&&getComputedStyle(p).display==='contents')p=p.parentElement;
+     return p===rail;
+    }).map(el=>{const r=el.getBoundingClientRect();return {class:el.className,top:r.top,bottom:r.bottom};}));
+    for(let i=1;i<cards.length;i++)if(cards[i].top<cards[i-1].bottom-2)report.errors.push({url,width,reason:'Resource sidebar cards overlap',previous:cards[i-1],current:cards[i]});
     const before=await resourceRail.evaluate(e=>{const r=e.getBoundingClientRect();return {top:r.top,left:r.left,width:r.width,height:r.height,position:getComputedStyle(e).position,scrollY:window.scrollY};});
     if(width>1024){
      await page.evaluate(()=>{const rail=document.querySelector('main.fw-sticky-cta-layout > aside.fw-sticky-cta-track'),r=rail.getBoundingClientRect(),main=rail.parentElement.getBoundingClientRect();window.scrollBy({top:Math.max(0,r.top-92)+500,behavior:"instant"});});

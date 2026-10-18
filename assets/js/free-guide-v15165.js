@@ -66,10 +66,6 @@ document.addEventListener("DOMContentLoaded", function () {
       const attr = window.FWTracking?.attribution?.() || {};
       const leadEventId = "fw_lead_" + Date.now() + "_" + Math.random().toString(36).slice(2, 10);
 
-      window.FWTracking?.track("free_guide_lead", {
-        event_id: leadEventId,
-        location: idx === 0 ? "free_guide_page" : "free_guide_page_secondary"
-      });
 
       if (note) {
         note.textContent = "Sending your free preview…";
@@ -104,6 +100,7 @@ document.addEventListener("DOMContentLoaded", function () {
       }).then(async mail => {
         const mailData = await mail.json().catch(() => ({}));
         if (!mail.ok || mailData.sent !== true) throw new Error(mailData.detail || mailData.error || ("HTTP " + mail.status));
+        window.FWTracking?.confirmPreviewLead(mailData, { event_id: leadEventId, location: idx === 0 ? "free_guide_page" : "free_guide_page_secondary" });
         try {
           localStorage.setItem("fwGuideRequested", "1");
           localStorage.setItem("fwGuideEmail", email);

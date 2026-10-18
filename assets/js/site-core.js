@@ -8,8 +8,8 @@
 /* site-config.js */
 window.FW_CONFIG = Object.freeze({
   ga4MeasurementId: "",
-  metaPixelId: "",
-  productionDomain: "",
+  metaPixelId: "1822193155651073",
+  productionDomain: "fitnessworld.pro",
   currency: "USD",
   encyclopediaPrice: 9.99
 });
@@ -35,18 +35,66 @@ window.FW_CONFIG = Object.freeze({
     const s=document.createElement('script'); s.async=true; s.src='https://www.googletagmanager.com/gtag/js?id='+encodeURIComponent(id); document.head.appendChild(s);
     window.dataLayer=window.dataLayer||[]; window.gtag=function(){dataLayer.push(arguments)}; gtag('js',new Date()); gtag('config',id,{send_page_view:true});
   }
+  const consentKey='fwMarketingConsent';
+  let marketingConsent=false, metaReady=false;
+  const sentMetaEvents=new Set();
+  try { marketingConsent=localStorage.getItem(consentKey)==='granted'; } catch (_) {}
+  function metaAllowedHere(){
+    if(/^\/(thank-you|success|unsubscribe|download)(\/|$)/.test(location.pathname) || [...params.keys()].some(k=>/^(email|token|order_id|orderid|capture_id)$/i.test(k))) return false;
+    return ['fitnessworld.pro','www.fitnessworld.pro','comforting-marigold-ea2f43.netlify.app'].includes(location.hostname) || params.get('fw_pixel_test')==='1';
+  }
   function initMeta(){
-    const id=String(cfg.metaPixelId||'').trim(); if(!/^\d{5,}$/.test(id)) return;
+    const id=String(cfg.metaPixelId||'').trim();
+    if(metaReady || !marketingConsent || !metaAllowedHere() || !/^\d{5,}$/.test(id)) return;
     !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');
-    fbq('init',id); fbq('track','PageView');
+    fbq('consent','revoke');
+    // Manual, allowlisted events only: no automatic button/form events or advanced matching.
+    fbq('set','autoConfig',false,id);
+    fbq('init',id);
+    fbq('consent','grant');
+    metaReady=true;
+    fbq('track','PageView');
   }
   function track(name,params={}){
+    if(name==='free_guide_lead' && params.email_confirmed!==true) return;
     const payload=Object.assign({page_path:location.pathname},params);
     if(typeof window.gtag==='function') gtag('event',name,payload);
-    if(typeof window.fbq==='function'){
-      const map={free_guide_lead:'Lead',encyclopedia_view:'ViewContent',encyclopedia_checkout_start:'InitiateCheckout',encyclopedia_purchase:'Purchase'};
-      if(map[name]) fbq('track',map[name], name==='encyclopedia_purchase'?{value:Number(payload.value||cfg.encyclopediaPrice||9.99),currency:payload.currency||'USD'}:{} , payload.event_id?{eventID:payload.event_id}:undefined);
-    }
+    if(!marketingConsent || !metaReady || typeof window.fbq!=='function') return;
+    const map={free_guide_lead:'Lead',encyclopedia_view:'ViewContent',encyclopedia_checkout_start:'InitiateCheckout',encyclopedia_purchase:'Purchase'};
+    if(!map[name]) return;
+    const key=payload.event_id ? map[name]+':'+payload.event_id : '';
+    if(key && sentMetaEvents.has(key)) return;
+    if(key) sentMetaEvents.add(key);
+    // Never forward email addresses, health inputs, article titles or arbitrary payloads.
+    const data=name==='free_guide_lead'?{content_name:'free_preview',source:'free_guide'}:
+      name==='encyclopedia_purchase'?{value:Number(payload.value||cfg.encyclopediaPrice||9.99),currency:payload.currency||'USD'}:{};
+    fbq('track',map[name],data,payload.event_id?{eventID:payload.event_id}:undefined);
+  }
+  function confirmPreviewLead(result,details={}){
+    if(result?.sent!==true || result.skipped || !details.event_id) return;
+    track('free_guide_lead',{event_id:details.event_id,location:details.location||'free_guide',email_confirmed:true});
+  }
+  function setMarketingConsent(granted){
+    marketingConsent=granted===true;
+    try { localStorage.setItem(consentKey,marketingConsent?'granted':'denied'); } catch (_) {}
+    if(marketingConsent){
+      if(metaReady) window.fbq?.('consent','grant'); else initMeta();
+    }else if(metaReady) window.fbq?.('consent','revoke');
+    document.querySelector('.fw-cookie-notice')?.remove();
+  }
+  function showCookieChoices(){
+    if(document.querySelector('.fw-cookie-notice')) return;
+    const notice=document.createElement('section');
+    notice.className='fw-cookie-notice';notice.setAttribute('aria-label','Tracking preferences');
+    notice.innerHTML='<div><strong>Your privacy choices</strong><p>Optional Meta tracking helps us measure our ads. It stays off unless you accept. Your free preview works either way. <a href="/privacy/">Privacy policy</a></p></div><div class="fw-cookie-actions"><button type="button" data-fw-cookie="accept">Accept tracking</button><button type="button" data-fw-cookie="reject">Reject tracking</button></div>';
+    notice.addEventListener('click',e=>{const button=e.target.closest('[data-fw-cookie]');if(button)setMarketingConsent(button.dataset.fwCookie==='accept');});
+    document.body.appendChild(notice);
+  }
+  function initCookieChoices(){
+    const control=document.createElement('button');control.type='button';control.className='fw-cookie-settings';control.textContent='Tracking preferences';control.addEventListener('click',showCookieChoices);
+    (document.querySelector('footer .copyright')||document.querySelector('footer')||document.body).appendChild(control);
+    let saved;try { saved=localStorage.getItem(consentKey); } catch (_) {}
+    if(!saved) showCookieChoices();
   }
   function attribution(){
     const out={}; keys.forEach(k=>out[k]=saved[k]||'');
@@ -55,7 +103,8 @@ window.FW_CONFIG = Object.freeze({
   }
   document.addEventListener('click',e=>{const a=e.target.closest?.('a');if(!a)return;const href=a.getAttribute('href')||'';if(/fitness-world-free-guide\.pdf/i.test(href))track('free_guide_download',{link_url:href});if(a.closest('#nw-final-offer')||a.href?.includes('#nw-checkout'))track('encyclopedia_cta_click',{link_url:href});});
   initGA(); initMeta();
-  window.FWTracking={track,attribution};
+  window.FWTracking={track,attribution,confirmPreviewLead};
+  if(document.readyState==='loading') document.addEventListener('DOMContentLoaded',initCookieChoices); else initCookieChoices();
   if(document.body.classList.contains('natural-wellness-page')) track('encyclopedia_view',{content_name:'Natural Wellness Encyclopedia'});
 })();
 

@@ -202,12 +202,9 @@ document.addEventListener('DOMContentLoaded',()=>{
       if(form.dataset.fwSubmitting==='1')return;
       if(form.dataset.fwCaptured===email){openModal(btn);return;}
       form.dataset.fwSubmitting='1';
-      if(btn){btn.disabled=true;btn.textContent='GUIDE READY ✓';}
+      if(btn){btn.disabled=true;btn.textContent='SENDING…';}
       if(status){status.textContent='';status.classList.remove('is-error');}
-      openModal(btn);
       const eventId='fw_article_guide_'+Date.now()+'_'+Math.random().toString(36).slice(2,9);
-      // Preserve the analytics event without the legacy wrapper copying a stale guide email.
-      if(typeof window.gtag==='function')window.gtag('event','free_guide_lead',{event_id:eventId,location:'article_mid_content'});
       const sender=window.FWEventTracking?.send;
       const capture=typeof sender==='function'?sender('free_pdf_signup',{
         email,event_id:eventId,
@@ -216,18 +213,26 @@ document.addEventListener('DOMContentLoaded',()=>{
         marketing_consent:form.querySelector('input[name="marketing_consent"]:checked')?'Yes':'No',
         capture_source:'Website'
       }):Promise.resolve({success:false});
-      // Use the existing Resend function in the background; it cannot block the dialog.
-      fetch('/.netlify/functions/send-free-guide',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({email})})
-        .then(r=>r.json()).then(result=>{if(result.sent!==true)console.warn('Fitness World guide email delivery unavailable');})
-        .catch(()=>console.warn('Fitness World guide email delivery unavailable'));
-      const result=await capture.catch(()=>({success:false}));
-      form.dataset.fwSubmitting='0';
-      if(result.success===true){
+      capture.catch(()=>{});
+      const controller=new AbortController();
+      const timeout=setTimeout(()=>controller.abort(),20000);
+      try {
+        const mail=await fetch('/.netlify/functions/send-free-guide',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({email}),signal:controller.signal});
+        const delivery=await mail.json();
+        if(!mail.ok || delivery.sent!==true || delivery.skipped) throw new Error('Email unavailable');
+        window.FWTracking?.confirmPreviewLead(delivery,{event_id:eventId,location:'article_mid_content'});
+        try {localStorage.setItem('fwGuideRequested','1');localStorage.setItem('fwGuideEmail',email);} catch (_) {}
         form.dataset.fwCaptured=email;
-        if(btn)btn.disabled=false;
-      }else{
-        if(btn){btn.disabled=false;btn.textContent='TRY AGAIN';}
-        if(status){status.textContent='Email could not be saved. Please try again.';status.classList.add('is-error');}
+        if(btn)btn.textContent='PREVIEW SENT ✓';
+        if(status)status.textContent='Free preview sent — check your inbox and spam folder.';
+        openModal(btn);
+        const message=modal.querySelector('.fw-offer-choice-note');
+        if(message)message.textContent='Your free preview has been emailed. Check your inbox and spam folder.';
+      } catch (_) {
+        if(btn)btn.textContent='TRY AGAIN';
+        if(status){status.textContent='We could not confirm email delivery. Please try again.';status.classList.add('is-error');}
+      } finally {
+        clearTimeout(timeout);form.dataset.fwSubmitting='0';if(btn)btn.disabled=false;
       }
     });
   }

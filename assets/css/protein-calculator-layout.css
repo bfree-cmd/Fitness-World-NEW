@@ -1,0 +1,16 @@
+/* Use the space beside the inputs for the result and its related Short. */
+.fw-tool26 .fw-protein-short-rail {display:grid;gap:16px;min-width:0}
+.fw-tool26 .fw-protein-short-rail .result {position:relative;top:auto;padding:20px}
+.fw-tool26 .fw-protein-short-rail .result h2 {font-size:26px;margin-bottom:6px}
+.fw-tool26 .fw-protein-short-rail .big {font-size:56px;margin:12px 0 6px}
+.fw-tool26 .fw-protein-short-rail .metric-grid {margin-top:12px}
+.fw-tool26 .fw-protein-short-rail .metric {padding:10px}
+.fw-tool26 .fw-protein-short-rail .progress {margin:12px 0}
+html body main .fw-protein-short-rail > .fw-short--calculator {width:200px!important;margin:0 auto!important}
+.fw-tool26 .tool-hero {padding-bottom:24px}
+.fw-tool26 .tool-stage {padding-top:24px;padding-bottom:20px}
+.fw-tool26 .info {padding-top:28px}
+@media(max-width:800px) {
+  .fw-tool26 .fw-protein-short-rail .big {font-size:clamp(40px,11vw,56px)}
+  html body main .fw-protein-short-rail > .fw-short--calculator {width:min(100%,220px)!important}
+}

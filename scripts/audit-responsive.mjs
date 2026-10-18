@@ -85,6 +85,44 @@ for(const width of [390,1440]){
 
    }
 
+   const sidebarShort=await page.locator('.fw-short--sidebar').count();
+   if(sidebarShort){
+    const layout=await page.evaluate(()=>{
+     const video=document.querySelector('.fw-short--sidebar'),article=document.querySelector('article.article-prose-fixed'),sidebar=video.closest('.article-sidebar-fw'),offer=sidebar?.querySelector('.desktop-article-product-cta');
+     if(!article||!sidebar||!offer)return null;
+     const v=video.getBoundingClientRect(),a=article.getBoundingClientRect(),s=sidebar.getBoundingClientRect(),o=offer.getBoundingClientRect();
+     const beside=s.left>=a.right-2;
+     return {beside,insideArticle:article.contains(video),gap:v.top-o.bottom,afterArticle:v.top>=a.bottom-2,insideRail:v.left>=s.left-2&&v.right<=s.right+2};
+    });
+    const fits=layout&&!layout.insideArticle&&layout.insideRail&&(layout.beside?layout.gap>=-2&&layout.gap<=40:layout.afterArticle);
+    if(!fits)report.errors.push({url,width,reason:'Article Short left its sidebar or introduced an empty gap',layout});
+    report.results.push({url,width,test:'Article Short in sidebar; after text when stacked',passed:!!fits,layout});
+   }
+   if(await page.locator('.fw-protein-short-rail').count()){
+    const layout=await page.evaluate(()=>{
+     const rail=document.querySelector('.fw-protein-short-rail'),panel=document.querySelector('.tool-shell>.panel'),video=rail.querySelector('[data-fw-short]'),result=rail.querySelector('.result');
+     const r=rail.getBoundingClientRect(),p=panel.getBoundingClientRect(),v=video.getBoundingClientRect(),c=result.getBoundingClientRect();
+     return {stacked:Math.abs(r.left-p.left)<20,bottomDifference:Math.abs(r.bottom-p.bottom),videoGap:v.top-c.bottom,afterInputs:r.top>=p.bottom-2,videoInExplanation:!!document.querySelector('.info [data-fw-short]')};
+    });
+    const fits=layout.videoGap>=0&&layout.videoGap<=24&&!layout.videoInExplanation&&(layout.stacked?layout.afterInputs:layout.bottomDifference<=80);
+    if(!fits)report.errors.push({url,width,reason:'Protein calculator spacing regression',layout});
+    report.results.push({url,width,test:'Calculator result and Short fill the input row',passed:fits,layout});
+   }
+   // A desktop resource rail must follow the reader, while its contents and
+   // the footer remain independently reachable. Stacked mobile rails stay in flow.
+   const resourceRail=page.locator('main.fw-sticky-cta-layout > aside.fw-sticky-cta-track');
+   if(await resourceRail.count()){
+    const before=await resourceRail.evaluate(e=>{const r=e.getBoundingClientRect();return {top:r.top,left:r.left,width:r.width,height:r.height,position:getComputedStyle(e).position,scrollY:window.scrollY};});
+    if(width>1024){
+     await page.evaluate(()=>{const rail=document.querySelector('main.fw-sticky-cta-layout > aside.fw-sticky-cta-track'),r=rail.getBoundingClientRect(),main=rail.parentElement.getBoundingClientRect();window.scrollBy({top:Math.max(0,r.top-92)+500,behavior:"instant"});});
+     const follow=await resourceRail.evaluate(e=>{const r=e.getBoundingClientRect(),main=e.parentElement.getBoundingClientRect(),s=getComputedStyle(e);return {top:r.top,bottom:r.bottom,mainBottom:main.bottom,position:s.position,overflow:s.overflowY,height:r.height,mainPaddingBottom:parseFloat(getComputedStyle(e.parentElement).paddingBottom)||0,scrollY:window.scrollY};});
+     const expectedTop=Math.min(Math.max(92,before.top-(follow.scrollY-before.scrollY)),follow.mainBottom-follow.mainPaddingBottom-follow.height);
+     const fits=follow.position==='sticky'&&Math.abs(follow.top-expectedTop)<3&&follow.height<=900-112+3&&follow.bottom<=follow.mainBottom+3;
+     if(!fits)report.errors.push({url,width,reason:'Desktop resource offer does not follow scrolling safely',before,follow});
+     report.results.push({url,width,test:'Resource rail follows scrolling within main',passed:fits});
+     await page.evaluate(()=>window.scrollTo({top:0,behavior:"instant"}));
+    }else if(['sticky','fixed'].includes(before.position))report.errors.push({url,width,reason:'Stacked mobile resource rail must remain in flow',before});
+   }
    if(result.documentWidth>width+3)report.errors.push({url,width,reason:'Horizontal page overflow',...result});
    if(['/','/shop/','/affiliate-disclosure/','/mens-health/','/the-30-day-natural-wellness-reset/','/contact/','/free-guide/','/mens-health/testosterone-what-actually-works/','/worth-it/nitric-boost-ultra-review/'].includes(url)){
     await page.screenshot({path:path.join(out,`${width}-${url==='/'?'home':url.replaceAll('/','_')}.png`),fullPage:true});

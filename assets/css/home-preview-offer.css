@@ -1,0 +1,20 @@
+/* Homepage preview offer; loaded after the existing homepage cascade. */
+body #fw-home-offer .fw-home-landscape-inner{display:grid!important;grid-template-columns:minmax(0,1.5fr) minmax(260px,1fr)!important;align-items:center!important;gap:clamp(28px,4vw,64px)!important;padding-block:36px!important}
+body #fw-home-offer .fw-home-landscape-copy{width:100%!important;max-width:none!important;text-align:left!important;min-width:0}
+body #fw-home-offer .fw-home-landscape-copy h1{font-size:clamp(36px,4.3vw,62px)!important;line-height:1.06!important;max-width:680px!important;text-align:left!important}
+body #fw-home-offer .fw-home-landscape-copy .lead{text-align:left!important;max-width:650px!important}
+body #fw-home-offer .fw-hero-copy-break{display:none}
+body #fw-home-offer .fw-home-search{max-width:100%!important}
+body #fw-home-offer .fw-home-hero-benefits-inline{margin-top:22px!important;gap:10px!important}
+body #fw-home-offer .fw-home-preview{display:flex;flex-direction:column;align-items:center;text-align:center;background:#f1f5ec;border:1px solid #d8e2d3;border-radius:20px;padding:22px;gap:10px;min-width:0}
+body #fw-home-offer .fw-home-preview-cover{display:block;max-width:180px;width:100%;line-height:0}
+body #fw-home-offer .fw-home-preview img{width:100%;height:auto;display:block;border-radius:7px;box-shadow:0 8px 22px #183d2820}
+body #fw-home-offer .fw-home-preview .kicker{margin:4px 0 0}
+body #fw-home-offer .fw-home-preview h2{font-size:27px;line-height:1.15;margin:0;max-width:300px}
+body #fw-home-offer .fw-home-preview p{margin:0;font-size:15px;line-height:1.5}
+body #fw-home-offer .fw-home-preview .btn{margin-top:4px;white-space:normal}
+body .fw-home-digest-link{padding-block:12px 22px}
+body .fw-home-digest-link .fw-home-hero-actions{margin:0!important;justify-content:flex-start}
+@media(max-width:760px){body #fw-home-offer .fw-home-landscape-inner{grid-template-columns:minmax(0,1fr)!important;padding-block:24px!important;gap:24px!important}body #fw-home-offer .fw-home-preview{padding:20px}body #fw-home-offer .fw-home-preview-cover{max-width:150px}body #fw-home-offer .fw-home-landscape-copy h1{font-size:40px!important}body #fw-home-offer .fw-home-hero-benefits-inline{flex-wrap:wrap!important}}
+
+body.home-page.fw-site-shell .fw-home-digest-link .fw-home-browse-topics{background:none!important;color:#2e6c35!important;box-shadow:none!important;width:auto!important;min-height:0!important;padding:4px 0!important;font-weight:700!important}

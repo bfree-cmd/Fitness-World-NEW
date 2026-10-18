@@ -98,15 +98,16 @@ for(const width of [390,1440]){
     if(!fits)report.errors.push({url,width,reason:'Article Short left its sidebar or introduced an empty gap',layout});
     report.results.push({url,width,test:'Article Short in sidebar; after text when stacked',passed:!!fits,layout});
    }
-   if(await page.locator('.fw-protein-short-rail').count()){
+   if(await page.locator('.fw-protein-explainer').count()){
     const layout=await page.evaluate(()=>{
-     const rail=document.querySelector('.fw-protein-short-rail'),panel=document.querySelector('.tool-shell>.panel'),video=rail.querySelector('[data-fw-short]'),result=rail.querySelector('.result');
-     const r=rail.getBoundingClientRect(),p=panel.getBoundingClientRect(),v=video.getBoundingClientRect(),c=result.getBoundingClientRect();
-     return {stacked:Math.abs(r.left-p.left)<20,bottomDifference:Math.abs(r.bottom-p.bottom),videoGap:v.top-c.bottom,afterInputs:r.top>=p.bottom-2,videoInExplanation:!!document.querySelector('.info [data-fw-short]')};
+     const help=document.querySelector('.fw-protein-explainer'),panel=document.querySelector('.tool-shell>.panel'),result=document.querySelector('.tool-shell>.result'),video=help.querySelector('[data-fw-short]'),copy=help.querySelector('.fw-protein-explainer-copy');
+     const h=help.getBoundingClientRect(),p=panel.getBoundingClientRect(),r=result.getBoundingClientRect(),v=video.getBoundingClientRect(),c=copy.getBoundingClientRect();
+     const stacked=Math.abs(p.left-r.left)<20;
+     return {stacked,equalCards:Math.abs(p.height-r.height)<3,afterInputs:r.top>=p.bottom-2,helpGap:h.top-Math.max(p.bottom,r.bottom),videoInside:v.left>=h.left&&v.right<=h.right&&v.top>=h.top&&v.bottom<=h.bottom,videoPaired:innerWidth>800?v.left>=c.right:v.top>=c.bottom,noProgress:!result.querySelector('.progress')};
     });
-    const fits=layout.videoGap>=0&&layout.videoGap<=24&&!layout.videoInExplanation&&(layout.stacked?layout.afterInputs:layout.bottomDifference<=80);
-    if(!fits)report.errors.push({url,width,reason:'Protein calculator spacing regression',layout});
-    report.results.push({url,width,test:'Calculator result and Short fill the input row',passed:fits,layout});
+    const fits=layout.videoInside&&layout.videoPaired&&layout.noProgress&&layout.helpGap>=0&&layout.helpGap<=32&&(layout.stacked?layout.afterInputs:layout.equalCards);
+    if(!fits)report.errors.push({url,width,reason:'Approved protein calculator layout regression',layout});
+    report.results.push({url,width,test:'Compact calculator cards and integrated explanation video',passed:fits,layout});
    }
    // A desktop resource rail must follow the reader, while its contents and
    // the footer remain independently reachable. Stacked mobile rails stay in flow.

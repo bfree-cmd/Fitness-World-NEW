@@ -18,3 +18,5 @@ html.natural-page body #nw-final-offer .nw-final-view-sample:focus-visible{outli
  html.natural-page body #nw-final-offer .nw-final-offer-cover{width:150px!important}
  html.natural-page body #nw-final-offer .nw-final-cta{width:100%!important;white-space:normal!important}
 }
+/* Keep in-page previews clear of the fixed navigation. */
+html.natural-page body :is(#nw-final-offer,#encyclopedia-preview){scroll-margin-top:96px}

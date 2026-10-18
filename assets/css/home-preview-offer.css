@@ -5,7 +5,6 @@ body #fw-home-offer .fw-home-landscape-copy h1{font-size:clamp(36px,4.3vw,62px)!
 body #fw-home-offer .fw-home-landscape-copy .lead{text-align:left!important;max-width:650px!important}
 body #fw-home-offer .fw-hero-copy-break{display:none}
 body #fw-home-offer .fw-home-search{max-width:100%!important}
-body #fw-home-offer .fw-home-hero-benefits-inline{margin-top:22px!important;gap:10px!important}
 body #fw-home-offer .fw-home-preview{display:flex;flex-direction:column;align-items:center;text-align:center;background:#f1f5ec;border:1px solid #d8e2d3;border-radius:20px;padding:22px;gap:10px;min-width:0}
 body #fw-home-offer .fw-home-preview-cover{display:block;max-width:180px;width:100%;line-height:0}
 body #fw-home-offer .fw-home-preview img{width:100%;height:auto;display:block;border-radius:7px;box-shadow:0 8px 22px #183d2820}
@@ -15,17 +14,13 @@ body #fw-home-offer .fw-home-preview p{margin:0;font-size:15px;line-height:1.5}
 body #fw-home-offer .fw-home-preview .btn{margin-top:4px;white-space:normal}
 body .fw-home-digest-link{padding-block:12px 22px}
 body .fw-home-digest-link .fw-home-hero-actions{margin:0!important;justify-content:flex-start}
-@media(max-width:760px){body #fw-home-offer .fw-home-landscape-inner{grid-template-columns:minmax(0,1fr)!important;padding-block:24px!important;gap:24px!important}body #fw-home-offer .fw-home-preview{padding:20px}body #fw-home-offer .fw-home-preview-cover{max-width:150px}body #fw-home-offer .fw-home-landscape-copy h1{font-size:40px!important}body #fw-home-offer .fw-home-hero-benefits-inline{flex-wrap:wrap!important}}
+@media(max-width:760px){body #fw-home-offer .fw-home-landscape-inner{grid-template-columns:minmax(0,1fr)!important;padding-block:24px!important;gap:24px!important}body #fw-home-offer .fw-home-preview{padding:20px}body #fw-home-offer .fw-home-preview-cover{max-width:150px}body #fw-home-offer .fw-home-landscape-copy h1{font-size:40px!important}}
 
 body.home-page.fw-site-shell .fw-home-digest-link .fw-home-browse-topics{background:none!important;color:#2e6c35!important;box-shadow:none!important;width:auto!important;min-height:0!important;padding:4px 0!important;font-weight:700!important}
-/* Fit the existing trust links within the narrower hero column. */
+/* Align the editorial link with the hero copy. */
 body #fw-home-offer{padding-block:36px!important}
 body #fw-home-offer .fw-home-landscape-inner{padding-block:0!important}
 body #fw-home-offer .fw-home-landscape-copy .kicker,body #fw-home-offer .fw-home-editorial-trust{text-align:left!important}
-body #fw-home-offer .fw-home-hero-benefits-inline{display:flex!important;flex-wrap:wrap!important;gap:10px 22px!important;justify-content:flex-start!important;width:100%!important}
-body #fw-home-offer .fw-home-hero-benefit{display:block!important;width:auto!important;min-width:0!important;min-height:0!important;padding:0!important;background:none!important;box-shadow:none!important;border:0!important}
-body #fw-home-offer .fw-home-hero-benefit-icon,body #fw-home-offer .fw-home-hero-benefit small{display:none!important}
-body #fw-home-offer .fw-home-hero-benefit strong{font-size:14px!important;white-space:normal!important}
 body #fw-home-offer .fw-home-preview h2{max-width:340px}
 body #fw-home-offer .fw-home-preview h2 span{white-space:nowrap}
 body.home-page.fw-site-shell .fw-home-digest-link .fw-home-browse-topics{border:0!important;outline:0!important;min-width:0!important}
@@ -40,7 +35,6 @@ body #fw-home-offer .fw-home-landscape-copy .lead{font-size:17px!important;line-
 body #fw-home-offer .fw-home-search{margin:0!important}
 body #fw-home-offer .fw-home-editorial-trust{margin:10px 0 0!important;font-size:13px!important;line-height:1.5!important}
 body #fw-home-offer .fw-home-editorial-trust a{display:inline!important;margin-left:3px!important}
-body #fw-home-offer .fw-home-hero-benefits-inline{margin-top:14px!important}
 body #fw-home-offer .fw-home-preview{display:grid;grid-template-columns:145px minmax(0,1fr);grid-template-rows:auto auto auto auto;align-content:center;align-items:start;text-align:left;padding:22px;gap:8px 20px}
 body #fw-home-offer .fw-home-preview-cover{grid-column:1;grid-row:1/5;max-width:none;align-self:center}
 body #fw-home-offer .fw-home-preview>.kicker,body #fw-home-offer .fw-home-preview>h2,body #fw-home-offer .fw-home-preview>p,body #fw-home-offer .fw-home-preview>.btn{grid-column:2}
@@ -55,11 +49,8 @@ body.home-page.fw-site-shell #topics .fw-home-article-digest{flex:none;color:#2e
 @media(max-width:920px){body #fw-home-offer .fw-home-landscape-inner{grid-template-columns:minmax(0,1fr)!important;gap:22px!important}body #fw-home-offer .fw-home-preview{grid-template-columns:140px minmax(0,1fr);max-width:100%}body #fw-home-offer .fw-home-preview h2{max-width:none}}
 @media(max-width:520px){body #fw-home-offer{padding-block:22px!important}body #fw-home-offer .fw-home-landscape-copy h1{font-size:36px!important}body #fw-home-offer .fw-home-landscape-copy .lead{font-size:16px!important}body #fw-home-offer .fw-home-preview{grid-template-columns:100px minmax(0,1fr);padding:16px;gap:7px 14px}body #fw-home-offer .fw-home-preview h2{font-size:23px}body #fw-home-offer .fw-home-preview .btn{font-size:13px;padding:11px 13px}body.home-page.fw-site-shell #topics .fw-simple-section-head--explore-health{align-items:start!important;flex-direction:column!important;gap:10px!important}}
 
-/* Keep mobile research copy and the three trust labels on their own rows. */
+/* Keep the research statement and editorial link readable on mobile. */
 @media(max-width:520px){
 body #fw-home-offer .fw-home-research-statement{display:block;white-space:nowrap;font-size:clamp(11.5px,3.33vw,13px)}
 body #fw-home-offer .fw-home-editorial-trust a{display:block!important;margin:2px 0 0!important;font-size:12px}
-body #fw-home-offer .fw-home-hero-benefits-inline{display:flex!important;flex-wrap:nowrap!important;justify-content:space-between!important;gap:8px!important}
-body #fw-home-offer .fw-home-hero-benefit{flex:0 0 auto!important;white-space:nowrap!important}
-body #fw-home-offer .fw-home-hero-benefit strong{font-size:clamp(11.75px,3.4vw,14px)!important;white-space:nowrap!important}
 }

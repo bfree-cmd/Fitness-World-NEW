@@ -6,7 +6,13 @@
  }
  html body main.fw-sticky-cta-layout>aside.fw-sticky-cta-track .fw-sticky-cta-boundary,
  html body main.fw-sticky-cta-layout>aside.fw-sticky-cta-track .fw-sticky-sidebar-endmatter{display:contents!important}
- html body main.fw-sticky-cta-layout>aside.fw-sticky-cta-track :is(.fw-encyclopedia-cta,.sources,.disclaimer-box,.fw-short,.fw-free-guide-card){flex-shrink:0;position:static!important;margin-block:0!important}
+ /* Every rendered rail child must keep its natural height, including affiliate
+    offers, review teasers and image cards. The rail scrolls; cards never shrink. */
+ html body main.fw-sticky-cta-layout>aside.fw-sticky-cta-track>*,
+ html body main.fw-sticky-cta-layout>aside.fw-sticky-cta-track .fw-sticky-cta-boundary>*,
+ html body main.fw-sticky-cta-layout>aside.fw-sticky-cta-track .fw-sticky-sidebar-endmatter>*{
+  flex:0 0 auto!important;position:static!important;margin-block:0!important;
+ }
 }
 .fw-cookie-notice{position:fixed;z-index:1200;bottom:16px;left:50%;transform:translateX(-50%);width:min(920px,calc(100% - 32px));display:flex;align-items:center;gap:24px;background:#fff;color:#19251d;border:1px solid #cbd8ca;border-radius:16px;box-shadow:0 8px 32px #14281826;padding:18px 22px;font:14px/1.5 Inter,Arial,sans-serif}
 .fw-cookie-notice strong{font-size:16px}.fw-cookie-notice p{margin:4px 0 0}.fw-cookie-notice a{color:#2e6c35;text-decoration:underline}

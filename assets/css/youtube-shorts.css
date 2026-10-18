@@ -43,7 +43,7 @@ html body main :is(.fw-article-short-row,.fw-short-context) > .fw-short {
 .fw-short-context--claim .fw-claim-how-grid {grid-template-columns:repeat(2,minmax(0,1fr))!important}
 .fw-short-context--claim .fw-claim-how-intro {grid-column:1 / -1}
 .fw-short-context--tool > div {min-width:0}
-@media(max-width:760px) {
+@media(max-width:1000px) {
   .fw-article-short-row,.fw-short-context {grid-template-columns:minmax(0,1fr);gap:16px;margin:20px 0}
   html body main :is(.fw-article-short-row,.fw-short-context) > .fw-short {width:min(100%,220px)!important;margin:0 auto!important}
   .fw-short-context--claim .fw-claim-how-grid {grid-template-columns:minmax(0,1fr)!important}

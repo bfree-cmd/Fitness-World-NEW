@@ -27,14 +27,14 @@ html body main .fw-short--full .fw-short__player {aspect-ratio:16/9;min-height:2
 /* Pair article explanations with their Short instead of reserving a full row. */
 .fw-article-short-row,.fw-short-context {
   display:grid;
-  grid-template-columns:minmax(0,1fr) 180px;
+  grid-template-columns:minmax(0,1fr) 200px;
   gap:24px;
   align-items:center;
   margin:24px 0;
 }
 .fw-article-short-copy {min-width:0}
 html body main :is(.fw-article-short-row,.fw-short-context) > .fw-short {
-  width:180px!important;
+  width:200px!important;
   margin:0!important;
 }
 .fw-article-short-copy > :first-child {margin-top:0!important}

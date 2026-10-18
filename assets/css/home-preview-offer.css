@@ -18,3 +18,15 @@ body .fw-home-digest-link .fw-home-hero-actions{margin:0!important;justify-conte
 @media(max-width:760px){body #fw-home-offer .fw-home-landscape-inner{grid-template-columns:minmax(0,1fr)!important;padding-block:24px!important;gap:24px!important}body #fw-home-offer .fw-home-preview{padding:20px}body #fw-home-offer .fw-home-preview-cover{max-width:150px}body #fw-home-offer .fw-home-landscape-copy h1{font-size:40px!important}body #fw-home-offer .fw-home-hero-benefits-inline{flex-wrap:wrap!important}}
 
 body.home-page.fw-site-shell .fw-home-digest-link .fw-home-browse-topics{background:none!important;color:#2e6c35!important;box-shadow:none!important;width:auto!important;min-height:0!important;padding:4px 0!important;font-weight:700!important}
+/* Fit the existing trust links within the narrower hero column. */
+body #fw-home-offer{padding-block:36px!important}
+body #fw-home-offer .fw-home-landscape-inner{padding-block:0!important}
+body #fw-home-offer .fw-home-landscape-copy .kicker,body #fw-home-offer .fw-home-editorial-trust{text-align:left!important}
+body #fw-home-offer .fw-home-hero-benefits-inline{display:flex!important;flex-wrap:wrap!important;gap:10px 22px!important;justify-content:flex-start!important;width:100%!important}
+body #fw-home-offer .fw-home-hero-benefit{display:block!important;width:auto!important;min-width:0!important;min-height:0!important;padding:0!important;background:none!important;box-shadow:none!important;border:0!important}
+body #fw-home-offer .fw-home-hero-benefit-icon,body #fw-home-offer .fw-home-hero-benefit small{display:none!important}
+body #fw-home-offer .fw-home-hero-benefit strong{font-size:14px!important;white-space:normal!important}
+body #fw-home-offer .fw-home-preview h2{max-width:340px}
+body #fw-home-offer .fw-home-preview h2 span{white-space:nowrap}
+body.home-page.fw-site-shell .fw-home-digest-link .fw-home-browse-topics{border:0!important;outline:0!important;min-width:0!important}
+@media(max-width:760px){body #fw-home-offer{padding-block:24px!important}}

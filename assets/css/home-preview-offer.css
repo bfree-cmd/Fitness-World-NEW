@@ -30,3 +30,27 @@ body #fw-home-offer .fw-home-preview h2{max-width:340px}
 body #fw-home-offer .fw-home-preview h2 span{white-space:nowrap}
 body.home-page.fw-site-shell .fw-home-digest-link .fw-home-browse-topics{border:0!important;outline:0!important;min-width:0!important}
 @media(max-width:760px){body #fw-home-offer{padding-block:24px!important}}
+
+/* Compact hero: useful content replaces the tall, centered offer panel. */
+body #fw-home-offer{padding-block:26px!important}
+body #fw-home-offer .fw-home-landscape-inner{grid-template-columns:minmax(0,1.3fr) minmax(350px,1fr)!important;gap:32px!important}
+body #fw-home-offer .fw-home-landscape-copy .kicker{margin:0 0 10px!important}
+body #fw-home-offer .fw-home-landscape-copy h1{font-size:clamp(38px,4vw,54px)!important;line-height:1.06!important;margin:0 0 14px!important;max-width:620px!important}
+body #fw-home-offer .fw-home-landscape-copy .lead{font-size:17px!important;line-height:1.5!important;margin:0 0 18px!important}
+body #fw-home-offer .fw-home-search{margin:0!important}
+body #fw-home-offer .fw-home-editorial-trust{margin:10px 0 0!important;font-size:13px!important;line-height:1.5!important}
+body #fw-home-offer .fw-home-editorial-trust a{display:inline!important;margin-left:3px!important}
+body #fw-home-offer .fw-home-hero-benefits-inline{margin-top:14px!important}
+body #fw-home-offer .fw-home-preview{display:grid;grid-template-columns:145px minmax(0,1fr);grid-template-rows:auto auto auto auto;align-content:center;align-items:start;text-align:left;padding:22px;gap:8px 20px}
+body #fw-home-offer .fw-home-preview-cover{grid-column:1;grid-row:1/5;max-width:none;align-self:center}
+body #fw-home-offer .fw-home-preview>.kicker,body #fw-home-offer .fw-home-preview>h2,body #fw-home-offer .fw-home-preview>p,body #fw-home-offer .fw-home-preview>.btn{grid-column:2}
+body #fw-home-offer .fw-home-preview .kicker{margin:0;font-size:11px}
+body #fw-home-offer .fw-home-preview h2{font-size:26px;line-height:1.12;text-wrap:pretty}
+body #fw-home-offer .fw-home-preview p{font-size:14px;line-height:1.45}
+body #fw-home-offer .fw-home-preview .btn{justify-self:start;font-size:14px;padding:12px 17px;min-height:44px;margin-top:4px}
+body.home-page.fw-site-shell #topics{padding-top:26px!important}
+body.home-page.fw-site-shell #topics .fw-simple-section-head--explore-health{display:flex!important;justify-content:space-between!important;align-items:end!important;gap:20px!important;margin-bottom:20px!important}
+body.home-page.fw-site-shell #topics .fw-simple-section-head--explore-health>div{min-width:0}
+body.home-page.fw-site-shell #topics .fw-home-article-digest{flex:none;color:#2e6c35;font-size:14px;font-weight:700;text-decoration:none;padding-bottom:3px}
+@media(max-width:920px){body #fw-home-offer .fw-home-landscape-inner{grid-template-columns:minmax(0,1fr)!important;gap:22px!important}body #fw-home-offer .fw-home-preview{grid-template-columns:140px minmax(0,1fr);max-width:100%}body #fw-home-offer .fw-home-preview h2{max-width:none}}
+@media(max-width:520px){body #fw-home-offer{padding-block:22px!important}body #fw-home-offer .fw-home-landscape-copy h1{font-size:36px!important}body #fw-home-offer .fw-home-landscape-copy .lead{font-size:16px!important}body #fw-home-offer .fw-home-preview{grid-template-columns:100px minmax(0,1fr);padding:16px;gap:7px 14px}body #fw-home-offer .fw-home-preview h2{font-size:23px}body #fw-home-offer .fw-home-preview .btn{font-size:13px;padding:11px 13px}body.home-page.fw-site-shell #topics .fw-simple-section-head--explore-health{align-items:start!important;flex-direction:column!important;gap:10px!important}}

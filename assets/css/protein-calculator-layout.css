@@ -1,16 +1,62 @@
-/* Use the space beside the inputs for the result and its related Short. */
-.fw-tool26 .fw-protein-short-rail {display:grid;gap:16px;min-width:0}
-.fw-tool26 .fw-protein-short-rail .result {position:relative;top:auto;padding:20px}
-.fw-tool26 .fw-protein-short-rail .result h2 {font-size:26px;margin-bottom:6px}
-.fw-tool26 .fw-protein-short-rail .big {font-size:56px;margin:12px 0 6px}
-.fw-tool26 .fw-protein-short-rail .metric-grid {margin-top:12px}
-.fw-tool26 .fw-protein-short-rail .metric {padding:10px}
-.fw-tool26 .fw-protein-short-rail .progress {margin:12px 0}
-html body main .fw-protein-short-rail > .fw-short--calculator {width:200px!important;margin:0 auto!important}
-.fw-tool26 .tool-hero {padding-bottom:24px}
-.fw-tool26 .tool-stage {padding-top:24px;padding-bottom:20px}
-.fw-tool26 .info {padding-top:28px}
-@media(max-width:800px) {
-  .fw-tool26 .fw-protein-short-rail .big {font-size:clamp(40px,11vw,56px)}
-  html body main .fw-protein-short-rail > .fw-short--calculator {width:min(100%,220px)!important}
+/* The approved compact calculator: two balanced cards and one video explainer. */
+body[data-fw-tool-page="protein-target-calculator"] .fw-tool26 .tool-wrap{width:min(1128px,calc(100% - 48px))}
+.fw-tool26 .tool-hero{padding:32px 0 20px;background:var(--cream)}
+.fw-tool26 .tool-hero-grid{grid-template-columns:minmax(0,1.45fr) minmax(0,1fr);gap:28px}
+.fw-tool26 h1{font-size:clamp(32px,3.05vw,43px);line-height:1.1;letter-spacing:-.035em;margin:0 0 14px;max-width:none}
+.fw-tool26 .lead{font-size:18px;line-height:1.5;margin:0}
+.fw-tool26 .hero-img{height:176px;min-height:0;aspect-ratio:auto;border-radius:18px;box-shadow:none}
+.fw-tool26 .tool-stage{padding:0 0 16px}
+.fw-tool26 .tool-shell{grid-template-columns:repeat(2,minmax(0,1fr));align-items:stretch;gap:18px}
+.fw-tool26 .panel,.fw-tool26 .result{padding:24px;border-radius:22px}
+.fw-tool26 .panel h2{font-size:30px;margin:4px 0 8px;line-height:1.1}
+.fw-tool26 .sub{font-size:14px;line-height:1.5;margin:0 0 20px}
+.fw-tool26 .fw-protein-fields{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px 20px}
+.fw-tool26 .field{margin:0;min-width:0}
+.fw-tool26 label{font-size:14px;margin-bottom:8px}
+.fw-tool26 input,.fw-tool26 select{min-height:46px;border-radius:12px;font-size:14px;padding:0 12px}
+.fw-tool26 .primary{min-height:46px;margin-top:18px;border-radius:11px;font-size:13px}
+.fw-tool26 .result{position:relative;top:auto;display:flex;flex-direction:column;justify-content:center;background:linear-gradient(135deg,#174d2a,#164d2e)}
+.fw-tool26 .result h2{font-size:30px;line-height:1.15;margin:12px 0 20px}
+.fw-tool26 .big{font-size:clamp(48px,5.2vw,76px);line-height:1.05;margin:0 0 12px}
+.fw-tool26 .result>p{font-size:20px;margin:0}
+.fw-tool26 .metric-grid{margin-top:28px;gap:12px}
+.fw-tool26 .metric{padding:16px;border-radius:12px;line-height:1.4}
+.fw-tool26 .metric strong{font-size:22px;margin-bottom:5px}
+.fw-tool26 .metric span{font-size:14px}
+.fw-tool26 .fw-protein-explainer{display:grid;grid-template-columns:minmax(0,1fr) 216px;align-items:center;gap:34px;padding:20px 24px;background:#fff;border:1px solid var(--line);border-radius:22px;box-shadow:0 10px 30px #12412308}
+.fw-tool26 .fw-protein-explainer-copy{min-width:0}
+.fw-tool26 .fw-protein-explainer h2{font-size:31px;line-height:1.1;margin:4px 0 10px}
+.fw-tool26 .fw-protein-explainer-copy>p{font-size:14px;line-height:1.5;color:#607064;margin:0 0 14px}
+.fw-tool26 .fw-protein-tips{list-style:none;counter-reset:protein-tips;padding:0;margin:0;display:grid;gap:14px}
+.fw-tool26 .fw-protein-tips li{counter-increment:protein-tips;display:grid;grid-template-columns:36px minmax(0,1fr);gap:16px;align-items:start}
+.fw-tool26 .fw-protein-tips li::before{content:counter(protein-tips);width:36px;height:36px;display:grid;place-items:center;background:#174d2a;color:#fff;border-radius:50%;font-weight:800}
+.fw-tool26 .fw-protein-tips h3{font-family:Inter,Arial,sans-serif;font-size:14px;font-weight:800;line-height:1.35;letter-spacing:0;margin:0 0 3px}
+.fw-tool26 .fw-protein-tips p{font-size:13px;line-height:1.45;color:#607064;margin:0}
+.fw-tool26 .fw-protein-explainer-copy>.fw-protein-help-note{font-size:12px;border-top:1px solid var(--line);padding-top:12px;margin:16px 0 0}
+html body main .fw-protein-explainer>.fw-short--calculator{width:216px!important;max-width:100%!important;margin:0!important;justify-self:end}
+.fw-tool26 .info{padding:32px 0}
+@media(max-width:800px){
+ body[data-fw-tool-page="protein-target-calculator"] .fw-tool26 .tool-wrap{width:calc(100% - 32px)}
+ .fw-tool26 .tool-hero{padding:24px 0 18px}
+ .fw-tool26 .tool-hero-grid{gap:18px}
+ .fw-tool26 h1{font-size:36px}
+ .fw-tool26 .lead{font-size:16px}
+ .fw-tool26 .hero-img{height:160px}
+ .fw-tool26 .tool-shell{gap:16px}
+ .fw-tool26 .panel,.fw-tool26 .result{padding:20px}
+ .fw-tool26 .panel h2,.fw-tool26 .result h2{font-size:27px}
+ .fw-tool26 .fw-protein-fields{gap:16px 12px}
+ .fw-tool26 .big{font-size:clamp(42px,10.6vw,68px)}
+ .fw-tool26 .metric-grid{margin-top:22px}
+ .fw-tool26 .metric{padding:12px}
+ .fw-tool26 .metric strong{font-size:18px}
+ .fw-tool26 .fw-protein-explainer{grid-template-columns:minmax(0,1fr);padding:20px;gap:20px}
+ .fw-tool26 .fw-protein-explainer h2{font-size:28px}
+ html body main .fw-protein-explainer>.fw-short--calculator{justify-self:center;width:216px!important}
 }
+@media(max-width:380px){.fw-tool26 .fw-protein-fields{grid-template-columns:1fr}.fw-tool26 .metric-grid{gap:8px}.fw-tool26 .metric{padding:10px}}
+/* Keep the approved typography above the shared page-family heading rules. */
+html body[data-fw-tool-page="protein-target-calculator"] #main-content h1{font-size:clamp(30px,2.7vw,39px)!important;line-height:1.12!important;letter-spacing:-.035em!important}
+html body[data-fw-tool-page="protein-target-calculator"] #main-content .fw-protein-tips h3{font-family:Inter,Arial,sans-serif!important;font-size:14px!important;line-height:1.35!important;letter-spacing:0!important}
+@media(max-width:800px){html body[data-fw-tool-page="protein-target-calculator"] #main-content h1{font-size:34px!important}}
+@media(max-width:600px){.fw-tool26 .fw-protein-fields .field:nth-child(n+3){grid-column:1/-1}}

@@ -23,3 +23,5 @@ Educational wellness information, not medical advice.
 support@fitnessworld.pro
 
 Unsubscribe: {{{RESEND_UNSUBSCRIBE_URL}}}
+
+{{{POSTAL_ADDRESS}}}

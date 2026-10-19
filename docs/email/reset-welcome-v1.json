@@ -345,5 +345,7 @@
     "48-hour checkout-help email triggered by a click",
     "Periodic re-offer campaigns",
     "Self-service purchase download resend page"
-  ]
+  ],
+  "automationId": "01a155a3-42d3-7303-b2fd-524f19f00bfb",
+  "eligibleSegmentId": "7b356bd3-1f18-4835-9156-687defd88b1e"
 }

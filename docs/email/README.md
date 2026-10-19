@@ -3,21 +3,23 @@
 ## Current status
 
 - Production source baseline: `4c17eeed8bc034311f32008b7c74360f2e6180ce`.
-- The four follow-up email drafts are saved in the connected Resend account.
+- The four follow-up templates have complete HTML/plain-text bodies, are published in Resend, and require `POSTAL_ADDRESS` at send time.
 - The sending domain `fitnessworld.pro` is verified.
-- No contacts were imported, enrolled, or emailed in this setup task.
-- No Resend automation exists yet. The editor previously reported successful composition but persisted neither editor content nor HTML. All four empty templates have now been repaired with rendered HTML and plain text, and provider readback confirms complete bodies. They remain drafts and unpublished.
-- This branch is prepared for review only. Do not enable the feature flag before all activation checks below pass.
+- Native automation `01a155a3-42d3-7303-b2fd-524f19f00bfb` exists and provider readback confirms **disabled**, with delays totaling days 1, 3, 6 and 9 and eligibility checks before every email.
+- Segment `7b356bd3-1f18-4835-9156-687defd88b1e`, named **FW Reset · Eligible · Awaiting activation**, contains one historical opt-in awaiting activation. It is not an active automation run.
+- Eligibility was checked against the tracking sheet's Subscribers summary and original Free PDF Signup event. Non-opt-ins, examples/tests and the existing purchaser were excluded; the eligible address was absent from provider contacts and suppressions before import.
+- No enrollment event was emitted and no email was sent. The native workflow and website feature flag remain disabled.
+- This branch remains a draft review. Activation requires the real footer address and controlled native unsubscribe/purchase tests below.
 
 ## Sequence
 
 The existing preview email remains the only day-zero delivery email. It now accurately lists the Daily Wellness Score and includes one useful Meal Method action. It does not promise marketing follow-ups to non-subscribers.
 
-The four marketing messages run on days 1, 3, 6 and 9 after enrollment. New enrollment waits for the next ten-minute outbox run, so timing is approximate. Their body copy, subjects, tracked links, template IDs and intended disabled workflow are in `reset-welcome-v1.json`.
+The four marketing messages run on days 1, 3, 6 and 9 after enrollment. New enrollment waits for the next ten-minute outbox run, so timing is approximate. Their body copy, subjects, tracked links, template IDs and saved disabled workflow are in `reset-welcome-v1.json`.
 
 The existing verified-payment purchase email continues to issue its secure 24-hour download link. There is no self-service resend page in production; expired links still direct buyers to support with their order ID. Never replace that with an invented resend URL.
 
-Only explicit boolean consent under `reset-welcome-v1` is eligible. Legacy signups are not backfilled. Requesting the free PDF remains independent of marketing consent. The optional checkbox now describes four tips/offers over nine days followed by occasional evidence updates and offers.
+Only explicit boolean consent under `reset-welcome-v1` is eligible. New website enrollment does not backfill legacy signups. One historical opt-in has been manually imported to the awaiting-activation segment after checking its source consent record; no event has been fired for that contact. Requesting the free PDF remains independent of marketing consent. The optional checkbox now describes four tips/offers over nine days followed by occasional evidence updates and offers.
 
 ## Website integration
 
@@ -34,8 +36,8 @@ Only explicit boolean consent under `reset-welcome-v1` is eligible. Legacy signu
 ## Activation requirements
 
 1. Obtain the business postal address that may appear in marketing footers.
-2. The review drafts intentionally omit a physical address, as requested for internal preview. Before public sending, add the valid postal address to all four footers, restore the matching POSTAL_ADDRESS template variable if using the workflow binding, verify unsubscribe behavior, and publish all four templates. Do not publish the current review-only versions.
-3. Create the workflow from the JSON with status **disabled**, then inspect it in Resend.
+2. Supply the real address through the required POSTAL_ADDRESS binding on all four published templates. Verify the resolved address and native unsubscribe link in a controlled test before activation.
+3. The workflow was created from the JSON and read back as **disabled**. Inspect it in Resend and keep it disabled until testing is complete.
 4. Verify reply-to `support@fitnessworld.pro` is monitored. Copy says “reply to us,” without promising every reply is read personally.
 5. Backfill buyer exclusions from verified paid orders before enrollment is enabled, so earlier purchasers are excluded too. Do not treat a purchase as marketing consent.
 6. Verify the configured server API key can access Contacts and Events. Do not replace or broaden credentials silently.
@@ -59,4 +61,4 @@ Only explicit boolean consent under `reset-welcome-v1` is eligible. Legacy signu
 
 ## Preview repair
 
-Run `node scripts/render-reset-email-drafts.mjs` to reproduce HTML and plain-text review copies in `docs/email/rendered`. These copies match the four repaired Resend drafts. They omit the mailing address for internal preview; the production activation guard still requires it. Templates were not published, no native automation was enabled, and no email was sent during this repair.
+Run `node scripts/render-reset-email-drafts.mjs` to reproduce HTML and plain-text review copies in `docs/email/rendered`. These copies match the four published Resend templates, including the required POSTAL_ADDRESS variable. The production activation guard still requires a real address. No native automation was enabled and no email was sent.

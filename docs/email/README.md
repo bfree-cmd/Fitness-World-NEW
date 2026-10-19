@@ -6,7 +6,7 @@
 - The four follow-up email drafts are saved in the connected Resend account.
 - The sending domain `fitnessworld.pro` is verified.
 - No contacts were imported, enrolled, or emailed in this setup task.
-- No Resend automation exists yet. Creation rejected unpublished templates; publishing the editable draft returned `Template HTML is required` even though composing its editor content succeeded. Resolve the editor rendering/publication issue before creating the workflow.
+- No Resend automation exists yet. The editor previously reported successful composition but persisted neither editor content nor HTML. All four empty templates have now been repaired with rendered HTML and plain text, and provider readback confirms complete bodies. They remain drafts and unpublished.
 - This branch is prepared for review only. Do not enable the feature flag before all activation checks below pass.
 
 ## Sequence
@@ -34,7 +34,7 @@ Only explicit boolean consent under `reset-welcome-v1` is eligible. Legacy signu
 ## Activation requirements
 
 1. Obtain the business postal address that may appear in marketing footers.
-2. Resolve template rendering; remove address placeholder fallback values; render and publish all four templates. The current editable templates are drafts, not sendable emails. Their address variables have no placeholder fallback.
+2. The review drafts intentionally omit a physical address, as requested for internal preview. Before public sending, add the valid postal address to all four footers, restore the matching POSTAL_ADDRESS template variable if using the workflow binding, verify unsubscribe behavior, and publish all four templates. Do not publish the current review-only versions.
 3. Create the workflow from the JSON with status **disabled**, then inspect it in Resend.
 4. Verify reply-to `support@fitnessworld.pro` is monitored. Copy says “reply to us,” without promising every reply is read personally.
 5. Backfill buyer exclusions from verified paid orders before enrollment is enabled, so earlier purchasers are excluded too. Do not treat a purchase as marketing consent.
@@ -56,3 +56,7 @@ Only explicit boolean consent under `reset-welcome-v1` is eligible. Legacy signu
 - `node scripts/test-preview-delivery.mjs`: exact preview attachment and current cover; no real email.
 - `node scripts/test-meta-tracking.mjs`: all Meta/email/analytics calls intercepted.
 - `node scripts/qa-site.mjs`: website references and structure.
+
+## Preview repair
+
+Run `node scripts/render-reset-email-drafts.mjs` to reproduce HTML and plain-text review copies in `docs/email/rendered`. These copies match the four repaired Resend drafts. They omit the mailing address for internal preview; the production activation guard still requires it. Templates were not published, no native automation was enabled, and no email was sent during this repair.

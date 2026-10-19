@@ -3,6 +3,8 @@
 const crypto=require('node:crypto');
 const {getBlobsStore}=require('./blobs');
 const VERSION='reset-welcome-v1';
+// Contact properties may be returned as typed {value,type} records.
+const propertyValue=value=>value&&typeof value==='object'?value.value:value;
 const normalize=email=>String(email||'').trim().toLowerCase();
 const keyFor=email=>crypto.createHash('sha256').update(normalize(email)).digest('hex');
 const store=()=>getBlobsStore({name:'fw-email-lifecycle',consistency:'strong'});
@@ -60,7 +62,7 @@ async function processOutbox(){
     const hash=keyFor(record.email);
     if(await s.get('buyers/'+hash,{type:'json'})){await s.setJSON(key,{...record,status:'excluded',reason:'purchased'});continue;}
     let contact=await api('/contacts/'+encodeURIComponent(record.email));
-    if(contact?.unsubscribed===true||contact?.properties?.fw_reset_purchased==='yes'){await s.setJSON(key,{...record,status:'excluded',reason:'unsubscribed_or_purchased'});continue;}
+    if(contact?.unsubscribed===true||propertyValue(contact?.properties?.fw_reset_purchased)==='yes'){await s.setJSON(key,{...record,status:'excluded',reason:'unsubscribed_or_purchased'});continue;}
     if(!contact)contact=await api('/contacts',{method:'POST',body:JSON.stringify({email:record.email,unsubscribed:false,properties:{fw_marketing_consent:'yes'}})});
     else await api('/contacts/'+encodeURIComponent(contact.id||record.email),{method:'PATCH',body:JSON.stringify({properties:{fw_marketing_consent:'yes'}})});
     // Recheck the durable buyer marker after contact writes, before dispatch.

@@ -1,6 +1,7 @@
 import { readFile } from 'node:fs/promises';
 import { resolve } from 'node:path';
 import rateLimit from './lib/rate-limit.js';
+import lifecycle from './lib/reset-email-lifecycle.js';
 const {allow:rateAllow,response:rateResponse}=rateLimit;
 const json = (statusCode, body, headers = {}) => ({
   statusCode,
@@ -110,11 +111,12 @@ export async function handler(event) {
       body: JSON.stringify({
         from,
         to: [email],
-        subject: "Your free preview: The 30-Day Natural Wellness Reset",
+        subject: "Your free 30-Day Reset preview is here",
         html: (() => {
           return `
 <!doctype html>
-<html>
+<html lang="en">
+<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Your free Reset preview</title></head>
   <body style="margin:0;padding:0;background:#f4f1e8;font-family:Arial,Helvetica,sans-serif;color:#172019;">
     <table role="presentation" width="100%" cellspacing="0" cellpadding="0" border="0" style="background:#f4f1e8;padding:28px 12px;">
       <tr>
@@ -146,7 +148,8 @@ export async function handler(event) {
                   <tr><td style="padding:0 0 8px;font-size:15px;line-height:1.55;color:#334139;font-weight:700;">Inside the preview:</td></tr>
                   <tr><td style="padding:3px 0;font-size:14px;line-height:1.5;color:#4d5a52;">• The 4-Part Meal Method</td></tr>
                   <tr><td style="padding:3px 0;font-size:14px;line-height:1.5;color:#4d5a52;">• Your first 3 challenge days</td></tr>
-                  <tr><td style="padding:3px 0;font-size:14px;line-height:1.5;color:#4d5a52;">• A look inside the full 79-page program</td></tr>
+                  <tr><td style="padding:3px 0;font-size:14px;line-height:1.5;color:#4d5a52;">• The Daily Wellness Score</td></tr>
+                  <tr><td style="padding:12px 0 3px;font-size:14px;line-height:1.5;color:#4d5a52;">If you do one thing this week, pick a single meal and build it with the Meal Method.</td></tr>
                 </table>
               </td>
             </tr>
@@ -172,7 +175,7 @@ export async function handler(event) {
         text:
           `Your free preview of The 30-Day Natural Wellness Reset is ready.\n\n` +
           `${attachmentReady ? "The 5-page PDF is attached to this email. " : ""}You can open it here: ${guideUrl}\n\n` +
-          "Inside: The 4-Part Meal Method, your first 3 challenge days, and a look inside the full 79-page program.\n\n" +
+          "Inside: The 4-Part Meal Method, your first 3 challenge days, and the Daily Wellness Score.\n\n" +
           "Educational wellness information only. Not medical advice.\n" +
           "Need help? support@fitnessworld.pro",
         ...(attachments.length ? { attachments } : {})      })
@@ -184,6 +187,10 @@ export async function handler(event) {
       return json(503, { sent: false, error: "Email delivery is not configured or unavailable" });
     }
 
+    // Persist only explicit, current consent after the provider accepts delivery.
+    // Enrollment failure must never change a successfully delivered PDF into an error.
+    try { await lifecycle.queuePreview({email,consent:body.marketing_consent,consentVersion:body.consent_version,deliveryId:data.id,source:body.source}); }
+    catch (_) { console.error('[Fitness World] confirmed preview enrollment could not be queued'); }
     return json(200, { sent: true, id: data.id || null });
   } catch (error) {
     console.error("Free guide email failed:", error);

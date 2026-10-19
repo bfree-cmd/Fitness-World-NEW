@@ -1,4 +1,5 @@
 const {getBlobsStore}=require('./blobs');
+const {markBuyer}=require('./reset-email-lifecycle');
 const {paypalRequest,signPayload,siteUrl,sendEmail}=require('./fw');
 const {forwardTracking,clean}=require('./tracking');
 const CLAIM_MS=2*60*1000;
@@ -109,6 +110,8 @@ async function deliver(orderID,event){
   const intent=await getIntent(orderID);
   // Never deliver to an address supplied by the webhook payload or a capture retry.
   if(!intent?.email) {console.error('[Fitness World] paid order has no saved checkout email',{orderID});return {status:'PENDING_CONFIRMATION',reason:'missing_intent'};}
+  // Called only after verified payment; never suppress based on browser claims.
+  try {await markBuyer(intent.email);}catch(_){console.error('[Fitness World] buyer email exclusion could not be recorded');}
   let {data:record,etag}=await loadRecord(orderID);
   const now=Date.now();
   let ownsClaim=false;

@@ -22,6 +22,7 @@ async function setup({granted=false,mode='success'}={}){
   const context=await browser.newContext({viewport:{width:1440,height:1000}});
   if(granted)await context.addInitScript(()=>localStorage.setItem('fwMarketingConsent','granted'));
   let metaRequests=0,release;
+  const previewRequests=[];
   const pending=new Promise(resolve=>{release=resolve;});
   await context.route('**/*',async route=>{
     const req=route.request(),url=new URL(req.url());
@@ -30,6 +31,7 @@ async function setup({granted=false,mode='success'}={}){
       await route.fulfill({contentType:'text/javascript',body:`window.__metaCalls=(window.fbq.queue||[]).map(a=>Array.from(a));window.fbq.callMethod=function(){window.__metaCalls.push(Array.from(arguments));};`});return;
     }
     if(url.pathname==='/.netlify/functions/send-free-guide'){
+      previewRequests.push(req.postDataJSON());
       if(mode==='pending')await pending;
       await route.fulfill({status:mode==='failure'?503:200,json:mode==='failure'?{sent:false}:{sent:true,id:'mock-delivery-id',...(mode==='skipped'?{skipped:true}:{})}});return;
     }
@@ -38,7 +40,7 @@ async function setup({granted=false,mode='success'}={}){
     await route.continue();
   });
   const page=await context.newPage();
-  return {page,context,release,requests:()=>metaRequests};
+  return {page,context,release,previewRequests,requests:()=>metaRequests};
 }
 const events=(page,name)=>page.evaluate(name=>(window.__metaCalls||[]).filter(c=>c[0]==='track'&&c[1]===name),name);
 try {
@@ -97,8 +99,12 @@ try {
         form=t.page.locator(type==='primary'?'#free-guide-download-form':'#free-guide-download-form-2');
       }
       await form.locator('input[type=email]').fill('audit@example.test');
+      if(mode==='pending')await form.locator('input[name=marketing_consent]').check();
       await form.locator('button[type=submit]').click();
       await t.page.waitForTimeout(100);
+      assert.equal(t.previewRequests.length,1,type+' sends one delivery request');
+      assert.equal(t.previewRequests[0].marketing_consent,mode==='pending',type+' forwards explicit checkbox consent');
+      assert.equal(t.previewRequests[0].consent_version,'reset-welcome-v1');checks+=3;
       assert.equal((await events(t.page,'Lead')).length,0,type+' '+mode+' emitted an unconfirmed Lead');checks++;
       if(mode==='pending'){
         t.release();

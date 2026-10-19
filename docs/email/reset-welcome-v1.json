@@ -1,0 +1,349 @@
+{
+  "version": "reset-welcome-v1",
+  "status": "disabled",
+  "delivery": "Existing send-free-guide function; never send a second day-zero email from this workflow.",
+  "from": "Fitness World <support@fitnessworld.pro>",
+  "replyTo": "support@fitnessworld.pro",
+  "templates": [
+    {
+      "day": 1,
+      "subject": "One small thing to try today",
+      "preview": "A simple action from your preview: keep water visible.",
+      "paragraphs": [
+        "Hi there,",
+        "Quick one. Open your preview and try Day 1 of the challenge: keep water visible where you work or relax.",
+        "At the end of the day, use the Daily Wellness Score: seven quick checks covering water, produce, movement, fiber, sleep, a stress reset and a food-first meal. It is feedback, not a grade.",
+        "Which of the seven is hardest for you? Reply and tell us."
+      ],
+      "cta": "Open your preview",
+      "url": "https://fitnessworld.pro/fitness-world-30-day-reset-free-preview.pdf?utm_source=resend&utm_medium=email&utm_campaign=reset_welcome_v1&utm_content=day_1",
+      "ps": "The preview covers your first three days. The full Reset runs for 30.",
+      "extraLink": "See what is in the full Reset",
+      "templateId": "ae0e81db-433d-4166-853f-c5070c1d480e"
+    },
+    {
+      "day": 3,
+      "subject": "What comes after day 3?",
+      "preview": "See what the full 30-day program adds.",
+      "paragraphs": [
+        "Hi there,",
+        "Your preview covers days 1 to 3. The full 30-Day Natural Wellness Reset continues for the whole 30 days.",
+        "It is a 79-page digital PDF with the Daily Wellness Score, weekly trackers and 10 done-for-you tools.",
+        "$9.99, one time. No subscription. The PDF is delivered by email.",
+        "It is educational and does not promise specific results."
+      ],
+      "cta": "See the full Reset",
+      "url": "https://fitnessworld.pro/the-30-day-natural-wellness-reset/?utm_source=resend&utm_medium=email&utm_campaign=reset_welcome_v1&utm_content=day_3",
+      "templateId": "d0953815-b003-4745-aaf1-67953f60bd68"
+    },
+    {
+      "day": 6,
+      "subject": "Is the Reset right for you?",
+      "preview": "Three useful answers before you decide.",
+      "paragraphs": [
+        "Hi there,",
+        "Three useful questions before you decide:",
+        "Is it a diet? It is built around the 4-Part Meal Method and one small action a day, with no extreme diet or detox program.",
+        "Will it take over my life? It is designed to be practical: one action a day for 30 days.",
+        "Is it medical advice? No. If you have a health condition or take medication, check with an appropriate health professional before making changes that could affect your care or adding supplements.",
+        "Who is it not for? Anyone looking for a quick fix. This is a steady 30-day routine.",
+        "$9.99, one time. No subscription."
+      ],
+      "cta": "See the full Reset",
+      "url": "https://fitnessworld.pro/the-30-day-natural-wellness-reset/?utm_source=resend&utm_medium=email&utm_campaign=reset_welcome_v1&utm_content=day_6",
+      "templateId": "1bb08d01-b10d-476d-8e0d-1d3930383d28"
+    },
+    {
+      "day": 9,
+      "subject": "Your last note in the Reset welcome series",
+      "preview": "A short invitation, with no pressure.",
+      "paragraphs": [
+        "Hi there,",
+        "This is the last email in your Reset welcome series.",
+        "The full 30-Day Natural Wellness Reset is $9.99, one time.",
+        "If it is not for you right now, that is fine. Your free preview is yours to keep. If you have a question, just reply.",
+        "You may still receive the occasional evidence updates and offers you opted into. You can unsubscribe below at any time."
+      ],
+      "cta": "Get the full Reset",
+      "url": "https://fitnessworld.pro/the-30-day-natural-wellness-reset/?utm_source=resend&utm_medium=email&utm_campaign=reset_welcome_v1&utm_content=day_9",
+      "templateId": "05819c0a-3660-4217-b8b3-e42fb235e6b0"
+    }
+  ],
+  "workflow": {
+    "steps": [
+      {
+        "key": "trigger",
+        "type": "trigger",
+        "config": {
+          "eventName": "fw.preview.delivered.v1"
+        },
+        "next": "delay_1"
+      },
+      {
+        "key": "delay_1",
+        "type": "delay",
+        "config": {
+          "duration": "1 days"
+        },
+        "next": "eligible_1"
+      },
+      {
+        "key": "eligible_1",
+        "type": "condition",
+        "config": {
+          "type": "and",
+          "rules": [
+            {
+              "type": "rule",
+              "field": "event.consent",
+              "operator": "eq",
+              "value": true
+            },
+            {
+              "type": "rule",
+              "field": "contact.unsubscribed",
+              "operator": "eq",
+              "value": false
+            },
+            {
+              "type": "rule",
+              "field": "contact.properties.fw_marketing_consent",
+              "operator": "eq",
+              "value": "yes"
+            },
+            {
+              "type": "rule",
+              "field": "contact.properties.fw_reset_purchased",
+              "operator": "neq",
+              "value": "yes"
+            }
+          ]
+        },
+        "branches": {
+          "condition_met": "send_1",
+          "condition_not_met": null
+        }
+      },
+      {
+        "key": "send_1",
+        "type": "send_email",
+        "config": {
+          "template": {
+            "id": "ae0e81db-433d-4166-853f-c5070c1d480e",
+            "variables": {
+              "POSTAL_ADDRESS": {
+                "var": "event.postal_address"
+              }
+            }
+          },
+          "from": "Fitness World <support@fitnessworld.pro>",
+          "replyTo": "support@fitnessworld.pro",
+          "subject": "One small thing to try today"
+        },
+        "next": "delay_3"
+      },
+      {
+        "key": "delay_3",
+        "type": "delay",
+        "config": {
+          "duration": "2 days"
+        },
+        "next": "eligible_3"
+      },
+      {
+        "key": "eligible_3",
+        "type": "condition",
+        "config": {
+          "type": "and",
+          "rules": [
+            {
+              "type": "rule",
+              "field": "event.consent",
+              "operator": "eq",
+              "value": true
+            },
+            {
+              "type": "rule",
+              "field": "contact.unsubscribed",
+              "operator": "eq",
+              "value": false
+            },
+            {
+              "type": "rule",
+              "field": "contact.properties.fw_marketing_consent",
+              "operator": "eq",
+              "value": "yes"
+            },
+            {
+              "type": "rule",
+              "field": "contact.properties.fw_reset_purchased",
+              "operator": "neq",
+              "value": "yes"
+            }
+          ]
+        },
+        "branches": {
+          "condition_met": "send_3",
+          "condition_not_met": null
+        }
+      },
+      {
+        "key": "send_3",
+        "type": "send_email",
+        "config": {
+          "template": {
+            "id": "d0953815-b003-4745-aaf1-67953f60bd68",
+            "variables": {
+              "POSTAL_ADDRESS": {
+                "var": "event.postal_address"
+              }
+            }
+          },
+          "from": "Fitness World <support@fitnessworld.pro>",
+          "replyTo": "support@fitnessworld.pro",
+          "subject": "What comes after day 3?"
+        },
+        "next": "delay_6"
+      },
+      {
+        "key": "delay_6",
+        "type": "delay",
+        "config": {
+          "duration": "3 days"
+        },
+        "next": "eligible_6"
+      },
+      {
+        "key": "eligible_6",
+        "type": "condition",
+        "config": {
+          "type": "and",
+          "rules": [
+            {
+              "type": "rule",
+              "field": "event.consent",
+              "operator": "eq",
+              "value": true
+            },
+            {
+              "type": "rule",
+              "field": "contact.unsubscribed",
+              "operator": "eq",
+              "value": false
+            },
+            {
+              "type": "rule",
+              "field": "contact.properties.fw_marketing_consent",
+              "operator": "eq",
+              "value": "yes"
+            },
+            {
+              "type": "rule",
+              "field": "contact.properties.fw_reset_purchased",
+              "operator": "neq",
+              "value": "yes"
+            }
+          ]
+        },
+        "branches": {
+          "condition_met": "send_6",
+          "condition_not_met": null
+        }
+      },
+      {
+        "key": "send_6",
+        "type": "send_email",
+        "config": {
+          "template": {
+            "id": "1bb08d01-b10d-476d-8e0d-1d3930383d28",
+            "variables": {
+              "POSTAL_ADDRESS": {
+                "var": "event.postal_address"
+              }
+            }
+          },
+          "from": "Fitness World <support@fitnessworld.pro>",
+          "replyTo": "support@fitnessworld.pro",
+          "subject": "Is the Reset right for you?"
+        },
+        "next": "delay_9"
+      },
+      {
+        "key": "delay_9",
+        "type": "delay",
+        "config": {
+          "duration": "3 days"
+        },
+        "next": "eligible_9"
+      },
+      {
+        "key": "eligible_9",
+        "type": "condition",
+        "config": {
+          "type": "and",
+          "rules": [
+            {
+              "type": "rule",
+              "field": "event.consent",
+              "operator": "eq",
+              "value": true
+            },
+            {
+              "type": "rule",
+              "field": "contact.unsubscribed",
+              "operator": "eq",
+              "value": false
+            },
+            {
+              "type": "rule",
+              "field": "contact.properties.fw_marketing_consent",
+              "operator": "eq",
+              "value": "yes"
+            },
+            {
+              "type": "rule",
+              "field": "contact.properties.fw_reset_purchased",
+              "operator": "neq",
+              "value": "yes"
+            }
+          ]
+        },
+        "branches": {
+          "condition_met": "send_9",
+          "condition_not_met": null
+        }
+      },
+      {
+        "key": "send_9",
+        "type": "send_email",
+        "config": {
+          "template": {
+            "id": "05819c0a-3660-4217-b8b3-e42fb235e6b0",
+            "variables": {
+              "POSTAL_ADDRESS": {
+                "var": "event.postal_address"
+              }
+            }
+          },
+          "from": "Fitness World <support@fitnessworld.pro>",
+          "replyTo": "support@fitnessworld.pro",
+          "subject": "Your last note in the Reset welcome series"
+        },
+        "next": null
+      }
+    ]
+  },
+  "activationRequirements": [
+    "Valid business postal address",
+    "Render and publish four Resend templates",
+    "Verify live contact-property paths and unsubscribe variables with controlled recipients",
+    "Verify confirmed-purchase exclusion and enrollment deduplication",
+    "Deploy integration and enable production feature flag"
+  ],
+  "notImplemented": [
+    "Weekly newsletter schedule",
+    "48-hour checkout-help email triggered by a click",
+    "Periodic re-offer campaigns",
+    "Self-service purchase download resend page"
+  ]
+}

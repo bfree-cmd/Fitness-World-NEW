@@ -95,7 +95,7 @@ document.addEventListener("DOMContentLoaded", function () {
       fetch("/.netlify/functions/send-free-guide", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ email, bot_field: botField }),
+        body: JSON.stringify({ email, bot_field: botField, marketing_consent: !!form.querySelector('input[name="marketing_consent"]:checked'), consent_version: 'reset-welcome-v1', source: 'free_guide' }),
         signal: controller?.signal
       }).then(async mail => {
         const mailData = await mail.json().catch(() => ({}));

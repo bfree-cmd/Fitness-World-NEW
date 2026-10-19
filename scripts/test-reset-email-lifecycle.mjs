@@ -28,10 +28,12 @@ process.env.CONTEXT='production';delete process.env.FW_RESET_EMAIL_AUTOMATION_EN
 process.env.FW_RESET_EMAIL_AUTOMATION_ENABLED='true';delete process.env.FW_RESET_POSTAL_ADDRESS;check(!(await lifecycle.queuePreview(input)).queued);
 process.env.FW_RESET_POSTAL_ADDRESS='POSTAL ADDRESS REQUIRED BEFORE ACTIVATION';check(!(await lifecycle.queuePreview(input)).queued);
 process.env.FW_RESET_POSTAL_ADDRESS='Example Business, 123 Test Street, Test City';
-for(const change of [{consent:false},{consent:'Yes'},{consentVersion:'old'},{deliveryId:''},{email:'invalid'}])check(!(await lifecycle.queuePreview({...input,...change})).queued);
+for(const change of [{consentVersion:'old'},{deliveryId:''},{email:'invalid'}])check(!(await lifecycle.queuePreview({...input,...change})).queued);
 check((await lifecycle.queuePreview(input)).queued);check(!(await lifecycle.queuePreview(input)).queued);check(calls.length===0);
 await lifecycle.processOutbox();check(calls.filter(c=>c.url.endsWith('/events/send')).length===1);check(calls.find(c=>c.url.endsWith('/events/send')).body.payload.consent===true);
 await lifecycle.processOutbox();check(calls.filter(c=>c.url.endsWith('/events/send')).length===1);
+reset();check((await lifecycle.queuePreview({...input,consent:false})).queued);await lifecycle.processOutbox();check(calls.some(c=>c.url.endsWith('/events/send')&&c.body.payload.consent===false));check(contact.properties.fw_marketing_consent==='no');
+reset();check((await lifecycle.queuePreview({...input,consent:'Yes'})).queued);await lifecycle.processOutbox();check(contact.properties.fw_marketing_consent==='no');
 reset();await lifecycle.queuePreview(input);contact={id:'mock',unsubscribed:true};await lifecycle.processOutbox();check(!calls.some(c=>c.url.endsWith('/events/send')));check(!calls.some(c=>c.method==='PATCH'));
 reset();await lifecycle.queuePreview(input);contact={id:'mock',unsubscribed:false,properties:{fw_reset_purchased:'yes'}};await lifecycle.processOutbox();check(!calls.some(c=>c.url.endsWith('/events/send')));
 reset();await lifecycle.queuePreview(input);contact={id:'mock',unsubscribed:false,properties:{fw_reset_purchased:{value:'yes',type:'string'}}};await lifecycle.processOutbox();check(!calls.some(c=>c.url.endsWith('/events/send')));

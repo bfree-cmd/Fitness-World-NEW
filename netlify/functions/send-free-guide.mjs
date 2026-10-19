@@ -187,7 +187,7 @@ export async function handler(event) {
       return json(503, { sent: false, error: "Email delivery is not configured or unavailable" });
     }
 
-    // Persist only explicit, current consent after the provider accepts delivery.
+    // Queue the requested four-part series after the provider accepts delivery; preserve the separate newsletter checkbox.
     // Enrollment failure must never change a successfully delivered PDF into an error.
     try { await lifecycle.queuePreview({email,consent:body.marketing_consent,consentVersion:body.consent_version,deliveryId:data.id,source:body.source}); }
     catch (_) { console.error('[Fitness World] confirmed preview enrollment could not be queued'); }

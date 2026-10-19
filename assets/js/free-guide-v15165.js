@@ -1,4 +1,14 @@
 document.addEventListener("DOMContentLoaded", function () {
+  document.querySelectorAll('input[name="marketing_consent"]').forEach(input=>{
+    const label=input.closest('label'); if(!label) return;
+    const span=label.querySelector('span'); if(span) span.textContent="Optional: also send me occasional Fitness World evidence updates and offers after the series. Unsubscribe anytime.";
+    if(!label.previousElementSibling?.classList.contains('fw-series-disclosure')){
+      const note=document.createElement('p'); note.className='fw-series-disclosure';
+      note.style.fontSize='12px'; note.style.lineHeight='1.5'; note.textContent="Your free preview includes four follow-up emails with tips and offers over 9 days. Unsubscribe anytime.";
+      label.before(note);
+    }
+  });
+
   const trigger = document.getElementById("open-free-guide-form");
   const gate = document.getElementById("free-guide-email");
   const forms = Array.from(document.querySelectorAll("#free-guide-download-form, #free-guide-download-form-2"));

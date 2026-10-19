@@ -22,11 +22,11 @@ async function api(path,options={}){
  return data;
 }
 async function queuePreview({email,consent,consentVersion,deliveryId,source}){
- if(!enabled()||consent!==true||consentVersion!==VERSION||!deliveryId||!postalAddress())return {queued:false};
+ if(!enabled()||consentVersion!==VERSION||!deliveryId||!postalAddress())return {queued:false};
  email=normalize(email);if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email))return {queued:false};
  const s=await store(),hash=keyFor(email);
  if(await s.get('buyers/'+hash,{type:'json'}))return {queued:false,buyer:true};
- const result=await s.setJSON('enroll/'+hash,{email,consent:true,consent_version:VERSION,consent_at:new Date().toISOString(),delivery_id:String(deliveryId).slice(0,150),source:['free_guide','article_inline','popup'].includes(source)?source:'free_guide',status:'pending'},{onlyIfNew:true});
+ const result=await s.setJSON('enroll/'+hash,{email,consent:consent===true,consent_version:VERSION,signup_at:new Date().toISOString(),delivery_id:String(deliveryId).slice(0,150),source:['free_guide','article_inline','popup'].includes(source)?source:'free_guide',status:'pending'},{onlyIfNew:true});
  return {queued:result.modified===true};
 }
 async function markBuyer(email){
@@ -63,14 +63,14 @@ async function processOutbox(){
     if(await s.get('buyers/'+hash,{type:'json'})){await s.setJSON(key,{...record,status:'excluded',reason:'purchased'});continue;}
     let contact=await api('/contacts/'+encodeURIComponent(record.email));
     if(contact?.unsubscribed===true||propertyValue(contact?.properties?.fw_reset_purchased)==='yes'){await s.setJSON(key,{...record,status:'excluded',reason:'unsubscribed_or_purchased'});continue;}
-    if(!contact)contact=await api('/contacts',{method:'POST',body:JSON.stringify({email:record.email,unsubscribed:false,properties:{fw_marketing_consent:'yes'}})});
-    else await api('/contacts/'+encodeURIComponent(contact.id||record.email),{method:'PATCH',body:JSON.stringify({properties:{fw_marketing_consent:'yes'}})});
+    if(!contact)contact=await api('/contacts',{method:'POST',body:JSON.stringify({email:record.email,unsubscribed:false,properties:{fw_marketing_consent:record.consent===true?'yes':'no'}})});
+    // Preserve an existing contact's recorded newsletter preference.
     // Recheck the durable buyer marker after contact writes, before dispatch.
     if(await s.get('buyers/'+hash,{type:'json'})){await s.setJSON(key,{...record,status:'excluded',reason:'purchased'});continue;}
     // Events API has no documented idempotency contract. Never auto-replay an
     // ambiguous dispatch; keep it for manual reconciliation instead of duplicates.
     await s.setJSON(key,{...record,status:'uncertain',attempted_at:new Date().toISOString()});eventAttempted=true;
-    await api('/events/send',{method:'POST',body:JSON.stringify({event:'fw.preview.delivered.v1',email:record.email,payload:{consent:true,postal_address:postalAddress(),source:record.source,delivery_id:record.delivery_id}})});
+    await api('/events/send',{method:'POST',body:JSON.stringify({event:'fw.preview.delivered.v1',email:record.email,payload:{consent:record.consent===true,postal_address:postalAddress(),source:record.source,delivery_id:record.delivery_id}})});
     await s.setJSON(key,{...record,status:'sent',sent_at:new Date().toISOString()});processed++;
    }catch(_){failed++;if(!eventAttempted)await s.setJSON(key,{...record,status:'pending'});console.error('[Fitness World] email lifecycle job needs retry or reconciliation');}
   }

@@ -62,7 +62,7 @@
         "This is the last email in your Reset welcome series.",
         "The full 30-Day Natural Wellness Reset is $9.99, one time.",
         "If it is not for you right now, that is fine. Your free preview is yours to keep. If you have a question, just reply.",
-        "You may still receive the occasional evidence updates and offers you opted into. You can unsubscribe below at any time."
+        "This completes your four-part Reset follow-up series. Your free preview is yours to keep."
       ],
       "cta": "Get the full Reset",
       "url": "https://fitnessworld.pro/the-30-day-natural-wellness-reset/?utm_source=resend&utm_medium=email&utm_campaign=reset_welcome_v1&utm_content=day_9",
@@ -95,21 +95,9 @@
           "rules": [
             {
               "type": "rule",
-              "field": "event.consent",
-              "operator": "eq",
-              "value": true
-            },
-            {
-              "type": "rule",
               "field": "contact.unsubscribed",
               "operator": "eq",
               "value": false
-            },
-            {
-              "type": "rule",
-              "field": "contact.properties.fw_marketing_consent",
-              "operator": "eq",
-              "value": "yes"
             },
             {
               "type": "rule",
@@ -158,21 +146,9 @@
           "rules": [
             {
               "type": "rule",
-              "field": "event.consent",
-              "operator": "eq",
-              "value": true
-            },
-            {
-              "type": "rule",
               "field": "contact.unsubscribed",
               "operator": "eq",
               "value": false
-            },
-            {
-              "type": "rule",
-              "field": "contact.properties.fw_marketing_consent",
-              "operator": "eq",
-              "value": "yes"
             },
             {
               "type": "rule",
@@ -221,21 +197,9 @@
           "rules": [
             {
               "type": "rule",
-              "field": "event.consent",
-              "operator": "eq",
-              "value": true
-            },
-            {
-              "type": "rule",
               "field": "contact.unsubscribed",
               "operator": "eq",
               "value": false
-            },
-            {
-              "type": "rule",
-              "field": "contact.properties.fw_marketing_consent",
-              "operator": "eq",
-              "value": "yes"
             },
             {
               "type": "rule",
@@ -284,21 +248,9 @@
           "rules": [
             {
               "type": "rule",
-              "field": "event.consent",
-              "operator": "eq",
-              "value": true
-            },
-            {
-              "type": "rule",
               "field": "contact.unsubscribed",
               "operator": "eq",
               "value": false
-            },
-            {
-              "type": "rule",
-              "field": "contact.properties.fw_marketing_consent",
-              "operator": "eq",
-              "value": "yes"
             },
             {
               "type": "rule",
@@ -347,5 +299,6 @@
     "Self-service purchase download resend page"
   ],
   "automationId": "01a155a3-42d3-7303-b2fd-524f19f00bfb",
-  "eligibleSegmentId": "7b356bd3-1f18-4835-9156-687defd88b1e"
+  "eligibleSegmentId": "7b356bd3-1f18-4835-9156-687defd88b1e",
+  "audience": "All accepted free-preview signups; historical checkbox values are preserved, not used as enrollment permission."
 }

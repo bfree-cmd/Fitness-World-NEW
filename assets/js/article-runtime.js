@@ -700,7 +700,7 @@ document.addEventListener('DOMContentLoaded',()=>{
       pageCount=Math.max(1,Math.ceil(cs.length/itemPerPage));
       positions=[];
       for(let i=0;i<pageCount;i++){
-        const idx=Math.min(i*itemPerPage,cs.length-1); const tr=track.getBoundingClientRect(), cr=cs[idx].getBoundingClientRect(); positions.push(track.scrollLeft + (cr.left-tr.left));
+        const idx=Math.min(i*itemPerPage,cs.length-1); const tr=track.getBoundingClientRect(), cr=cs[idx].getBoundingClientRect(); positions.push(Math.min(Math.max(0,track.scrollLeft+(cr.left-tr.left)),Math.max(0,track.scrollWidth-track.clientWidth)));
       }
       if(kind==='related' || kind==='waw') {
         const shell=root.querySelector(kind==='related'?'.fw-related-carousel-shell':'.fw-waw-carousel-shell')||root;
@@ -712,11 +712,14 @@ document.addEventListener('DOMContentLoaded',()=>{
       buildDots(); sync();
     }
     function buildDots(){
-      if(!dots)return; dots.textContent='';
+      if(!dots||dots.children.length===pageCount)return;
+      const focusedIndex=Array.from(dots.children).indexOf(document.activeElement);
+      dots.textContent='';
       for(let i=0;i<pageCount;i++){
         const b=document.createElement('button'); b.type='button'; b.className='fw-carousel-dot'; b.setAttribute('aria-label','Go to carousel position '+(i+1)+' of '+pageCount);
         b.addEventListener('click',()=>go(i)); dots.appendChild(b);
       }
+      if(focusedIndex>=0)dots.children[Math.min(focusedIndex,pageCount-1)]?.focus({preventScroll:true});
     }
     function go(i){
       active=Math.max(0,Math.min(pageCount-1,i));

@@ -28,7 +28,8 @@
  }
 }
 /* Keep the approved dots while providing a 24px keyboard/touch hit area. */
-html body.fw-site-shell [data-fw-carousel] .fw-carousel-dot{
+html body.fw-site-shell [data-fw-carousel] .fw-carousel-dot,
+html body.home-page.fw-site-shell .fw-simple-waw[data-fw-carousel] .fw-carousel-dot{
  position:relative!important;width:24px!important;min-width:24px!important;
  height:24px!important;min-height:24px!important;padding:0!important;
  background:transparent!important;flex:0 0 24px;

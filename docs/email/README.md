@@ -2,7 +2,7 @@
 
 ## Current status
 
-- Draft PR #69; production remains unchanged. No enrollment event was emitted and no follow-up was sent to subscribers.
+- Draft PR #69; production website remains unchanged. On October 20, Email 2 was explicitly authorized as a one-time broadcast to the 17-person checked audience. No native enrollment event was emitted.
 - The internal test sent on October 20 used the earlier Day 1 copy. It is not the revised Email 1.
 - New Email 1 delivery-review template: `5924a337-a2bc-45a4-bac3-62eb46c4b87d`, draft in Resend. It is for reviewing the immediate delivery copy; the website function still owns delivery and attaches the PDF. Do not add a duplicate native day-zero send.
 - The four follow-up templates have been republished with the revised copy, and provider readback verified exact HTML matches. Publishing templates does not enable the disabled workflow.
@@ -33,7 +33,7 @@ Only provider-accepted delivery creates a durable enrollment record. Email/seque
 
 ## Before activation
 
-1. Supply the valid business postal address for the follow-up footer binding. No public campaign was activated without one.
+1. Supply the valid business postal address for the follow-up footer binding. The October 20 one-time Email 2 broadcast omitted the postal address by explicit instruction; this did not change the address guard on the disabled automation.
 2. Verify real native unsubscribe links, live purchaser condition paths, suppression behavior and inbox rendering using controlled test recipients. Never test by enrolling the whole saved audience.
 3. Publish the reviewed follow-up revisions. Check support replies are monitored.
 4. Backfill buyer exclusions from confirmed paid orders; purchase is not newsletter consent.
@@ -48,3 +48,11 @@ Only provider-accepted delivery creates a durable enrollment record. Email/seque
 `node scripts/test-preview-delivery.mjs`: exact PDF attachment, cover, new delivery subject and placement-specific UTM links, download fallback, invalid/spam rejection, and no tomorrow promise while disabled. All provider calls mocked.
 
 Run `node scripts/render-reset-email-drafts.mjs` to generate five review copies. Emails 2–5 retain the footer address binding. Weekly newsletters, click-trigger messages, periodic reoffers, separate printable-bonus delivery and a new self-service purchase resend page are outside this PR.
+
+## One-time Email 2 launch, October 20
+
+Broadcast `41635c93-eece-4f70-b900-71ecb43756ae` was created with the approved Email 2 HTML/plain text, no postal-address placeholder and the native unsubscribe variable. The sales CTA retains `utm_content=email_2_meal_rule`. Current contacts, live unsubscribe/purchaser properties, suppression list and confirmed Sales rows were refreshed before sending. All 17 segment members passed those checks. Original newsletter checkbox values were preserved.
+
+Resend accepted the send; last observed state was **queued**, not confirmed inbox delivery. The broadcast dashboard is the source of truth for final processing/delivery. No repeated send or enrollment was attempted. No PDF was resent, no production website was deployed, and Emails 3–5 were not started.
+
+**Duplicate prevention:** Do not trigger the existing welcome workflow for this historical segment: it starts with Email 2 and would repeat the broadcast. A continuation must start with Email 3 after rechecking buyer/unsubscribe status and final broadcast outcomes. Keep the current native workflow disabled until that continuation and fresh-signup enrollment are separated.

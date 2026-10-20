@@ -437,5 +437,18 @@
     "Separate printable tracker and fridge cheat-sheet bonuses are not included in the current delivery, so those claims are omitted.",
     "Use Hi there because signup forms do not capture names.",
     "Future newsletter promise is conditional on the separate newsletter choice."
+  ],
+  "launchHistory": [
+    {
+      "email": 2,
+      "broadcastId": "41635c93-eece-4f70-b900-71ecb43756ae",
+      "segmentId": "7b356bd3-1f18-4835-9156-687defd88b1e",
+      "checkedRecipients": 17,
+      "requestedAtUtc": "2026-10-20T06:54:06Z",
+      "lastObservedStatus": "queued",
+      "footerAddressOmittedByExplicitInstruction": true,
+      "tracking": "email_2_meal_rule",
+      "continuation": "Do not enroll this historical segment in the existing workflow starting at Email 2. Continue from Email 3 only after excluding buyers/unsubscribes and confirming this broadcast status."
+    }
   ]
 }

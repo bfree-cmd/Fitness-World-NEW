@@ -10,6 +10,7 @@
     const show=scrolled&&!heroVisible&&!offerVisible&&!footerVisible;
     bar.classList.toggle('is-visible',show);
     bar.setAttribute('aria-hidden',show?'false':'true');
+    bar.inert=!show;
   }
   if('IntersectionObserver' in window){
     const watch=(el,setter,threshold)=>{if(!el)return;new IntersectionObserver(e=>{setter(e[0].isIntersecting);update();},{threshold:threshold}).observe(el)};

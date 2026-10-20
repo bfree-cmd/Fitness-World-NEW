@@ -21,6 +21,7 @@ document.addEventListener('DOMContentLoaded',()=>{
   form.append(panel);
 
   const results=panel.querySelector('[data-fw-home-search-results]');
+  results.id='fw-home-live-search-results';
   const allLink=panel.querySelector('[data-fw-home-search-all]');
   const tabs=[...panel.querySelectorAll('[data-fw-home-search-filter]')];
   const hero=form.closest('.fw-simple-hero');
@@ -66,7 +67,10 @@ document.addEventListener('DOMContentLoaded',()=>{
       item.classList.toggle('is-active',i===active);
       item.setAttribute('aria-selected',String(i===active));
     });
-    if(active>=0)items[active].scrollIntoView({block:'nearest'});
+    if(active>=0){
+      input.setAttribute('aria-activedescendant',items[active].id);
+      items[active].scrollIntoView({block:'nearest'});
+    }else input.removeAttribute('aria-activedescendant');
   }
   function render(){
     const query=input.value.trim();
@@ -74,10 +78,11 @@ document.addEventListener('DOMContentLoaded',()=>{
     let list=combined().filter(matchesFilter);
     if(query)list=list.filter(item=>matches(item,query));
     list=list.slice(0,4);
-    results.innerHTML=list.length?list.map(item=>`<a aria-selected="false" class="fw-header-search-result" href="${esc(item.url)}" role="option">${item.image?`<span class="fw-header-search-thumb"><img alt="" loading="lazy" src="${esc(item.image)}"/></span>`:`<span aria-hidden="true" class="fw-header-search-thumb fw-header-search-thumb--icon">⌕</span>`}<span><strong>${esc(item.title)}</strong><small>${esc(item.desc||'')}</small></span><b aria-hidden="true">›</b></a>`).join(''):'<div class="fw-header-search-empty">No matching Fitness World pages found yet.</div>';
+    results.innerHTML=list.length?list.map((item,i)=>`<a id="fw-home-search-option-${i}" aria-selected="false" class="fw-header-search-result" href="${esc(item.url)}" role="option">${item.image?`<span class="fw-header-search-thumb"><img alt="" loading="lazy" src="${esc(item.image)}"/></span>`:`<span aria-hidden="true" class="fw-header-search-thumb fw-header-search-thumb--icon">⌕</span>`}<span><strong>${esc(item.title)}</strong><small>${esc(item.desc||'')}</small></span><b aria-hidden="true">›</b></a>`).join(''):'<div class="fw-header-search-empty">No matching Fitness World pages found yet.</div>';
     results.setAttribute('role','listbox');
     allLink.href='/search/'+(query?`?q=${encodeURIComponent(query)}`:'');
     active=-1;
+    input.removeAttribute('aria-activedescendant');
   }
   async function ensureIndex(){
     if(loaded)return;
@@ -107,7 +112,9 @@ document.addEventListener('DOMContentLoaded',()=>{
   }
 
   input.setAttribute('aria-autocomplete','list');
-  input.setAttribute('aria-controls',panel.id);
+  input.setAttribute('role','combobox');
+  input.setAttribute('aria-haspopup','listbox');
+  input.setAttribute('aria-controls',results.id);
   input.setAttribute('aria-expanded','false');
   plus?.addEventListener('click',()=>{
     if(panel.hidden){open(); input.focus({preventScroll:true});}
@@ -135,7 +142,7 @@ document.addEventListener('DOMContentLoaded',()=>{
     }else if(event.key==='Escape'){
       event.preventDefault();
       close();
-      input.blur();
+      input.focus({preventScroll:true});
     }
   });
   tabs.forEach(button=>button.addEventListener('click',()=>{

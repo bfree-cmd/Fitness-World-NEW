@@ -24,6 +24,14 @@ assert.ok(sent.text.includes('https://comforting-marigold-ea2f43.netlify.app/fit
 const attachment=sent.attachments.find(x=>x.filename.endsWith('.pdf'));
 assert.deepEqual(Buffer.from(attachment.content,'base64'),await readFile('fitness-world-30-day-reset-free-preview.pdf'));
 assert.equal(sent.attachments.length,1);
+assert.equal(sent.subject,'Your free Reset preview is here');
+assert.ok(sent.text.includes('utm_campaign=reset_welcome_v2'));
+assert.ok(sent.text.includes('utm_content=email_1_preview_download'));
+assert.ok(sent.html.includes('utm_content=email_1_intro_download'));
+assert.ok(sent.html.includes('utm_content=email_1_cover_download'));
+assert.ok(sent.html.includes('utm_content=email_1_button_download'));
+assert.ok(!sent.text.includes('Tomorrow')); // Sequence remains disabled in this delivery test.
+
 assert.ok(sent.html.includes('src="https://fitnessworld.pro/assets/images/free-preview-email-cover-20261018.jpg"'));
 assert.ok(!sent.html.includes('cid:'));
 assert.ok(sent.html.includes('max-width:220px'));

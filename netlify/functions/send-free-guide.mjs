@@ -101,6 +101,16 @@ export async function handler(event) {
     attachmentReady = true;
   }
 
+  const trackedDownload = placement => {
+    const url = new URL(guideUrl);
+    url.searchParams.set('utm_source','resend');
+    url.searchParams.set('utm_medium','email');
+    url.searchParams.set('utm_campaign','reset_welcome_v2');
+    url.searchParams.set('utm_content',placement);
+    return url.toString();
+  };
+  // Do not promise tomorrow's follow-up until the production sequence is enabled.
+  const followupReady = lifecycle.enabled() && !!lifecycle.postalAddress();
   try {
     const response = await fetch("https://api.resend.com/emails", {
       method: "POST",
@@ -111,13 +121,14 @@ export async function handler(event) {
       body: JSON.stringify({
         from,
         to: [email],
-        subject: "Your free 30-Day Reset preview is here",
+        subject: "Your free Reset preview is here",
         html: (() => {
           return `
 <!doctype html>
 <html lang="en">
 <head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Your free Reset preview</title></head>
   <body style="margin:0;padding:0;background:#f4f1e8;font-family:Arial,Helvetica,sans-serif;color:#172019;">
+    <span style="display:none;font-size:1px;line-height:1px;color:#f4f1e8;max-height:0;overflow:hidden;">Start with Day 1 tonight. It takes 2 minutes.</span>
     <table role="presentation" width="100%" cellspacing="0" cellpadding="0" border="0" style="background:#f4f1e8;padding:28px 12px;">
       <tr>
         <td align="center">
@@ -132,12 +143,12 @@ export async function handler(event) {
               <td style="padding:16px 32px 8px;text-align:center;">
                 <div style="font-size:12px;font-weight:800;letter-spacing:.12em;color:#2f7a3d;">YOUR FREE PREVIEW IS READY</div>
                 <h1 style="margin:10px 0 10px;font-size:30px;line-height:1.12;color:#172019;">The 30-Day Natural Wellness Reset</h1>
-                <p style="margin:0 auto;max-width:520px;font-size:16px;line-height:1.6;color:#55625a;">${attachmentReady ? "Your 5-page Free Preview is attached to this email, and you can also open it online anytime." : "Your 5-page Free Preview is ready, and you can open it online anytime."}</p>
+                <p style="margin:0 auto;max-width:520px;font-size:16px;line-height:1.6;color:#55625a;">Hi there,</p><p style="font-size:16px;line-height:1.6;color:#55625a;">Here's your free preview of The 30-Day Natural Wellness Reset: <a href="${trackedDownload('email_1_intro_download')}" style="color:#2e6c35;">Download your preview</a></p>
               </td>
             </tr>
             <tr>
               <td style="padding:18px 32px 10px;text-align:center;">
-                <a href="${guideUrl}" style="display:block;text-decoration:none;">
+                <a href="${trackedDownload('email_1_cover_download')}" style="display:block;text-decoration:none;">
                   <img src="${previewCoverUrl}" width="220" height="285" alt="FREE 5-page preview — The 30-Day Natural Wellness Reset" style="display:block;width:100%;max-width:220px;height:auto;margin:0 auto;border:0;border-radius:8px;">
                 </a>
               </td>
@@ -145,17 +156,17 @@ export async function handler(event) {
             <tr>
               <td style="padding:12px 32px 6px;">
                 <table role="presentation" width="100%" cellspacing="0" cellpadding="0" border="0">
-                  <tr><td style="padding:0 0 8px;font-size:15px;line-height:1.55;color:#334139;font-weight:700;">Inside the preview:</td></tr>
-                  <tr><td style="padding:3px 0;font-size:14px;line-height:1.5;color:#4d5a52;">• The 4-Part Meal Method</td></tr>
-                  <tr><td style="padding:3px 0;font-size:14px;line-height:1.5;color:#4d5a52;">• Your first 3 challenge days</td></tr>
-                  <tr><td style="padding:3px 0;font-size:14px;line-height:1.5;color:#4d5a52;">• The Daily Wellness Score</td></tr>
-                  <tr><td style="padding:12px 0 3px;font-size:14px;line-height:1.5;color:#4d5a52;">If you do one thing this week, pick a single meal and build it with the Meal Method.</td></tr>
+                  <tr><td style="padding:0 0 14px;font-size:15px;line-height:1.6;color:#334139;">Inside you'll find how the Reset works, the 4-Part Meal Method, and your first 3 challenge days.</td></tr>
+                  <tr><td style="padding:0 0 14px;font-size:15px;line-height:1.6;color:#334139;">You can start tonight. Day 1 is one action: keep water visible where you work or relax. That's it.</td></tr>
+                  <tr><td style="padding:0 0 14px;font-size:15px;line-height:1.6;color:#334139;">Then tick the seven quick checks on page 4. It isn't a test. A score is feedback, not a grade.</td></tr>
+                  ${followupReady ? '<tr><td style="padding:0 0 14px;font-size:15px;line-height:1.6;color:#334139;">Tomorrow I’ll send you the one meal rule I use every day.</td></tr>' : ''}
+                  <tr><td style="padding:0 0 8px;font-size:15px;line-height:1.6;color:#334139;">To your health, Fitness World</td></tr>
                 </table>
               </td>
             </tr>
             <tr>
               <td style="padding:18px 32px 10px;text-align:center;">
-                <a href="${guideUrl}" style="display:inline-block;background:#23241f;color:#ffffff;text-decoration:none;font-size:14px;font-weight:800;padding:15px 26px;border-radius:999px;">OPEN THE FULL FREE PREVIEW</a>
+                <a href="${trackedDownload('email_1_button_download')}" style="display:inline-block;background:#23241f;color:#ffffff;text-decoration:none;font-size:14px;font-weight:800;padding:15px 26px;border-radius:999px;">OPEN THE FULL FREE PREVIEW</a>
               </td>
             </tr>
             <tr>
@@ -173,11 +184,15 @@ export async function handler(event) {
 </html>`;
         })(),
         text:
-          `Your free preview of The 30-Day Natural Wellness Reset is ready.\n\n` +
-          `${attachmentReady ? "The 5-page PDF is attached to this email. " : ""}You can open it here: ${guideUrl}\n\n` +
-          "Inside: The 4-Part Meal Method, your first 3 challenge days, and the Daily Wellness Score.\n\n" +
-          "Educational wellness information only. Not medical advice.\n" +
-          "Need help? support@fitnessworld.pro",
+          "Start with Day 1 tonight. It takes 2 minutes.\n\nHi there,\n\n" +
+          `Here's your free preview of The 30-Day Natural Wellness Reset: ${trackedDownload('email_1_preview_download')}\n\n` +
+          "Inside you'll find how the Reset works, the 4-Part Meal Method, and your first 3 challenge days.\n\n" +
+          "You can start tonight. Day 1 is one action: keep water visible where you work or relax. That's it.\n\n" +
+          "Then tick the seven quick checks on page 4. It isn't a test. A score is feedback, not a grade.\n\n" +
+          (followupReady ? "Tomorrow I'll send you the one meal rule I use every day.\n\n" : "") +
+          "To your health, Fitness World\n\n" +
+          `${attachmentReady ? "The 5-page PDF is attached to this email.\n\n" : ""}` +
+          "Educational wellness information only. Not medical advice.\nNeed help? support@fitnessworld.pro",
         ...(attachments.length ? { attachments } : {})      })
     });
 

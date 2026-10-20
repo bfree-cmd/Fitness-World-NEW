@@ -42,6 +42,6 @@ reset();await lifecycle.queuePreview(input);eventError=true;await lifecycle.proc
 reset();contact={id:'mock',unsubscribed:false};patchError=true;await lifecycle.markBuyer(input.email);check([...records.values()].some(r=>r.data.status==='pending'));patchError=false;await lifecycle.processOutbox();check(contact.properties.fw_reset_purchased==='yes');
 const config=JSON.parse(fs.readFileSync('docs/email/reset-welcome-v1.json','utf8'));check(config.status==='disabled');let day=0,sends=[];
 for(const step of config.workflow.steps){if(step.type==='delay')day+=parseInt(step.config.duration);if(step.type==='send_email')sends.push(day);if(step.type==='condition'){const rules=step.config.rules;check(rules.some(r=>r.field==='contact.unsubscribed'&&r.value===false));check(rules.some(r=>r.field==='contact.properties.fw_reset_purchased'&&r.value==='yes'));}}
-assert.deepEqual(sends,[1,3,6,9]);checks++;
-for(const m of config.templates){check(!m.url.includes('/natural/'));check(m.url.includes('utm_content=day_'+m.day));}
+assert.deepEqual(sends,[1,3,5,7]);checks++;
+for(const m of config.templates){check(!m.url.includes('/natural/'));check(m.url.includes('utm_content=email_'+m.number));}
 console.log(`Reset email lifecycle: ${checks} checks passed; all provider calls mocked; no real emails or contacts created.`);

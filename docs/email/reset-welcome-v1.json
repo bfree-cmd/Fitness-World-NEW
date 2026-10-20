@@ -445,10 +445,11 @@
       "segmentId": "7b356bd3-1f18-4835-9156-687defd88b1e",
       "checkedRecipients": 17,
       "requestedAtUtc": "2026-10-20T06:54:06Z",
-      "lastObservedStatus": "queued",
+      "lastObservedStatus": "sent",
       "footerAddressOmittedByExplicitInstruction": true,
       "tracking": "email_2_meal_rule",
-      "continuation": "Do not enroll this historical segment in the existing workflow starting at Email 2. Continue from Email 3 only after excluding buyers/unsubscribes and confirming this broadcast status."
+      "continuation": "Do not enroll this historical segment in the existing workflow starting at Email 2. Continue from Email 3 only after excluding buyers/unsubscribes and confirming this broadcast status.",
+      "sentAtUtc": "2026-10-20T06:56:57.665919Z"
     }
   ]
 }

@@ -1,0 +1,455 @@
+{
+  "version": "reset-welcome-v1",
+  "status": "disabled",
+  "delivery": "Existing send-free-guide function; never send a second day-zero email from this workflow.",
+  "from": "Fitness World <support@fitnessworld.pro>",
+  "replyTo": "support@fitnessworld.pro",
+  "templates": [
+    {
+      "number": 2,
+      "day": 1,
+      "subject": "Protein. Produce. Fiber. Fat.",
+      "preview": "The simplest meal rule I know.",
+      "cta": "See the full Reset",
+      "url": "https://fitnessworld.pro/the-30-day-natural-wellness-reset/?utm_source=resend&utm_medium=email&utm_campaign=reset_welcome_v2&utm_content=email_2_meal_rule",
+      "templateId": "ae0e81db-433d-4166-853f-c5070c1d480e",
+      "blocks": [
+        {
+          "type": "p",
+          "text": "Hi there,"
+        },
+        {
+          "type": "p",
+          "text": "Most diets fail because they hand you a meal plan you can't keep."
+        },
+        {
+          "type": "p",
+          "text": "The Reset uses a method instead. Every meal gets four parts:"
+        },
+        {
+          "type": "ol",
+          "items": [
+            "Protein (eggs, yogurt, beans, fish, poultry)",
+            "Produce (any fruit or vegetable you'll actually eat)",
+            "A fiber-rich carb (oats, whole grains, brown rice)",
+            "A healthy fat (olive oil, nuts, seeds, avocado)"
+          ]
+        },
+        {
+          "type": "p",
+          "text": "Try it for breakfast tomorrow: yogurt, berries, oats and walnuts. Four parts, one bowl."
+        },
+        {
+          "type": "p",
+          "text": "It works with your culture, your budget and your preferences. Nothing to buy."
+        },
+        {
+          "type": "p",
+          "text": "The full Reset has more meal examples and a pantry list."
+        }
+      ]
+    },
+    {
+      "number": 3,
+      "day": 3,
+      "subject": "\"Natural\" doesn't mean risk-free",
+      "preview": "How to judge a supplement in 60 seconds.",
+      "cta": "See what's inside",
+      "url": "https://fitnessworld.pro/the-30-day-natural-wellness-reset/?utm_source=resend&utm_medium=email&utm_campaign=reset_welcome_v2&utm_content=email_3_hype_or_help",
+      "templateId": "d0953815-b003-4745-aaf1-67953f60bd68",
+      "blocks": [
+        {
+          "type": "p",
+          "text": "Hi there,"
+        },
+        {
+          "type": "p",
+          "text": "The wellness world is full of loud claims. \"Detox.\" \"Melts fat.\" \"Doctors hate this.\""
+        },
+        {
+          "type": "p",
+          "text": "Here are three quick questions to ask before you buy anything:"
+        },
+        {
+          "type": "ol",
+          "items": [
+            "Is there real research, or just testimonials?",
+            "Is the dose on the label the dose that was studied?",
+            "Does it interact with anything I take?"
+          ]
+        },
+        {
+          "type": "p",
+          "text": "If a product can't pass those, keep your money."
+        },
+        {
+          "type": "p",
+          "text": "The full Reset includes a Supplement Decision Flow, a Claim Filter + Common Myths tool, a Label, Dose + Interaction Check, and 19 evidence-aware profiles in the Wellness Reference Library."
+        },
+        {
+          "type": "p",
+          "text": "It's food-first by design. The challenge comes first and supplements come last."
+        }
+      ]
+    },
+    {
+      "number": 4,
+      "day": 5,
+      "subject": "Everything in the Reset for $9.99",
+      "preview": "79 pages, 10 tools, 19 profiles.",
+      "cta": "Get the Reset",
+      "url": "https://fitnessworld.pro/the-30-day-natural-wellness-reset/?utm_source=resend&utm_medium=email&utm_campaign=reset_welcome_v2&utm_content=email_4_whats_inside",
+      "templateId": "1bb08d01-b10d-476d-8e0d-1d3930383d28",
+      "blocks": [
+        {
+          "type": "p",
+          "text": "Hi there,"
+        },
+        {
+          "type": "p",
+          "text": "You've seen Days 1–3. Here's everything you get with the full Reset:"
+        },
+        {
+          "type": "ul",
+          "items": [
+            "The 79-page, 30-day program: one practical action a day, Weeks 1–4",
+            "Starting Point + Daily Wellness Score to see your progress",
+            "The 4-Part Meal Method with meal examples and a pantry list",
+            "10 done-for-you tools, from Kitchen Essentials to the Supplement Decision Flow",
+            "Day 30 Check-In + your Personal Wellness Blueprint",
+            "Bonus: the Wellness Reference Library, 19 evidence-aware profiles"
+          ]
+        },
+        {
+          "type": "p",
+          "text": "All for $9.99. One-time purchase, no subscription, delivered by email."
+        }
+      ]
+    },
+    {
+      "number": 5,
+      "day": 7,
+      "subject": "Day 4 is waiting",
+      "preview": "Keep going, or start fresh this week.",
+      "cta": "Get the full Reset",
+      "url": "https://fitnessworld.pro/the-30-day-natural-wellness-reset/?utm_source=resend&utm_medium=email&utm_campaign=reset_welcome_v2&utm_content=email_5_day_4_waiting",
+      "signature": "To your health, Fitness World",
+      "templateId": "05819c0a-3660-4217-b8b3-e42fb235e6b0",
+      "blocks": [
+        {
+          "type": "p",
+          "text": "Hi there,"
+        },
+        {
+          "type": "p",
+          "text": "It's been a week since you downloaded the preview."
+        },
+        {
+          "type": "p",
+          "text": "If you did Days 1–3, nice work. Day 4 and the rest of the 30 days are in the full Reset."
+        },
+        {
+          "type": "p",
+          "text": "If you didn't start yet, that's normal. Life gets busy. The Reset is built for ordinary life: one action a day, progress, not perfection."
+        },
+        {
+          "type": "p",
+          "text": "This is my last email in this Reset series. If it isn't for you, no problem. You'll keep getting free tips only if you chose the optional email updates."
+        },
+        {
+          "type": "p",
+          "text": "If it is, it's $9.99 with the Wellness Reference Library included:"
+        }
+      ]
+    }
+  ],
+  "workflow": {
+    "steps": [
+      {
+        "key": "trigger",
+        "type": "trigger",
+        "config": {
+          "eventName": "fw.preview.delivered.v1"
+        },
+        "next": "delay_1"
+      },
+      {
+        "key": "delay_1",
+        "type": "delay",
+        "config": {
+          "duration": "1 days"
+        },
+        "next": "eligible_1"
+      },
+      {
+        "key": "eligible_1",
+        "type": "condition",
+        "config": {
+          "type": "and",
+          "rules": [
+            {
+              "type": "rule",
+              "field": "contact.unsubscribed",
+              "operator": "eq",
+              "value": false
+            },
+            {
+              "type": "rule",
+              "field": "contact.properties.fw_reset_purchased",
+              "operator": "neq",
+              "value": "yes"
+            }
+          ]
+        },
+        "branches": {
+          "condition_met": "send_1",
+          "condition_not_met": null
+        }
+      },
+      {
+        "key": "send_1",
+        "type": "send_email",
+        "config": {
+          "template": {
+            "id": "ae0e81db-433d-4166-853f-c5070c1d480e",
+            "variables": {
+              "POSTAL_ADDRESS": {
+                "var": "event.postal_address"
+              }
+            }
+          },
+          "from": "Fitness World <support@fitnessworld.pro>",
+          "replyTo": "support@fitnessworld.pro",
+          "subject": "Protein. Produce. Fiber. Fat."
+        },
+        "next": "delay_3"
+      },
+      {
+        "key": "delay_3",
+        "type": "delay",
+        "config": {
+          "duration": "2 days"
+        },
+        "next": "eligible_3"
+      },
+      {
+        "key": "eligible_3",
+        "type": "condition",
+        "config": {
+          "type": "and",
+          "rules": [
+            {
+              "type": "rule",
+              "field": "contact.unsubscribed",
+              "operator": "eq",
+              "value": false
+            },
+            {
+              "type": "rule",
+              "field": "contact.properties.fw_reset_purchased",
+              "operator": "neq",
+              "value": "yes"
+            }
+          ]
+        },
+        "branches": {
+          "condition_met": "send_3",
+          "condition_not_met": null
+        }
+      },
+      {
+        "key": "send_3",
+        "type": "send_email",
+        "config": {
+          "template": {
+            "id": "d0953815-b003-4745-aaf1-67953f60bd68",
+            "variables": {
+              "POSTAL_ADDRESS": {
+                "var": "event.postal_address"
+              }
+            }
+          },
+          "from": "Fitness World <support@fitnessworld.pro>",
+          "replyTo": "support@fitnessworld.pro",
+          "subject": "\"Natural\" doesn't mean risk-free"
+        },
+        "next": "delay_5"
+      },
+      {
+        "key": "delay_5",
+        "type": "delay",
+        "config": {
+          "duration": "2 days"
+        },
+        "next": "eligible_5"
+      },
+      {
+        "key": "eligible_5",
+        "type": "condition",
+        "config": {
+          "type": "and",
+          "rules": [
+            {
+              "type": "rule",
+              "field": "contact.unsubscribed",
+              "operator": "eq",
+              "value": false
+            },
+            {
+              "type": "rule",
+              "field": "contact.properties.fw_reset_purchased",
+              "operator": "neq",
+              "value": "yes"
+            }
+          ]
+        },
+        "branches": {
+          "condition_met": "send_5",
+          "condition_not_met": null
+        }
+      },
+      {
+        "key": "send_5",
+        "type": "send_email",
+        "config": {
+          "template": {
+            "id": "1bb08d01-b10d-476d-8e0d-1d3930383d28",
+            "variables": {
+              "POSTAL_ADDRESS": {
+                "var": "event.postal_address"
+              }
+            }
+          },
+          "from": "Fitness World <support@fitnessworld.pro>",
+          "replyTo": "support@fitnessworld.pro",
+          "subject": "Everything in the Reset for $9.99"
+        },
+        "next": "delay_7"
+      },
+      {
+        "key": "delay_7",
+        "type": "delay",
+        "config": {
+          "duration": "2 days"
+        },
+        "next": "eligible_7"
+      },
+      {
+        "key": "eligible_7",
+        "type": "condition",
+        "config": {
+          "type": "and",
+          "rules": [
+            {
+              "type": "rule",
+              "field": "contact.unsubscribed",
+              "operator": "eq",
+              "value": false
+            },
+            {
+              "type": "rule",
+              "field": "contact.properties.fw_reset_purchased",
+              "operator": "neq",
+              "value": "yes"
+            }
+          ]
+        },
+        "branches": {
+          "condition_met": "send_7",
+          "condition_not_met": null
+        }
+      },
+      {
+        "key": "send_7",
+        "type": "send_email",
+        "config": {
+          "template": {
+            "id": "05819c0a-3660-4217-b8b3-e42fb235e6b0",
+            "variables": {
+              "POSTAL_ADDRESS": {
+                "var": "event.postal_address"
+              }
+            }
+          },
+          "from": "Fitness World <support@fitnessworld.pro>",
+          "replyTo": "support@fitnessworld.pro",
+          "subject": "Day 4 is waiting"
+        },
+        "next": null
+      }
+    ]
+  },
+  "activationRequirements": [
+    "Valid business postal address",
+    "Render and publish four Resend templates",
+    "Verify live contact-property paths and unsubscribe variables with controlled recipients",
+    "Verify confirmed-purchase exclusion and enrollment deduplication",
+    "Deploy integration and enable production feature flag"
+  ],
+  "notImplemented": [
+    "Weekly newsletter schedule",
+    "48-hour checkout-help email triggered by a click",
+    "Periodic re-offer campaigns",
+    "Self-service purchase download resend page"
+  ],
+  "automationId": "01a155a3-42d3-7303-b2fd-524f19f00bfb",
+  "eligibleSegmentId": "7b356bd3-1f18-4835-9156-687defd88b1e",
+  "audience": "All accepted free-preview signups; historical checkbox values are preserved, not used as enrollment permission.",
+  "campaign": "reset_welcome_v2",
+  "deliveryEmail": {
+    "number": 1,
+    "day": 0,
+    "subject": "Your free Reset preview is here",
+    "preview": "Start with Day 1 tonight. It takes 2 minutes.",
+    "cta": "Download your free preview",
+    "url": "https://fitnessworld.pro/fitness-world-30-day-reset-free-preview.pdf?utm_source=resend&utm_medium=email&utm_campaign=reset_welcome_v2&utm_content=email_1_preview_download",
+    "signature": "To your health, Fitness World",
+    "blocks": [
+      {
+        "type": "p",
+        "text": "Hi there,"
+      },
+      {
+        "type": "p",
+        "text": "Here's your free preview of The 30-Day Natural Wellness Reset."
+      },
+      {
+        "type": "p",
+        "text": "Inside you'll find how the Reset works, the 4-Part Meal Method, and your first 3 challenge days."
+      },
+      {
+        "type": "p",
+        "text": "You can start tonight. Day 1 is one action: keep water visible where you work or relax. That's it."
+      },
+      {
+        "type": "p",
+        "text": "Then tick the seven quick checks on page 4. It isn't a test. A score is feedback, not a grade."
+      },
+      {
+        "type": "p",
+        "text": "Tomorrow I'll send you the one meal rule I use every day."
+      }
+    ],
+    "templateId": "5924a337-a2bc-45a4-bac3-62eb46c4b87d"
+  },
+  "copyNotes": [
+    "Unconfirmed 30-day refund guarantee omitted.",
+    "Separate printable tracker and fridge cheat-sheet bonuses are not included in the current delivery, so those claims are omitted.",
+    "Use Hi there because signup forms do not capture names.",
+    "Future newsletter promise is conditional on the separate newsletter choice."
+  ],
+  "launchHistory": [
+    {
+      "email": 2,
+      "broadcastId": "41635c93-eece-4f70-b900-71ecb43756ae",
+      "segmentId": "7b356bd3-1f18-4835-9156-687defd88b1e",
+      "checkedRecipients": 17,
+      "requestedAtUtc": "2026-10-20T06:54:06Z",
+      "lastObservedStatus": "sent",
+      "footerAddressOmittedByExplicitInstruction": true,
+      "tracking": "email_2_meal_rule",
+      "continuation": "Do not enroll this historical segment in the existing workflow starting at Email 2. Continue from Email 3 only after excluding buyers/unsubscribes and confirming this broadcast status.",
+      "sentAtUtc": "2026-10-20T06:56:57.665919Z"
+    }
+  ]
+}

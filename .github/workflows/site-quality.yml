@@ -28,6 +28,7 @@ jobs:
           node-version: 24
       - run: npm run qa:functions
       - run: node scripts/test-preview-delivery.mjs
+      - run: node scripts/test-reset-email-lifecycle.mjs
 
   production-health:
     if: github.event_name != 'pull_request'

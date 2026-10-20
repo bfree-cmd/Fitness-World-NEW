@@ -217,7 +217,7 @@ document.addEventListener('DOMContentLoaded',()=>{
       const controller=new AbortController();
       const timeout=setTimeout(()=>controller.abort(),20000);
       try {
-        const mail=await fetch('/.netlify/functions/send-free-guide',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({email}),signal:controller.signal});
+        const mail=await fetch('/.netlify/functions/send-free-guide',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({email,marketing_consent:!!form.querySelector('input[name="marketing_consent"]:checked'),consent_version:'reset-welcome-v1',source:'article_inline'}),signal:controller.signal});
         const delivery=await mail.json();
         if(!mail.ok || delivery.sent!==true || delivery.skipped) throw new Error('Email unavailable');
         window.FWTracking?.confirmPreviewLead(delivery,{event_id:eventId,location:'article_mid_content'});
@@ -741,3 +741,16 @@ document.addEventListener('DOMContentLoaded',()=>{
   if(document.readyState==='loading') document.addEventListener('DOMContentLoaded',init,{once:true});
   else init();
 })();
+
+/* Included preview series; newsletter preference remains optional. */
+document.addEventListener("DOMContentLoaded", function(){
+  document.querySelectorAll('input[name="marketing_consent"]').forEach(input=>{
+    const label=input.closest('label'); if(!label) return;
+    const span=label.querySelector('span'); if(span) span.textContent="Optional: also send me occasional Fitness World evidence updates and offers after the series. Unsubscribe anytime.";
+    if(!label.previousElementSibling?.classList.contains('fw-series-disclosure')){
+      const note=document.createElement('p'); note.className='fw-series-disclosure';
+      note.style.fontSize='12px'; note.style.lineHeight='1.5'; note.textContent="Your free preview includes four follow-up emails with tips and offers over 7 days. Unsubscribe anytime.";
+      label.before(note);
+    }
+  });
+});

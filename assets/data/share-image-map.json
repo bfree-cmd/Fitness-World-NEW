@@ -1,0 +1,2002 @@
+[
+  {
+    "route": "/about/",
+    "path": "about/index.html",
+    "image": "https://fitnessworld.pro/icon-512.png",
+    "alt": "Fitness World",
+    "selection": "brand-fallback",
+    "width": 512,
+    "height": 512,
+    "type": "image/png"
+  },
+  {
+    "route": "/advertising-policy/",
+    "path": "advertising-policy/index.html",
+    "image": "https://fitnessworld.pro/icon-512.png",
+    "alt": "Fitness World",
+    "selection": "brand-fallback",
+    "width": 512,
+    "height": 512,
+    "type": "image/png"
+  },
+  {
+    "route": "/affiliate-disclosure/",
+    "path": "affiliate-disclosure/index.html",
+    "image": "https://fitnessworld.pro/icon-512.png",
+    "alt": "Fitness World",
+    "selection": "brand-fallback",
+    "width": 512,
+    "height": 512,
+    "type": "image/png"
+  },
+  {
+    "route": "/articles/10000-steps-myth-check/",
+    "path": "articles/10000-steps-myth-check/index.html",
+    "image": "https://images.pexels.com/photos/4587381/pexels-photo-4587381.jpeg?auto=compress&cs=tinysrgb&w=1600",
+    "alt": "Do You Really Need 10,000 Steps a Day?",
+    "selection": "featured",
+    "width": 1600,
+    "height": 1067,
+    "type": "image/jpeg"
+  },
+  {
+    "route": "/articles/apple-cider-vinegar-before-meals/",
+    "path": "articles/apple-cider-vinegar-before-meals/index.html",
+    "image": "https://images.pexels.com/photos/4336272/pexels-photo-4336272.jpeg?auto=compress&cs=tinysrgb&w=1600",
+    "alt": "Does Apple Cider Vinegar Before Meals Lower Blood Sugar?",
+    "selection": "featured",
+    "width": 1600,
+    "height": 2400,
+    "type": "image/jpeg"
+  },
+  {
+    "route": "/articles/are-creatine-gummies-worth-it/",
+    "path": "articles/are-creatine-gummies-worth-it/index.html",
+    "image": "https://images.pexels.com/photos/24809797/pexels-photo-24809797.jpeg?auto=compress&cs=tinysrgb&w=1600",
+    "alt": "Are Creatine Gummies Worth It?",
+    "selection": "featured",
+    "width": 1600,
+    "height": 1190,
+    "type": "image/jpeg"
+  },
+  {
+    "route": "/articles/are-greens-powders-worth-it/",
+    "path": "articles/are-greens-powders-worth-it/index.html",
+    "image": "https://images.pexels.com/photos/36659408/pexels-photo-36659408.jpeg?auto=compress&cs=tinysrgb&w=1600",
+    "alt": "Greens Powders: Useful or Overhyped?",
+    "selection": "featured",
+    "width": 1600,
+    "height": 2133,
+    "type": "image/jpeg"
+  },
+  {
+    "route": "/articles/are-sleep-trackers-accurate/",
+    "path": "articles/are-sleep-trackers-accurate/index.html",
+    "image": "https://images.pexels.com/photos/3807624/pexels-photo-3807624.jpeg?auto=compress&cs=tinysrgb&w=1600",
+    "alt": "Sleep Trackers: How Accurate Are They?",
+    "selection": "featured",
+    "width": 1600,
+    "height": 1067,
+    "type": "image/jpeg"
+  },
+  {
+    "route": "/articles/are-smart-scales-worth-it/",
+    "path": "articles/are-smart-scales-worth-it/index.html",
+    "image": "https://images.pexels.com/photos/6544260/pexels-photo-6544260.jpeg?auto=compress&cs=tinysrgb&w=1600",
+    "alt": "Are Smart Scales Worth It?",
+    "selection": "featured",
+    "width": 1600,
+    "height": 1067,
+    "type": "image/jpeg"
+  },
+  {
+    "route": "/articles/ashwagandha-stress-evidence/",
+    "path": "articles/ashwagandha-stress-evidence/index.html",
+    "image": "https://fitnessworld.pro/assets/images/natural-wellness-botanicals.webp",
+    "alt": "Chamomile flowers, fresh ginger, mint and a cup of herbal tea.",
+    "selection": "featured",
+    "width": 1200,
+    "height": 600,
+    "type": "image/webp"
+  },
+  {
+    "route": "/articles/benefits-of-walking-every-day/",
+    "path": "articles/benefits-of-walking-every-day/index.html",
+    "image": "https://images.pexels.com/photos/13896897/pexels-photo-13896897.jpeg?auto=compress&cs=tinysrgb&w=1600",
+    "alt": "Woman walking outdoors in activewear with a water bottle",
+    "selection": "featured",
+    "width": 1600,
+    "height": 2400,
+    "type": "image/jpeg"
+  },
+  {
+    "route": "/articles/berberine-vs-ozempic-evidence/",
+    "path": "articles/berberine-vs-ozempic-evidence/index.html",
+    "image": "https://images.pexels.com/photos/4587427/pexels-photo-4587427.jpeg?auto=compress&cs=tinysrgb&w=1600",
+    "alt": "Blood sugar monitoring equipment and supplements",
+    "selection": "featured",
+    "width": 1600,
+    "height": 1067,
+    "type": "image/jpeg"
+  },
+  {
+    "route": "/articles/blood-sugar-spikes-digest/",
+    "path": "articles/blood-sugar-spikes-digest/index.html",
+    "image": "https://images.pexels.com/photos/5713458/pexels-photo-5713458.jpeg?auto=compress&cs=tinysrgb&w=1600",
+    "alt": "Blood Sugar Spikes: What They Mean and When They Matter",
+    "selection": "featured",
+    "width": 1600,
+    "height": 2603,
+    "type": "image/jpeg"
+  },
+  {
+    "route": "/articles/body-fat-scales-worth-it/",
+    "path": "articles/body-fat-scales-worth-it/index.html",
+    "image": "https://images.pexels.com/photos/262973/pexels-photo-262973.jpeg?auto=compress&cs=tinysrgb&w=1600",
+    "alt": "Are At-Home Body-Fat Scales Worth It?",
+    "selection": "featured",
+    "width": 1600,
+    "height": 1067,
+    "type": "image/jpeg"
+  },
+  {
+    "route": "/articles/breakfast-most-important-myth-check/",
+    "path": "articles/breakfast-most-important-myth-check/index.html",
+    "image": "https://images.pexels.com/photos/36518848/pexels-photo-36518848.jpeg?auto=compress&cs=tinysrgb&w=1600",
+    "alt": "Is Breakfast Really the Most Important Meal of the Day?",
+    "selection": "featured",
+    "width": 1600,
+    "height": 2133,
+    "type": "image/jpeg"
+  },
+  {
+    "route": "/articles/build-muscle-after-50/",
+    "path": "articles/build-muscle-after-50/index.html",
+    "image": "https://images.pexels.com/photos/36917072/pexels-photo-36917072.jpeg?auto=compress&cs=tinysrgb&w=1600",
+    "alt": "Can You Build Muscle After 50?",
+    "selection": "featured",
+    "width": 1600,
+    "height": 1067,
+    "type": "image/jpeg"
+  },
+  {
+    "route": "/articles/build-muscle-after-menopause/",
+    "path": "articles/build-muscle-after-menopause/index.html",
+    "image": "https://images.pexels.com/photos/36917061/pexels-photo-36917061.jpeg?auto=compress&cs=tinysrgb&w=1600",
+    "alt": "Middle-aged woman lifting a dumbbell during strength training.",
+    "selection": "featured",
+    "width": 1600,
+    "height": 1016,
+    "type": "image/jpeg"
+  },
+  {
+    "route": "/articles/caffeine-cutoff-sleep/",
+    "path": "articles/caffeine-cutoff-sleep/index.html",
+    "image": "https://images.pexels.com/photos/2059150/pexels-photo-2059150.jpeg?auto=compress&cs=tinysrgb&w=1600",
+    "alt": "When Should You Stop Drinking Caffeine for Better Sleep?",
+    "selection": "featured",
+    "width": 1600,
+    "height": 1200,
+    "type": "image/jpeg"
+  },
+  {
+    "route": "/articles/can-you-lose-muscle-on-glp1/",
+    "path": "articles/can-you-lose-muscle-on-glp1/index.html",
+    "image": "https://images.pexels.com/photos/3757376/pexels-photo-3757376.jpeg?auto=compress&cs=tinysrgb&w=1600",
+    "alt": "Can You Lose Muscle on GLP-1 Medication?",
+    "selection": "featured",
+    "width": 1600,
+    "height": 1067,
+    "type": "image/jpeg"
+  },
+  {
+    "route": "/articles/cgm-without-diabetes-worth-it/",
+    "path": "articles/cgm-without-diabetes-worth-it/index.html",
+    "image": "https://images.pexels.com/photos/6823495/pexels-photo-6823495.jpeg?auto=compress&cs=tinysrgb&w=1600",
+    "alt": "Person checking blood glucose with a handheld glucose meter.",
+    "selection": "featured",
+    "width": 1600,
+    "height": 900,
+    "type": "image/jpeg"
+  },
+  {
+    "route": "/articles/circadian-rhythm-digest/",
+    "path": "articles/circadian-rhythm-digest/index.html",
+    "image": "https://images.pexels.com/photos/6604845/pexels-photo-6604845.jpeg?auto=compress&cs=tinysrgb&w=1600",
+    "alt": "Your Circadian Rhythm: A 2-Minute Guide",
+    "selection": "featured",
+    "width": 1600,
+    "height": 2400,
+    "type": "image/jpeg"
+  },
+  {
+    "route": "/articles/cold-plunges-worth-it/",
+    "path": "articles/cold-plunges-worth-it/index.html",
+    "image": "https://images.pexels.com/photos/6285183/pexels-photo-6285183.jpeg?auto=compress&cs=tinysrgb&w=1600",
+    "alt": "Are Cold Plunges Worth It?",
+    "selection": "featured",
+    "width": 1600,
+    "height": 1067,
+    "type": "image/jpeg"
+  },
+  {
+    "route": "/articles/collagen-joints-skin-muscle-evidence/",
+    "path": "articles/collagen-joints-skin-muscle-evidence/index.html",
+    "image": "https://images.pexels.com/photos/7445268/pexels-photo-7445268.jpeg?auto=compress&cs=tinysrgb&w=1600",
+    "alt": "Collagen for Joints vs Skin vs Muscle: Which Claims Hold Up?",
+    "selection": "featured",
+    "width": 1600,
+    "height": 2400,
+    "type": "image/jpeg"
+  },
+  {
+    "route": "/articles/collagen-powders-worth-it/",
+    "path": "articles/collagen-powders-worth-it/index.html",
+    "image": "https://images.pexels.com/photos/6544221/pexels-photo-6544221.jpeg?auto=compress&cs=tinysrgb&w=1600",
+    "alt": "Are Collagen Powders Worth It?",
+    "selection": "featured",
+    "width": 1600,
+    "height": 2400,
+    "type": "image/jpeg"
+  },
+  {
+    "route": "/articles/collagen-supplements-do-they-work/",
+    "path": "articles/collagen-supplements-do-they-work/index.html",
+    "image": "https://images.pexels.com/photos/36917062/pexels-photo-36917062.jpeg?auto=compress&cs=tinysrgb&w=1600",
+    "alt": "Collagen Supplements: Evidence and Limits",
+    "selection": "featured",
+    "width": 1600,
+    "height": 1067,
+    "type": "image/jpeg"
+  },
+  {
+    "route": "/articles/collagen-vs-protein-powder/",
+    "path": "articles/collagen-vs-protein-powder/index.html",
+    "image": "https://images.pexels.com/photos/4587418/pexels-photo-4587418.jpeg?auto=compress&cs=tinysrgb&w=1600",
+    "alt": "Collagen vs Protein Powder: What’s the Difference?",
+    "selection": "featured",
+    "width": 1600,
+    "height": 2400,
+    "type": "image/jpeg"
+  },
+  {
+    "route": "/articles/cortisol-face-claim/",
+    "path": "articles/cortisol-face-claim/index.html",
+    "image": "https://images.pexels.com/photos/1640771/pexels-photo-1640771.jpeg?auto=compress&cs=tinysrgb&w=1600",
+    "alt": "Does “Cortisol Face” Actually Exist?",
+    "selection": "featured",
+    "width": 1600,
+    "height": 1200,
+    "type": "image/jpeg"
+  },
+  {
+    "route": "/articles/creatine-after-40/",
+    "path": "articles/creatine-after-40/index.html",
+    "image": "https://images.pexels.com/photos/4720779/pexels-photo-4720779.jpeg?auto=compress&cs=tinysrgb&w=1600",
+    "alt": "Senior man lifting a barbell during strength training.",
+    "selection": "featured",
+    "width": 1600,
+    "height": 1067,
+    "type": "image/jpeg"
+  },
+  {
+    "route": "/articles/creatine-after-menopause/",
+    "path": "articles/creatine-after-menopause/index.html",
+    "image": "https://images.pexels.com/photos/13219986/pexels-photo-13219986.jpeg?auto=compress&cs=tinysrgb&w=1600",
+    "alt": "Creatine After Menopause: Does It Actually Help?",
+    "selection": "featured",
+    "width": 1600,
+    "height": 1244,
+    "type": "image/jpeg"
+  },
+  {
+    "route": "/articles/creatine-for-women/",
+    "path": "articles/creatine-for-women/index.html",
+    "image": "https://images.pexels.com/photos/903171/pexels-photo-903171.jpeg?auto=compress&cs=tinysrgb&w=1600",
+    "alt": "Creatine for Women: Benefits, Evidence & What to Know",
+    "selection": "featured",
+    "width": 1600,
+    "height": 1067,
+    "type": "image/jpeg"
+  },
+  {
+    "route": "/articles/creatine-gummies-vs-powder/",
+    "path": "articles/creatine-gummies-vs-powder/index.html",
+    "image": "https://images.pexels.com/photos/4587349/pexels-photo-4587349.jpeg?auto=compress&cs=tinysrgb&w=1600",
+    "alt": "Creatine Gummies vs Powder: Which Is Better?",
+    "selection": "featured",
+    "width": 1600,
+    "height": 1067,
+    "type": "image/jpeg"
+  },
+  {
+    "route": "/articles/creatine-hair-loss-evidence/",
+    "path": "articles/creatine-hair-loss-evidence/index.html",
+    "image": "https://images.pexels.com/photos/6948132/pexels-photo-6948132.jpeg?auto=compress&cs=tinysrgb&w=1600",
+    "alt": "Adult checking and styling natural hair in a mirror during a personal care routine.",
+    "selection": "featured",
+    "width": 1600,
+    "height": 1068,
+    "type": "image/jpeg"
+  },
+  {
+    "route": "/articles/creatine-healthy-aging-evidence/",
+    "path": "articles/creatine-healthy-aging-evidence/index.html",
+    "image": "https://images.pexels.com/photos/8555318/pexels-photo-8555318.jpeg?auto=compress&cs=tinysrgb&w=1600",
+    "alt": "Creatine for Healthy Aging: Is the Hype Ahead of the Evidence?",
+    "selection": "featured",
+    "width": 1600,
+    "height": 1067,
+    "type": "image/jpeg"
+  },
+  {
+    "route": "/articles/creatine-monohydrate-vs-hcl/",
+    "path": "articles/creatine-monohydrate-vs-hcl/index.html",
+    "image": "https://images.pexels.com/photos/13621287/pexels-photo-13621287.jpeg?auto=compress&cs=tinysrgb&w=1600",
+    "alt": "Creatine Monohydrate vs Creatine HCl: Which Should You Choose?",
+    "selection": "featured",
+    "width": 1600,
+    "height": 1069,
+    "type": "image/jpeg"
+  },
+  {
+    "route": "/articles/creatine-strength-muscle-evidence/",
+    "path": "articles/creatine-strength-muscle-evidence/index.html",
+    "image": "https://images.pexels.com/photos/4587348/pexels-photo-4587348.jpeg?auto=compress&cs=tinysrgb&w=1600",
+    "alt": "Creatine for Strength and Muscle: Evidence Guide",
+    "selection": "featured",
+    "width": 1600,
+    "height": 2400,
+    "type": "image/jpeg"
+  },
+  {
+    "route": "/articles/creatine-vs-protein-powder/",
+    "path": "articles/creatine-vs-protein-powder/index.html",
+    "image": "https://images.pexels.com/photos/6285206/pexels-photo-6285206.jpeg?auto=compress&cs=tinysrgb&w=1600",
+    "alt": "Creatine vs Protein Powder: Which Do You Actually Need?",
+    "selection": "featured",
+    "width": 1600,
+    "height": 2400,
+    "type": "image/jpeg"
+  },
+  {
+    "route": "/articles/curcumin-joint-pain-evidence/",
+    "path": "articles/curcumin-joint-pain-evidence/index.html",
+    "image": "https://images.pexels.com/photos/7298659/pexels-photo-7298659.jpeg?auto=compress&cs=tinysrgb&w=1600",
+    "alt": "Adult outdoors holding a sore knee during a walk or exercise session.",
+    "selection": "featured",
+    "width": 1600,
+    "height": 2841,
+    "type": "image/jpeg"
+  },
+  {
+    "route": "/articles/do-you-need-fiber-supplement/",
+    "path": "articles/do-you-need-fiber-supplement/index.html",
+    "image": "https://images.pexels.com/photos/6694154/pexels-photo-6694154.jpeg?auto=compress&cs=tinysrgb&w=1600",
+    "alt": "Fiber Supplements: When Do They Help?",
+    "selection": "featured",
+    "width": 1600,
+    "height": 2400,
+    "type": "image/jpeg"
+  },
+  {
+    "route": "/articles/do-you-need-multivitamin/",
+    "path": "articles/do-you-need-multivitamin/index.html",
+    "image": "https://images.pexels.com/photos/17891275/pexels-photo-17891275.jpeg?auto=compress&cs=tinysrgb&w=1600",
+    "alt": "Assorted vitamin and supplement bottles with capsules.",
+    "selection": "featured",
+    "width": 1600,
+    "height": 2400,
+    "type": "image/jpeg"
+  },
+  {
+    "route": "/articles/eat-low-appetite-glp1/",
+    "path": "articles/eat-low-appetite-glp1/index.html",
+    "image": "https://images.pexels.com/photos/15800360/pexels-photo-15800360.jpeg?auto=compress&cs=tinysrgb&w=1600",
+    "alt": "Fresh protein and vegetable bowl held outdoors.",
+    "selection": "featured",
+    "width": 1600,
+    "height": 2400,
+    "type": "image/jpeg"
+  },
+  {
+    "route": "/articles/eating-at-night-meal-timing/",
+    "path": "articles/eating-at-night-meal-timing/index.html",
+    "image": "https://images.pexels.com/photos/376464/pexels-photo-376464.jpeg?auto=compress&cs=tinysrgb&w=1600",
+    "alt": "Eating at Night: Does Meal Timing Really Matter?",
+    "selection": "featured",
+    "width": 1600,
+    "height": 977,
+    "type": "image/jpeg"
+  },
+  {
+    "route": "/articles/eight-hours-sleep-myth-check/",
+    "path": "articles/eight-hours-sleep-myth-check/index.html",
+    "image": "https://images.pexels.com/photos/5836775/pexels-photo-5836775.jpeg?auto=compress&cs=tinysrgb&w=1600",
+    "alt": "Does Everyone Really Need 8 Hours of Sleep?",
+    "selection": "featured",
+    "width": 1600,
+    "height": 2400,
+    "type": "image/jpeg"
+  },
+  {
+    "route": "/articles/electrolyte-powders-do-you-need-them/",
+    "path": "articles/electrolyte-powders-do-you-need-them/index.html",
+    "image": "https://images.pexels.com/photos/6632328/pexels-photo-6632328.jpeg?auto=compress&cs=tinysrgb&w=1600",
+    "alt": "Electrolyte Powders: Do You Actually Need Them?",
+    "selection": "featured",
+    "width": 1600,
+    "height": 1067,
+    "type": "image/jpeg"
+  },
+  {
+    "route": "/articles/electrolyte-powders-worth-it/",
+    "path": "articles/electrolyte-powders-worth-it/index.html",
+    "image": "https://images.pexels.com/photos/6066056/pexels-photo-6066056.jpeg?auto=compress&cs=tinysrgb&w=1600",
+    "alt": "Are Electrolyte Powders Worth It for Everyday Use?",
+    "selection": "featured",
+    "width": 1600,
+    "height": 2397,
+    "type": "image/jpeg"
+  },
+  {
+    "route": "/articles/electrolytes-on-glp1/",
+    "path": "articles/electrolytes-on-glp1/index.html",
+    "image": "https://images.pexels.com/photos/3764014/pexels-photo-3764014.jpeg?auto=compress&cs=tinysrgb&w=1600",
+    "alt": "Do You Need Electrolytes While Taking a GLP-1?",
+    "selection": "featured",
+    "width": 1600,
+    "height": 2400,
+    "type": "image/jpeg"
+  },
+  {
+    "route": "/articles/exercise-recovery-research-august-28-2026/",
+    "path": "articles/exercise-recovery-research-august-28-2026/index.html",
+    "image": "https://images.pexels.com/photos/13106620/pexels-photo-13106620.jpeg?auto=compress&cs=tinysrgb&w=1600",
+    "alt": "What Exercise & Recovery Research Is Talking About This Week",
+    "selection": "featured",
+    "width": 1600,
+    "height": 2400,
+    "type": "image/jpeg"
+  },
+  {
+    "route": "/articles/expensive-multivitamins-worth-it/",
+    "path": "articles/expensive-multivitamins-worth-it/index.html",
+    "image": "https://images.pexels.com/photos/6120233/pexels-photo-6120233.jpeg?auto=compress&cs=tinysrgb&w=1600",
+    "alt": "Are Expensive Multivitamins Worth It?",
+    "selection": "featured",
+    "width": 1600,
+    "height": 1068,
+    "type": "image/jpeg"
+  },
+  {
+    "route": "/articles/fiber-and-glp1/",
+    "path": "articles/fiber-and-glp1/index.html",
+    "image": "https://images.pexels.com/photos/566566/pexels-photo-566566.jpeg?auto=compress&cs=tinysrgb&w=1600",
+    "alt": "Fiber and GLP-1s: What You Should Know",
+    "selection": "featured",
+    "width": 1600,
+    "height": 1067,
+    "type": "image/jpeg"
+  },
+  {
+    "route": "/articles/fiber-how-much-do-you-need/",
+    "path": "articles/fiber-how-much-do-you-need/index.html",
+    "image": "https://images.pexels.com/photos/36472000/pexels-photo-36472000.jpeg?auto=compress&cs=tinysrgb&w=1600",
+    "alt": "How Much Fiber Do You Actually Need — and What Does It Help With?",
+    "selection": "featured",
+    "width": 1600,
+    "height": 2844,
+    "type": "image/jpeg"
+  },
+  {
+    "route": "/articles/fiber-supplements-vs-food/",
+    "path": "articles/fiber-supplements-vs-food/index.html",
+    "image": "https://images.pexels.com/photos/5480235/pexels-photo-5480235.jpeg?auto=compress&cs=tinysrgb&w=1600",
+    "alt": "Fiber Supplements vs Food: Which Makes More Sense?",
+    "selection": "featured",
+    "width": 1600,
+    "height": 2400,
+    "type": "image/jpeg"
+  },
+  {
+    "route": "/articles/fish-oil-vs-eating-fish/",
+    "path": "articles/fish-oil-vs-eating-fish/index.html",
+    "image": "https://images.pexels.com/photos/36626645/pexels-photo-36626645.jpeg?auto=compress&cs=tinysrgb&w=1600",
+    "alt": "Fish Oil vs Eating Fish: Which Is Better?",
+    "selection": "featured",
+    "width": 1600,
+    "height": 1065,
+    "type": "image/jpeg"
+  },
+  {
+    "route": "/articles/fitness-watch-calories-accuracy/",
+    "path": "articles/fitness-watch-calories-accuracy/index.html",
+    "image": "https://images.pexels.com/photos/36917077/pexels-photo-36917077.jpeg?auto=compress&cs=tinysrgb&w=1600",
+    "alt": "Fitness Watch Calories: How Accurate Are They?",
+    "selection": "featured",
+    "width": 1600,
+    "height": 1007,
+    "type": "image/jpeg"
+  },
+  {
+    "route": "/articles/ginger-benefits/",
+    "path": "articles/ginger-benefits/index.html",
+    "image": "https://images.pexels.com/photos/20234970/pexels-photo-20234970.jpeg?auto=compress&cs=tinysrgb&w=1600",
+    "alt": "A pile of fresh ginger roots",
+    "selection": "featured",
+    "width": 1600,
+    "height": 1067,
+    "type": "image/jpeg"
+  },
+  {
+    "route": "/articles/glp1-supplements-marketing-claims/",
+    "path": "articles/glp1-supplements-marketing-claims/index.html",
+    "image": "https://images.pexels.com/photos/36917067/pexels-photo-36917067.jpeg?auto=compress&cs=tinysrgb&w=1600",
+    "alt": "GLP-1 Supplements: Which Marketing Claims Should You Question?",
+    "selection": "featured",
+    "width": 1600,
+    "height": 1118,
+    "type": "image/jpeg"
+  },
+  {
+    "route": "/articles/greens-powder-vs-multivitamin/",
+    "path": "articles/greens-powder-vs-multivitamin/index.html",
+    "image": "https://images.pexels.com/photos/36917074/pexels-photo-36917074.jpeg?auto=compress&cs=tinysrgb&w=1600",
+    "alt": "Greens Powder vs Multivitamin: Which Makes More Sense?",
+    "selection": "featured",
+    "width": 1600,
+    "height": 2400,
+    "type": "image/jpeg"
+  },
+  {
+    "route": "/articles/greens-powders-replace-vegetables/",
+    "path": "articles/greens-powders-replace-vegetables/index.html",
+    "image": "https://images.pexels.com/photos/29269831/pexels-photo-29269831.jpeg?auto=compress&cs=tinysrgb&w=1600",
+    "alt": "Balanced bowl with quinoa, chickpeas and fresh vegetables.",
+    "selection": "featured",
+    "width": 1600,
+    "height": 1376,
+    "type": "image/jpeg"
+  },
+  {
+    "route": "/articles/grip-strength-aging/",
+    "path": "articles/grip-strength-aging/index.html",
+    "image": "https://images.pexels.com/photos/416717/pexels-photo-416717.jpeg?auto=compress&cs=tinysrgb&w=1600",
+    "alt": "Does Grip Strength Really Tell You How Well You're Aging?",
+    "selection": "featured",
+    "width": 1600,
+    "height": 1067,
+    "type": "image/jpeg"
+  },
+  {
+    "route": "/articles/health-numbers-explained/",
+    "path": "articles/health-numbers-explained/index.html",
+    "image": "https://images.pexels.com/photos/4226119/pexels-photo-4226119.jpeg?auto=compress&cs=tinysrgb&w=1600",
+    "alt": "Health Numbers Explained: What Common Measurements Actually Mean",
+    "selection": "featured",
+    "width": 1600,
+    "height": 2400,
+    "type": "image/jpeg"
+  },
+  {
+    "route": "/articles/healthy-foods-evidence-guide/",
+    "path": "articles/healthy-foods-evidence-guide/index.html",
+    "image": "https://images.pexels.com/photos/1640770/pexels-photo-1640770.jpeg?auto=compress&cs=tinysrgb&w=1600",
+    "alt": "Foods for Better Health: What Actually Deserves a Place in Your Diet?",
+    "selection": "featured",
+    "width": 1600,
+    "height": 1067,
+    "type": "image/jpeg"
+  },
+  {
+    "route": "/articles/healthy-habits-that-stick/",
+    "path": "articles/healthy-habits-that-stick/index.html",
+    "image": "https://images.pexels.com/photos/5998514/pexels-photo-5998514.jpeg?auto=compress&cs=tinysrgb&w=1600",
+    "alt": "Woman writing a weekly healthy meal plan",
+    "selection": "featured",
+    "width": 1600,
+    "height": 1068,
+    "type": "image/jpeg"
+  },
+  {
+    "route": "/articles/heavy-weights-after-40/",
+    "path": "articles/heavy-weights-after-40/index.html",
+    "image": "https://images.pexels.com/photos/3775600/pexels-photo-3775600.jpeg?auto=compress&cs=tinysrgb&w=1600",
+    "alt": "Do You Need Heavy Weights to Build Muscle After 40?",
+    "selection": "featured",
+    "width": 1600,
+    "height": 1067,
+    "type": "image/jpeg"
+  },
+  {
+    "route": "/articles/high-protein-breakfast-ideas/",
+    "path": "articles/high-protein-breakfast-ideas/index.html",
+    "image": "https://images.pexels.com/photos/6823336/pexels-photo-6823336.jpeg?auto=compress&cs=tinysrgb&w=1600",
+    "alt": "Healthy bowl with eggs, quinoa and vegetables.",
+    "selection": "featured",
+    "width": 1600,
+    "height": 2400,
+    "type": "image/jpeg"
+  },
+  {
+    "route": "/articles/high-protein-foods/",
+    "path": "articles/high-protein-foods/index.html",
+    "image": "https://images.pexels.com/photos/7615453/pexels-photo-7615453.jpeg?auto=compress&cs=tinysrgb&w=1600",
+    "alt": "High-protein meal with chicken, broccoli and rice",
+    "selection": "featured",
+    "width": 1600,
+    "height": 1067,
+    "type": "image/jpeg"
+  },
+  {
+    "route": "/articles/how-long-build-muscle-after-40/",
+    "path": "articles/how-long-build-muscle-after-40/index.html",
+    "image": "https://images.pexels.com/photos/4498481/pexels-photo-4498481.jpeg?auto=compress&cs=tinysrgb&w=1600",
+    "alt": "How Long Does It Take to Build Muscle After 40?",
+    "selection": "featured",
+    "width": 1600,
+    "height": 2400,
+    "type": "image/jpeg"
+  },
+  {
+    "route": "/articles/how-much-muscle-lost-with-age/",
+    "path": "articles/how-much-muscle-lost-with-age/index.html",
+    "image": "https://images.pexels.com/photos/7615568/pexels-photo-7615568.jpeg?auto=compress&cs=tinysrgb&w=1600",
+    "alt": "How Much Muscle Do We Actually Lose With Age?",
+    "selection": "featured",
+    "width": 1600,
+    "height": 2400,
+    "type": "image/jpeg"
+  },
+  {
+    "route": "/articles/how-much-water-do-you-need/",
+    "path": "articles/how-much-water-do-you-need/index.html",
+    "image": "https://images.pexels.com/photos/4929677/pexels-photo-4929677.jpeg?auto=compress&cs=tinysrgb&w=1600",
+    "alt": "Daily Hydration: How Much Water Do You Really Need?",
+    "selection": "featured",
+    "width": 1600,
+    "height": 1600,
+    "type": "image/jpeg"
+  },
+  {
+    "route": "/articles/how-to-lose-belly-fat-what-actually-works/",
+    "path": "articles/how-to-lose-belly-fat-what-actually-works/index.html",
+    "image": "https://images.pexels.com/photos/6631963/pexels-photo-6631963.jpeg?auto=compress&cs=tinysrgb&w=1600",
+    "alt": "Balanced plant-protein bowl with chickpeas and vegetables.",
+    "selection": "featured",
+    "width": 1600,
+    "height": 2400,
+    "type": "image/jpeg"
+  },
+  {
+    "route": "/articles/increase-fiber-without-bloating/",
+    "path": "articles/increase-fiber-without-bloating/index.html",
+    "image": "https://images.pexels.com/photos/6066052/pexels-photo-6066052.jpeg?auto=compress&cs=tinysrgb&w=1600",
+    "alt": "How Quickly Should You Increase Fiber?",
+    "selection": "featured",
+    "width": 1600,
+    "height": 2397,
+    "type": "image/jpeg"
+  },
+  {
+    "route": "/articles/",
+    "path": "articles/index.html",
+    "image": "https://fitnessworld.pro/assets/images/pexels-cache/6922181-fw-wave1-testosterone-v1593.webp",
+    "alt": "Testosterone Boosters After 40: What the Evidence Actually Says",
+    "selection": "first",
+    "width": 1600,
+    "height": 1068,
+    "type": "image/webp"
+  },
+  {
+    "route": "/articles/inflammation-explained-digest/",
+    "path": "articles/inflammation-explained-digest/index.html",
+    "image": "https://images.pexels.com/photos/4059105/pexels-photo-4059105.jpeg?auto=compress&cs=tinysrgb&w=1600",
+    "alt": "Inflammation Explained: What It Is and Why It Matters",
+    "selection": "featured",
+    "width": 1600,
+    "height": 1066,
+    "type": "image/jpeg"
+  },
+  {
+    "route": "/articles/lemon-water-metabolism/",
+    "path": "articles/lemon-water-metabolism/index.html",
+    "image": "https://images.pexels.com/photos/36471999/pexels-photo-36471999.jpeg?auto=compress&cs=tinysrgb&w=1600",
+    "alt": "Lemon Water and Metabolism: Evidence vs Hype",
+    "selection": "featured",
+    "width": 1600,
+    "height": 2133,
+    "type": "image/jpeg"
+  },
+  {
+    "route": "/articles/losing-muscle-while-losing-weight/",
+    "path": "articles/losing-muscle-while-losing-weight/index.html",
+    "image": "https://images.pexels.com/photos/1552252/pexels-photo-1552252.jpeg?auto=compress&cs=tinysrgb&w=1600",
+    "alt": "How Can You Tell If You're Losing Muscle While Losing Weight?",
+    "selection": "featured",
+    "width": 1600,
+    "height": 1063,
+    "type": "image/jpeg"
+  },
+  {
+    "route": "/articles/lower-ldl-cholesterol-naturally/",
+    "path": "articles/lower-ldl-cholesterol-naturally/index.html",
+    "image": "https://fitnessworld.pro/assets/images/social-instagram-real-foods.webp",
+    "alt": "A meal of chicken, rice and broccoli",
+    "selection": "featured",
+    "width": 960,
+    "height": 600,
+    "type": "image/webp"
+  },
+  {
+    "route": "/articles/magnesium-claims-evidence/",
+    "path": "articles/magnesium-claims-evidence/index.html",
+    "image": "https://images.pexels.com/photos/15897776/pexels-photo-15897776.jpeg?auto=compress&cs=tinysrgb&w=1600",
+    "alt": "Supplement bottles and capsules arranged on a clean wellness surface.",
+    "selection": "featured",
+    "width": 1600,
+    "height": 2133,
+    "type": "image/jpeg"
+  },
+  {
+    "route": "/articles/magnesium-food-vs-supplements/",
+    "path": "articles/magnesium-food-vs-supplements/index.html",
+    "image": "https://images.pexels.com/photos/5480236/pexels-photo-5480236.jpeg?auto=compress&cs=tinysrgb&w=1600",
+    "alt": "Magnesium Supplements vs Magnesium-Rich Foods",
+    "selection": "featured",
+    "width": 1600,
+    "height": 1067,
+    "type": "image/jpeg"
+  },
+  {
+    "route": "/articles/magnesium-glycinate-vs-citrate/",
+    "path": "articles/magnesium-glycinate-vs-citrate/index.html",
+    "image": "https://images.pexels.com/photos/3771069/pexels-photo-3771069.jpeg?auto=compress&cs=tinysrgb&w=1600",
+    "alt": "Magnesium Glycinate vs Citrate: Which Should You Choose?",
+    "selection": "featured",
+    "width": 1600,
+    "height": 1067,
+    "type": "image/jpeg"
+  },
+  {
+    "route": "/articles/magnesium-glycinate-worth-it-sleep/",
+    "path": "articles/magnesium-glycinate-worth-it-sleep/index.html",
+    "image": "https://images.pexels.com/photos/14744699/pexels-photo-14744699.jpeg?auto=compress&cs=tinysrgb&w=1600",
+    "alt": "Minimal supplement bottle with capsules on a neutral background.",
+    "selection": "featured",
+    "width": 1600,
+    "height": 1920,
+    "type": "image/jpeg"
+  },
+  {
+    "route": "/articles/magnesium-sleep-evidence/",
+    "path": "articles/magnesium-sleep-evidence/index.html",
+    "image": "https://images.pexels.com/photos/9615246/pexels-photo-9615246.jpeg?auto=compress&cs=tinysrgb&w=1600",
+    "alt": "Man sleeping in bed in a softly lit bedroom.",
+    "selection": "featured",
+    "width": 1600,
+    "height": 1067,
+    "type": "image/jpeg"
+  },
+  {
+    "route": "/articles/magnesium-sleep-what-evidence-says/",
+    "path": "articles/magnesium-sleep-what-evidence-says/index.html",
+    "image": "https://images.pexels.com/photos/7445308/pexels-photo-7445308.jpeg?auto=compress&cs=tinysrgb&w=1600",
+    "alt": "Does Magnesium Actually Help You Sleep?",
+    "selection": "featured",
+    "width": 1600,
+    "height": 1067,
+    "type": "image/jpeg"
+  },
+  {
+    "route": "/articles/maimonides-mind-body-daily-habits/",
+    "path": "articles/maimonides-mind-body-daily-habits/index.html",
+    "image": "https://images.pexels.com/photos/28773047/pexels-photo-28773047.jpeg?auto=compress&cs=tinysrgb&w=1600",
+    "alt": "Open book in warm natural light outdoors, representing reflection and historical health writing",
+    "selection": "featured",
+    "width": 1600,
+    "height": 2133,
+    "type": "image/jpeg"
+  },
+  {
+    "route": "/articles/massage-guns-worth-it/",
+    "path": "articles/massage-guns-worth-it/index.html",
+    "image": "https://images.pexels.com/photos/8401897/pexels-photo-8401897.jpeg?auto=compress&cs=tinysrgb&w=1600",
+    "alt": "Are Massage Guns Worth It?",
+    "selection": "featured",
+    "width": 1600,
+    "height": 2400,
+    "type": "image/jpeg"
+  },
+  {
+    "route": "/articles/melatonin-sleep-adults-evidence/",
+    "path": "articles/melatonin-sleep-adults-evidence/index.html",
+    "image": "https://images.pexels.com/photos/6598228/pexels-photo-6598228.jpeg?auto=compress&cs=tinysrgb&w=1600",
+    "alt": "Adult sleeping peacefully in a bedroom at night.",
+    "selection": "featured",
+    "width": 1600,
+    "height": 1067,
+    "type": "image/jpeg"
+  },
+  {
+    "route": "/articles/menopause-supplements-evidence/",
+    "path": "articles/menopause-supplements-evidence/index.html",
+    "image": "https://images.pexels.com/photos/6539881/pexels-photo-6539881.jpeg?auto=compress&cs=tinysrgb&w=1600",
+    "alt": "Midlife women exercising together in a gym, representing menopause health and wellness.",
+    "selection": "featured",
+    "width": 1600,
+    "height": 1067,
+    "type": "image/jpeg"
+  },
+  {
+    "route": "/articles/morning-light-improve-sleep/",
+    "path": "articles/morning-light-improve-sleep/index.html",
+    "image": "https://images.pexels.com/photos/7640997/pexels-photo-7640997.jpeg?auto=compress&cs=tinysrgb&w=1600",
+    "alt": "Morning Light and Sleep: Why Timing Matters",
+    "selection": "featured",
+    "width": 1600,
+    "height": 1067,
+    "type": "image/jpeg"
+  },
+  {
+    "route": "/articles/morning-light-sleep/",
+    "path": "articles/morning-light-sleep/index.html",
+    "image": "https://images.pexels.com/photos/6793199/pexels-photo-6793199.jpeg?auto=compress&cs=tinysrgb&w=1600",
+    "alt": "Does Morning Light Actually Help You Sleep Better?",
+    "selection": "featured",
+    "width": 1600,
+    "height": 1067,
+    "type": "image/jpeg"
+  },
+  {
+    "route": "/articles/mouth-taping-sleep/",
+    "path": "articles/mouth-taping-sleep/index.html",
+    "image": "https://images.pexels.com/photos/7445254/pexels-photo-7445254.jpeg?auto=compress&cs=tinysrgb&w=1600",
+    "alt": "Does Mouth Taping Improve Sleep?",
+    "selection": "featured",
+    "width": 1600,
+    "height": 2400,
+    "type": "image/jpeg"
+  },
+  {
+    "route": "/articles/nutrition-research-august-28-2026/",
+    "path": "articles/nutrition-research-august-28-2026/index.html",
+    "image": "https://images.pexels.com/photos/8329291/pexels-photo-8329291.jpeg?auto=compress&cs=tinysrgb&w=1600",
+    "alt": "What Nutrition Research Is Talking About This Week",
+    "selection": "featured",
+    "width": 1600,
+    "height": 2400,
+    "type": "image/jpeg"
+  },
+  {
+    "route": "/articles/omega-3-evidence/",
+    "path": "articles/omega-3-evidence/index.html",
+    "image": "https://images.pexels.com/photos/5480264/pexels-photo-5480264.jpeg?auto=compress&cs=tinysrgb&w=1600",
+    "alt": "Do Omega-3s Actually Work? What the Evidence Shows",
+    "selection": "featured",
+    "width": 1600,
+    "height": 1067,
+    "type": "image/jpeg"
+  },
+  {
+    "route": "/articles/oral-probiotics-teeth-gums-evidence/",
+    "path": "articles/oral-probiotics-teeth-gums-evidence/index.html",
+    "image": "https://images.pexels.com/photos/7477691/pexels-photo-7477691.jpeg?auto=compress&cs=tinysrgb&w=1600",
+    "alt": "Oral Probiotics for Teeth & Gums: What Does the Evidence Say?",
+    "selection": "featured",
+    "width": 1600,
+    "height": 1068,
+    "type": "image/jpeg"
+  },
+  {
+    "route": "/articles/oura-ring-worth-it/",
+    "path": "articles/oura-ring-worth-it/index.html",
+    "image": "https://images.pexels.com/photos/9130516/pexels-photo-9130516.jpeg?auto=compress&cs=tinysrgb&w=1600",
+    "alt": "Person interacting with a black smartwatch during health tracking.",
+    "selection": "featured",
+    "width": 1600,
+    "height": 2395,
+    "type": "image/jpeg"
+  },
+  {
+    "route": "/articles/peptides-what-you-need-to-know/",
+    "path": "articles/peptides-what-you-need-to-know/index.html",
+    "image": "https://images.pexels.com/photos/6694188/pexels-photo-6694188.jpeg?auto=compress&cs=tinysrgb&w=1600",
+    "alt": "Amber glass bottles and dried herbs on a white surface",
+    "selection": "featured",
+    "width": 1600,
+    "height": 2400,
+    "type": "image/jpeg"
+  },
+  {
+    "route": "/articles/power-training-after-50/",
+    "path": "articles/power-training-after-50/index.html",
+    "image": "https://images.pexels.com/photos/8539234/pexels-photo-8539234.jpeg?auto=compress&cs=tinysrgb&w=1600",
+    "alt": "Power Training After 50: Does Moving Weights Faster Matter?",
+    "selection": "featured",
+    "width": 1600,
+    "height": 2400,
+    "type": "image/jpeg"
+  },
+  {
+    "route": "/articles/prebiotics-vs-probiotics/",
+    "path": "articles/prebiotics-vs-probiotics/index.html",
+    "image": "https://images.pexels.com/photos/7615569/pexels-photo-7615569.jpeg?auto=compress&cs=tinysrgb&w=1600",
+    "alt": "Prebiotics vs Probiotics: What’s the Difference — and Do You Need Either?",
+    "selection": "featured",
+    "width": 1600,
+    "height": 1067,
+    "type": "image/jpeg"
+  },
+  {
+    "route": "/articles/preserve-muscle-while-losing-weight/",
+    "path": "articles/preserve-muscle-while-losing-weight/index.html",
+    "image": "https://images.pexels.com/photos/5067765/pexels-photo-5067765.jpeg?auto=compress&cs=tinysrgb&w=1600",
+    "alt": "Older man strength training outdoors with a dumbbell.",
+    "selection": "featured",
+    "width": 1600,
+    "height": 1067,
+    "type": "image/jpeg"
+  },
+  {
+    "route": "/articles/probiotics-vs-fermented-foods/",
+    "path": "articles/probiotics-vs-fermented-foods/index.html",
+    "image": "https://images.pexels.com/photos/3850740/pexels-photo-3850740.jpeg?auto=compress&cs=tinysrgb&w=1600",
+    "alt": "Probiotic Supplements vs Fermented Foods: Which Makes More Sense?",
+    "selection": "featured",
+    "width": 1600,
+    "height": 1067,
+    "type": "image/jpeg"
+  },
+  {
+    "route": "/articles/protect-muscle-on-glp1/",
+    "path": "articles/protect-muscle-on-glp1/index.html",
+    "image": "https://images.pexels.com/photos/3850809/pexels-photo-3850809.jpeg?auto=compress&cs=tinysrgb&w=1600",
+    "alt": "How to Protect Muscle While Losing Weight on GLP-1 Medication",
+    "selection": "featured",
+    "width": 1600,
+    "height": 1067,
+    "type": "image/jpeg"
+  },
+  {
+    "route": "/articles/protein-after-40/",
+    "path": "articles/protein-after-40/index.html",
+    "image": "https://images.pexels.com/photos/4148952/pexels-photo-4148952.jpeg?auto=compress&cs=tinysrgb&w=1600",
+    "alt": "How Much Protein Do You Need After 40?",
+    "selection": "featured",
+    "width": 1600,
+    "height": 1067,
+    "type": "image/jpeg"
+  },
+  {
+    "route": "/articles/protein-bars-worth-it/",
+    "path": "articles/protein-bars-worth-it/index.html",
+    "image": "https://images.pexels.com/photos/11213966/pexels-photo-11213966.jpeg?auto=compress&cs=tinysrgb&w=1600",
+    "alt": "Are Protein Bars Worth It?",
+    "selection": "featured",
+    "width": 1600,
+    "height": 2400,
+    "type": "image/jpeg"
+  },
+  {
+    "route": "/articles/protein-breakfast-after-40/",
+    "path": "articles/protein-breakfast-after-40/index.html",
+    "image": "https://images.pexels.com/photos/6823336/pexels-photo-6823336.jpeg?auto=compress&cs=tinysrgb&w=1600",
+    "alt": "Healthy breakfast-style bowl with eggs, quinoa and vegetables.",
+    "selection": "featured",
+    "width": 1600,
+    "height": 2400,
+    "type": "image/jpeg"
+  },
+  {
+    "route": "/articles/protein-for-muscle-how-much/",
+    "path": "articles/protein-for-muscle-how-much/index.html",
+    "image": "https://images.pexels.com/photos/5036938/pexels-photo-5036938.jpeg?auto=compress&cs=tinysrgb&w=1600",
+    "alt": "Protein for Muscle: How Much Is Enough?",
+    "selection": "featured",
+    "width": 1600,
+    "height": 1067,
+    "type": "image/jpeg"
+  },
+  {
+    "route": "/articles/protein-glp1-without-shakes/",
+    "path": "articles/protein-glp1-without-shakes/index.html",
+    "image": "https://images.pexels.com/photos/6632286/pexels-photo-6632286.jpeg?auto=compress&cs=tinysrgb&w=1600",
+    "alt": "Balanced protein bowl with tuna, eggs, chickpeas and vegetables.",
+    "selection": "featured",
+    "width": 1600,
+    "height": 2400,
+    "type": "image/jpeg"
+  },
+  {
+    "route": "/articles/protein-menopause-what-changes/",
+    "path": "articles/protein-menopause-what-changes/index.html",
+    "image": "https://images.pexels.com/photos/7526013/pexels-photo-7526013.jpeg?auto=compress&cs=tinysrgb&w=1600",
+    "alt": "Protein and Menopause: What Changes — and What Doesn’t?",
+    "selection": "featured",
+    "width": 1600,
+    "height": 2400,
+    "type": "image/jpeg"
+  },
+  {
+    "route": "/articles/protein-on-glp1/",
+    "path": "articles/protein-on-glp1/index.html",
+    "image": "https://images.pexels.com/photos/5480091/pexels-photo-5480091.jpeg?auto=compress&cs=tinysrgb&w=1600",
+    "alt": "Protein on GLP-1s: How Much Actually Matters?",
+    "selection": "featured",
+    "width": 1600,
+    "height": 2400,
+    "type": "image/jpeg"
+  },
+  {
+    "route": "/articles/protein-powder-vs-food/",
+    "path": "articles/protein-powder-vs-food/index.html",
+    "image": "https://images.pexels.com/photos/3601098/pexels-photo-3601098.jpeg?auto=compress&cs=tinysrgb&w=1600",
+    "alt": "Protein Powder vs Food: Do You Actually Need a Supplement?",
+    "selection": "featured",
+    "width": 1600,
+    "height": 1067,
+    "type": "image/jpeg"
+  },
+  {
+    "route": "/articles/protein-shakes-on-glp1/",
+    "path": "articles/protein-shakes-on-glp1/index.html",
+    "image": "https://images.pexels.com/photos/3850680/pexels-photo-3850680.jpeg?auto=compress&cs=tinysrgb&w=1600",
+    "alt": "Do You Need Protein Shakes While Taking a GLP-1?",
+    "selection": "featured",
+    "width": 1600,
+    "height": 1067,
+    "type": "image/jpeg"
+  },
+  {
+    "route": "/articles/protein-timing-after-40/",
+    "path": "articles/protein-timing-after-40/index.html",
+    "image": "https://images.pexels.com/photos/4939431/pexels-photo-4939431.jpeg?auto=compress&cs=tinysrgb&w=1600",
+    "alt": "Protein Timing After 40: Does It Matter?",
+    "selection": "featured",
+    "width": 1600,
+    "height": 1067,
+    "type": "image/jpeg"
+  },
+  {
+    "route": "/articles/proteinmaxxing-do-you-need-that-much-protein/",
+    "path": "articles/proteinmaxxing-do-you-need-that-much-protein/index.html",
+    "image": "https://images.pexels.com/photos/15897782/pexels-photo-15897782.jpeg?auto=compress&cs=tinysrgb&w=1600",
+    "alt": "Supplement bottles and capsules with green leaves on a pink surface",
+    "selection": "featured",
+    "width": 1600,
+    "height": 2133,
+    "type": "image/jpeg"
+  },
+  {
+    "route": "/articles/psyllium-vs-chia/",
+    "path": "articles/psyllium-vs-chia/index.html",
+    "image": "https://images.pexels.com/photos/3807760/pexels-photo-3807760.jpeg?auto=compress&cs=tinysrgb&w=1600",
+    "alt": "Psyllium vs Chia Seeds: Which Is the Better Fiber Source?",
+    "selection": "featured",
+    "width": 1600,
+    "height": 1119,
+    "type": "image/jpeg"
+  },
+  {
+    "route": "/articles/psyllium-vs-fiber-supplements/",
+    "path": "articles/psyllium-vs-fiber-supplements/index.html",
+    "image": "https://images.pexels.com/photos/3850739/pexels-photo-3850739.jpeg?auto=compress&cs=tinysrgb&w=1600",
+    "alt": "Psyllium vs Other Fiber Supplements: What’s the Difference?",
+    "selection": "featured",
+    "width": 1600,
+    "height": 1067,
+    "type": "image/jpeg"
+  },
+  {
+    "route": "/articles/recovery-scores-useful/",
+    "path": "articles/recovery-scores-useful/index.html",
+    "image": "https://images.pexels.com/photos/6604839/pexels-photo-6604839.jpeg?auto=compress&cs=tinysrgb&w=1600",
+    "alt": "Recovery Scores: Helpful Signal or False Precision?",
+    "selection": "featured",
+    "width": 1600,
+    "height": 2400,
+    "type": "image/jpeg"
+  },
+  {
+    "route": "/articles/red-light-therapy-devices-worth-it/",
+    "path": "articles/red-light-therapy-devices-worth-it/index.html",
+    "image": "https://images.pexels.com/photos/10061441/pexels-photo-10061441.jpeg?auto=compress&cs=tinysrgb&w=1600",
+    "alt": "Are Red-Light Therapy Devices Worth It?",
+    "selection": "featured",
+    "width": 1600,
+    "height": 2400,
+    "type": "image/jpeg"
+  },
+  {
+    "route": "/articles/regain-muscle-after-50/",
+    "path": "articles/regain-muscle-after-50/index.html",
+    "image": "https://images.pexels.com/photos/6922179/pexels-photo-6922179.jpeg?auto=compress&cs=tinysrgb&w=1600",
+    "alt": "Older man lifting dumbbells in a gym.",
+    "selection": "featured",
+    "width": 1600,
+    "height": 1068,
+    "type": "image/jpeg"
+  },
+  {
+    "route": "/articles/resistance-bands-vs-weights-after-40/",
+    "path": "articles/resistance-bands-vs-weights-after-40/index.html",
+    "image": "https://images.pexels.com/photos/4939429/pexels-photo-4939429.jpeg?auto=compress&cs=tinysrgb&w=1600",
+    "alt": "Resistance Bands vs Weights After 40",
+    "selection": "featured",
+    "width": 1600,
+    "height": 1067,
+    "type": "image/jpeg"
+  },
+  {
+    "route": "/articles/resistance-training-sleep-older-adults-september-2026/",
+    "path": "articles/resistance-training-sleep-older-adults-september-2026/index.html",
+    "image": "https://images.pexels.com/photos/5480192/pexels-photo-5480192.jpeg?auto=compress&cs=tinysrgb&w=1600",
+    "alt": "Can Strength Training Help You Sleep Better as You Age?",
+    "selection": "featured",
+    "width": 1600,
+    "height": 1067,
+    "type": "image/jpeg"
+  },
+  {
+    "route": "/articles/rest-between-sets-after-40/",
+    "path": "articles/rest-between-sets-after-40/index.html",
+    "image": "https://images.pexels.com/photos/6922141/pexels-photo-6922141.jpeg?auto=compress&cs=tinysrgb&w=1600",
+    "alt": "Older adult resting with a towel between strength-training sets in a gym.",
+    "selection": "featured",
+    "width": 1600,
+    "height": 1068,
+    "type": "image/jpeg"
+  },
+  {
+    "route": "/articles/resting-heart-rate-wearable/",
+    "path": "articles/resting-heart-rate-wearable/index.html",
+    "image": "https://images.pexels.com/photos/7445323/pexels-photo-7445323.jpeg?auto=compress&cs=tinysrgb&w=1600",
+    "alt": "Resting Heart Rate: What Does Your Wearable's Number Actually Tell You?",
+    "selection": "featured",
+    "width": 1600,
+    "height": 2400,
+    "type": "image/jpeg"
+  },
+  {
+    "route": "/articles/seed-oils-myth-check/",
+    "path": "articles/seed-oils-myth-check/index.html",
+    "image": "https://images.pexels.com/photos/6694176/pexels-photo-6694176.jpeg?auto=compress&cs=tinysrgb&w=1600",
+    "alt": "Seed Oils: What Human Studies Show",
+    "selection": "featured",
+    "width": 1600,
+    "height": 2400,
+    "type": "image/jpeg"
+  },
+  {
+    "route": "/articles/sleep-recovery-basics/",
+    "path": "articles/sleep-recovery-basics/index.html",
+    "image": "https://images.pexels.com/photos/17604925/pexels-photo-17604925.jpeg?auto=compress&cs=tinysrgb&w=1600",
+    "alt": "Woman resting peacefully in a bright bed",
+    "selection": "featured",
+    "width": 1600,
+    "height": 1067,
+    "type": "image/jpeg"
+  },
+  {
+    "route": "/articles/sleep-stage-tracker-accuracy/",
+    "path": "articles/sleep-stage-tracker-accuracy/index.html",
+    "image": "https://images.pexels.com/photos/7241266/pexels-photo-7241266.jpeg?auto=compress&cs=tinysrgb&w=1600",
+    "alt": "Person sleeping in bed with a smartwatch nearby for overnight sleep tracking.",
+    "selection": "featured",
+    "width": 1600,
+    "height": 1067,
+    "type": "image/jpeg"
+  },
+  {
+    "route": "/articles/smart-ring-vs-fitness-watch/",
+    "path": "articles/smart-ring-vs-fitness-watch/index.html",
+    "image": "https://images.pexels.com/photos/6603651/pexels-photo-6603651.jpeg?auto=compress&cs=tinysrgb&w=1600",
+    "alt": "Smart Ring vs Fitness Watch: Which Health Data Actually Matters?",
+    "selection": "featured",
+    "width": 1600,
+    "height": 2400,
+    "type": "image/jpeg"
+  },
+  {
+    "route": "/articles/smartwatch-step-count-accuracy/",
+    "path": "articles/smartwatch-step-count-accuracy/index.html",
+    "image": "https://images.pexels.com/photos/4379290/pexels-photo-4379290.jpeg?auto=compress&cs=tinysrgb&w=1600",
+    "alt": "Smartwatch displaying fitness tracking data while a person exercises outdoors.",
+    "selection": "featured",
+    "width": 1600,
+    "height": 1067,
+    "type": "image/jpeg"
+  },
+  {
+    "route": "/articles/soluble-vs-insoluble-fiber/",
+    "path": "articles/soluble-vs-insoluble-fiber/index.html",
+    "image": "https://images.pexels.com/photos/4174743/pexels-photo-4174743.jpeg?auto=compress&cs=tinysrgb&w=1600",
+    "alt": "Soluble vs Insoluble Fiber: What Actually Matters?",
+    "selection": "featured",
+    "width": 1600,
+    "height": 1067,
+    "type": "image/jpeg"
+  },
+  {
+    "route": "/articles/strength-training-after-menopause/",
+    "path": "articles/strength-training-after-menopause/index.html",
+    "image": "https://images.pexels.com/photos/20118561/pexels-photo-20118561.jpeg?auto=compress&cs=tinysrgb&w=1600",
+    "alt": "Strength Training After Menopause: What Actually Matters?",
+    "selection": "featured",
+    "width": 1600,
+    "height": 2398,
+    "type": "image/jpeg"
+  },
+  {
+    "route": "/articles/strength-training-frequency-results/",
+    "path": "articles/strength-training-frequency-results/index.html",
+    "image": "https://images.pexels.com/photos/31255961/pexels-photo-31255961.jpeg?auto=compress&cs=tinysrgb&w=1600",
+    "alt": "How Often Should You Strength Train to Actually See Results?",
+    "selection": "featured",
+    "width": 1600,
+    "height": 1067,
+    "type": "image/jpeg"
+  },
+  {
+    "route": "/articles/strength-training-on-glp1/",
+    "path": "articles/strength-training-on-glp1/index.html",
+    "image": "https://images.pexels.com/photos/27609746/pexels-photo-27609746.jpeg?auto=compress&cs=tinysrgb&w=1600",
+    "alt": "Strength Training While Taking GLP-1s: Why It Matters",
+    "selection": "featured",
+    "width": 1600,
+    "height": 1067,
+    "type": "image/jpeg"
+  },
+  {
+    "route": "/articles/supplements-women-after-40/",
+    "path": "articles/supplements-women-after-40/index.html",
+    "image": "https://images.pexels.com/photos/5867735/pexels-photo-5867735.jpeg?auto=compress&cs=tinysrgb&w=1600",
+    "alt": "Hands holding vitamin capsules during a daily supplement routine.",
+    "selection": "featured",
+    "width": 1600,
+    "height": 2400,
+    "type": "image/jpeg"
+  },
+  {
+    "route": "/articles/this-week-in-wellness-august-24-2026/",
+    "path": "articles/this-week-in-wellness-august-24-2026/index.html",
+    "image": "https://images.pexels.com/photos/4473877/pexels-photo-4473877.jpeg?auto=compress&cs=tinysrgb&w=1600",
+    "alt": "Woman sleeping in a bed with white bedding",
+    "selection": "featured",
+    "width": 1600,
+    "height": 2400,
+    "type": "image/jpeg"
+  },
+  {
+    "route": "/articles/two-strength-workouts-enough/",
+    "path": "articles/two-strength-workouts-enough/index.html",
+    "image": "https://images.pexels.com/photos/7880267/pexels-photo-7880267.jpeg?auto=compress&cs=tinysrgb&w=1600",
+    "alt": "Is Two Strength Workouts a Week Enough?",
+    "selection": "featured",
+    "width": 1600,
+    "height": 1067,
+    "type": "image/jpeg"
+  },
+  {
+    "route": "/articles/vitamin-d-who-needs-supplement/",
+    "path": "articles/vitamin-d-who-needs-supplement/index.html",
+    "image": "https://images.pexels.com/photos/3850673/pexels-photo-3850673.jpeg?auto=compress&cs=tinysrgb&w=1600",
+    "alt": "Vitamin D Supplements: Who Actually Needs Them?",
+    "selection": "featured",
+    "width": 1600,
+    "height": 1067,
+    "type": "image/jpeg"
+  },
+  {
+    "route": "/articles/vo2-max-watch-useful/",
+    "path": "articles/vo2-max-watch-useful/index.html",
+    "image": "https://images.pexels.com/photos/4679246/pexels-photo-4679246.jpeg?auto=compress&cs=tinysrgb&w=1600",
+    "alt": "Smartwatch displaying heart-rate and fitness data on a wrist outdoors.",
+    "selection": "featured",
+    "width": 1600,
+    "height": 900,
+    "type": "image/jpeg"
+  },
+  {
+    "route": "/articles/walking-after-meals-blood-sugar/",
+    "path": "articles/walking-after-meals-blood-sugar/index.html",
+    "image": "https://images.pexels.com/photos/13740356/pexels-photo-13740356.jpeg?auto=compress&cs=tinysrgb&w=1600",
+    "alt": "Walking After Meals: Effects on Blood Sugar",
+    "selection": "featured",
+    "width": 1600,
+    "height": 1067,
+    "type": "image/jpeg"
+  },
+  {
+    "route": "/articles/walking-enough-preserve-muscle/",
+    "path": "articles/walking-enough-preserve-muscle/index.html",
+    "image": "https://images.pexels.com/photos/8032783/pexels-photo-8032783.jpeg?auto=compress&cs=tinysrgb&w=1600",
+    "alt": "Walking Is Healthy — but Is It Enough to Preserve Muscle?",
+    "selection": "featured",
+    "width": 1600,
+    "height": 1067,
+    "type": "image/jpeg"
+  },
+  {
+    "route": "/articles/walking-pads-worth-it/",
+    "path": "articles/walking-pads-worth-it/index.html",
+    "image": "https://images.pexels.com/photos/8498153/pexels-photo-8498153.jpeg?auto=compress&cs=tinysrgb&w=1600",
+    "alt": "Are Walking Pads Worth It?",
+    "selection": "featured",
+    "width": 1600,
+    "height": 1067,
+    "type": "image/jpeg"
+  },
+  {
+    "route": "/articles/walking-vs-strength-training-after-40/",
+    "path": "articles/walking-vs-strength-training-after-40/index.html",
+    "image": "https://images.pexels.com/photos/37506905/pexels-photo-37506905.jpeg?auto=compress&cs=tinysrgb&w=1600",
+    "alt": "Walking vs Strength Training After 40: Do You Need Both?",
+    "selection": "featured",
+    "width": 1600,
+    "height": 1066,
+    "type": "image/jpeg"
+  },
+  {
+    "route": "/articles/wearable-fitness-age-trust/",
+    "path": "articles/wearable-fitness-age-trust/index.html",
+    "image": "https://images.pexels.com/photos/19961775/pexels-photo-19961775.jpeg?auto=compress&cs=tinysrgb&w=1600",
+    "alt": "Smartwatch displaying a heart-rate reading on a wrist.",
+    "selection": "featured",
+    "width": 1600,
+    "height": 1067,
+    "type": "image/jpeg"
+  },
+  {
+    "route": "/articles/wearable-hrv-useful/",
+    "path": "articles/wearable-hrv-useful/index.html",
+    "image": "https://images.pexels.com/photos/9832083/pexels-photo-9832083.jpeg?auto=compress&cs=tinysrgb&w=1600",
+    "alt": "Heart Rate Variability: Is Your Wearable’s HRV Score Useful?",
+    "selection": "featured",
+    "width": 1600,
+    "height": 2397,
+    "type": "image/jpeg"
+  },
+  {
+    "route": "/articles/wellness-research-august-28-2026/",
+    "path": "articles/wellness-research-august-28-2026/index.html",
+    "image": "https://images.pexels.com/photos/5480192/pexels-photo-5480192.jpeg?auto=compress&cs=tinysrgb&w=1600",
+    "alt": "The Wellness Research Worth Knowing This Week",
+    "selection": "featured",
+    "width": 1600,
+    "height": 1067,
+    "type": "image/jpeg"
+  },
+  {
+    "route": "/articles/whey-vs-plant-protein/",
+    "path": "articles/whey-vs-plant-protein/index.html",
+    "image": "https://images.pexels.com/photos/32187965/pexels-photo-32187965.jpeg?auto=compress&cs=tinysrgb&w=1600",
+    "alt": "Whey vs Plant Protein: Which Is Better?",
+    "selection": "featured",
+    "width": 1600,
+    "height": 1067,
+    "type": "image/jpeg"
+  },
+  {
+    "route": "/articles/why-muscle-matters-after-40/",
+    "path": "articles/why-muscle-matters-after-40/index.html",
+    "image": "https://images.pexels.com/photos/32968538/pexels-photo-32968538.jpeg?auto=compress&cs=tinysrgb&w=1600",
+    "alt": "Older men walking outdoors on a sunny day.",
+    "selection": "featured",
+    "width": 1600,
+    "height": 2400,
+    "type": "image/jpeg"
+  },
+  {
+    "route": "/articles/zone-2-cardio-digest/",
+    "path": "articles/zone-2-cardio-digest/index.html",
+    "image": "https://images.pexels.com/photos/4587344/pexels-photo-4587344.jpeg?auto=compress&cs=tinysrgb&w=1600",
+    "alt": "Zone 2 Cardio Explained in 2 Minutes",
+    "selection": "featured",
+    "width": 1600,
+    "height": 2400,
+    "type": "image/jpeg"
+  },
+  {
+    "route": "/authors/fitness-world-editorial-team/",
+    "path": "authors/fitness-world-editorial-team/index.html",
+    "image": "https://fitnessworld.pro/icon-512.png",
+    "alt": "Fitness World",
+    "selection": "brand-fallback",
+    "width": 512,
+    "height": 512,
+    "type": "image/png"
+  },
+  {
+    "route": "/check-a-health-claim/",
+    "path": "check-a-health-claim/index.html",
+    "image": "https://fitnessworld.pro/assets/images/card-photos-v165r5/tools-claim-feature-pexels-8657375-v165r5.webp",
+    "alt": "Woman reading the label on a bottled wellness product.",
+    "selection": "hero",
+    "width": 1080,
+    "height": 720,
+    "type": "image/webp"
+  },
+  {
+    "route": "/choose-smarter/",
+    "path": "choose-smarter/index.html",
+    "image": "https://fitnessworld.pro/icon-512.png",
+    "alt": "Fitness World",
+    "selection": "brand-fallback",
+    "width": 512,
+    "height": 512,
+    "type": "image/png"
+  },
+  {
+    "route": "/compare/",
+    "path": "compare/index.html",
+    "image": "https://fitnessworld.pro/icon-512.png",
+    "alt": "Fitness World",
+    "selection": "brand-fallback",
+    "width": 512,
+    "height": 512,
+    "type": "image/png"
+  },
+  {
+    "route": "/connect/",
+    "path": "connect/index.html",
+    "image": "https://fitnessworld.pro/assets/images/connect-community-backdrop.webp",
+    "alt": "Connect with Fitness World | Fitness World",
+    "selection": "hero",
+    "width": 2172,
+    "height": 724,
+    "type": "image/webp"
+  },
+  {
+    "route": "/contact/",
+    "path": "contact/index.html",
+    "image": "https://fitnessworld.pro/icon-512.png",
+    "alt": "Fitness World",
+    "selection": "brand-fallback",
+    "width": 512,
+    "height": 512,
+    "type": "image/png"
+  },
+  {
+    "route": "/corrections-policy/",
+    "path": "corrections-policy/index.html",
+    "image": "https://fitnessworld.pro/icon-512.png",
+    "alt": "Fitness World",
+    "selection": "brand-fallback",
+    "width": 512,
+    "height": 512,
+    "type": "image/png"
+  },
+  {
+    "route": "/editorial-approach/",
+    "path": "editorial-approach/index.html",
+    "image": "https://fitnessworld.pro/icon-512.png",
+    "alt": "Fitness World",
+    "selection": "brand-fallback",
+    "width": 512,
+    "height": 512,
+    "type": "image/png"
+  },
+  {
+    "route": "/evidence-index/",
+    "path": "evidence-index/index.html",
+    "image": "https://fitnessworld.pro/icon-512.png",
+    "alt": "Fitness World",
+    "selection": "brand-fallback",
+    "width": 512,
+    "height": 512,
+    "type": "image/png"
+  },
+  {
+    "route": "/evidence-iq/",
+    "path": "evidence-iq/index.html",
+    "image": "https://fitnessworld.pro/assets/images/hero-photos-v165r4/evidence-iq-pexels-3912976-v165r4.webp",
+    "alt": "Person reviewing a chart on a laptop.",
+    "selection": "hero",
+    "width": 1080,
+    "height": 720,
+    "type": "image/webp"
+  },
+  {
+    "route": "/evidence-projects/",
+    "path": "evidence-projects/index.html",
+    "image": "https://fitnessworld.pro/assets/images/evidence-projects-health-information.webp",
+    "alt": "Active older adults walking outdoors, representing reader-supported healthy-aging evidence research.",
+    "selection": "hero",
+    "width": 1500,
+    "height": 708,
+    "type": "image/webp"
+  },
+  {
+    "route": "/evidence-standards/",
+    "path": "evidence-standards/index.html",
+    "image": "https://fitnessworld.pro/icon-512.png",
+    "alt": "Fitness World",
+    "selection": "brand-fallback",
+    "width": 512,
+    "height": 512,
+    "type": "image/png"
+  },
+  {
+    "route": "/explore-health/",
+    "path": "explore-health/index.html",
+    "image": "https://fitnessworld.pro/assets/images/mens-health-blood-flow-runner-local.webp",
+    "alt": "Man running outdoors, representing cardiovascular fitness and healthy aging.",
+    "selection": "first",
+    "width": 1600,
+    "height": 1000,
+    "type": "image/webp"
+  },
+  {
+    "route": "/faq/",
+    "path": "faq/index.html",
+    "image": "https://fitnessworld.pro/icon-512.png",
+    "alt": "Fitness World",
+    "selection": "brand-fallback",
+    "width": 512,
+    "height": 512,
+    "type": "image/png"
+  },
+  {
+    "route": "/free-guide/",
+    "path": "free-guide/index.html",
+    "image": "https://fitnessworld.pro/assets/images/free-preview-cover-free-20261016.webp",
+    "alt": "Cover of The 30-Day Natural Wellness Reset Free Preview",
+    "selection": "first",
+    "width": 1102,
+    "height": 1427,
+    "type": "image/webp"
+  },
+  {
+    "route": "/glp1-nutrition-muscle/",
+    "path": "glp1-nutrition-muscle/index.html",
+    "image": "https://fitnessworld.pro/icon-512.png",
+    "alt": "Fitness World",
+    "selection": "brand-fallback",
+    "width": 512,
+    "height": 512,
+    "type": "image/png"
+  },
+  {
+    "route": "/health-disclaimer/",
+    "path": "health-disclaimer/index.html",
+    "image": "https://fitnessworld.pro/icon-512.png",
+    "alt": "Fitness World",
+    "selection": "brand-fallback",
+    "width": 512,
+    "height": 512,
+    "type": "image/png"
+  },
+  {
+    "route": "/health-hype-meter/",
+    "path": "health-hype-meter/index.html",
+    "image": "https://fitnessworld.pro/assets/images/hero-photos-v165r4/health-hype-meter-pexels-7755535-v165r4.webp",
+    "alt": "Man reading a product label in a store aisle.",
+    "selection": "hero",
+    "width": 1080,
+    "height": 720,
+    "type": "image/webp"
+  },
+  {
+    "route": "/healthy-aging/",
+    "path": "healthy-aging/index.html",
+    "image": "https://fitnessworld.pro/assets/images/pexels-cache/32968538-c9b5cd4093.webp",
+    "alt": "Older men walking outdoors on a sunny day.",
+    "selection": "first",
+    "width": 1280,
+    "height": 1920,
+    "type": "image/webp"
+  },
+  {
+    "route": "/",
+    "path": "index.html",
+    "image": "https://fitnessworld.pro/assets/images/free-preview-cover-free-20261016.webp",
+    "alt": "Free 5-page preview of The 30-Day Natural Wellness Reset",
+    "selection": "hero",
+    "width": 1102,
+    "height": 1427,
+    "type": "image/webp"
+  },
+  {
+    "route": "/live-healthier/",
+    "path": "live-healthier/index.html",
+    "image": "https://fitnessworld.pro/icon-512.png",
+    "alt": "Fitness World",
+    "selection": "brand-fallback",
+    "width": 512,
+    "height": 512,
+    "type": "image/png"
+  },
+  {
+    "route": "/mens-health/foods-erectile-health-blood-flow/",
+    "path": "mens-health/foods-erectile-health-blood-flow/index.html",
+    "image": "https://images.pexels.com/photos/4853076/pexels-photo-4853076.jpeg?auto=compress&cs=tinysrgb&w=1600",
+    "alt": "Man running outdoors, representing cardiovascular fitness and healthy blood flow.",
+    "selection": "featured",
+    "width": 1600,
+    "height": 2400,
+    "type": "image/jpeg"
+  },
+  {
+    "route": "/mens-health/",
+    "path": "mens-health/index.html",
+    "image": "https://fitnessworld.pro/assets/images/pexels-cache/30283463-6e5b013d01.webp",
+    "alt": "Man performing strength training in a gym.",
+    "selection": "first",
+    "width": 1280,
+    "height": 1920,
+    "type": "image/webp"
+  },
+  {
+    "route": "/mens-health/nitric-oxide-erectile-function/",
+    "path": "mens-health/nitric-oxide-erectile-function/index.html",
+    "image": "https://images.pexels.com/photos/27349862/pexels-photo-27349862.jpeg?auto=compress&cs=tinysrgb&w=1600",
+    "alt": "Nitric Oxide & Erectile Function: What the Evidence Says",
+    "selection": "featured",
+    "width": 1600,
+    "height": 1065,
+    "type": "image/jpeg"
+  },
+  {
+    "route": "/mens-health/prostate-health-after-50/",
+    "path": "mens-health/prostate-health-after-50/index.html",
+    "image": "https://images.pexels.com/photos/8460095/pexels-photo-8460095.jpeg?auto=compress&cs=tinysrgb&w=1600",
+    "alt": "Prostate Health After 50: Symptoms, Screening & What Actually Helps",
+    "selection": "featured",
+    "width": 1600,
+    "height": 1067,
+    "type": "image/jpeg"
+  },
+  {
+    "route": "/mens-health/testosterone-boosters-after-40/",
+    "path": "mens-health/testosterone-boosters-after-40/index.html",
+    "image": "https://images.pexels.com/photos/6922181/pexels-photo-6922181.jpeg?auto=compress&cs=tinysrgb&w=1600",
+    "alt": "Testosterone Boosters After 40: What the Evidence Actually Says",
+    "selection": "featured",
+    "width": 1600,
+    "height": 1068,
+    "type": "image/jpeg"
+  },
+  {
+    "route": "/mens-health/testosterone-what-actually-works/",
+    "path": "mens-health/testosterone-what-actually-works/index.html",
+    "image": "https://images.pexels.com/photos/30283463/pexels-photo-30283463.jpeg?auto=compress&cs=tinysrgb&w=1600",
+    "alt": "Man performing strength training in a gym.",
+    "selection": "featured",
+    "width": 1600,
+    "height": 2400,
+    "type": "image/jpeg"
+  },
+  {
+    "route": "/natural-wellness/",
+    "path": "natural-wellness/index.html",
+    "image": "https://fitnessworld.pro/assets/images/natural-wellness-botanicals.webp",
+    "alt": "Chamomile flowers, fresh ginger, mint and a cup of herbal tea.",
+    "selection": "first",
+    "width": 1200,
+    "height": 600,
+    "type": "image/webp"
+  },
+  {
+    "route": "/natural-wellness/natural-pain-relief-evidence/",
+    "path": "natural-wellness/natural-pain-relief-evidence/index.html",
+    "image": "https://fitnessworld.pro/assets/images/natural-wellness-botanicals.webp",
+    "alt": "Ginger, chamomile, mint and herbal tea representing natural wellness ingredients.",
+    "selection": "featured",
+    "width": 1200,
+    "height": 600,
+    "type": "image/webp"
+  },
+  {
+    "route": "/privacy/",
+    "path": "privacy/index.html",
+    "image": "https://fitnessworld.pro/icon-512.png",
+    "alt": "Fitness World",
+    "selection": "brand-fallback",
+    "width": 512,
+    "height": 512,
+    "type": "image/png"
+  },
+  {
+    "route": "/research/",
+    "path": "research/index.html",
+    "image": "https://fitnessworld.pro/icon-512.png",
+    "alt": "Fitness World",
+    "selection": "brand-fallback",
+    "width": 512,
+    "height": 512,
+    "type": "image/png"
+  },
+  {
+    "route": "/research/wellness-claim-audit-2026/",
+    "path": "research/wellness-claim-audit-2026/index.html",
+    "image": "https://fitnessworld.pro/icon-512.png",
+    "alt": "Fitness World",
+    "selection": "brand-fallback",
+    "width": 512,
+    "height": 512,
+    "type": "image/png"
+  },
+  {
+    "route": "/resources/",
+    "path": "resources/index.html",
+    "image": "https://fitnessworld.pro/icon-512.png",
+    "alt": "Fitness World",
+    "selection": "brand-fallback",
+    "width": 512,
+    "height": 512,
+    "type": "image/png"
+  },
+  {
+    "route": "/reviewers/",
+    "path": "reviewers/index.html",
+    "image": "https://fitnessworld.pro/icon-512.png",
+    "alt": "Fitness World",
+    "selection": "brand-fallback",
+    "width": 512,
+    "height": 512,
+    "type": "image/png"
+  },
+  {
+    "route": "/screenshot-a-claim/",
+    "path": "screenshot-a-claim/index.html",
+    "image": "https://fitnessworld.pro/assets/images/hero-photos-v165r4/screenshot-a-claim-pexels-4565769-v165r4.webp",
+    "alt": "Hand holding a smartphone showing a grid of social media posts.",
+    "selection": "hero",
+    "width": 1080,
+    "height": 720,
+    "type": "image/webp"
+  },
+  {
+    "route": "/search/",
+    "path": "search/index.html",
+    "image": "https://fitnessworld.pro/icon-512.png",
+    "alt": "Fitness World",
+    "selection": "brand-fallback",
+    "width": 512,
+    "height": 512,
+    "type": "image/png"
+  },
+  {
+    "route": "/shop/",
+    "path": "shop/index.html",
+    "image": "https://fitnessworld.pro/assets/images/shop-morning-reset-20261011.webp",
+    "alt": "Oats with berries and a glass of water in soft morning sunlight",
+    "selection": "first",
+    "width": 640,
+    "height": 960,
+    "type": "image/webp"
+  },
+  {
+    "route": "/sleep-recovery/",
+    "path": "sleep-recovery/index.html",
+    "image": "https://fitnessworld.pro/assets/images/pexels-cache/17604925-49f5fe97a0.webp",
+    "alt": "Woman resting peacefully in a bright bed",
+    "selection": "first",
+    "width": 1280,
+    "height": 853,
+    "type": "image/webp"
+  },
+  {
+    "route": "/stay-strong/",
+    "path": "stay-strong/index.html",
+    "image": "https://fitnessworld.pro/assets/images/pexels-cache/36917072-3c786235b2.webp",
+    "alt": "Can You Build Muscle After 50?",
+    "selection": "first",
+    "width": 1280,
+    "height": 853,
+    "type": "image/webp"
+  },
+  {
+    "route": "/supplement-evidence/",
+    "path": "supplement-evidence/index.html",
+    "image": "https://fitnessworld.pro/icon-512.png",
+    "alt": "Fitness World",
+    "selection": "brand-fallback",
+    "width": 512,
+    "height": 512,
+    "type": "image/png"
+  },
+  {
+    "route": "/support/",
+    "path": "support/index.html",
+    "image": "https://fitnessworld.pro/icon-512.png",
+    "alt": "Fitness World",
+    "selection": "brand-fallback",
+    "width": 512,
+    "height": 512,
+    "type": "image/png"
+  },
+  {
+    "route": "/terms/",
+    "path": "terms/index.html",
+    "image": "https://fitnessworld.pro/icon-512.png",
+    "alt": "Fitness World",
+    "selection": "brand-fallback",
+    "width": 512,
+    "height": 512,
+    "type": "image/png"
+  },
+  {
+    "route": "/the-30-day-natural-wellness-reset/",
+    "path": "the-30-day-natural-wellness-reset/index.html",
+    "image": "https://fitnessworld.pro/assets/images/reset-cover-v188.webp",
+    "alt": "Cover of The 30-Day Natural Wellness Reset by Fitness World",
+    "selection": "hero",
+    "width": 1087,
+    "height": 1407,
+    "type": "image/webp"
+  },
+  {
+    "route": "/tools/creatine-guide-calculator/",
+    "path": "tools/creatine-guide-calculator/index.html",
+    "image": "https://images.pexels.com/photos/4720571/pexels-photo-4720571.jpeg?auto=compress&cs=tinysrgb&w=1600",
+    "alt": "Middle-aged man strength training with dumbbells in a gym.",
+    "selection": "hero",
+    "width": 1600,
+    "height": 1067,
+    "type": "image/jpeg"
+  },
+  {
+    "route": "/tools/evidence-finder/",
+    "path": "tools/evidence-finder/index.html",
+    "image": "https://fitnessworld.pro/icon-512.png",
+    "alt": "Fitness World",
+    "selection": "brand-fallback",
+    "width": 512,
+    "height": 512,
+    "type": "image/png"
+  },
+  {
+    "route": "/tools/hydration-estimate/",
+    "path": "tools/hydration-estimate/index.html",
+    "image": "https://images.pexels.com/photos/35865500/pexels-photo-35865500.jpeg?auto=compress&cs=tinysrgb&w=1600",
+    "alt": "Active woman drinking water outdoors after exercise.",
+    "selection": "hero",
+    "width": 1600,
+    "height": 2400,
+    "type": "image/jpeg"
+  },
+  {
+    "route": "/tools/",
+    "path": "tools/index.html",
+    "image": "https://fitnessworld.pro/assets/images/card-photos-v165r5/tools-claim-feature-pexels-8657375-v165r5.webp",
+    "alt": "Woman reading the label on a bottled wellness product.",
+    "selection": "first",
+    "width": 1080,
+    "height": 720,
+    "type": "image/webp"
+  },
+  {
+    "route": "/tools/protein-meal-planner/",
+    "path": "tools/protein-meal-planner/index.html",
+    "image": "https://fitnessworld.pro/icon-512.png",
+    "alt": "Fitness World",
+    "selection": "brand-fallback",
+    "width": 512,
+    "height": 512,
+    "type": "image/png"
+  },
+  {
+    "route": "/tools/protein-target-calculator/",
+    "path": "tools/protein-target-calculator/index.html",
+    "image": "https://images.pexels.com/photos/15782638/pexels-photo-15782638.jpeg?auto=compress&cs=tinysrgb&w=1600",
+    "alt": "Baked salmon with avocado and fresh vegetables, representing a protein-rich meal.",
+    "selection": "hero",
+    "width": 1600,
+    "height": 2673,
+    "type": "image/jpeg"
+  },
+  {
+    "route": "/tools/sleep-schedule-planner/",
+    "path": "tools/sleep-schedule-planner/index.html",
+    "image": "https://images.pexels.com/photos/17371465/pexels-photo-17371465.jpeg?w=1600",
+    "alt": "Calm bedroom in soft morning light, representing a consistent sleep schedule.",
+    "selection": "hero",
+    "width": 1600,
+    "height": 1067,
+    "type": "image/jpeg"
+  },
+  {
+    "route": "/tools/strength-progress-tracker/",
+    "path": "tools/strength-progress-tracker/index.html",
+    "image": "https://images.pexels.com/photos/4720771/pexels-photo-4720771.jpeg?auto=compress&cs=tinysrgb&w=1600",
+    "alt": "Focused older man training with a dumbbell in a gym.",
+    "selection": "hero",
+    "width": 1600,
+    "height": 2400,
+    "type": "image/jpeg"
+  },
+  {
+    "route": "/tools/supplement-stack-organizer/",
+    "path": "tools/supplement-stack-organizer/index.html",
+    "image": "https://fitnessworld.pro/icon-512.png",
+    "alt": "Fitness World",
+    "selection": "brand-fallback",
+    "width": 512,
+    "height": 512,
+    "type": "image/png"
+  },
+  {
+    "route": "/understand-your-data/",
+    "path": "understand-your-data/index.html",
+    "image": "https://fitnessworld.pro/assets/images/pexels-cache/9832083-aa92613d4f.webp",
+    "alt": "Heart Rate Variability: Is Your Wearable’s HRV Score Useful?",
+    "selection": "first",
+    "width": 1280,
+    "height": 1917,
+    "type": "image/webp"
+  },
+  {
+    "route": "/what-actually-works/",
+    "path": "what-actually-works/index.html",
+    "image": "https://fitnessworld.pro/icon-512.png",
+    "alt": "Fitness World",
+    "selection": "brand-fallback",
+    "width": 512,
+    "height": 512,
+    "type": "image/png"
+  },
+  {
+    "route": "/womens-health/",
+    "path": "womens-health/index.html",
+    "image": "https://fitnessworld.pro/assets/images/pexels-cache/6539881-d39f83eb92.webp",
+    "alt": "Midlife women exercising together in a gym, representing menopause health and wellness.",
+    "selection": "first",
+    "width": 1280,
+    "height": 853,
+    "type": "image/webp"
+  },
+  {
+    "route": "/worth-it/",
+    "path": "worth-it/index.html",
+    "image": "https://images.pexels.com/photos/13013739/pexels-photo-13013739.jpeg?auto=compress&cs=tinysrgb&w=1600",
+    "alt": "SpartaMax Review: Ingredients, Evidence & Value",
+    "selection": "first",
+    "width": 1600,
+    "height": 1067,
+    "type": "image/jpeg"
+  },
+  {
+    "route": "/worth-it/nitric-boost-ultra-review/",
+    "path": "worth-it/nitric-boost-ultra-review/index.html",
+    "image": "https://images.pexels.com/photos/5514992/pexels-photo-5514992.jpeg?auto=compress&cs=tinysrgb&w=1600",
+    "alt": "Nitric Boost Ultra Review: Ingredients, Evidence & Value",
+    "selection": "featured",
+    "width": 1600,
+    "height": 1067,
+    "type": "image/jpeg"
+  },
+  {
+    "route": "/worth-it/prodentim-review/",
+    "path": "worth-it/prodentim-review/index.html",
+    "image": "https://images.pexels.com/photos/6724417/pexels-photo-6724417.jpeg?auto=compress&cs=tinysrgb&w=1600",
+    "alt": "ProDentim Review: Oral Probiotic Claims, Evidence & Value",
+    "selection": "featured",
+    "width": 1600,
+    "height": 1067,
+    "type": "image/jpeg"
+  },
+  {
+    "route": "/worth-it/prostavive-review/",
+    "path": "worth-it/prostavive-review/index.html",
+    "image": "https://images.pexels.com/photos/7551636/pexels-photo-7551636.jpeg?auto=compress&cs=tinysrgb&w=1600",
+    "alt": "ProstaVive Review: Ingredients, Evidence & Value",
+    "selection": "featured",
+    "width": 1600,
+    "height": 1067,
+    "type": "image/jpeg"
+  },
+  {
+    "route": "/worth-it/spartamax-review/",
+    "path": "worth-it/spartamax-review/index.html",
+    "image": "https://images.pexels.com/photos/13013739/pexels-photo-13013739.jpeg?auto=compress&cs=tinysrgb&w=1600",
+    "alt": "SpartaMax Review: Ingredients, Evidence & Value",
+    "selection": "featured",
+    "width": 1600,
+    "height": 1067,
+    "type": "image/jpeg"
+  }
+]

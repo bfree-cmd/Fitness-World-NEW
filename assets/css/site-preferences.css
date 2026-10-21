@@ -53,3 +53,7 @@ html.article-page body.fw-article-reading-system .article-header.article-header-
 html body.fw-site-shell.fw-family-tool .fine,
 html body.ep-page.fw-site-shell .ep-stage-list small,
 html.article-page body.fw-site-shell .fw-affiliate-sidebar-note{color:#53625b}
+/* In-article related reading list: reuses .sidebar-link-card, sized to match the tools crosslink card. */
+html.article-page body.fw-article-reading-system .fw-related-reading{margin:30px 0}
+html.article-page body.fw-article-reading-system .fw-related-reading h2{margin:4px 0 6px;font-size:22px;line-height:1.15}
+@media print{html.article-page body .fw-related-reading{display:none!important}}

@@ -84,3 +84,7 @@ html body.fw-site-shell main .fw-short-with-reading .fw-nav-link-card {min-heigh
 html body main .fw-short figcaption {margin:8px 0 0;color:#53625b;font-size:13px;font-weight:600;line-height:1.4;text-align:center}
 html body main .fw-tool-video .fw-short {margin:0 auto 28px!important}
 html body main .fw-tool-video .fw-short--full {max-width:760px!important}
+
+/* Hub pages show their Short at the foot of the right-hand rail. */
+html body main .fw-v1510-hub-rail > .fw-short {width:min(100%,240px)!important;justify-self:center;margin:8px 0 0!important}
+html body main aside.business-sidebar > .fw-short--rail {width:min(100%,280px)!important;margin:0 auto 18px!important}

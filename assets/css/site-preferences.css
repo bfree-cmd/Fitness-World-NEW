@@ -53,3 +53,22 @@ html.article-page body.fw-article-reading-system .article-header.article-header-
 html body.fw-site-shell.fw-family-tool .fine,
 html body.ep-page.fw-site-shell .ep-stage-list small,
 html.article-page body.fw-site-shell .fw-affiliate-sidebar-note{color:#53625b}
+/* In-article related reading list: reuses .sidebar-link-card, sized to match the tools crosslink card. */
+html.article-page body.fw-article-reading-system .fw-related-reading{margin:30px 0}
+html.article-page body.fw-article-reading-system .fw-related-reading h2{margin:4px 0 6px;font-size:22px;line-height:1.15}
+@media print{html.article-page body .fw-related-reading{display:none!important}}
+/* Sidebar layout (1000–1440px and mobile). The floating "Reading guide" card only fits beside the
+   two-column layout on very wide viewports; below that the edge rail and in-article nav remain. */
+@media (width<1800px){html.article-page body .fw-article-companion{display:none!important}}
+html.article-page body .fw-article-companion h2.fw-article-companion__title{margin:0 0 12px;font-size:17px;line-height:1.16;letter-spacing:-.02em}
+/* Give the right rail a little more room at laptop widths so the Reset card title and the Short are not squeezed. */
+@media (width>=1100px) and (width<1440px){
+html.article-page body.fw-article-reading-system .article-main-fixed.article-two-column-fw,
+html.article-page body.fw-article-reading-system.fw-flagship-evidence-layout .article-main-fixed.article-two-column-fw{grid-template-columns:minmax(0,1fr) 340px;gap:32px}
+html.article-page body.fw-article-reading-system main aside.article-sidebar-fw{width:100%!important;max-width:340px!important}
+html body main aside.article-sidebar-fw .fw-short--sidebar{width:min(100%,280px)!important}
+}
+/* Tablets (<=900px): a later unscoped rule kept two columns (≈380px article); restore the intended single column. */
+@media (width<=900px){html.article-page body .article-main-fixed.article-two-column-fw{grid-template-columns:minmax(0,1fr)}}
+/* On one-column layouts, show the sidebar Short straight after the article body, ahead of the Reset card. */
+@media (width<=900px){html.article-page aside.article-sidebar-fw>.fw-short--sidebar{order:-1}}

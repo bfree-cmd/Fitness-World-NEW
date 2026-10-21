@@ -79,3 +79,8 @@ html body.fw-site-shell main .fw-short-with-reading .fw-nav-link-card {min-heigh
   html body.fw-site-shell main .fw-short-with-reading > :is(section,.fw-short) {grid-column:auto!important;grid-row:auto!important}
   html body.fw-site-shell main .fw-short-with-reading > .fw-short {width:min(100%,240px)!important;margin:0 auto!important}
 }
+
+/* One-line "Watch:" caption under embedded videos. */
+html body main .fw-short figcaption {margin:8px 0 0;color:#53625b;font-size:13px;font-weight:600;line-height:1.4;text-align:center}
+html body main .fw-tool-video .fw-short {margin:0 auto 28px!important}
+html body main .fw-tool-video .fw-short--full {max-width:760px!important}

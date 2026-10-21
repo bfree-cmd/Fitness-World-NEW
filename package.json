@@ -1,6 +1,7 @@
 {
   "scripts": {
     "qa:static": "node scripts/qa-site.mjs",
+    "qa:share-images": "python3 scripts/sync-share-images.py",
     "qa:live": "node scripts/check-live.mjs",
     "qa:functions": "node scripts/audit-functions.mjs",
     "css:review": "node scripts/build-css-review.mjs"

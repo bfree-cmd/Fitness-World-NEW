@@ -3,7 +3,8 @@
     "qa:static": "node scripts/qa-site.mjs",
     "qa:live": "node scripts/check-live.mjs",
     "qa:functions": "node scripts/audit-functions.mjs",
-    "css:review": "node scripts/build-css-review.mjs"
+    "css:review": "node scripts/build-css-review.mjs",
+    "qa:links": "node scripts/audit-internal-links.mjs"
   },
   "dependencies": {
     "@netlify/blobs": "^11.1.0"

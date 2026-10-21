@@ -1,0 +1,21 @@
+/* Scoped to the reviewed creatine/protein guides; keep tables within prose. */
+html.article-page .fw-guide-comparison,
+html.article-page .fw-guide-next-step {min-width:0;max-width:100%}
+html.article-page .fw-guide-table {max-width:100%;margin:18px 0;overflow-x:auto;border:1px solid var(--line,#dde4dc);border-radius:12px;background:var(--paper,#fff)}
+html.article-page .fw-guide-table:focus-visible {outline:3px solid var(--green-dark,#2e6c35);outline-offset:3px}
+html.article-page .fw-guide-table table {width:100%;min-width:520px;border-collapse:collapse;font-size:15px;line-height:1.55}
+html.article-page .fw-guide-table caption {padding:14px 16px;text-align:left;font-weight:700;color:var(--ink,#151a17)}
+html.article-page .fw-guide-table :is(th,td) {padding:13px 15px;text-align:left;vertical-align:top;border-top:1px solid var(--line,#dde4dc);overflow-wrap:break-word}
+html.article-page .fw-guide-table thead {background:var(--cream,#eef3e7)}
+html.article-page .fw-guide-table th {font-weight:700}
+html.article-page .fw-guide-table tbody th {width:25%}
+html.article-page .fw-guide-source-note {font-size:14px;line-height:1.6}
+html.article-page .fw-guide-next-step li {margin-block:10px}
+@media(max-width:760px) {
+ html.article-page .fw-guide-table :is(th,td) {padding:11px 12px}
+ html.article-page .fw-guide-table {margin-block:16px}
+}
+@media print {
+ html.article-page .fw-guide-table {overflow:visible}
+ html.article-page .fw-guide-table table {min-width:0;font-size:11px}
+}

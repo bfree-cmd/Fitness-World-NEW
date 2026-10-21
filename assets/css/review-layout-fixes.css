@@ -1,0 +1,13 @@
+/* Saved review fixes: shared only by Shop and the creatine calculator. */
+html.content-page body.fw-shop-page .fw-shop-card-copy {
+  display:grid;
+  grid-template-rows:auto 1fr auto 20px;
+  gap:10px;
+}
+html.content-page body.fw-shop-page .fw-shop-card-copy > h2 {grid-row:1;margin-bottom:0!important}
+html.content-page body.fw-shop-page .fw-shop-card-copy > p {grid-row:2;margin-bottom:0}
+html.content-page body.fw-shop-page .fw-shop-card-copy > .fw-shop-button {grid-row:3;margin-top:0}
+html.content-page body.fw-shop-page .fw-shop-card-copy > .fw-shop-review-link {grid-row:4;margin-top:0!important;line-height:20px}
+@media(min-width:801px) {
+  body[data-fw-tool-page="creatine-guide-calculator"] .fw-tool26 .tool-shell > .result {align-self:center}
+}

@@ -138,7 +138,7 @@ for(const width of [390,1440]){
      const r=el.getBoundingClientRect();if(!r.width||!r.height)return false;
      let p=el.parentElement;while(p!==rail&&p&&getComputedStyle(p).display==='contents')p=p.parentElement;
      return p===rail;
-    }).map(el=>{const r=el.getBoundingClientRect();return {class:el.className,top:r.top,bottom:r.bottom,clientHeight:el.clientHeight,scrollHeight:el.scrollHeight};}));
+    }).map(el=>{const r=el.getBoundingClientRect();return {class:el.className,top:r.top,bottom:r.bottom,clientHeight:el.clientHeight,scrollHeight:el.scrollHeight};}).sort((a,b)=>a.top-b.top));
     for(const card of cards)if(card.scrollHeight>card.clientHeight+4)report.errors.push({url,width,reason:"Resource sidebar card clips its content",card});
     for(let i=1;i<cards.length;i++)if(cards[i].top<cards[i-1].bottom-2)report.errors.push({url,width,reason:'Resource sidebar cards overlap',previous:cards[i-1],current:cards[i]});
     const before=await resourceRail.evaluate(e=>{const r=e.getBoundingClientRect();return {top:r.top,left:r.left,width:r.width,height:r.height,position:getComputedStyle(e).position,scrollY:window.scrollY};});

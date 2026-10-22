@@ -1,0 +1,5 @@
+# Centered mobile hero and guide cards
+
+Implements the two approved mobile mockups with the existing licensed/self-hosted fonts and original PDF cover assets, rather than the generated cover artwork. Hero heading, supporting copy and trust text center on phones; the preview headline is “Start your Reset”. Both lower homepage guide cards use small covers beside concise text, then one full-width sentence-case button underneath. Paid copy uses “The full 30-Day Reset” and practical actions, tools and trackers. All existing destinations remain unchanged. Desktop layouts stay in their existing arrangements.
+
+Rendered the homepage at 350, 390, 520, 768, 1115, 1280 and 1440 px. No horizontal overflow. Mobile guide buttons are 48 px tall, span both columns and sit below the cover. Hero alignment is centered only within the mobile breakpoint. Visually inspected the 390 px hero and guide-card screenshots. Confirmed all original homepage anchor destinations match. Git whitespace check passes. Browser external requests were blocked and unrelated locally sparse image assets are outside this change.

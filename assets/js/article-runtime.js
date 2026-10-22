@@ -50,16 +50,26 @@
   // Mobile free-guide CTA: create it at runtime so it cannot silently disappear when templates change.
   const path=location.pathname.replace(/\/+$/,'/')||'/';
   const commercialFunnel=!!document.querySelector('a[href^="/go/"], [data-fw-commercial-funnel]');
-  const stickyExcluded=/^\/(free-guide|natural|checkout|thank-you|contact\/success)\//.test(path)||commercialFunnel;
+  const stickyExcluded=/^\/(free-guide|natural|checkout|thank-you|contact\/success)\//.test(path)||commercialFunnel||path==='/';
   let sticky=document.querySelector('.mobile-guide-sticky');
   if(!sticky && !stickyExcluded){
     sticky=document.createElement('aside');
     sticky.className='mobile-guide-sticky';
     sticky.setAttribute('aria-label','Free preview of The 30-Day Natural Wellness Reset');
-    sticky.innerHTML='<span><strong>Free 30-Day Reset preview</strong><small>Meal Method + your first 3 days</small></span><a class="btn btn-main" href="/free-guide/?utm_source=mobile_sticky&utm_medium=onsite&utm_campaign=free_guide">GET FREE PREVIEW</a>';
+    sticky.innerHTML='<span><strong>Free 5-page Reset preview</strong></span><a class="btn btn-main" href="/free-guide/?utm_source=mobile_sticky&utm_medium=onsite&utm_campaign=free_guide">Get free preview</a>';
     document.body.appendChild(sticky);
   }
   if(sticky){
+    // Avoid competing with any visible inline preview card, button or form.
+    const previewTargets=[...document.querySelectorAll('.fw-article-email-capture,.fw-encyclopedia-cta,.guide-email-card,a[href*="/free-guide/"]')].filter(el=>!sticky.contains(el)&&!el.closest('.topbar,footer'));
+    if('IntersectionObserver' in window){
+      const visible=new Set();
+      const observer=new IntersectionObserver(entries=>{
+        entries.forEach(entry=>{if(entry.isIntersecting)visible.add(entry.target);else visible.delete(entry.target)});
+        sticky.classList.toggle('fw-inline-preview-visible',visible.size>0);
+      },{rootMargin:'0px 0px 80px 0px',threshold:0});
+      previewTargets.forEach(el=>observer.observe(el));
+    }
     const footer=document.querySelector('footer');
     let nearFooter=false;
     const paint=()=>sticky.classList.toggle('show',window.scrollY>520&&!nearFooter);

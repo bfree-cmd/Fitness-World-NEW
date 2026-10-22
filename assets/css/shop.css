@@ -36,3 +36,15 @@ html.content-page body.fw-shop-page .fw-shop-card h3{font-size:21px!important;fo
 @media(max-width:1100px){.fw-shop-card--guide{grid-template-columns:minmax(0,.65fr) minmax(0,1fr)}.fw-shop-card--guide .fw-shop-card-copy{padding:18px}.fw-shop-card--guide .fw-shop-image{padding:18px}.fw-shop-reviews-grid{gap:14px}.fw-shop-card-copy{padding:15px}html.content-page body.fw-shop-page .fw-shop-card h3{font-size:19px!important}}
 @media(max-width:900px){.fw-shop-guides-grid{grid-template-columns:1fr}.fw-shop-card--guide{grid-template-columns:minmax(0,.55fr) minmax(0,1fr)}.fw-shop-reviews-grid{grid-template-columns:repeat(2,minmax(0,1fr))}html.content-page body.fw-shop-page .fw-shop-card--guide .fw-shop-image img{height:210px!important;max-height:210px!important}.fw-shop-card--guide .fw-shop-card-copy{padding:24px}}
 @media(max-width:620px){html.content-page body.fw-shop-page .fw-shop-main{padding-top:24px!important}.fw-shop-page .fw-shop-main>.wrap{width:calc(100% - 32px)}.fw-shop-heading{margin-bottom:28px}.fw-shop-heading>p:last-child{font-size:15px}.fw-shop-guides-grid,.fw-shop-reviews-grid{grid-template-columns:minmax(0,1fr);gap:18px}.fw-shop-card--guide{grid-template-columns:minmax(0,1fr)}.fw-shop-card--guide .fw-shop-card-copy{padding:20px}.fw-shop-card-copy{padding:20px}.fw-shop-card--guide .fw-shop-image{padding:24px}html.content-page body.fw-shop-page .fw-shop-card h3{font-size:23px!important}html.content-page body.fw-shop-page .fw-shop-image img,html.content-page body.fw-shop-page .fw-shop-card--guide .fw-shop-image img{height:230px!important;max-height:230px!important}.fw-shop-section+.fw-shop-section{margin-top:30px}.fw-shop-note{text-align:left}}
+
+/* Bring daylight and the original morning image back to the shop. */
+html body.fw-shop-page{background:#fffdf8!important}
+.fw-shop-heading{display:grid;grid-template-columns:1fr 1fr;text-align:left;align-items:center;gap:40px;background:#f1f5e9;border:1px solid #e0e8d7;border-radius:20px;padding:32px;margin-bottom:40px}
+.fw-shop-heading-copy{min-width:0}
+.fw-shop-heading-copy>p{font-size:22px;line-height:1.4;margin:0 0 12px;color:#244f38}
+.fw-shop-heading-copy>.fw-shop-eyebrow{font-size:11px;letter-spacing:.14em;margin-bottom:8px}
+.fw-shop-heading-copy>.fw-shop-intro{font-size:16px;line-height:1.65;color:#52624e;margin:0;max-width:420px}
+html.content-page body.fw-shop-page .fw-shop-lifestyle{display:block!important;width:100%!important;height:250px!important;object-fit:cover!important;border-radius:14px!important;margin:0!important}
+.fw-shop-card{background:#fff;border-color:#e0e7d9;box-shadow:0 4px 16px #34452c05}
+.fw-shop-image{background:#f6f8f0}
+@media(max-width:760px){.fw-shop-heading{grid-template-columns:minmax(0,1fr);gap:20px;padding:22px;margin-bottom:30px}.fw-shop-heading-copy>p{font-size:20px}.fw-shop-heading-copy>.fw-shop-intro{font-size:15px}html.content-page body.fw-shop-page .fw-shop-lifestyle{height:190px!important}}

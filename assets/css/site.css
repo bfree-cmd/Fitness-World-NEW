@@ -16,3 +16,21 @@
     position:static!important;top:auto!important;
   }
 }
+
+/* 2026-10-22: shared editorial typography and single-line wordmark. */
+html:root{--fw-font:Inter,Arial,Helvetica,sans-serif;--fw-display:"Source Serif 4",Georgia,serif}
+html body,html body input,html body textarea,html body select,html body button{font-family:var(--fw-font)}
+html body h1,html body h2,html body h3,html body h4,html body h5,html body h6{font-family:var(--fw-display)!important}
+html body .topbar .brand .brandname,
+html body.fw-site-shell.fw-site-shell>.topbar .brand-wordmark .brandname{font-family:var(--fw-display)!important;font-size:28px!important;font-weight:700!important;line-height:1.1!important;letter-spacing:-.035em!important;text-transform:uppercase!important;white-space:nowrap!important;color:#14251d!important}
+html body .topbar .brand .brandtagline{display:none!important}
+html body .topbar .brand .brand-text{display:block!important}
+/* Match the compact title-case mark on the mobile reference without changing navigation behavior. */
+@media(max-width:760px){
+html body .topbar .brand .brandname,
+html body.fw-site-shell.fw-site-shell>.topbar .brand-wordmark .brandname{font-size:25px!important;text-transform:none!important;letter-spacing:-.04em!important}
+}
+@media(max-width:360px){
+html body .topbar .brand .brandname,
+html body.fw-site-shell.fw-site-shell>.topbar .brand-wordmark .brandname{font-size:23px!important}
+}

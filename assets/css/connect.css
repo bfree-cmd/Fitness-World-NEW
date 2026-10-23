@@ -29,12 +29,12 @@ html body.fw-connect-page .fw-connect-main h1{font-size:clamp(32px,4.2vw,54px);f
 .fw-connect-intro{font-size:17px;line-height:1.65;margin:0 auto;max-width:650px}
 .fw-connect-intro span{color:#4e624f}
 .fw-connect-platforms{background:#e7ecdf;border-radius:20px;padding:28px;margin-top:12px}
-.fw-connect-social-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}
-.fw-connect-social-grid .fw-social-link{display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;gap:10px;padding:26px 14px;min-height:180px;min-width:0;border:1px solid #bfc8b3;border-radius:14px;background:#f9f7f0;text-decoration:none}
-.fw-connect-social-grid .fw-social-icon{width:56px;height:56px;background:#e7ecdf;border:0}
-.fw-connect-social-grid svg{width:28px;height:28px;color:#16321f}
-.fw-connect-social-grid .fw-social-label{font-size:17px;font-weight:650;line-height:1.4}
-.fw-social-description{font-size:13px;line-height:1.5;color:#536452}
+.fw-connect-social-grid{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:14px}
+.fw-connect-social-grid .fw-social-link{display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;gap:8px;padding:16px 12px;min-height:138px;min-width:0;border:1px solid #bfc8b3;border-radius:14px;background:#f9f7f0;text-decoration:none}
+.fw-connect-social-grid .fw-social-icon{width:36px;height:36px;background:#e7ecdf;border:0}
+.fw-connect-social-grid svg{width:20px;height:20px;color:#16321f}
+.fw-connect-social-grid .fw-social-label{font-size:15px;font-weight:650;line-height:1.4}
+.fw-social-description{font-size:12px;line-height:1.5;color:#536452}
 .fw-connect-social-grid a:hover{background:#fffdf8;border-color:#708565}
 .fw-connect-videos{margin-top:46px}
 .fw-connect-section-heading{display:flex;align-items:center;justify-content:space-between;gap:20px;margin-bottom:24px}
@@ -52,10 +52,10 @@ html body.fw-connect-page .fw-connect-main h2{font-size:clamp(24px,3vw,36px);fon
 html body.fw-connect-page .fw-connect-read h2{font-size:24px}
 .fw-connect-read p{line-height:1.6;margin:12px 0 0;max-width:620px}
 #fw-video-status{font-size:15px;line-height:1.6}
-@media(max-width:760px){html body.fw-connect-page .fw-connect-main{padding:20px 0 32px}.fw-connect-community-hero{padding:36px 10px;background-image:none}.fw-connect-intro{font-size:16px}.fw-connect-platforms{padding:16px}.fw-connect-social-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}.fw-connect-social-grid .fw-social-link{padding:20px 10px;min-height:170px}.fw-connect-social-grid .fw-social-label{font-size:15px}.fw-social-description{font-size:12px}.fw-connect-videos{margin-top:36px}.fw-connect-section-heading{align-items:flex-start;flex-direction:column;gap:16px}.fw-video-grid{grid-template-columns:1fr}.fw-connect-read{flex-direction:column;align-items:flex-start;padding:24px}.fw-connect-outline,.fw-connect-solid{white-space:normal}}
+@media(max-width:760px){html body.fw-connect-page .fw-connect-main{padding:20px 0 32px}.fw-connect-community-hero{padding:36px 10px;background-image:none}.fw-connect-intro{font-size:16px}.fw-connect-platforms{padding:16px}.fw-connect-social-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}.fw-connect-social-grid .fw-social-link{padding:16px 10px;min-height:128px}.fw-connect-social-grid .fw-social-label{font-size:15px}.fw-social-description{font-size:12px}.fw-connect-videos{margin-top:36px}.fw-connect-section-heading{align-items:flex-start;flex-direction:column;gap:16px}.fw-video-grid{grid-template-columns:1fr}.fw-connect-read{flex-direction:column;align-items:flex-start;padding:24px}.fw-connect-outline,.fw-connect-solid{white-space:normal}}
 @media(prefers-reduced-motion:reduce){.fw-social-chevron{transition:none}}
 
-@media(max-width:760px){.fw-connect-social-grid .fw-social-link:last-child{grid-column:1 / -1;width:calc((100% - 12px) / 2);justify-self:center}}
+
 
 .fw-connect-mobile-backdrop{display:none}
 @media(max-width:760px){.fw-connect-mobile-backdrop{display:block;width:100%;height:auto;border-radius:14px;margin-top:26px}.fw-connect-community-hero{padding-bottom:16px}}
@@ -64,8 +64,6 @@ html body.fw-connect-page .fw-connect-community-hero h1{max-width:900px;margin-i
 html body.fw-connect-page .fw-connect-intro{margin-inline:auto;text-align:center;text-wrap:balance}
 @media(max-width:760px){.fw-connect-community-hero{padding-top:28px}.fw-connect-section-heading{align-items:center;text-align:center}.fw-connect-read{align-items:center;text-align:center}.fw-connect-read p{text-wrap:balance}}
 
-/* Eleven cards: three complete rows and a centred pair on desktop. */
-@media(min-width:761px){.fw-connect-social-grid{grid-template-columns:repeat(6,minmax(0,1fr))}.fw-connect-social-grid .fw-social-link{grid-column:span 2}.fw-connect-social-grid .fw-social-link:nth-child(10){grid-column:2 / span 2}.fw-connect-social-grid .fw-social-link:nth-child(11){grid-column:4 / span 2}}
 
 /* Mobile social popup trigger matches the footer's expandable rows. */
 @media(max-width:767px) {
@@ -129,3 +127,18 @@ html body.fw-connect-page .fw-connect-intro{margin-inline:auto;text-align:center
    min-height:44px !important; padding:15px 0 !important; margin:0 !important;
  }
 }
+
+/* Desktop keeps the existing hero. Mobile overlays its one heading on the photograph. */
+.fw-connect-hero-media{display:contents}
+.fw-video-duration{font-size:12px;line-height:1.5;color:#596958}
+@media(max-width:760px){
+ html body.fw-connect-page .fw-connect-community-hero{padding:0 0 16px;background-image:none}
+ .fw-connect-hero-media{display:grid;grid-template-columns:minmax(0,1fr);isolation:isolate;overflow:hidden;border-radius:14px}
+ .fw-connect-hero-media::after{content:"";grid-area:1/1;background:rgba(16,39,26,.48);z-index:1;pointer-events:none}
+ html body.fw-connect-page .fw-connect-hero-media .fw-connect-mobile-backdrop{display:block;grid-area:1/1;width:100%;height:210px;object-fit:cover;object-position:right center;margin:0;border-radius:0}
+ html body.fw-connect-page .fw-connect-hero-media h1{grid-area:1/1;align-self:center;justify-self:center;z-index:2;max-width:310px;margin:0!important;padding:24px 18px;color:#fff!important;font-size:32px!important;line-height:1.14!important;text-align:center;text-wrap:balance}
+ html body.fw-connect-page .fw-connect-intro{margin:16px auto 0;font-size:15px;line-height:1.7}
+ .fw-connect-platforms{padding:12px;margin-top:10px}
+ .fw-connect-social-grid .fw-social-link{grid-column:auto!important;width:auto!important;justify-self:stretch!important}
+}
+@media(min-width:761px){.fw-connect-social-grid .fw-social-link{grid-column:auto!important;width:auto!important;justify-self:stretch!important}}

@@ -2,8 +2,9 @@
   const grid = document.getElementById('fw-video-grid');
   const status = document.getElementById('fw-video-status');
   if (!grid || !status) return;
+  const pinnedId = grid.querySelector('[data-fw-pinned-video]')?.dataset.fwPinnedVideo;
   const fallback = () => {
-    status.textContent = 'Our latest videos will appear here when available. You can also visit Fitness World on YouTube.';
+    status.textContent = 'More recent videos are temporarily unavailable. Watch the full guide below or visit Fitness World on YouTube.';
   };
   fetch('/.netlify/functions/youtube-feed', { signal: AbortSignal.timeout(12000) })
     .then(response => {
@@ -12,11 +13,17 @@
     })
     .then(data => {
       if (!Array.isArray(data.videos) || !data.videos.length) return fallback();
-      const videos = data.videos.filter(video => /^[\w-]{11}$/.test(video.id)).slice(0, 3);
+      const seen = new Set([pinnedId]);
+      const videos = data.videos.filter(video => {
+        if (!/^[\w-]{11}$/.test(video.id) || seen.has(video.id)) return false;
+        seen.add(video.id);
+        return true;
+      }).slice(0, 2);
       if (!videos.length) return fallback();
       for (const video of videos) {
         const article = document.createElement('article');
         article.className = 'fw-video-card';
+        article.dataset.fwFeedVideo = video.id;
         const link = document.createElement('a');
         link.href = `https://www.youtube.com/watch?v=${video.id}`;
         link.target = '_blank';

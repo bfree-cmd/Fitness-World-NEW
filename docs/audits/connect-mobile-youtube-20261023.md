@@ -1,0 +1,9 @@
+# Connect page mobile hero, compact social cards and pinned video
+
+- Keep the existing desktop hero image, heading and supporting text layout unchanged.
+- On phones, put the single white heading over the existing photo with a dark overlay; place the two supporting sentences beneath. Crop toward the yoga mat and bottle so the mobile photo retains a recognizable subject.
+- Use five columns/two rows for the ten desktop platform cards, and two columns/five rows on phones. Reduce padding, minimum height and icon sizes; shorten descriptions without changing links.
+- Keep the 8-minute Creatine for Women guide (bWBLX6QbSFs) as a static first video card. Populate only the next two slots from the existing latest-video feed, excluding the pinned video and duplicates. The pinned card remains available without JavaScript or when the feed fails.
+- Load the versioned Connect stylesheet on this page, after the common bundle. The common bundle contains an older copy of the source stylesheet, so explicit grid-placement resets prevent stale three-column/last-card rules from winning. Other pages are not changed.
+
+Validation: browser checks at 350, 390, 768, 1115, 1280 and 1440px pass without horizontal overflow. Confirmed 2x5 mobile and 5x2 desktop grids. Mobile heading bounds sit within the photo and supporting copy follows below. Compared desktop hero, heading and supporting-copy rectangles and background-image styles against the pre-change baseline at all four desktop widths: identical. Visually inspected actual 390px and 1440px screenshots. Exercised successful, duplicate and failed feed responses: first card remains pinned and at most two distinct latest videos follow. External YouTube requests were blocked in local visual QA; video ordering was checked with feed fixtures. Original link destinations are preserved, with only the pinned-video link added. JavaScript syntax and git diff whitespace checks pass.

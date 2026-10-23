@@ -4,9 +4,9 @@
   if (!grid || !status) return;
   const pinnedId = grid.querySelector('[data-fw-pinned-video]')?.dataset.fwPinnedVideo;
   const fallback = () => {
-    status.textContent = 'More recent videos are temporarily unavailable. Watch the full guide below or visit Fitness World on YouTube.';
+    status.textContent = 'Showing recently checked videos while YouTube’s live feed is unavailable. Visit our channel for the newest uploads.';
   };
-  fetch('/.netlify/functions/youtube-feed', { signal: AbortSignal.timeout(12000) })
+  fetch('/.netlify/functions/youtube-feed', { signal: AbortSignal.timeout(15000) })
     .then(response => {
       if (!response.ok) throw new Error('Feed unavailable');
       return response.json();
@@ -19,7 +19,8 @@
         seen.add(video.id);
         return true;
       }).slice(0, 2);
-      if (!videos.length) return fallback();
+      if (videos.length < 2) return fallback();
+      grid.querySelectorAll('[data-fw-feed-video]').forEach(card => card.remove());
       for (const video of videos) {
         const article = document.createElement('article');
         article.className = 'fw-video-card';
@@ -37,7 +38,7 @@
         const title = document.createElement('h3');
         title.textContent = video.title;
         link.append(image, title);
-        const published = new Date(video.published);
+        const published = video.published ? new Date(video.published) : new Date(NaN);
         if (!Number.isNaN(published.getTime())) {
           const time = document.createElement('time');
           time.dateTime = published.toISOString();
